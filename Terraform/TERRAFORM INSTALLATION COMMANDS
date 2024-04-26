@@ -8,8 +8,8 @@ mv terraform /usr/bin/
 cd /usr/bin
 chmod +x /usr/bin/terraform
 terraform --version
-#
-AWS keys Configuration
+
+# AWS keys Configuration
 
 echo "export AWS_ACCESS_KEY_ID=">>>>" " >> ~/.bashrc
 echo "export AWS_SECRET_ACCESS_KEY="<<<<<" " >>  ~/.bashrc
