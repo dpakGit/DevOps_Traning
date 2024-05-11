@@ -1,0 +1,29 @@
+sudo apt update
+     hostnamectl set-hostname Master
+     exec bash
+     hostnamectl set-hostname WORKER-NODE-1
+     exec bash
+     hostnamectl set-hostname WORKER-NODE-2
+     exec bash
+     kubeadm init --ignore-preflight-errors=all
+
+     mkdir -p $HOME/.kube
+     sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+     sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+     kubectl get nodes
+     kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+     kubectl get nodes
+     sudo kubeadm token create --print-join-command
+     kubectl get nodes
+     kubectl get nodes -o wide
+     kubectl get nodes -o wide -n kube-system
+     kubectl get po
+     kubectl get po -o wide
+     kubectl get po -o wide -n kube-system  
+     
+       Run command 59 and 60 on each node if nodes are not ready
+   59  systemctl restart containerd
+   60  systemctl restart kubelet
+   61  kubectl get nodes
+   62  kubectl get po -n kube-system -o wide
