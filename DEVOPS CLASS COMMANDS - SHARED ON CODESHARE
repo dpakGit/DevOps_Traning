@@ -1,0 +1,1742 @@
+26 FEB 2023
+COMMANDS TO CREATE A GITHUB REPO
+ 5  03-Apr-2023 04:28:35 ssh key gen
+    6  03-Apr-2023 04:29:35 ssh -keygen
+    7  03-Apr-2023 04f:29:58 ssh-keygen # right command
+    8  03-Apr-2023 04:31:41 cat /home/dpakmishra1983g/.ssh/id_rsa.pub.
+    9  03-Apr-2023 04:33:07 cat /home/dpakmishra1983g/.ssh/id_rsa.pub
+   10  03-Apr-2023 04:51:32 git clone git@github.com:Deepakranjanmishra/deepakrepo.git
+   11  03-Apr-2023 04:54:19 ls
+   12  03-Apr-2023 04:55:01 cd deepakrepo/
+   13  03-Apr-2023 04:55:31 ls -alh
+   14  03-Apr-2023 05:02:27 ls -al .git/
+   15  03-Apr-2023 05:04:45 history
+   
+
+
+
+https://codeshare.io/ZJOz8d
+docker commands
+
+
+import os
+app = Flask(__name__)
+@app.routvfrom flask import Flask
+e('/')
+
+def hello():
+    return ('\nHello from Container World! \n\n')
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080, debug=True)
+
+0
+
+
+
+ Error response from daemon: manifest for deepakranjanmishra1983/image5:latest not found.
+
+import os
+app = Flask(__name__)
+@app.route('/')
+
+def hello():
+    return ('\nHello from Container World! \n\n')
+   
+
+
+
+   
+
+
+  119  04-Mar-2023 06:22:21 apt install docker.io
+  120  
+  121  04-Mar-2023 06:23:08 apt update
+  122  04-Mar-2023 06:23:27 apt install docker.io
+  123  04-Mar-2023 06:41:10 mkdir docker
+  124  04-Mar-2023 06:41:12 cd docker
+  125  04-Mar-2023 06:41:16 vi app.py
+  126  04-Mar-2023 06:42:43 vi Dockerfile
+  127  04-Mar-2023 06:49:13 vi app.py
+  128  04-Mar-2023 06:52:21 vi Dockerfile
+  129  04-Mar-2023 06:52:58 docker images
+  130  04-Mar-2023 06:55:07 docker build -t first:1.0 .
+  131  04-Mar-2023 06:56:10 docker images
+  132  04-Mar-2023 06:59:58 docker run -d --name first -p 8000:8080 first:1.0
+  133  04-Mar-2023 07:00:05 docker ps
+  134  04-Mar-2023 07:00:37 curl localhost:8000
+  135  04-Mar-2023 07:03:02 cat app.py
+  136  04-Mar-2023 07:03:30 cat Dockerfile
+  137  04-Mar-2023 07:03:44 history
+
+  
+  139  05-Mar-2023 03:37:53 docker ps -a
+  140  05-Mar-2023 03:38:07 docker rm first determined_gagarin
+  141  05-Mar-2023 03:38:12 docker ps -a
+  142  05-Mar-2023 03:38:17 docker images
+  143  05-Mar-2023 03:38:57 docker run -d --name first -p 8000:8080 first:1.0
+  144  05-Mar-2023 03:39:01 docker ps -a
+  145  05-Mar-2023 03:39:31 docker logs first
+  146  05-Mar-2023 03:40:02 docker exec -it first bash
+  147  05-Mar-2023 03:41:01 docke ps
+  148  05-Mar-2023 03:41:05 docker ps
+  149  05-Mar-2023 03:41:12 docker rm first
+  150  05-Mar-2023 03:41:21 docker stop first
+  151  05-Mar-2023 03:41:26 docker rm first
+  152  05-Mar-2023 03:41:31 docker ps-a
+  153  05-Mar-2023 03:41:34 docker ps -a
+  154  05-Mar-2023 03:41:45 docker run -d --name first -p 8000:8080 first:1.0
+  155  05-Mar-2023 03:43:03 docker run -d --name second  -p 8001:8080 first:1.0
+  156  05-Mar-2023 03:43:06 docker ps
+  157  05-Mar-2023 03:43:13 curl localhost:8000
+  158  05-Mar-2023 03:43:17 curl localhost:8001
+  159  05-Mar-2023 03:43:33 docker stats
+  160  05-Mar-2023 03:45:21 docker stop first
+  161  05-Mar-2023 03:45:24 docker ps -a
+  162  05-Mar-2023 03:45:31 docker start first
+  163  05-Mar-2023 03:45:33 docker ps -a
+  164  05-Mar-2023 03:46:07 history
+  
+  Codeshare logo
+ ShareSign UpLog In
+
+  139  05-Mar-2023 03:37:53 docker ps -a
+  140  05-Mar-2023 03:38:07 docker rm first determined_gagarin
+  141  05-Mar-2023 03:38:12 docker ps -a
+  142  05-Mar-2023 03:38:17 docker images
+  143  05-Mar-2023 03:38:57 docker run -d --name first -p 8000:8080 first:1.0
+  144  05-Mar-2023 03:39:01 docker ps -a
+  145  05-Mar-2023 03:39:31 docker logs first
+  146  05-Mar-2023 03:40:02 docker exec -it first bash
+  147  05-Mar-2023 03:41:01 docke ps
+  148  05-Mar-2023 03:41:05 docker ps
+  149  05-Mar-2023 03:41:12 docker rm first
+  150  05-Mar-2023 03:41:21 docker stop first
+  151  05-Mar-2023 03:41:26 docker rm first
+  152  05-Mar-2023 03:41:31 docker ps-a
+  153  05-Mar-2023 03:41:34 docker ps -a
+  154  05-Mar-2023 03:41:45 docker run -d --name first -p 8000:8080 first:1.0
+  155  05-Mar-2023 03:43:03 docker run -d --name second  -p 8001:8080 first:1.0
+  156  05-Mar-2023 03:43:06 docker ps
+  157  05-Mar-2023 03:43:13 curl localhost:8000
+  158  05-Mar-2023 03:43:17 curl localhost:8001
+  159  05-Mar-2023 03:43:33 docker stats
+  160  05-Mar-2023 03:45:21 docker stop first
+  161  05-Mar-2023 03:45:24 docker ps -a
+  162  05-Mar-2023 03:45:31 docker start first
+  163  05-Mar-2023 03:45:33 docker ps -a
+  164  05-Mar-2023 03:46:07 history
+
+1
+  165  05-Mar-2023 04:04:40 docker ps
+2
+  166  05-Mar-2023 04:05:04 docker exec -it first bash
+3
+  167  05-Mar-2023 04:07:20 ls
+4
+  168  05-Mar-2023 04:07:23 cd docker/
+5
+  169  05-Mar-2023 04:07:24 ls
+6
+  170  05-Mar-2023 04:08:14 docker cp Dockerfile first:/opt
+7
+  171  05-Mar-2023 04:08:22 docker exec -it first bash
+8
+  172  05-Mar-2023 04:08:37 ls
+9
+  173  05-Mar-2023 04:08:40 rm Dockerfile
+10
+  174  05-Mar-2023 04:09:02 docker cp first:/opt/Dockerfile .
+11
+  175  05-Mar-2023 04:09:04 ls
+12
+  176  05-Mar-2023 04:09:20 docker images
+13
+  177  05-Mar-2023 04:09:59 docker rmi bf756fb1ae65
+14
+  178  05-Mar-2023 04:10:03 docker images
+15
+  179  05-Mar-2023 04:10:16 docker rmi 63ece16e0660
+16
+  180  05-Mar-2023 04:12:05 history
+  
+  
+  181  05-Mar-2023 04:25:16 docker exec -it first bash
+  182  05-Mar-2023 04:25:26 docker ps
+  183  05-Mar-2023 04:30:05 vi Dockerfile
+  184  05-Mar-2023 04:32:22 Zdocker images
+  185  05-Mar-2023 04:32:25 docker images
+  186  05-Mar-2023 04:33:22 docker tag first:1.0 rajendrait99/first:1.0
+  187  05-Mar-2023 04:33:25 docker images
+  188  05-Mar-2023 04:34:05 docker push  rajendrait99/first:1.0
+  189  05-Mar-2023 04:34:26 docker login
+  190  05-Mar-2023 04:34:52 docker push rajendrait99/first:1.0
+  191  05-Mar-2023 04:36:33 docker images
+  192  05-Mar-2023 04:36:36 docker ps -a
+  193  05-Mar-2023 04:36:43 docker stop first second
+  194  05-Mar-2023 04:36:50 docker rm first second
+  195  05-Mar-2023 04:37:01 docker rmi 61c45d0e9798  63ece16e0660 -f
+  196  05-Mar-2023 04:37:06 docker images
+  197  05-Mar-2023 04:37:14 docker rmi 61c45d0e9798
+  198  05-Mar-2023 04:37:18 docker images
+  199  05-Mar-2023 04:37:32 docker pull rajendrait99/first:1.0
+  200  05-Mar-2023 04:37:44 history
+  
+    202  05-Mar-2023 05:18:52 docker run -d --name registry -p 5000:5000 registry:2
+  203  05-Mar-2023 05:19:01 docker ps -a
+  204  05-Mar-2023 05:19:24 docker images
+  205  05-Mar-2023 05:20:21 docker tag rajendrait99/first:1.0 localhost:5000/first:1.0
+  206  05-Mar-2023 05:20:25 docker images
+  207  05-Mar-2023 05:20:42 docker push localhost:5000/first:1.0
+  208  05-Mar-2023 05:21:09 docker ps -a
+  209  05-Mar-2023 05:21:19 docker exec -it registry bash
+  210  05-Mar-2023 05:21:23 docker exec -it registry sh
+  211  05-Mar-2023 05:22:20 curl localhost:5000/v2/_catalog
+  212  05-Mar-2023 05:24:37 docker push localhost:5000/first:1.0
+  213  05-Mar-2023 05:24:40 history
+  
+  Codeshare logo
+ ShareSign UpLog In
+1
+ 240  05-Mar-2023 05:49:36 docker run -d --name second  -p 8001:8080 rajendrait99/first:1.0
+2
+  241  05-Mar-2023 05:49:39 docker exec -it second bash
+3
+  242  05-Mar-2023 05:50:08 docker stop second
+4
+  243  05-Mar-2023 05:50:11 docker rm second
+5
+  244  05-Mar-2023 05:50:14 docker run -d --name second  -p 8001:8080 rajendrait99/first:1.0
+6
+  245  05-Mar-2023 05:50:17 cd /opt/
+7
+  246  05-Mar-2023 05:50:18 ls
+8
+  247  05-Mar-2023 05:50:24 exit
+9
+  248  05-Mar-2023 05:50:36 docker exec -it second bash
+10
+  249  05-Mar-2023 05:51:05 docker stop second
+11
+  250  05-Mar-2023 05:51:08 docker rm second
+12
+  251  05-Mar-2023 05:51:38 docker run -d --name second  -v /opt:/etc/lala -p 8001:8080 rajendrait99/first:1.0
+13
+  252  05-Mar-2023 05:51:42 ls /opt/
+14
+  253  05-Mar-2023 05:51:51 docker exec -it second bash
+15
+  254  05-Mar-2023 05:52:30 ls /opt/
+16
+  255  05-Mar-2023 05:52:35 docker stop second
+17
+  256  05-Mar-2023 05:52:38 docker rm second
+18
+  257  05-Mar-2023 05:52:41 ls /opt/
+19
+  258  05-Mar-2023 05:52:49 docker run -d --name second  -v /opt:/etc/lala -p 8001:8080 rajendrait99/first:1.0
+20
+  259  05-Mar-2023 05:52:52 docker exec -it second bash
+21
+?
+  261  05-Mar-2023 06:21:27 docker ps -a
+  262  05-Mar-2023 06:21:33 docker stop second
+  263  05-Mar-2023 06:21:36 docker rm second
+  264  05-Mar-2023 06:21:38 docker ps -a
+  265  05-Mar-2023 06:21:46 docker network ls
+  266  05-Mar-2023 06:22:09 docker network inspect bridge
+  267  05-Mar-2023 06:22:55 ifconfig
+  268  05-Mar-2023 06:23:15 docker run -d --name second  -p 8001:8080 rajendrait99/first:1.0
+  269  05-Mar-2023 06:23:19 ifconfig
+  270  05-Mar-2023 06:23:27 docker network inspect bridge
+  271  05-Mar-2023 06:24:16 history
+  
+  
+    272  05-Mar-2023 06:46:42 docker network ls
+  273  05-Mar-2023 06:47:05 docker network create mynet --subnet=192.168.0.0/16
+  274  05-Mar-2023 06:47:08 docker network ls
+  275  05-Mar-2023 06:47:22 docker network inspect mynet
+  276  05-Mar-2023 06:48:19 docker run -d --name first -p 8000:8080 --network mynet rajendrait99/first:1.0
+  277  05-Mar-2023 06:48:23 docker network inspect mynet
+  278  05-Mar-2023 06:51:28 docker ps
+  279  05-Mar-2023 06:52:58 history
+  
+  
+  286  05-Mar-2023 07:15:32 git clone git@github.com:rskTech/k8s_material.git
+  287  05-Mar-2023 07:15:35 ld
+  288  05-Mar-2023 07:15:39 cd k8s_material/docker_compose/
+  289  05-Mar-2023 07:15:40 ls
+  290  05-Mar-2023 07:15:45 vi app.py
+  291  05-Mar-2023 07:17:20 ls
+  292  05-Mar-2023 07:17:24 rm compose.yaml
+  293  05-Mar-2023 07:17:31 vi compose.yaml
+  294  05-Mar-2023 07:21:14 docker-compose
+  295  05-Mar-2023 07:21:20 apt install docker-compose
+  296  05-Mar-2023 07:21:33 docker ps -a
+  297  05-Mar-2023 07:21:40 docker stop first second
+  298  05-Mar-2023 07:21:46 docker rm  first second
+  299  05-Mar-2023 07:21:49 docker ps a-
+  300  05-Mar-2023 07:21:52 docker ps -a
+  301  05-Mar-2023 07:22:08 docker-compose -f compose.yaml up -d
+  302  05-Mar-2023 07:22:32 docker ps -a
+  303  05-Mar-2023 07:22:39 curl localhost:8002
+  304  05-Mar-2023 07:22:55 docker-compose -f compose.yaml down
+  305  05-Mar-2023 07:23:00 docker ps -a
+  306  05-Mar-2023 07:23:06 docker-compose -f compose.yaml up -d
+  307  05-Mar-2023 07:23:12 docker ps
+  308  05-Mar-2023 07:23:51 history
+  
+  
+  
+  RajendraK
+04:57:11
+https://github.com/rskTech/k8s_fmaterial/tree/master/docker_compose
+https://github.com/rskTech/DevOps/tree/master/Git
+https://github.com/rskTech/DevOps/tree/master/DockerCommands
+  
+  
+  
+  
+Git repo link  
+R
+https://github.com/rskTech/k8s_material/blob/master/kind_cluster_setup.txt
+
+
+Kubernatics Codes
+
+  kubectl get nodes
+kind
+kubectl get nodes
+alias k=kubectl
+k get nodes
+k api-resources
+k get ns
+k get po
+k get po -n kube-system
+k get po -n kube-system -o wide
+k run first --image=baishnab2792/first:1.0 --port=8080
+k get po
+k get po -o wide
+k describe po first
+k logs first
+k exec -it first bash
+  
+  
+    37  11-Mar-2023 05:31:53 k get po
+   38  11-Mar-2023 05:32:26 k delete po first
+   39  11-Mar-2023 05:32:30 k get po
+   40  11-Mar-2023 05:35:14 k get deploy
+   41  11-Mar-2023 05:36:33 k create deploy mydeploy --image=rajendrait99/first:1.0 --port=8080 --dry-run=client -o yaml > deploy.yaml
+   42  11-Mar-2023 05:36:36 vi deploy.yaml
+   43  11-Mar-2023 05:38:22 k apply -f deploy.yaml
+   44  11-Mar-2023 05:38:32 k get all
+   45  11-Mar-2023 05:39:08 k get po
+   46  11-Mar-2023 05:39:25 k delete po mydeploy-69f9d6bfc8-zs8lv
+   47  11-Mar-2023 05:39:28 k get po
+   48  11-Mar-2023 05:40:19 k get po -o wide
+   49  11-Mar-2023 05:40:34 k delete po mydeploy-69f9d6bfc8-jpljk
+   50  11-Mar-2023 05:40:37 k get po -o wide
+   51  11-Mar-2023 05:45:38 history
+
+   
+   apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mydeploy
+  name: mydeploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mydeploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mydeploy
+    spec:
+      containers:
+      - image: rajendrait99/first:1.0
+        name: first
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}
+
+
+   52  11-Mar-2023 05:46:45 cat deploy.yaml
+   53  11-Mar-2023 06:09:05 k get all
+   54  11-Mar-2023 06:09:39 k scale deploy mydeploy --replicas=20
+   55  11-Mar-2023 06:09:44 k get all
+   56  11-Mar-2023 06:09:55 k get po
+   57  11-Mar-2023 06:09:59 k get po -o wide
+   58  11-Mar-2023 06:10:22 k scale deploy mydeploy --replicas=2
+   59  11-Mar-2023 06:10:25 k get po -o wide
+   60  11-Mar-2023 06:13:12 k top nodes
+   61  11-Mar-2023 06:13:15 k top pods
+   62  11-Mar-2023 06:13:51 history
+
+  
+  
+  
+  CLUSTER IP & NODEPORT SERVICE
+    70  11-Mar-2023 06:47:15 git clone https://github.com/rskTech/serviceDemo.git
+   71  11-Mar-2023 06:47:20 git -h
+   72  11-Mar-2023 06:47:45 ssh-keygen
+   73  11-Mar-2023 06:47:56 cat /root/.ssh/id_rsa.pub
+   74  11-Mar-2023 06:49:04 git clone git@github.com:rskTech/serviceDemo.git
+   75  11-Mar-2023 06:49:07 ls
+   76  11-Mar-2023 06:49:09 cd serviceDemo/
+   77  11-Mar-2023 06:50:10 cd build/
+   78  11-Mar-2023 06:50:12 vi app.py
+   79  11-Mar-2023 06:50:59 vi Dockerfile
+   80  11-Mar-2023 06:51:11 cd ..
+   81  11-Mar-2023 06:51:13 cd deploy/
+   82  11-Mar-2023 06:51:16 vi db-pod.yml
+   83  11-Mar-2023 06:51:52 vi db-svc.yml
+   84  11-Mar-2023 06:52:16 vi db-pod.yml
+   85  11-Mar-2023 06:52:26 vi db-svc.yml
+   86  11-Mar-2023 06:52:49 vi web-pod.yaml
+   87  11-Mar-2023 06:53:24 vi web-svc.yml
+   88  11-Mar-2023 06:53:36 k get all
+   89  11-Mar-2023 06:53:51 k delete deploy mydeploy
+   90  11-Mar-2023 06:53:54 k get all
+   91  11-Mar-2023 06:54:00 k get svc
+   92  11-Mar-2023 06:54:49 k apply -f db-pod.yml
+   93  11-Mar-2023 06:54:53 k get po
+   94  11-Mar-2023 06:55:01 k get po -o wide
+   95  11-Mar-2023 06:55:09 k apply -f db-svc.yml
+   96  11-Mar-2023 06:55:13 k get all
+   97  11-Mar-2023 06:55:26 k apply -f web-pod.yaml
+   98  11-Mar-2023 06:55:28 k get po
+   99  11-Mar-2023 06:55:44 k get po -o wide
+  100  11-Mar-2023 06:56:02 k apply -f web-svc.yml
+  101  11-Mar-2023 06:56:04 k get all
+  102  11-Mar-2023 06:56:11 vi web-svc.yml
+  103  11-Mar-2023 06:56:18 k get all
+  104  11-Mar-2023 06:56:32 k get no -o wide
+  105  11-Mar-2023 06:56:47 curl 172.18.0.3:32403/init
+  106  11-Mar-2023 06:57:25 curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "1", "user":"John Doe"}' http://172.18.0.3:32403/users/add
+  107  11-Mar-2023 06:57:39 curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "2", "user":"Bob"}' http://172.18.0.3:32403/users/add
+  108  11-Mar-2023 06:57:52 curl 172.18.0.3:32403/users/1
+  109  11-Mar-2023 06:58:47 history
+
+
+
+
+kind: Pod
+metadata:
+  name: mysql
+  labels:
+    name: mysql
+    app: demo
+spec:
+  containers:
+    - name: mysql
+      image: mysql:5.7.25
+      ports:
+        - containerPort: 3306
+          protocol: TCP
+      env:
+        -
+          name: "MYSQL_ROOT_PASSWORD"
+          value: "password"
+
+
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  labels:
+    name: mysql
+    app: demo
+spec:
+  ports:
+  - port: 3306
+    name: mysql
+    targetPort: 3306
+  selector:
+    name: mysql
+    app: demo
+    
+    
+    apiVersion: "v1"
+kind: Pod
+metadata:
+  name: web1
+  labels:
+    name: web
+    app: demo
+spec:
+  containers:
+    - name: redis
+      image: redis
+      ports:
+        - containerPort: 6379
+          name: redis
+          protocol: TCP
+    - name: python
+      image: rajendrait99/flaskapp:1.0
+      env:
+        - name: "REDIS_HOST"
+          value: "localhost"
+      ports:
+        - containerPort: 5000
+          name: http
+          protocol: TCP
+
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: web
+  labels:
+    name: web
+    app: demo
+spec:
+  selector:
+    name: web
+  type: NodePort
+  ports:
+   - port: 80
+     name: http
+     targetPort: 5000
+
+
+
+
+kind: Pod
+metadata:
+  name: mysql
+  labels:
+    name: mysql
+    app: demo
+spec:
+  containers:
+    - name: mysql
+      image: mysql:5.7.25
+      ports:
+        - containerPort: 3306
+          protocol: TCP
+      env:
+        -
+          name: "MYSQL_ROOT_PASSWORD"
+          value: "password"
+
+
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  labels:
+    name: mysql
+    app: demo
+spec:
+  ports:
+  - port: 3306
+    name: mysql
+    targetPort: 3306
+  selector:
+    name: mysql
+    app: demo
+    
+    
+    
+
+	12/3/2023  ADDING SSD MEMORY TO A NOD
+	
+	
+	
+	 121  12-Mar-2023 03:41:57 alias k=kubectl
+  122  12-Mar-2023 03:42:03 k get no
+  123  12-Mar-2023 03:42:15 kind delete cluster
+  124  12-Mar-2023 03:42:27 kind create cluster --config config
+  125  12-Mar-2023 03:43:49 k get no
+  126  12-Mar-2023 03:43:58 k get no --show-labels
+  127  12-Mar-2023 03:44:07 k get no
+  128  12-Mar-2023 03:44:26 k label no kind-worker hdd=ssd
+  129  12-Mar-2023 03:44:30 k get no --show-labels
+  130  12-Mar-2023 03:45:02 k run nginx --image=nginx --port=80 --dry-run=client -o yaml > pod.yaml
+  131  12-Mar-2023 03:45:05 vi pod.yaml
+  132  12-Mar-2023 03:45:41 k apply -f pod.yaml
+  133  12-Mar-2023 03:45:44 k get po
+  134  12-Mar-2023 03:45:46 k get po -o wide
+  135  12-Mar-2023 03:45:58 k delete po nginx
+  136  12-Mar-2023 03:46:11 k get no --show-labels
+  137  12-Mar-2023 03:46:26 k label no kind-worker hdd-
+  138  12-Mar-2023 03:46:29 k get no --show-labels
+  139  12-Mar-2023 03:46:38 k apply -f pod.yaml
+  140  12-Mar-2023 03:46:41 k get po
+  141  12-Mar-2023 03:46:57 k describe po nginx
+  142  12-Mar-2023 03:47:45 history
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  nodeSelector:
+    hdd: ssd
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+
+  145  12-Mar-2023 04:15:29 k describe no kind-worker
+  146  12-Mar-2023 04:15:41 k describe no kind-worker2
+  147  12-Mar-2023 04:15:56 k describe no kind-control-plane
+  148  12-Mar-2023 04:16:59 k taint no kind-worker hdd=ssd:NoSchedule
+  149  12-Mar-2023 04:17:04 k describe no kind-worker
+  150  12-Mar-2023 04:17:24 k get po
+  151  12-Mar-2023 04:17:28 k delete po nginx
+  152  12-Mar-2023 04:17:31 vi pod.yaml
+  153  12-Mar-2023 04:17:55 k apply -f pod.yaml
+  154  12-Mar-2023 04:17:59 k get po -o wdie
+  155  12-Mar-2023 04:18:02 k get po -o wide
+  156  12-Mar-2023 04:18:09 k delete po nginx
+  157  12-Mar-2023 04:18:12 k get no
+  158  12-Mar-2023 04:18:30 k cordon kind-worker2
+  159  12-Mar-2023 04:18:35 k get no
+  160  12-Mar-2023 04:18:54 k get po
+  161  12-Mar-2023 04:18:59 k apply -f pod.yaml
+  162  12-Mar-2023 04:19:02 k get po
+  163  12-Mar-2023 04:19:09 k describe po nginx
+  164  12-Mar-2023 04:19:33 k delete po nginx
+  165  12-Mar-2023 04:19:36 vi pod.yaml
+  166  12-Mar-2023 04:20:32 k get po
+  167  12-Mar-2023 04:20:36 k apply -f pod.yaml
+  168  12-Mar-2023 04:20:39 k get po
+  169  12-Mar-2023 04:20:42 k get po -o wdie
+  170  12-Mar-2023 04:20:46 k get po -o wide
+  171  12-Mar-2023 04:21:28 history
+
+
+
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  tolerations:
+   - key: hdd
+     operator: Equal
+     value: ssd
+     effect: NoSchedule
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+
+
+
+
+ 172  12-Mar-2023 04:21:45 cat pod.yaml
+  173  12-Mar-2023 04:22:35 k get no
+  174  12-Mar-2023 04:22:42 k edit no kind-worker
+  175  12-Mar-2023 04:30:12 k get no
+  176  12-Mar-2023 04:30:19 k uncordon kind-worker2
+  177  12-Mar-2023 04:30:21 k get no
+  178  12-Mar-2023 04:33:17 k get po
+  
+  179  12-Mar-2023 04:33:31 k expose -h
+  180  12-Mar-2023 04:34:10 k expose po nginx --port=80 --type=NodePort --dry-run=client -o yaml > service.yaml
+  181  12-Mar-2023 04:34:13 vi service
+  182  12-Mar-2023 04:34:17 vi service.yaml 
+  
+  
+  DAEMONSET CREATION
+  
+  183  12-Mar-2023 04:44:57 k get ds
+  184  12-Mar-2023 04:45:19 k get ds -n kube-system
+  185  12-Mar-2023 04:45:38 k get po -n kube-system
+  186  12-Mar-2023 04:45:41 k get po -n kube-system -o wide
+  187  12-Mar-2023 04:46:32 vi ds.yaml
+  188  12-Mar-2023 04:47:46 k apply -f ds.yaml
+  189  12-Mar-2023 04:47:49 k get ds
+  190  12-Mar-2023 04:47:58 k get po -o wide
+  191  12-Mar-2023 04:48:30 k taint no kind-worker hdd- # THIS COMMAND WAS USED AS THERE WAS A TAINT ON KIND WORKER AND DEMON SET COULD NOT BE CREATED SO IT                                                       WAS REMOVED
+  192  12-Mar-2023 04:48:36 k get po -o wide
+  193  12-Mar-2023 04:49:53 k get ds
+  194  12-Mar-2023 04:50:02 k get po -o wide
+  195  12-Mar-2023 04:50:20 history
+  196  12-Mar-2023 04:50:39 cat ds.yaml
+  
+  # DAEMON SET YAML
+  
+ apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: fluentd-elasticsearch
+  namespace: kube-system
+  labels:
+    k8s-app: fluentd-logging
+spec:
+  selector:
+    matchLabels:
+      name: fluentd-elasticsearch
+  template:
+    metadata:
+      labels:
+        name: fluentd-elasticsearch
+    spec:
+      tolerations:
+      # these tolerations are to have the daemonset runnable on control plane nodes
+      # remove them if your control plane nodes should not run pods
+      - key: node-role.kubernetes.io/control-plane
+        operator: Exists
+        effect: NoSchedule
+      - key: node-role.kubernetes.io/master
+        operator: Exists
+        effect: NoSchedule
+      containers:
+      - name: fluentd-elasticsearch
+        image: quay.io/fluentd_elasticsearch/fluentd:v2.5.2
+
+
+
+  197  12-Mar-2023 05:19:17 k get job
+  198  12-Mar-2023 05:21:03 k create job myjob --image=ubuntu:20.04 --dry-run=client -o yaml -- /bin/sh -c "sleep 10" > job.yaml
+  199  12-Mar-2023 05:21:06 vi job.yaml
+  200  12-Mar-2023 05:21:44 watch kubectl get all
+  201  12-Mar-2023 05:21:49 k get all
+  202  12-Mar-2023 05:22:04 k delete ds fluentd-elasticsearch
+  203  12-Mar-2023 05:22:06 k get po
+  204  12-Mar-2023 05:22:10 k delete po nginx
+  205  12-Mar-2023 05:22:14 k get all
+  206  12-Mar-2023 05:22:19 k apply -f job.yaml
+  207  12-Mar-2023 05:22:21 watch kubectl get all
+  208  12-Mar-2023 05:24:58 k delete job myjob
+  209  12-Mar-2023 05:25:34 k create cj mycj --image=ubuntu:20.04 --schedule="*/1 * * * 0" --dry-run=client -o yaml -- /bin/sh -c "sleep 10" > cj.yaml
+  210  12-Mar-2023 05:25:36 vi cj.yaml
+  211  12-Mar-2023 05:26:05 k apply -f cj.yaml
+  212  12-Mar-2023 05:26:07 watch kubectl get all
+  213  12-Mar-2023 05:28:26 history
+
+
+
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: myjob
+spec:
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - command:
+        - /bin/sh
+        - -c
+        - sleep 10
+        image: ubuntu:20.04
+        name: myjob
+        resources: {}
+      restartPolicy: Never
+status: {}
+
+
+
+
+
+
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  creationTimestamp: null
+  name: mycj
+spec:
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+      name: mycj
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+          - command:
+            - /bin/sh
+            - -c
+            - sleep 10
+            image: ubuntu:20.04
+            name: mycj
+            resources: {}
+          restartPolicy: OnFailure
+  schedule: '*/1 * * * 0'
+status: {}
+
+
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: fluentd-elasticsearch
+  labels:
+    k8s-app: fluentd-logging
+spec:
+  selector:
+    matchLabels:
+      name: fluentd-elasticsearch
+  template:
+    metadata:
+      labels:
+        name: fluentd-elasticsearch
+    spec:
+      tolerations:
+      # these tolerations are to have the daemonset runnable on control plane nodes
+      # remove them if your control plane nodes should not run pods
+      - key: node-role.kubernetes.io/control-plane
+        operator: Exists
+        effect: NoSchedule
+      - key: node-role.kubernetes.io/master
+        operator: Exists
+        effect: NoSchedule
+      containers:
+      - name: fluentd-elasticsearch
+        image: quay.io/fluentd_elasticsearch/fluentd:v2.5.2
+
+
+
+
+=========app.py=====
+from flask import Flask
+from redis import Redis
+import os
+import socket
+
+app = Flask(__name__)
+redis = Redis(host=os.environ.get('REDIS_HOST', 'redis'), port=6379)
+
+
+@app.route('/')
+def hello():
+   redis.incr('hits')
+   return 'Hello Container World! I have been seen %s times and my hostname is %s.\n' % (redis.get('hits'),socket.gethostname())
+
+if __name__ == "__main__":
+   app.run(host="0.0.0.0", port=5000, debug=True)
+
+
+
+=============Dockerfile==============
+FROM python:2.7
+COPY . /tmp
+RUN pip install -r /tmp/requirements.txt
+EXPOSE 5000
+CMD ["python", "/tmp/app.py"]
+
+
+
+
+
+
+
+
+
+
+
+
+22
+
+
+JOBS
+
+
+Hide Ads
+
+
+
+17
+
+
+JOBS
+
+
+Hide Ads
+
+
+
+
+MANOJ
+
+
+This paste expires on 2023-03-12 05:57:30.596391. Repaste, or download this paste. Toggle word wrap. Pasted through web.
+
+app.py
+=====
+from flask import Flask
+import os
+app = Flask(__name__)
+@app.route('/')
+
+def hello():
+    return ('\nHello from Container World! \n\n')
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080, debug=True)
+
+{
+Dockerfile
+=========
+FROM ubuntu:20.04
+RUN apt update && apt install python3 -y && apt install python3-pip -y && pip3 install flask
+COPY app.py /opt
+EXPOSE 8080
+CMD ["python3", "/opt/app.py"]
+
+
+
+Commands
+===========
+docker images
+docker build -t first:1.0 .
+docker images
+docker run -d --name first -p 8000:8080 first:1.0
+docker ps
+curl localhost:8000
+
+
+docker ps -a
+docker rm first determined_gagarin
+docker ps -a
+docker images
+docker run -d --name first -p 8000:8080 first:1.0
+docker ps -a
+docker logs first
+docker exec -it first bash
+docke ps
+docker ps
+docker rm first
+docker stop first
+docker rm first
+docker stats
+docker stop first
+docker ps -a
+docker start first
+docker ps -a
+docker cp Dockerfile first:/opt
+docker exec -it first bash
+ls /opt
+docker cp first:/opt/Dockerfile .
+ls
+docker images
+docker rmi first
+docker images
+
+docker tag first:1.0 rajendrait99/first:1.0
+docker images
+docker push rajendrait99/first:1.0
+docker login
+docker push rajendrait99/first:1.0
+docker images
+docker ps -a
+docker stop first second
+docker rm first second
+docker rmi 61c45d0e9798  63ece16e0660 -f
+docker images
+docker rmi 61c45d0e9798
+docker images
+ocker pull rajendrait99/first:1.0
+docker run -d --name registry -p 5000:5000 registry:2
+docker ps -a
+docker images
+docker  rajendrait99/first:1.0 localhost:5000/first:1.0
+docker images
+docker push localhost:5000/first:1.0
+docker ps -a
+docker exec -it registry bash
+docker exec -it registry sh
+curl localhost:5000/v2/_catalog
+docker push localhost:5000/first:1.0
+Filename: None. Size: 2kb. View raw, copy, hex, or download this file.
+View source code, the removal or expiry stories, or read the about page.
+
+This website does not claim ownership of, copyright on, and assumes no liability for provided content. Toggle color scheme.
+
+}  217  12-Mar-2023 05:42:40 k create cm mycm --from-literal=dbport=8080 --dbhost=192.168.0.1
+  218  12-Mar-2023 05:42:48 k create cm mycm --from-literal=dbport=8080 --from-literal=dbhost=192.168.0.1
+  219  12-Mar-2023 05:42:57 k describe cm mycm
+  220  12-Mar-2023 05:43:25 vi myconfig.ini
+  221  12-Mar-2023 05:44:20 k create cm mycm1 --from-file=myconfig.ini
+  222  12-Mar-2023 05:44:32 k describe cm mycm1
+  223  12-Mar-2023 05:45:02 vi pod.yaml
+  224  12-Mar-2023 05:46:27 k describe cm mycm
+  225  12-Mar-2023 05:46:32 vi pod.yaml
+  226  12-Mar-2023 05:46:50 k get all
+  227  12-Mar-2023 05:47:03 k delete cj mycj
+  228  12-Mar-2023 05:47:06 k get all
+  229  12-Mar-2023 05:47:11 k apply -f pod.yaml
+  230  12-Mar-2023 05:47:14 k get po
+  231  12-Mar-2023 05:47:24 k exec -it nginx bash
+  232  12-Mar-2023 05:47:40 vi pod.yaml
+  233  12-Mar-2023 05:48:51 k delete po nginx
+  234  12-Mar-2023 05:48:56 k apply -f pod.yaml
+  235  12-Mar-2023 05:48:58 k exec -it nginx bash
+  236  12-Mar-2023 05:51:14 history
+root@ip-172-31-21-128:~#
+
+
+
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    env:
+      - name: DBPORT
+        valueFrom:
+          configMapKeyRef:
+            name: mycm
+            key: dbport
+    ports:
+    - containerPort: 80
+    volumeMounts:
+           - name: myvol
+             mountPath: /etc/lala
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  volumes:
+  - name: myvol
+    configMap:
+       name: mycm1
+status: {}
+
+
+
+logfile=myapp.log
+dbport=8080
+dphost=localhost
+
+
+  237  12-Mar-2023 05:51:28 cat pod.yaml
+  238  12-Mar-2023 05:51:43 cat myconfig.ini
+  239  12-Mar-2023 06:08:09 k explain po
+  240  12-Mar-2023 06:08:15 k explain po.spec
+  241  12-Mar-2023 06:08:24 k explain po.spec.containers
+  242  12-Mar-2023 06:08:32 k explain po.spec.containers.volumeMounts
+  243  12-Mar-2023 06:09:15 k explain po
+  244  12-Mar-2023 06:20:17 vi pv.yaml
+  245  12-Mar-2023 06:22:04 k apply -f pv.yaml
+  246  12-Mar-2023 06:22:07 k get pv
+  247  12-Mar-2023 06:22:59 vi pvc.yaml
+  248  12-Mar-2023 06:24:29 k get pvc
+  249  12-Mar-2023 06:24:32 k get pv
+  250  12-Mar-2023 06:24:40 k apply -f pvc.yaml
+  251  12-Mar-2023 06:24:42 k get pv
+  252  12-Mar-2023 06:24:50 k get pvc
+  253  12-Mar-2023 06:25:10 vi pod.yaml
+  254  12-Mar-2023 06:25:57 k get po
+  255  12-Mar-2023 06:26:01 k delete po nginx
+  256  12-Mar-2023 06:26:07 k apply -f pod.yaml
+  257  12-Mar-2023 06:26:09 k get po
+  258  12-Mar-2023 06:26:12 k exec -it nginx bash
+  259  12-Mar-2023 06:27:35 history
+
+
+
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+   name: mypv
+spec:
+  storageClassName: normal
+  accessModes:
+   - ReadWriteMany
+  capacity:
+     storage: 2G
+  hostPath:
+    path: /opt
+
+
+
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+   name: mypvc
+spec:
+  storageClassName: normal
+  accessModes:
+     - ReadWriteMany
+  resources:
+    requests:
+       storage: 2G
+
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    env:
+      - name: DBPORT
+        valueFrom:
+          configMapKeyRef:
+            name: mycm
+            key: dbport
+    ports:
+    - containerPort: 80
+    volumeMounts:
+           - name: myvol
+             mountPath: /etc/lala
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  volumes:
+  - name: myvol
+    persistentVolumeClaim:
+       claimName: mypvc
+status: {}
+
+
+
+
+
+
+  263  12-Mar-2023 06:57:24 apt-get install openjdk-8-jdk
+         Check java is installed properly => java -version
+
+  264  12-Mar-2023 06:57:33 apt install maven
+         Check maven installed properly => mvn --version
+
+  265  12-Mar-2023 06:58:42 mvn archetype:generate -DgroupId=in.cravejava.app -DartifactId=cravejava-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.0 -DinteractiveMode=false
+  266  12-Mar-2023 06:58:51 ls
+  267  12-Mar-2023 06:58:54 cd cravejava-app/
+  268  12-Mar-2023 06:59:02 ls
+  269  12-Mar-2023 06:59:18 vi src/main/java/in/cravejava/app/App.java
+  270  12-Mar-2023 06:59:31 mvn compile
+  271  12-Mar-2023 07:00:14 ls
+  272  12-Mar-2023 07:00:18 rm -rf target/
+  273  12-Mar-2023 07:00:21 mvn compile
+  274  12-Mar-2023 07:00:30 vi pom.xml
+  275  12-Mar-2023 07:00:36 ls
+  276  12-Mar-2023 07:00:48 mvn package
+  277  12-Mar-2023 07:00:54 mvn clean
+  278  12-Mar-2023 07:00:59 mvn package
+  279  12-Mar-2023 07:01:51 vi pom.xml
+  280  12-Mar-2023 07:01:59 mvn package
+  281  12-Mar-2023 07:02:09 ls target/
+  282  12-Mar-2023 07:02:31 java -cp target/cravejava-app-1.0-SNAPSHOT.jar in.cravejava.app.App
+  283  12-Mar-2023 07:02:39 vi src/main/java/in/cravejava/app/App.java
+  284  12-Mar-2023 07:02:52 mvn package
+  285  12-Mar-2023 07:03:00 java -cp target/cravejava-app-1.0-SNAPSHOT.jar in.cravejava.app.App
+  286  12-Mar-2023 07:03:18 mvn test
+  287  12-Mar-2023 07:08:38 ls -ltr
+  288  12-Mar-2023 07:08:56 cd ..
+  289  12-Mar-2023 07:08:58 ls -ltrh
+  290  12-Mar-2023 07:09:47 history
+
+
+
+
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>in.cravejava.app</groupId>
+  <artifactId>cravejava-app</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>cravejava-app</name>
+  <url>http://maven.apache.org</url>
+<properties>
+     <maven.compiler.source>1.8</maven.compiler.source>
+     <maven.compiler.target>1.8</maven.compiler.target>
+</properties>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
+
+
+
+
+
+
+                                        Mar 18 , 2023 , 9:57 AM
+ Upgrade
+ Share
+DEEPAK RANJAN MISHRA
+Session Expired. Click here to refresh.
+1
+    2  sudo apt update
+2
+    3  sudo apt install ansible
+3
+    4  cd /etc/ansible/
+4
+    5  sudo vi hosts
+5
+    6  history
+6
+    7  sudo vi hosts
+7
+    8  ssh-keygen
+8
+    9  cat  /home/ubuntu/.ssh/id_rsa.pub
+9
+   10  ansible all -m ping
+10
+   11  history
+11
+?
+12
+?
+13
+?
+14
+?
+15
+vi .ssh/authorized_keys
+16
+?
+17
+?
+18
+[webserver]
+19
+172.31.2.80
+20
+?
+
+
+JO
+Hide Ads
+==============================
+ vi ~/.ssh/authorized_keys
+    2  sudo apt update
+    3  systemctl status apache2
+    4  history
+==========================
+- name: first play
+  hosts: webserver
+  become: yes
+  tasks:
+       - name: apt task
+         apt:
+                 name: apache2
+                 state: present
+       - name: copy task
+         copy:
+                 src: 1.yaml
+                 dest: /opt
+       - name: service task
+         service:
+                 name: apache2
+                 state: restarted
+				 
+
+RajendraK
+04:59:58
+- name: This is the first playbook 
+hosts: webserver
+ vars: 
+myname: SimpliLearn
+ vars_prompt: 
+name: myvar 
+prompt: Enter your name
+ private: no
+ become: yes
+ tasks:
+ - name: Installation task
+ apt:
+ name: apache2
+ state: present
+ - name: Copy task
+ copy:
+ src: 1.yaml
+ dest: /opt 
+- name: restart apache2
+ service:
+ name: apache2
+ state: restarted 
+register: out
+ - name: Debug test
+ debug: 
+  msg: "{{out.state}}"
+
+
+history
+cat /etc/ansible/hosts
+ 27 ansible-doc -s copy
+ 28 ansible-playbook 1.yaml
+ 29 vi 1.yaml
+ 30 ansible-playbook 1.yaml
+ 31 ansible webserver -m setup
+ 32 ansible-playbook 1.yaml
+ 33 ls 
+ 34 vi 1.yaml 
+ 35 ansible-playbook 1.yaml 
+ 36 vi 1.yaml
+ 37 ansible-playbook 1.yaml 
+ 38 vi 1.yaml
+ 39 ansible-playbook 1.yaml 
+ 40 vi 1.yaml 
+ 41 ansible-playbook 1.yaml
+ 42 vi 1.yaml
+ 43 ansible-playbook 1.yaml 
+ 44 vi 1.yaml
+ 45 history
+
+
+  gather_facts: no
+				 
+				 
+				 
+				 
+ 	
+
+ 	
+
+ 	
+                CLASS DATE:  19/3/2023
+ 	
+kharatrajendra1991
+01:23:46
+apt update
+ 2 sudo apt update
+ 3 sudo apt install ansible
+ 4 cd /etc/ansible/
+ 5 vi hosts
+ 6 sudo vi hosts
+ 7 ssh-keygen
+ 8 cat /home/ubuntu/.ssh/id_rsa.pub
+ 9 ansible all -m ping
+ 10 cd 
+ 11 mkdir playbook
+ 12 cd playbook/ 
+ 13 vi 1.yaml 
+ 14 ansible-vault encrypt 1.yaml
+ 15 vi 1.yaml
+ 16 ansible-playbook 1.yaml 
+ 17 ansible-vault decrypt 1.yaml 
+ 18 vi 1.yaml
+ 19 ansible-vault encrypt 1.yaml 
+ 20 vi 1.yaml
+ 21 ansible-playbook 1.yaml --ask-vault-pass
+ 22 history
+
+==============================
+vi ~/.ssh/authorized_keys 2 sudo apt update 3 systemctl status apache2 4 history
+
+ 	==============================
+ vi ~/.ssh/authorized_keys
+    2  sudo apt update
+    3  systemctl status apache2
+    4  history
+
+
+==========================
+
+ #  2.YAML FILE
+
+- name: first play
+  hosts: webserver
+  become: yes
+  tasks:
+       - name: apt task
+         apt:
+                 name: apache2
+                 state: present
+       - name: copy task
+         copy:
+                 src: 2.yaml
+                 dest: /opt
+       - name: service task
+         service:
+                 name: apache2
+                 state: restarted
+
+***********************************************************************
+ 	ANSIBLE HANDLERS
+ 	
+ 	
+- name: first play
+  hosts: webserver
+  become: yes
+  tasks:
+       - name: apt task
+         apt:
+                 name: apache2
+                 state: present
+       - name: copy task
+         copy:
+                 src: 1.yaml
+                 dest: /opt
+         notify:
+             - service task
+  handlers:
+       - name: service task
+         service:
+                 name: apache2
+                 state: restarted
+       ansible-playbook 1.yaml
+   34  vi 1.yaml
+   35  ansible-playbook 1.yaml
+   36  cat 1.yaml
+   
+   
+   - name: first play
+  hosts: webserver
+  become: yes
+  vars_prompt:
+          name: myname
+          prompt: Enter your name
+  tasks:
+       - name: apt task
+         apt:
+                 name: apache2
+                 state: present
+       - name: template task
+         template:
+                 src: index.html
+                 dest: /var/www/html
+<h1> Hello from {{myname}}</h1>
+
+
+- name: first play
+  hosts: webserver
+  become: yes
+  gather_facts: no
+  tasks:
+       - name: apt task
+         apt:
+                 name: apache2
+                 state: present
+       - name: copy task
+         copy:
+                 src: 5.yaml
+                 dest: /opt
+         ignore_errors: yes
+       - name: service task
+         service:
+                 name: apache2
+                 state: restarted
+				 
+				 
+				 
+				 
+   DATE : 25/03/2023
+				
+				
+				https://github.com/rskTech/terraform/tree/master/01-Setup-AWS-Account
+				
+				 12  25-Mar-2023 03:43:46 wget
+
+ https://github.com/rskTech/terraform/archive/refs/heads/master.zip
+   13  25-Mar-2023 03:43:48 ls
+   14  25-Mar-2023 03:43:53 unzip master.zip
+   15  25-Mar-2023 03:43:55 ls
+   16  25-Mar-2023 03:43:57 cd terraform-master/
+   17  25-Mar-2023 03:43:58 ls
+   18  25-Mar-2023 03:44:02 cd 00-Setup/
+   19  25-Mar-2023 03:44:11 ls
+   20  25-Mar-2023 03:44:16 bash install-terraform.sh
+   21  25-Mar-2023 03:53:02 history
+   
+    12  25-Mar-2023 03:43:46 wget https://github.com/rskTech/terraform/archive/refs/heads/master.zip
+   13  25-Mar-2023 03:43:48 ls
+   14  25-Mar-2023 03:43:53 unzip master.zip
+   15  25-Mar-2023 03:43:55 ls
+   16  25-Mar-2023 03:43:57 cd terraform-master/
+   17  25-Mar-2023 03:43:58 ls
+   18  25-Mar-2023 03:44:02 cd 00-Setup/
+   19  25-Mar-2023 03:44:11 ls
+   20  25-Mar-2023 03:44:16 bash install-terraform.sh
+   21  25-Mar-2023 03:53:02 history
+   22  25-Mar-2023 03:59:23 cd ..
+   23  25-Mar-2023 03:59:28 ls
+   24  25-Mar-2023 03:59:34 cd 02-First-Deployment/
+   25  25-Mar-2023 04:01:33 terraform init
+   26  25-Mar-2023 04:01:48 vi main.tf
+   27  25-Mar-2023 04:04:07 terraform plan
+   28  25-Mar-2023 04:04:46 terraform apply
+   29  25-Mar-2023 04:05:45 vi main.tf
+   30  25-Mar-2023 04:06:00 terraform apply
+   31  25-Mar-2023 04:07:17 ls
+   32  25-Mar-2023 04:07:23 vi terraform.tfstate
+   33  25-Mar-2023 04:07:50 terraform destroy
+   34  25-Mar-2023 04:10:34 vi main.tf
+   35  25-Mar-2023 04:10:4
+   
+   
+   provider "aws" {
+  region = "us-east-1"
+}
+
+
+resource "aws_instance" "web" {
+  ami = "ami-09cd747c78a9add63"
+  instance_type = "t2.micro"
+
+ tags = {
+   Name = "HelloWorld1"
+   Team = "DevOp1s"
+  }
+
+}
+
+resource "aws_instance" "web1" {
+  ami = "ami-09cd747c78a9add63"
+  instance_type = "t2.micro"
+
+ tags = {
+   Name = "HelloWorld2"
+   Team = "DevOps2"
+  }
+
+}
+provider "aws" {
+  region = "us-east-1"
+}
+
+variable "zones" {
+  type = list(string)
+  default = ["us-east-1a", "us-east-1b"]
+}
+
+
+resource "aws_instance" "web" {
+  count = 2
+  ami           = "ami-09cd747c78a9add63"
+  instance_type = "t2.micro"
+  availability_zone = var.zones[count.index]
+
+  tags = {
+    Name = "WebServer-AV"
+    Team = "DevOps"
+  }
+
+}
+provider "aws" {
+  region = "us-east-1"
+}
+
+variable "zones" {
+  type = list(string)
+  default = ["us-east-1a", "us-east-1b"]
+}
+
+
+resource "aws_instance" "web" {
+  count = 2
+  ami           = "ami-09cd747c78a9add63"
+  instance_type = "t2.micro"
+  availability_zone = var.zones[count.index]
+
+  tags = {
+    Name = "WebServer-AV"
+    Team = "DevOps"
+  }
+
+}
+provider "aws" {
+  region = "us-east-1"
+}
+
+variable "zones" {
+  type = list(string)
+  default = ["us-east-1a", "us-east-1b"]
+}
+
+
+resource "aws_instance" "web" {
+  count = 2
+  ami           = "ami-09cd747c78a9add63"
+  instance_type = "t2.micro"
+  availability_zone = var.zones[count.index]
+
+  tags = {
+    Name = "WebServer-AV"
+    Team = "DevOps"
+  }
+
+}
+
+
+
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+variable "zones" {
+  type = list(string)
+  default = ["us-east-1a", "us-east-1b"]
+}
+
+
+resource "aws_instance" "web" {
+  count = 2
+  ami           = "ami-09cd747c78a9add63"
+  instance_type = "t2.micro"
+  availability_zone = var.zones[count.index]
+
+  tags = {
+    Name = "WebServer-AV"
+    Team = "DevOps"
+  }
+
+}
+
+
+output "public_ips" {
+  value = aws_instance.web.*.public_ip
+}
+
+
+
+output "private_ips" {
+  value = aws_instance.web.*.private_ip
+}
+
+
+
+output "private_ips_of_first_instance" {
+  value = aws_instance.web.0.private_ip
+}
+
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+variable "zones" {
+  type = list(string)
+  default = ["us-east-1a", "us-east-1b"]
+}
+
+
+resource "aws_instance" "web" {
+  count = 2
+  ami           = "ami-09cd747c78a9add63"
+  instance_type = "t2.micro"
+  availability_zone = var.zones[count.index]
+
+  tags = {
+    Name = "WebServer-AV"
+    Team = "DevOps"
+  }
+
+}
+
+
+output "public_ips" {
+  value = aws_instance.web.*.public_ip
+
+  
+  provider "aws" {
+  region = "us-east-1"
+}
+
+variable "zones" {
+  type = list(string)
+  default = ["us-east-1a", "us-east-1b"]
+}
+
+
+resource "aws_instance" "web" {
+  count = 2
+  ami           = "ami-09cd747c78a9add63"
+  instance_type = "t2.micro"
+  availability_zone = var.zones[count.index]
+
+  tags = {
+    Name = "WebServer-AV"
+    Team = "DevOps"
+  }
+
+}
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+variable "zones" {
+  type = list(string)
+  default = ["us-east-1a", "us-east-1b"]
+}
+
+
+resource "aws_instance" "web" {
+  count = 2
+  ami           = "ami-09cd747c78a9add63"
+  instance_type = "t2.micro"
+  availability_zone = var.zones[count.index]
+
+  tags = {
+    Name = "WebServer-AV"
+    Team = "DevOps"
+  }
+
+}
+
+
+output "public_ips" {
+  value = aws_instance.web.*.public_ip
+}
+
+
+
+output "private_ips" {
+  value = aws_instance.web.*.private_ip
+}
+
+
+
+output "private_ips_of_first_instance" {
+  value = aws_instance.web.0.private_ip
+}
+
+
