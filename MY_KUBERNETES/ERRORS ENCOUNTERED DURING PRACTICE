@@ -1,0 +1,131 @@
+root@Master:/home/labsuser# kubectl run first --image=nginx
+pod/first created
+root@Master:/home/labsuser# kubectl get po 
+NAME    READY   STATUS              RESTARTS   AGE
+first   0/1     ContainerCreating   0          10s
+root@Master:/home/labsuser# kubectl describe po first
+Name:             first
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             node-2/172.31.22.91
+Start Time:       Mon, 06 May 2024 16:08:06 +0000
+Labels:           run=first
+Annotations:      <none>
+Status:           Pending
+IP:               
+IPs:              <none>
+Containers:
+  first:
+    Container ID:   
+    Image:          nginx
+    Image ID:       
+    Port:           <none>
+    Host Port:      <none>
+    State:          Waiting
+      Reason:       ContainerCreating
+    Ready:          False
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-wdbfw (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  kube-api-access-wdbfw:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason                  Age   From               Message
+  ----     ------                  ----  ----               -------
+  Normal   Scheduled               41s   default-scheduler  Successfully assigned default/first to node-2
+  Warning  FailedCreatePodSandBox  41s   kubelet            Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "24cd9640637e2c8606909173e59670bad8313d58733ecd176752f46f4ccb13d0": plugin type="calico" failed (add): error getting ClusterInformation: Get "https://10.96.0.1:443/apis/crd.projectcalico.org/v1/clusterinformations/default": tls: failed to verify certificate: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "kubernetes")
+  Warning  FailedCreatePodSandBox  30s   kubelet            Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "4d2e776b7508dacd96bf663015e61803112d01cf356dc79fa0f16f3ef702e2a4": plugin type="calico" failed (add): error getting ClusterInformation: Get "https://10.96.0.1:443/apis/crd.projectcalico.org/v1/clusterinformations/default": tls: failed to verify certificate: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "kubernetes")
+  Warning  FailedCreatePodSandBox  16s   kubelet            Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "58288a87dc41f5bfca1f08dc3cc93c7a97b5c9bbd3d48bd8355bfb3cfc991bbe": plugin type="calico" failed (add): error getting ClusterInformation: Get "https://10.96.0.1:443/apis/crd.projectcalico.org/v1/clusterinformations/default": tls: failed to verify certificate: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "kubernetes")
+  Warning  FailedCreatePodSandBox  2s    kubelet            Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "1855e47e863f55d1854ad60708791854685eb70e6a0a9d9e62ad5290f3dc702d": plugin type="calico" failed (add): error getting ClusterInformation: Get "https://10.96.0.1:443/apis/crd.projectcalico.org/v1/clusterinformations/default": tls: failed to verify certificate: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "kubernetes")
+root@Master:/home/labsuser#
+
+
+
+……………………………………………….
+
+Warning  FailedCreatePodSandBox  47s   kubelet            Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "f510fb3492c612470a709e181f9b646e40b936c75d3d5b968d416e19e67f198b": plugin type="calico" failed (add): error getting ClusterInformation: Get "https://10.96.0.1:443/apis/crd.projectcalico.org/v1/clusterinformations/default": tls: failed to verify certificate: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "kubernetes")
+
+NAME     STATUS     ROLES           AGE     VERSION
+master   NotReady   control-plane   17m     v1.28.2
+node-1   NotReady   <none>          8m1s    v1.28.2
+node-2   NotReady   <none>          7m46s   v1.28.2
+I ran the command kubectl describe nodes master
+Output:
+Events:
+  Type     Reason                   Age   From             Message
+  ----     ------                   ----  ----             -------
+  Normal   Starting                 11m   kube-proxy       
+  Normal   Starting                 12m   kubelet          Starting kubelet.
+  Warning  InvalidDiskCapacity      12m   kubelet          invalid capacity 0 on image filesystem
+  Normal   NodeHasSufficientMemory  12m   kubelet          Node master status is now: NodeHasSufficientMemory
+  Normal   NodeHasNoDiskPressure    12m   kubelet          Node master status is now: NodeHasNoDiskPressure
+  Normal   NodeHasSufficientPID     12m   kubelet          Node master status is now: NodeHasSufficientPID
+  Normal   NodeAllocatableEnforced  12m   kubelet          Updated Node Allocatable limit across pods
+  Normal   RegisteredNode           11m   node-controller  Node master event: Registered Node master in Controller
+Googled the error “  Warning  InvalidDiskCapacity      12m   kubelet          invalid capacity 0 on image filesystem”
+
+Stackoverflow solution: link : https://stackoverflow.com/questions/72844687/invalid-capacity-0-on-image-filesystem-lens-id-kubernetes
+I was getting the same error when I installed kubernetes cluster via kubeadm.
+After reading all the comments on the subject, I thought that the problem might be caused by containerd and the following two commands solved my problem, maybe it can help:
+
+systemctl restart containerd
+systemctl restart kubelet
+
+Ran the above two commands in all the nodes and nodes were ready.
+
+you can restart the container service. This will fix the problem.
+1. To make permanent fix, set SystemdCgroup = true in /etc/containerd/config.toml and make sure that kubelet is configured to use systemd cgroup driver. You can check in the /var/lib/kubelet/config.yaml file
+
+Vi /etc/containerd/config.toml
+[plugins."io.containerd.grpc.v1.cri"]
+    device_ownership_from_security_context = false
+    disable_apparmor = false
+    disable_cgroup = false
+    disable_hugetlb_controller = true
+    disable_proc_mount = false
+    disable_tcp_service = true
+    enable_selinux = false
+    enable_tls_streaming = false
+    enable_unprivileged_icmp = false
+    enable_unprivileged_ports = false
+    ignore_image_defined_volumes = false
+    max_concurrent_downloads = 3
+    max_container_log_line_size = 16384
+    netns_mounts_under_state_dir = false
+    restrict_oom_score_adj = false
+    sandbox_image = "k8s.gcr.io/pause:3.6"
+    selinux_category_range = 1024
+    stats_collect_period = 10
+    stream_idle_timeout = "4h0m0s"
+    stream_server_address = "127.0.0.1"
+    stream_server_port = "0"
+    systemd_cgroup = true
+    tolerate_missing_hugetlb_controller = true
+    unset_seccomp_profile = ""
+
+
+Date: 9/5/2024 Practice
+
+root@Master:/home/labsuser# kubectl run first:2 --image=nginx:latest --port=80 
+The Pod "first:2" is invalid: 
+* metadata.name: Invalid value: "first:2": a lowercase RFC 1123 subdomain must consist of lower case alphanumeric characters, '-' or '.', and must start and end with an alphanumeric character (e.g. 'example.com', regex used for validation is '[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*')
+* metadata.labels: Invalid value: "first:2": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
+* spec.containers[0].name: Invalid value: "first:2": a lowercase RFC 1123 label must consist of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character (e.g. 'my-name',  or '123-abc', regex used for validation is '[a-z0-9]([-a-z0-9]*[a-z0-9])?')
+root@Master:/home/labsuser#
