@@ -1,2 +1,110 @@
 SIR GITHUB LINK :- https://github.com/rskTech/k8s_material/blob/master/practiceset
 kubernetes.io/doc :- https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/
+
+=================================================================
+BASIC CORE CONCEPT Questions and their solution
+=================================================================
+
+
+Q-12. Delete the pod you just created without any delay (force delete)
+
+root@Master:/home/labsuser# kubectl delete pods test-pod --grace-period=0 --force
+Warning: Immediate deletion does not wait for confirmation that the running resource has been terminated. The resource may continue to run on the cluster indefinitely.
+pod "test-pod" force deleted
+root@Master:/home/labsuser# k get po
+NAME    READY   STATUS    RESTARTS   AGE
+nginx   1/1     Running   0          70m
+root@Master:/home/labsuser#
+
+
+13. Create the nginx pod with version 1.17.4 and expose it on port 80
+
+
+root@Master:/home/labsuser# k run nginx --image=nginx:1.17.4 --port=80  
+root@Master:/home/labsuser# k describe po nginx # to verify the above
+
+14. Change the Image version to 1.15-alpine for the pod you just created and verify the image version is updated
+
+Rerun the above cmd
+root@Master:/home/labsuser# k run nginx --image=nginx:1.17.4 --port=80      --dry-run=client -o yaml > test.yaml
+ls 
+test.yaml created
+
+vi test.yaml
+
+in test.yaml change the image version also change the name of pod to alpine
+
+k apply -f test.yaml
+Output:
+NAME     READY   STATUS    RESTARTS   AGE
+alpine   1/1     Running   0          6s
+nginx    1/1     Running   0          8m39s
+
+
+
+******** OR *********
+
+DATE : - 3/6/2024
+
+https://kubernetes.io/docs/reference/kubectl/generated/kubectl_set/kubectl_set_image/
+
+cmd: k set image po nginx nginx=nginx:1.15-alpine –record
+cmd: K describe po nginx
+
+15. Change the Image version back to 1.17.1 for the pod you just updated and observe the changes
+
+k set image po nginx nginx=nginx:1.17.1 –record
+ k get po
+ k describe po nginx
+
+
+
+
+16. Check the Image version without the describe command
+k get po
+NAME     READY   STATUS    RESTARTS   AGE
+alpine   1/1     Running   0          17m
+nginx    1/1     Running   0          26m
+following pods are running.
+
+k get po -o custom-columns='IMAGE-NAME:.spec.containers[].image'
+OR
+kubectl get po nginx -o jsonpath='{.spec.containers[].image}{"\n"}'
+
+IMAGE-NAME
+nginx:1.15-alpine
+nginx:1.17.4
+root@Master:/home/labsuser#
+
+17. Create the nginx pod and execute the simple shell on the pod 
+
+
+https://dev.to/rinkiyakedad/kubectl-exec-is-so-cool-46jo # This can be used as a project
+
+
+how to copy a file in current directory to a container in Kubernetes  -  SOURCE : google gemini
+Using kubectl cp:
+kubectl cp <source-file> <pod-name>:<destination-directory>/<destination-file> -c <container-name>
+Explanation of arguments:
+•	<source-file>: Path to the file on your local machine you want to copy.
+•	<pod-name>: Name of the pod containing the target container.
+•	<destination-directory>: Directory path within the container where you want to place the copied file.
+•	<destination-file> (Optional): Desired filename for the copied file within the container (if omitted, the source filename is used).
+•	-c <container-name> (Optional): Flag to specify the container name within the pod (required if the pod has multiple containers).
+Example:
+Let's say you have a file named config.txt in your current directory and you want to copy it to the /etc directory inside a container named nginx within the pod my-nginx:
+kubectl cp config.txt my-nginx:/etc/config.txt -c nginx
+This command will copy config.txt from your local machine to the /etc/config.txt location within the nginx container of the my-nginx pod.
+Important Notes:
+•	The kubectl cp command requires the target container image to have the tar binary installed for functionality.
+•	This method copies the file. If the destination already has a file with the same name, it will be overwritten.
+Additional Considerations:
+•	If tar is unavailable in the container image, you can use kubectl exec for more advanced file transfers with options like preserving file permissions or handling symlinks. Refer to the Kubernetes documentation for details on kubectl exec https://kubernetes.io/docs/reference/kubectl/generated/kubectl_cp/.
+
+vi index.html 
+  741  k cp index.html nginx:/usr/share/nginx/html -c nginx
+  742  k exec -it nginx bash
+
+
+
+
