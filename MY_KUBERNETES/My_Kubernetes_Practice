@@ -1668,6 +1668,7 @@ spec:
   schedule: '*/1 * * * *'
 status: {}
 
+
 DATE : - 9/6/2024
 
 
@@ -1683,52 +1684,13 @@ kubectl get po --watch
 ^Croot@Master:/home/labsuser# kubectl get all --watch
 error: you may only specify a single resource type
 
-CONFIGMAPS : 
+CONFIG MAPS : 
+
 
 
 k create cm mycm --from-literal=db_host=192.168.0.2 --from-literal=db_port=8080
-vi pod.yaml
-k apply -f pod.yaml
-k get po
- k exec -it nginx bash # the cmd will take you inside the container where you can type the cmd “ env ” and get the output.
- k exec -it nginx – env # Displays the same output on the terminal
+vi pod.yaml # same cm two env passed
 cat pod.yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  creationTimestamp: null
-  labels:
-    run: nginx
-  name: nginx
-spec:
-  containers:
-  - image: nginx
-    name: nginx
-    ports:
-    - containerPort: 80
-    env:
-      - name: DBPORT
-        valueFrom:
-          configMapKeyRef:
-            name: mycm
-            key: db_port
-      - name: DBHOST
-        valueFrom:
-          configMapKeyRef:
-            name: mycm
-            key: db_host
-    resources: {}
-  dnsPolicy: ClusterFirst
-  restartPolicy: Always
-status: {}
-history | cut -c 8-
-Creating two different configfiles and  passing them as environmental variables to the pod.yaml
-
-k create cm mycm1 --from-literal=db_port=9090
-k create cm mycm2 --from-literal=db_host=192.168.1.5
-k get cm
-k get all 
-vi pod.yaml
 …………………………………………………………………………………
 apiVersion: v1
 kind: Pod
@@ -1767,13 +1729,160 @@ spec:
 status: {}
 
 ……………………………………………………………………
+
+
 k apply -f pod.yaml
+k get po
+ k exec -it nginx bash # the cmd will take you inside the container where you can type the cmd “ env ” and get the output.
+ k exec -it nginx – env # Displays the same output on the terminal
+
+# Creating two different configfiles and  passing them as environmental variables to the pod.yaml
+k create cm mycm1 --from-literal=db_port=9090
+k create cm mycm2 --from-literal=db_host=192.168.1.5
+k get cm
+k get all 
+vi pod.yaml
+cat pod.yaml # Remove the volume part
+................
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx:latest
+    name: nginx
+    ports:
+    - containerPort: 80
+    env:
+      - name: DBPORT
+        valueFrom:
+          configMapKeyRef:
+            name: mycm1
+            key: db_port
+      - name: DBHOST
+        valueFrom:
+          configMapKeyRef:
+            name: mycm2
+            key: db_host
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+..................
 k exec -it nginx bash
 env
 exit
 k exec -it nginx -- env
 
 
+
+k apply -f pod.yaml
+k exec -it nginx bash
+env
+exit
+k exec -it nginx -- env
+
+Evening practice
+
+# Pod yaml file with volume mount
+
+cat pod.yaml 
+...................................................
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx:latest
+    name: nginx
+    ports:
+    - containerPort: 80
+    resources: {}
+    volumeMounts:
+     - name: myvol
+       mountPath: /etc/lala
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  volumes:
+    - name: myvol
+      configMap:
+        name: volcm    
+status: {}
+.................................. 
+
+vi pod.yaml 
+vi volcm.ini
+cat volcm.ini
+...............................
+USER : - Admin
+Dev : - 1
+NAME :- John
+
+dbport=8080
+dbhost=localhost
+.............................
+ls
+k create cm volcm --from-file=volcm.ini 
+k get cm 
+k describe cm volcm
+vi pod.yaml  # Here vol part of yaml is added
+k apply -f pod.yaml
+k get po
+k exec -it nginx bash
+ls
+env
+mount
+cd /etc/lala/
+ls
+cat volcm.ini 
+exit
+# YAML FILE WITH A COMBINATION OF CONFIGMAPS - ENV AMD VOLUME
+.....................
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx:latest
+    name: nginx
+    ports:
+    - containerPort: 80
+    env:
+      - name: DBPORT
+        valueFrom:
+          configMapKeyRef:
+            name: mycm1
+            key: db_port
+      - name: DBHOST
+        valueFrom:
+          configMapKeyRef:
+            name: mycm2
+            key: db_host
+    resources: {}
+    volumeMounts:
+     - name: myvol
+       mountPath: /etc/lala
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  volumes:
+    - name: myvol
+      configMap:
+        name: volcm    
+status: {}
+.......................
+# USE THE ABOVE COMMANDS TO SEE THE ENV VARIABLES PASSED
 
 
 
