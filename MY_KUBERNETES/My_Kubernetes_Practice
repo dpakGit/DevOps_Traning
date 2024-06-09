@@ -1747,17 +1747,25 @@ spec:
       - name: DBPORT
         valueFrom:
           configMapKeyRef:
-            name: mycm1
-        key: db_port
+            name: mycm
+            key: db_port
       - name: DBHOST
         valueFrom:
           configMapKeyRef:
-            name: mycm2
+            name: mycm
             key: db_host
     resources: {}
+    volumeMounts:
+      - name: myvol
+        mountPath: /etc/lala
   dnsPolicy: ClusterFirst
   restartPolicy: Always
+  volumes:
+    - name: myvol
+      configMap:
+        name: mycm1
 status: {}
+
 ……………………………………………………………………
 k apply -f pod.yaml
 k exec -it nginx bash
