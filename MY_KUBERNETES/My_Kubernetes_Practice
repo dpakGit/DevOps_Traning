@@ -1,4 +1,4 @@
-              **MY**_**PRACTICE**_**COMMANDS**_**OUTPUTS**_**SCREENSHOTS**
+                                              MY _ PRACTICE _ COMMANDS _ OUTPUTS AND SCREENSHOTS
 Date:-10.5.2024
 kubectl create deploy mydeploy --image=nginx:latest --port=80
 kubectl get all
