@@ -1885,6 +1885,103 @@ status: {}
 # USE THE ABOVE COMMANDS TO SEE THE ENV VARIABLES PASSED
 
 
+DATE : 12.6.2024
+SECRETS
+1) PASSING SECRETS AS ENVIRONMENT VARIABLES
+kubectl create secret generic mysecret --from-literal=dbpass=Admin -o yaml > mysecret.yaml
+ls
+kubectl describe secret mysecret
+vi pod.yaml                        # PASSING SECRETS AS ENVIRONMENT VARIABLES
+.........................
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
+    env:
+      - name: DBPASS
+        valueFrom:
+          secretKeyRef:
+            name: mysecret
+            key: dbpass
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+...........................
+kubectl apply -f pod.yaml
+kubectl exec -it nginx -- env
+kubectl delete old pods
+
+# ATTACH SECRET AS VOLUME
+
+vi secretfile.ini
+cat secret.ini
+.........................
+dppass=mypassword
+
+server_pass=SERVER-PASSWORD
+.................................
+kubectl create secret generic mysecret2 --from-file=secret.ini --dry-run=client -o yaml > mysecret2.yaml
+ls
+vi pod.yaml
+................................
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
+    resources:  {}
+    volumeMounts:
+      - name: myvol
+        mountPath: /etc/test
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  volumes:
+    - name: myvol
+      secret:
+        secretName: mysecret2
+status: {}
+
+....................................
+kubectl apply -f pod.yaml
+kubectl exec -it nginx bash
+root@nginx:/# cd /etc/test/
+root@nginx:/etc/test# ls
+secret.ini
+root@nginx:/etc/test# cat secret.ini
+
+dppass=mypassword
+
+server_pass=SERVER-PASSWORD
+
+root@nginx:/etc/test#exit
+exit
+root@ip-172-31-76-4:/home/dpakmishra1983g#
+
+
+
+
+
+
+
+
 
 
 
