@@ -1976,6 +1976,23 @@ exit
 root@ip-172-31-76-4:/home/dpakmishra1983g#
 
 
+DATE : - 14.6.2024
+You can also use kubectl to create a Secret for accessing a container registry, such as when you don't have a Docker configuration file:
+All this commands worked......
+
+1. kubectl create secret docker-registry secret-tiger-docker \
+  --docker-email=tiger@acme.example \
+  --docker-username=tiger \
+  --docker-password=pass1234 \
+  --docker-server=my-registry.example:5000
+NOTE : - When we execute the history command the above command will be displayed as follows :
+2. kubectl create secret docker-registry secret-tiger-docker   --docker-email=tiger@acme.example   --docker-username=tiger   --docker-password=pass1234   --docker-server=my-registry.example:5000
+3. kubectl create secret docker-registry my-secret2 --docker-server=DOCKER_REGISTRY_SERVER --docker-username=DOCKER_USER --docker-password=DOCKER_PASSWORD --docker-email=DOCKER_EMAIL -o yaml > secretdockeryamlfile.yaml
+4. kubectl create secret docker-registry docker-secret --docker-email=example@gmail.com --docker-username=dev --docker-password=pass1234 --docker-server=my-registry.example:5000
+5.  kubectl create secret docker-registry docker-secret --docker-email=example@gmail.com --docker-username=dev --docker-password=pass1234 --docker-server=my-registry.example:5000
+
+
+
 
 
 
