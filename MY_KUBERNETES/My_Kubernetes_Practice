@@ -2048,6 +2048,25 @@ or
 Both of these achieve the same purpose as the original command with the continuation character.
 
 
+rob_kodekloud
+13h
+The flags use double dashes: --. The correct command is:
+
+kubectl create secret docker-registry mydockersecret --docker-email=admin@gmail.com --docker-username=dev --docker-password=pass12 --docker-server==my-registry.com:5000
+
+DATE : - 15.6.2024
+kubectl create secret docker-registry mydockersecret --docker-email=admin@gmail.com --docker-username=dev --docker-password=pass12 --docker-server==my-registry.com:5000
+
+kubectl get secret
+vi pod.yaml
+kubectl delete po nginx # DELETE OLD PODS
+kubectl apply -f pod.yaml
+kubectl get po
+kubectl exec -it nginx -- env
+REQUIRED OUTPUT : - .dockerconfigjson={"auths":{"=my-registry.com:5000":{"username":"dev","password":"pass12","email":"admin@gmail.com","auth":"ZGV2OnBhc3MxMg=="}}}
+
+
+
 
 
 
