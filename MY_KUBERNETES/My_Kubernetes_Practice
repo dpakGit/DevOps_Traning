@@ -2151,6 +2151,17 @@ spec:
         secretName: my-tls-secret
 status: {}
 .........................................................
+OR
+sudo cp /etc/kubernetes/pki/ca.crt
+sudo cp /etc/kubernetes/pki/ca.crt .
+sudo cp /etc/kubernetes/pki/ca.key .
+sudo chmod 777 ca.crt
+sudo chmod 777 ca.key
+ls
+kubectl create secret tls my-tls-secret-2 --cert=ca.crt --key=ca.key -o yaml > tls.yaml
+ls
+vi tls.yaml 
+history | cut -c 8-
 
 
 
