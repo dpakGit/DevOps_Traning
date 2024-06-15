@@ -2088,6 +2088,19 @@ spec:
   restartPolicy: Always
 status: {}
 ................................................................
+kubectl create secret docker-registry mydockersecret --docker-email=admin@gmail.com --docker-username=dev --docker-password=pass12 --docker-server==my-registry.com:5000 --dry-run=client -o yaml > docker-secret-yamlfile.yaml
+
+vi docker-secret-yamlfile.yaml
+...............................................
+apiVersion: v1
+data:
+  .dockerconfigjson: eyJhdXRocyI6eyI9bXktcmVnaXN0cnkuY29tOjUwMDAiOnsidXNlcm5hbWUiOiJkZXYiLCJwYXNzd29yZCI6InBhc3MxMiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiYXV0aCI6IlpHVjJPbkJoYzNNeE1nPT0ifX19
+kind: Secret
+metadata:
+  creationTimestamp: null
+  name: mydockersecret
+type: kubernetes.io/dockerconfigjson
+............................................................
 
 
 
