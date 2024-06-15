@@ -2102,6 +2102,56 @@ metadata:
 type: kubernetes.io/dockerconfigjson
 ............................................................
 
+TLS secrets
+
+ls /etc/kubernetes/pki/etcd/
+ls /etc/kubernetes/pki/  # compare the outputs of the two commands each has ca.crt and ca.key
+
+kubectl create secret tls my-tls-secret --cert=/etc/kubernetes/pki/ca.crt --key=/etc/kubernetes/pki/ca.key
+ls
+ls /etc/kubernetes/pki/
+kubectl describe secret 
+kubectl get secret
+kubectl describe secret my-tls-secret
+kubectl get secret
+kubectl get po
+ls
+vi pod.yaml
+kubectl delete po nginx      # Delete old pod
+kubectl apply -f pod.yaml 
+kubectl get po 
+kubectl exec -it nginx bash  # Login inside the pod
+mount
+cd /etc/foo/
+ls
+vi pod.yaml
+....................................
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
+    resources: {}
+    volumeMounts:   # This section configures how volumes are mounted within the container. Here, a single volume named "foo" is mounted at the path "/etc/foo" inside the container.
+      - name: myvol
+        mountPath: /etc/foo
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  volumes:
+    - name: myvol
+      secret:                      # secret: This specifies that the volume is a Kubernetes Secret. A Secret stores sensitive information like passwords or tokens.
+        secretName: my-tls-secret
+status: {}
+.........................................................
+
 
 
 
