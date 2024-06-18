@@ -2195,6 +2195,96 @@ data:
 
 history | cut -c 8-
 
+DATE :- 18.6.2024
+
+Persistent Volume & Persistent Volume Claim
+
+# DATE 18.6.2024
+LS
+ls
+k apply -f pv.yaml 
+k get pv
+vi pvc.yaml 
+k apply -f pvc.yaml 
+vi pod.yaml 
+k apply -f pod.yaml 
+ls /opt/
+k get po
+k delete po nginx
+k apply -f pod.yaml 
+k exec -it nginx -- ls /etc/lala
+ls /opt/
+k exec -it nginx bash
+ls
+mount
+cd /etc/lala/
+ls
+# LET US ADD A FILE INSIDE THE CONTAINER AND SEE THAT THE SAME FILE IS AVAILABLE IN THE /OPT DIR IN THE HOST MACHINE 
+
+echo hello world > welcome.txt
+history | cut -c 8-
+ 
+kubectl exec -it nginx -- ls /etc/lala
+kubectl exec -it nginx -- cat  /etc/lala/welcome.txt
+vi pod.yaml
+.............................
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
+    resources: {}
+    volumeMounts:
+      - name: myvol
+        mountPath: /etc/lala
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  volumes:
+    - name: myvol
+      persistentVolumeClaim:
+        claimName: mypvc
+status: {}
+...................................
+vi pv.yaml # PERSISTENT VOLUME YAML FILE
+...............................
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mypv
+spec:
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: 1G
+  storageClassName: normal
+  hostPath:
+    path: /opt
+...................................
+vi pvc.yaml # PERSISTENT VOLUME CLAIM YAML FILE
+
+.......................................
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mypvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: normal
+  resources:
+    requests:
+      storage: 1G
+...........................................................
+
+
 
 
 
