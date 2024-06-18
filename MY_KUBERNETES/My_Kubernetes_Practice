@@ -2225,34 +2225,9 @@ echo hello world > welcome.txt
 history | cut -c 8-
  
 kubectl exec -it nginx -- ls /etc/lala
+
 kubectl exec -it nginx -- cat  /etc/lala/welcome.txt
-vi pod.yaml
-.............................
-apiVersion: v1
-kind: Pod
-metadata:
-  creationTimestamp: null
-  labels:
-    run: nginx
-  name: nginx
-spec:
-  containers:
-  - image: nginx
-    name: nginx
-    ports:
-    - containerPort: 80
-    resources: {}
-    volumeMounts:
-      - name: myvol
-        mountPath: /etc/lala
-  dnsPolicy: ClusterFirst
-  restartPolicy: Always
-  volumes:
-    - name: myvol
-      persistentVolumeClaim:
-        claimName: mypvc
-status: {}
-...................................
+
 vi pv.yaml # PERSISTENT VOLUME YAML FILE
 ...............................
 apiVersion: v1
@@ -2285,13 +2260,33 @@ spec:
 ...........................................................
 
 
-
-
-
-
-
-
-
+vi pod.yaml
+.............................
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
+    resources: {}
+    volumeMounts:
+      - name: myvol
+        mountPath: /etc/lala
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  volumes:
+    - name: myvol
+      persistentVolumeClaim:
+        claimName: mypvc
+status: {}
+...................................
 
 
 
