@@ -2291,3 +2291,425 @@ status: {}
 
 
 
+
+           STATEFUL SET  
+
+
+root@Master:/home/labsuser# # DATE : - 21-JUNE-2024
+root@Master:/home/labsuser# git clone https://github.com/rskTech/k8s_material.git
+Cloning into 'k8s_material'...
+remote: Enumerating objects: 204, done.
+remote: Counting objects: 100% (44/44), done.
+remote: Compressing objects: 100% (41/41), done.
+remote: Total 204 (delta 21), reused 3 (delta 3), pack-reused 160
+Receiving objects: 100% (204/204), 9.05 MiB | 24.65 MiB/s, done.
+Resolving deltas: 100% (77/77), done.
+root@Master:/home/labsuser# ls
+DCV-Storage  Documents  Music     Public     Videos  ca.key                              containerd-1.6.8-linux-amd64.tar.gz  k8s_material  pv.yaml   runc.amd64  tls.yaml
+Desktop      Downloads  Pictures  Templates  ca.crt  cni-plugins-linux-amd64-v1.1.1.tgz  docker-secret-yamlfile.yaml          pod.yaml      pvc.yaml  snap        volume
+root@Master:/home/labsuser# cd k8s_material/
+root@Master:/home/labsuser/k8s_material# ls
+ 01_Creating_and_Configuring_a_Kubernetes_Cluster.pdf   ckad_questions_answers                                      k8s_security_best_practices
+ CKA.pdf                                                cm-oreilly-kubernetes-patterns-ebook-f19824-201910-en.pdf   kind_cluster_setup.txt
+ Docker_cheetsheet.pdf                                  creating_private_registry                                   kubeadm_cluster_setup_ubuntu_2204
+'K8 exam Prep'                                          docker_compose                                              kubernetes_cheatsheet.pdf
+'Killer Shell - Exam Simulators.pdf'                    enable_auotcomplete_for_bash_steps.txt                      matrix_server_setup.txt
+'Kubernetes Security.pptx.pdf'                          etcd_backup_restore                                         mcqs
+ Kubernetes.pdf                                         helm                                                        practiceset
+ RBAC                                                   ingress                                                     statefulset
+ basic_auth_k8s.txt                                     ingress_controller.txt
+ cka_question_answers                                   k8s_cluster_mentainance
+root@Master:/home/labsuser/k8s_material# cd statefulset/
+root@Master:/home/labsuser/k8s_material/statefulset# ls
+exmaple2  pv.yaml  pv1.yaml  pv2.yaml  sc.yaml  sfs.yaml
+root@Master:/home/labsuser/k8s_material/statefulset# 
+root@Master:/home/labsuser/k8s_material/statefulset# 
+root@Master:/home/labsuser/k8s_material/statefulset# # FIRST CREATE THE STORAGE CLASS
+root@Master:/home/labsuser/k8s_material/statefulset# vi sc.yaml 
+root@Master:/home/labsuser/k8s_material/statefulset# k apply -f sc.yaml 
+storageclass.storage.k8s.io/my-storage-class created
+root@Master:/home/labsuser/k8s_material/statefulset# k get sc
+NAME               PROVISIONER                    RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
+my-storage-class   kubernetes.io/no-provisioner   Delete          WaitForFirstConsumer   false                  12s
+root@Master:/home/labsuser/k8s_material/statefulset# vi sc.yaml 
+root@Master:/home/labsuser/k8s_material/statefulset# k get sc
+NAME               PROVISIONER                    RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
+my-storage-class   kubernetes.io/no-provisioner   Delete          WaitForFirstConsumer   false                  16m
+root@Master:/home/labsuser/k8s_material/statefulset# 
+root@Master:/home/labsuser/k8s_material/statefulset# 
+root@Master:/home/labsuser/k8s_material/statefulset# 
+root@Master:/home/labsuser/k8s_material/statefulset# vi sfs.yaml 
+root@Master:/home/labsuser/k8s_material/statefulset# k apply -f sfs.yaml 
+statefulset.apps/web created
+root@Master:/home/labsuser/k8s_material/statefulset# k get sfs
+error: the server doesn't have a resource type "sfs"
+root@Master:/home/labsuser/k8s_material/statefulset# vi sfs.yaml 
+root@Master:/home/labsuser/k8s_material/statefulset# k get sfs web
+error: the server doesn't have a resource type "sfs"
+root@Master:/home/labsuser/k8s_material/statefulset# k get sts
+NAME   READY   AGE
+web    0/3     113s
+root@Master:/home/labsuser/k8s_material/statefulset# k get po
+NAME    READY   STATUS    RESTARTS   AGE
+web-0   0/1     Pending   0          2m6s
+root@Master:/home/labsuser/k8s_material/statefulset# k get pvc
+NAME        STATUS    VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS       AGE
+www-web-0   Pending                                      my-storage-class   2m36s
+root@Master:/home/labsuser/k8s_material/statefulset# ls
+exmaple2  pv.yaml  pv1.yaml  pv2.yaml  sc.yaml  sfs.yaml
+root@Master:/home/labsuser/k8s_material/statefulset# vi pv
+pv.yaml   pv1.yaml  pv2.yaml  
+root@Master:/home/labsuser/k8s_material/statefulset# vi pv.yaml 
+root@Master:/home/labsuser/k8s_material/statefulset# k get no
+NAME     STATUS   ROLES           AGE   VERSION
+master   Ready    control-plane   15d   v1.28.2
+node-1   Ready    <none>          15d   v1.28.2
+node-2   Ready    <none>          15d   v1.28.2
+root@Master:/home/labsuser/k8s_material/statefulset# vi pv.yaml 
+root@Master:/home/labsuser/k8s_material/statefulset# k apply -f pv.yaml 
+persistentvolume/mypv created
+root@Master:/home/labsuser/k8s_material/statefulset# k get pv
+NAME   CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS    CLAIM               STORAGECLASS       REASON   AGE
+mypv    2Gi                               RWO            Retain               Bound    default/www-web-0   my-storage-class            7s
+root@Master:/home/labsuser/k8s_material/statefulset# k get pvc
+NAME        STATUS    VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS       AGE
+www-web-0   Bound     mypv     2Gi        RWO            my-storage-class   5m2s
+www-web-1   Pending                                      my-storage-class   8s
+root@Master:/home/labsuser/k8s_material/statefulset# k get po
+NAME    READY   STATUS    RESTARTS   AGE
+web-0   1/1     Running   0          5m15s
+web-1   0/1     Pending   0          21s
+root@Master:/home/labsuser/k8s_material/statefulset# k get sts
+NAME   READY   AGE
+web    1/3     5m28s
+root@Master:/home/labsuser/k8s_material/statefulset#
+# .......................................................
+root@Master:/home/labsuser/k8s_material/statefulset# vi pv1.yaml 
+root@Master:/home/labsuser/k8s_material/statefulset# k apply -f pv1.yaml 
+persistentvolume/mypv1 created
+root@Master:/home/labsuser/k8s_material/statefulset# k get pv
+NAME    CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM               STORAGECLASS       REASON   AGE
+mypv    2Gi        RWO            Retain           Bound    default/www-web-0   my-storage-class            9m58s
+mypv1   3Gi        RWO            Retain           Bound    default/www-web-1   my-storage-class            45s
+root@Master:/home/labsuser/k8s_material/statefulset# k get pvc
+NAME        STATUS    VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS       AGE
+www-web-0   Bound     mypv     2Gi        RWO            my-storage-class   14m
+www-web-1   Bound     mypv1    3Gi        RWO            my-storage-class   9m57s
+www-web-2   Pending                                      my-storage-class   46s
+root@Master:/home/labsuser/k8s_material/statefulset# k get po
+NAME    READY   STATUS    RESTARTS   AGE
+web-0   1/1     Running   0          14m
+web-1   1/1     Running   0          10m
+web-2   0/1     Pending   0          51s
+root@Master:/home/labsuser/k8s_material/statefulset# k get sts
+NAME   READY   AGE
+web    2/3     15m
+root@Master:/home/labsuser/k8s_material/statefulset# vi pv2.yaml 
+root@Master:/home/labsuser/k8s_material/statefulset# k apply -f pv2.yaml 
+persistentvolume/mypv2 created
+root@Master:/home/labsuser/k8s_material/statefulset# k get pv 
+NAME    CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM               STORAGECLASS       REASON   AGE
+mypv    2Gi        RWO            Retain           Bound    default/www-web-0   my-storage-class            12m
+mypv1   3Gi        RWO            Retain           Bound    default/www-web-1   my-storage-class            3m11s
+mypv2   4Gi        RWO            Retain           Bound    default/www-web-2   my-storage-class            8s
+root@Master:/home/labsuser/k8s_material/statefulset#  kget pvc
+Command 'kget' not found, but can be installed with:
+apt install kget
+root@Master:/home/labsuser/k8s_material/statefulset# k get pvc
+NAME        STATUS   VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS       AGE
+www-web-0   Bound    mypv     2Gi        RWO            my-storage-class   17m
+www-web-1   Bound    mypv1    3Gi        RWO            my-storage-class   12m
+www-web-2   Bound    mypv2    4Gi        RWO            my-storage-class   3m14s
+root@Master:/home/labsuser/k8s_material/statefulset# k get po
+NAME    READY   STATUS    RESTARTS   AGE
+web-0   1/1     Running   0          17m
+web-1   1/1     Running   0          12m
+web-2   1/1     Running   0          3m29s
+root@Master:/home/labsuser/k8s_material/statefulset# k get sts
+NAME   READY   AGE
+web    3/3     17m
+root@Master:/home/labsuser/k8s_material/statefulset# k get po
+NAME    READY   STATUS    RESTARTS   AGE
+web-0   1/1     Running   0          18m
+web-1   1/1     Running   0          13m
+web-2   1/1     Running   0          4m2s
+root@Master:/home/labsuser/k8s_material/statefulset# # SINCE WE HAVE THREE REPLICAS IT IS NOT CREATING ANY MORE PODS
+root@Master:/home/labsuser/k8s_material/statefulset#
+root@Master:/home/labsuser/k8s_material/statefulset# # SCALE UP THE PODS
+root@Master:/home/labsuser/k8s_material/statefulset# k scale sts web --replicas
+error: flag needs an argument: --replicas
+See 'kubectl scale --help' for usage.
+root@Master:/home/labsuser/k8s_material/statefulset# k scale sts web --replicas=5
+statefulset.apps/web scaled
+root@Master:/home/labsuser/k8s_material/statefulset# k get po
+NAME    READY   STATUS    RESTARTS   AGE
+web-0   1/1     Running   0          2m27s
+web-1   1/1     Running   0          18m
+web-2   1/1     Running   0          104s
+web-3   0/1     Pending   0          7s
+root@Master:/home/labsuser/k8s_material/statefulset# vi pv1.yaml 
+root@Master:/home/labsuser/k8s_material/statefulset# vi pv4.yaml
+root@Master:/home/labsuser/k8s_material/statefulset# k get pvc
+NAME        STATUS    VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS       AGE
+www-web-0   Bound     mypv     2Gi        RWO            my-storage-class   24m
+www-web-1   Bound     mypv1    3Gi        RWO            my-storage-class   19m
+www-web-2   Bound     mypv2    4Gi        RWO            my-storage-class   10m
+www-web-3   Pending                                      my-storage-class   103s
+
+
+…………………………………ERROR PART………………………
+root@Master:/home/labsuser/k8s_material/statefulset# k apply -f pv4.yaml 
+persistentvolume/mypv1 configured     #      MISTAKE PV named not changed, therefore no new pod was created and PVC attached.
+
+root@Master:/home/labsuser/k8s_material/statefulset# k get pvc
+NAME        STATUS    VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS       AGE
+www-web-0   Bound     mypv     2Gi        RWO            my-storage-class   24m
+www-web-1   Bound     mypv1    3Gi        RWO            my-storage-class   19m
+www-web-2   Bound     mypv2    4Gi        RWO            my-storage-class   10m
+www-web-3   Pending                                      my-storage-class   2m
+root@Master:/home/labsuser/k8s_material/statefulset# k get pv
+NAME    CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM               STORAGECLASS       REASON   AGE
+mypv    2Gi        RWO            Retain           Bound    default/www-web-0   my-storage-class            20m
+mypv1   5Gi        RWO            Retain           Bound    default/www-web-1   my-storage-class            11m
+mypv2   4Gi        RWO            Retain           Bound    default/www-web-2   my-storage-class            7m57s
+root@Master:/home/labsuser/k8s_material/statefulset# k get pvc
+NAME        STATUS    VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS       AGE
+www-web-0   Bound     mypv     2Gi        RWO            my-storage-class   25m
+www-web-1   Bound     mypv1    3Gi        RWO            my-storage-class   20m
+www-web-2   Bound     mypv2    4Gi        RWO            my-storage-class   10m
+www-web-3   Pending                                      my-storage-class   2m14s
+root@Master:/home/labsuser/k8s_material/statefulset# kget po
+Command 'kget' not found, but can be installed with:
+apt install kget
+root@Master:/home/labsuser/k8s_material/statefulset# k get po
+NAME    READY   STATUS    RESTARTS   AGE
+web-0   1/1     Running   0          4m46s
+web-1   1/1     Running   0          20m
+web-2   1/1     Running   0          4m3s
+web-3   0/1     Pending   0          2m26s
+root@Master:/home/labsuser/k8s_material/statefulset# k get sts
+NAME   READY   AGE
+web    3/5     25m
+root@Master:/home/labsuser/k8s_material/statefulset# # SCALE DOWN THE PODS
+root@Master:/home/labsuser/k8s_material/statefulset# k scale sts web --replicas=3
+statefulset.apps/web scaled
+root@Master:/home/labsuser/k8s_material/statefulset# k get sts
+NAME   READY   AGE
+web    3/3     26m
+root@Master:/home/labsuser/k8s_material/statefulset# k get pv
+NAME    CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM               STORAGECLASS       REASON   AGE
+mypv    2Gi        RWO            Retain           Bound    default/www-web-0   my-storage-class            21m
+mypv1   5Gi        RWO            Retain           Bound    default/www-web-1   my-storage-class            12m
+mypv2   4Gi        RWO            Retain           Bound    default/www-web-2   my-storage-class            9m41s
+root@Master:/home/labsuser/k8s_material/statefulset# k get pv
+NAME    CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM               STORAGECLASS       REASON   AGE
+mypv    2Gi        RWO            Retain           Bound    default/www-web-0   my-storage-class            22m
+mypv1   5Gi        RWO            Retain           Bound    default/www-web-1   my-storage-class            12m
+mypv2   4Gi        RWO            Retain           Bound    default/www-web-2   my-storage-class            9m51s
+root@Master:/home/labsuser/k8s_material/statefulset# k get pvc
+…………………………………………………………………………………………………………………………..
+root@Master:/home/labsuser/k8s_material/statefulset# ls
+exmaple2  pv.yaml  pv1.yaml  pv2.yaml  pv4.yaml  sc.yaml  sfs.yaml
+root@Master:/home/labsuser/k8s_material/statefulset# k scale sts web --replicas=5
+statefulset.apps/web scaled
+root@Master:/home/labsuser/k8s_material/statefulset# k get rs
+No resources found in default namespace.
+root@Master:/home/labsuser/k8s_material/statefulset# k get po
+NAME    READY   STATUS    RESTARTS   AGE
+web-0   1/1     Running   0          20m
+web-1   1/1     Running   0          36m
+web-2   1/1     Running   0          19m
+web-3   0/1     Pending   0          17s
+root@Master:/home/labsuser/k8s_material/statefulset# vi pv4.yaml 
+root@Master:/home/labsuser/k8s_material/statefulset# k apply -f pv4.yaml 
+persistentvolume/mypv4 created
+root@Master:/home/labsuser/k8s_material/statefulset# k get pv
+NAME    CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM               STORAGECLASS       REASON   AGE
+mypv    2Gi        RWO            Retain           Bound    default/www-web-0   my-storage-class            37m
+mypv1   5Gi        RWO            Retain           Bound    default/www-web-1   my-storage-class            28m
+mypv2   4Gi        RWO            Retain           Bound    default/www-web-2   my-storage-class            24m
+mypv4   5Gi        RWO            Retain           Bound    default/www-web-3   my-storage-class            18s
+root@Master:/home/labsuser/k8s_material/statefulset# k get pvc
+NAME        STATUS    VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS       AGE
+www-web-0   Bound     mypv     2Gi        RWO            my-storage-class   42m
+www-web-1   Bound     mypv1    5Gi        RWO            my-storage-class   37m
+www-web-2   Bound     mypv2    4Gi        RWO            my-storage-class   28m
+www-web-3   Bound     mypv4    5Gi        RWO            my-storage-class   19m
+www-web-4   Pending                                      my-storage-class   18s
+root@Master:/home/labsuser/k8s_material/statefulset# k get po
+NAME    READY   STATUS    RESTARTS   AGE
+web-0   1/1     Running   0          21m
+web-1   1/1     Running   0          37m
+web-2   1/1     Running   0          21m
+web-3   1/1     Running   0          94s
+web-4   0/1     Pending   0          37s
+root@Master:/home/labsuser/k8s_material/statefulset# k get sts
+NAME   READY   AGE
+web    4/5     42m
+root@Master:/home/labsuser/k8s_material/statefulset# # SCALE DOWN THE REPLICAS
+root@Master:/home/labsuser/k8s_material/statefulset# k scale sts web --replicas=2
+statefulset.apps/web scaled
+root@Master:/home/labsuser/k8s_material/statefulset# k get pv
+NAME    CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM               STORAGECLASS       REASON   AGE
+mypv    2Gi        RWO            Retain           Bound    default/www-web-0   my-storage-class            39m
+mypv1   5Gi        RWO            Retain           Bound    default/www-web-1   my-storage-class            29m
+mypv2   4Gi        RWO            Retain           Bound    default/www-web-2   my-storage-class            26m
+mypv4   5Gi        RWO            Retain           Bound    default/www-web-3   my-storage-class            2m6s
+root@Master:/home/labsuser/k8s_material/statefulset# k get pvc
+NAME        STATUS    VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS       AGE
+www-web-0   Bound     mypv     2Gi        RWO            my-storage-class   43m
+www-web-1   Bound     mypv1    5Gi        RWO            my-storage-class   38m
+www-web-2   Bound     mypv2    4Gi        RWO            my-storage-class   29m
+www-web-3   Bound     mypv4    5Gi        RWO            my-storage-class   21m
+www-web-4   Pending                                      my-storage-class   2m5s
+root@Master:/home/labsuser/k8s_material/statefulset# k get po
+NAME    READY   STATUS    RESTARTS   AGE
+web-0   1/1     Running   0          23m
+web-1   1/1     Running   0          39m
+root@Master:/home/labsuser/k8s_material/statefulset# k get sts
+NAME   READY   AGE
+web    2/2     44m
+root@Master:/home/labsuser/k8s_material/statefulset#
+root@Master:/home/labsuser/k8s_material/statefulset# # AGAIN SCALE UP TO 4 REPLICAS
+root@Master:/home/labsuser/k8s_material/statefulset# k scale sts web --replicas=4
+statefulset.apps/web scaled
+root@Master:/home/labsuser/k8s_material/statefulset# k get po
+NAME    READY   STATUS    RESTARTS   AGE
+web-0   1/1     Running   0          26m
+web-1   1/1     Running   0          41m
+web-2   1/1     Running   0          10s
+web-3   1/1     Running   0          8s
+root@Master:/home/labsuser/k8s_material/statefulset# k get pv
+NAME    CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM               STORAGECLASS       REASON   AGE
+mypv    2Gi        RWO            Retain           Bound    default/www-web-0   my-storage-class            42m
+mypv1   5Gi        RWO            Retain           Bound    default/www-web-1   my-storage-class            33m
+mypv2   4Gi        RWO            Retain           Bound    default/www-web-2   my-storage-class            30m
+mypv4   5Gi        RWO            Retain           Bound    default/www-web-3   my-storage-class            5m23s
+root@Master:/home/labsuser/k8s_material/statefulset# k get pvc
+NAME        STATUS    VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS       AGE
+www-web-0   Bound     mypv     2Gi        RWO            my-storage-class   47m
+www-web-1   Bound     mypv1    5Gi        RWO            my-storage-class   42m
+www-web-2   Bound     mypv2    4Gi        RWO            my-storage-class   33m
+www-web-3   Bound     mypv4    5Gi        RWO            my-storage-class   24m
+www-web-4   Pending                                      my-storage-class   5m20s
+root@Master:/home/labsuser/k8s_material/statefulset# k get psts
+error: the server doesn't have a resource type "psts"
+root@Master:/home/labsuser/k8s_material/statefulset# k get po
+NAME    READY   STATUS    RESTARTS   AGE
+web-0   1/1     Running   0          26m
+web-1   1/1     Running   0          42m
+web-2   1/1     Running   0          40s
+web-3   1/1     Running   0          38s
+root@Master:/home/labsuser/k8s_material/statefulset# k get sts
+NAME   READY   AGE
+web    4/4     47m
+root@Master:/home/labsuser/k8s_material/statefulset#
+
+
+
+SCALING DOWN THE REPLICAS TO TWO AND OBSERVE  
+root@Master:/home/labsuser/k8s_material/statefulset# k scale sts web --replicas=2
+statefulset.apps/web scaled
+root@Master:/home/labsuser/k8s_material/statefulset# k get po
+NAME    READY   STATUS    RESTARTS   AGE
+web-0   1/1     Running   0          30m
+web-1   1/1     Running   0          45m
+root@Master:/home/labsuser/k8s_material/statefulset# k get pv
+NAME    CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM               STORAGECLASS       REASON   AGE
+mypv    2Gi        RWO            Retain           Bound    default/www-web-0   my-storage-class            46m
+mypv1   5Gi        RWO            Retain           Bound    default/www-web-1   my-storage-class            37m
+mypv2   4Gi        RWO            Retain           Bound    default/www-web-2   my-storage-class            33m
+mypv4   5Gi        RWO            Retain           Bound    default/www-web-3   my-storage-class            9m18s
+root@Master:/home/labsuser/k8s_material/statefulset# k get pv
+NAME    CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM               STORAGECLASS       REASON   AGE
+mypv    2Gi        RWO            Retain           Bound    default/www-web-0   my-storage-class            47m
+mypv1   5Gi        RWO            Retain           Bound    default/www-web-1   my-storage-class            38m
+mypv2   4Gi        RWO            Retain           Bound    default/www-web-2   my-storage-class            35m
+mypv4   5Gi        RWO            Retain           Bound    default/www-web-3   my-storage-class            11m
+root@Master:/home/labsuser/k8s_material/statefulset# k get pv
+NAME    CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM               STORAGECLASS       REASON   AGE
+mypv    2Gi        RWO            Retain           Bound    default/www-web-0   my-storage-class            48m
+mypv1   5Gi        RWO            Retain           Bound    default/www-web-1   my-storage-class            39m
+mypv2   4Gi        RWO            Retain           Bound    default/www-web-2   my-storage-class            36m
+mypv4   5Gi        RWO            Retain           Bound    default/www-web-3   my-storage-class            11m
+root@Master:/home/labsuser/k8s_material/statefulset# k get pvc
+NAME        STATUS    VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS       AGE
+www-web-0   Bound     mypv     2Gi        RWO            my-storage-class   54m
+www-web-1   Bound     mypv1    5Gi        RWO            my-storage-class   49m
+www-web-2   Bound     mypv2    4Gi        RWO            my-storage-class   40m
+www-web-3   Bound     mypv4    5Gi        RWO            my-storage-class   31m
+www-web-4   Pending                                      my-storage-class   12m
+root@Master:/home/labsuser/k8s_material/statefulset# k get po
+NAME    READY   STATUS    RESTARTS   AGE
+web-0   1/1     Running   0          34m
+web-1   1/1     Running   0          50m
+root@Master:/home/labsuser/k8s_material/statefulset# k get sts
+NAME   READY   AGE
+web    2/2     55m
+root@Master:/home/labsuser/k8s_material/statefulset#
+
+THIS PART CAN BE SEND TO KODEKLOUD
+root@Master:/home/labsuser/k8s_material/statefulset# # ######################
+root@Master:/home/labsuser/k8s_material/statefulset# k get pvc
+NAME        STATUS    VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS       AGE
+www-web-0   Bound     mypv     2Gi        RWO            my-storage-class   59m
+www-web-1   Bound     mypv1    5Gi        RWO            my-storage-class   54m
+www-web-2   Bound     mypv2    4Gi        RWO            my-storage-class   45m
+www-web-3   Bound     mypv4    5Gi        RWO            my-storage-class   36m
+www-web-4   Pending                                      my-storage-class   17m
+root@Master:/home/labsuser/k8s_material/statefulset# k delete pv mypv2 mypv4
+persistentvolume "mypv2" deleted
+persistentvolume "mypv4" deleted
+^Croot@Master:/home/labsuser/k8s_material/statefulset# k get pv
+NAME    CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS        CLAIM               STORAGECLASS       REASON   AGE
+mypv    2Gi        RWO            Retain           Bound         default/www-web-0   my-storage-class            60m
+mypv1   5Gi        RWO            Retain           Bound         default/www-web-1   my-storage-class            51m
+mypv2   4Gi        RWO            Retain           Terminating   default/www-web-2   my-storage-class            48m
+mypv4   5Gi        RWO            Retain           Terminating   default/www-web-3   my-storage-class            23m
+root@Master:/home/labsuser/k8s_material/statefulset# k get pv
+NAME    CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS        CLAIM               STORAGECLASS       REASON   AGE
+mypv    2Gi        RWO            Retain           Bound         default/www-web-0   my-storage-class            61m
+mypv1   5Gi        RWO            Retain           Bound         default/www-web-1   my-storage-class            52m
+mypv2   4Gi        RWO            Retain           Terminating   default/www-web-2   my-storage-class            49m
+mypv4   5Gi        RWO            Retain           Terminating   default/www-web-3   my-storage-class            24m
+root@Master:/home/labsuser/k8s_material/statefulset# k get pv
+NAME    CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS        CLAIM               STORAGECLASS       REASON   AGE
+mypv    2Gi        RWO            Retain           Bound         default/www-web-0   my-storage-class            61m
+mypv1   5Gi        RWO            Retain           Bound         default/www-web-1   my-storage-class            52m
+mypv2   4Gi        RWO            Retain           Terminating   default/www-web-2   my-storage-class            49m
+mypv4   5Gi        RWO            Retain           Terminating   default/www-web-3   my-storage-class            24m
+root@Master:/home/labsuser/k8s_material/statefulset# k get pv
+NAME    CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS        CLAIM               STORAGECLASS       REASON   AGE
+mypv    2Gi        RWO            Retain           Bound         default/www-web-0   my-storage-class            61m
+mypv1   5Gi        RWO            Retain           Bound         default/www-web-1   my-storage-class            52m
+mypv2   4Gi        RWO            Retain           Terminating   default/www-web-2   my-storage-class            49m
+mypv4   5Gi        RWO            Retain           Terminating   default/www-web-3   my-storage-class            24m
+root@Master:/home/labsuser/k8s_material/statefulset# k get pv
+NAME    CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS        CLAIM               STORAGECLASS       REASON   AGE
+mypv    2Gi        RWO            Retain           Bound         default/www-web-0   my-storage-class            63m
+mypv1   5Gi        RWO            Retain           Bound         default/www-web-1   my-storage-class            53m
+mypv2   4Gi        RWO            Retain           Terminating   default/www-web-2   my-storage-class            50m
+mypv4   5Gi        RWO            Retain           Terminating   default/www-web-3   my-storage-class            26m
+root@Master:/home/labsuser/k8s_material/statefulset# k get pvc
+NAME        STATUS    VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS       AGE
+www-web-0   Bound     mypv     2Gi        RWO            my-storage-class   68m
+www-web-1   Bound     mypv1    5Gi        RWO            my-storage-class   63m
+www-web-2   Bound     mypv2    4Gi        RWO            my-storage-class   53m
+www-web-3   Bound     mypv4    5Gi        RWO            my-storage-class   45m
+www-web-4   Pending                                      my-storage-class   26m
+root@Master:/home/labsuser/k8s_material/statefulset# k get pv
+NAME    CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS        CLAIM               STORAGECLASS       REASON   AGE
+mypv    2Gi        RWO            Retain           Bound         default/www-web-0   my-storage-class            67m
+mypv1   5Gi        RWO            Retain           Bound         default/www-web-1   my-storage-class            58m
+mypv2   4Gi        RWO            Retain           Terminating   default/www-web-2   my-storage-class            55m
+mypv4   5Gi        RWO            Retain           Terminating   default/www-web-3   my-storage-class            30m
+root@Master:/home/labsuser/k8s_material/statefulset# k get pvc
+NAME        STATUS    VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS       AGE
+www-web-0   Bound     mypv     2Gi        RWO            my-storage-class   72m
+www-web-1   Bound     mypv1    5Gi        RWO            my-storage-class   67m
+www-web-2   Bound     mypv2    4Gi        RWO            my-storage-class   58m
+www-web-3   Bound     mypv4    5Gi        RWO            my-storage-class   49m
+www-web-4   Pending                                      my-storage-class   30m
+root@Master:/home/labsuser/k8s_material/statefulset#
+
+
