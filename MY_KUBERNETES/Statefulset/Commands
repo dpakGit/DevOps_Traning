@@ -1,0 +1,110 @@
+git clone https://github.com/rskTech/k8s_material.git
+ls
+cd k8s_material/
+ls
+cd statefulset/
+ls
+# FIRST CREATE THE STORAGE CLASS
+vi sc.yaml 
+k apply -f sc.yaml 
+k get sc
+# CREATE STATEFULSET
+vi sfs.yaml 
+k apply -f sfs.yaml 
+k get sfs
+vi sfs.yaml 
+k get sfs web
+k get sts
+k get po
+k get pvc
+ls
+vi pv.yaml 
+k get no
+vi pv.yaml 
+k apply -f pv.yaml 
+k get pv
+k get pvc
+k get po
+k get sts
+ls
+vi pv1.yaml 
+# .......................................................
+vi pv1.yaml 
+k apply -f pv1.yaml 
+k get pv
+k get pvc
+k get po
+k get sts
+vi pv2.yaml 
+k apply -f pv2.yaml 
+k get pv 
+k get pvc
+k get po
+k get sts
+k get po
+# SINCE WE HAVE THREE REPLICAS IT IS NOT CREATING AN MORE PODS
+# DELETE PODS TO CHECK IT IS AUTOMATICALLY CREATED
+k get po
+k delete po web-0
+k get po
+k delete po web-2
+k get po
+# SCALE UP THE PODS
+k scale sts web --replicas
+k scale sts web --replicas=5
+k get po
+vi pv1.yaml 
+vi pv4.yaml
+k get pvc
+k apply -f pv4.yaml 
+k get pvc
+k get pv
+k get pvc
+kget po
+k get po
+k get sts
+# SCALE DOWN THE PODS
+k scale sts web --replicas=3
+k get sts
+k get pv
+# dont use the aove cmds from  SCALE UP THE PODS to this line
+ls
+k scale sts web --replicas=5
+k get rs
+k get po
+vi pv4.yaml 
+k apply -f pv4.yaml 
+k get pv
+k get pvc
+k get po
+k get sts
+
+k scale sts web --replicas=2
+k get pv
+k get pvc
+k get po
+k get sts
+# AGAIN SCALE UP TO 4 REPLICAS
+
+k get po
+k get pv
+k get pvc
+k get psts
+k get po
+k get sts
+k scale sts web --replicas=2
+k get po
+k get pv
+k get pvc
+k get po
+k get sts
+# ######################
+k get pvc
+k delete pv mypv2 mypv4
+k get pv
+k get pvc
+k get pv
+k get pvc
+vi pv.yaml 
+history | cut -c 8-
+root@Master:/home/labsuser/k8s_material/statefulset# 
