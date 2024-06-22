@@ -1,0 +1,18 @@
+k get po -n kube-system
+  
+ps -ef | grep kubelet
+  
+# --config=/var/lib/kubelet/config.yaml
+  
+cd /var/lib/kubelet/config.yaml
+vi /var/lib/kubelet/config.yaml
+# staticPodPath: /etc/kubernetes/manifests
+ls /etc/kubernetes/manifests
+# generate a pod.yaml file
+k run nginx --image=nginx --port=80 --dry-run=client -o yaml > pod.yaml
+ls
+cp pod.yaml /etc/kubernetes/manifests
+k get po
+k delete po nginx-master
+k get po
+# EVEN THOUGH WE DELETE THE PO IT AGAIN COMES UP WITH THE SAME NODE
