@@ -1,5 +1,5 @@
+(kodekloud community link)https://kodekloud.com/community/t/stateful-set-pvc-not-deleted-when-replicas-scaled-down/460952
 
-https://kodekloud.com/community/t/stateful-set-pvc-not-deleted-when-replicas-scaled-down/460952
 
 Stateful set - PVC not deleted when replicas scaled down 
 
@@ -45,3 +45,5 @@ rob_kodekloud
 Apparently, the PVCs are NOT DELETED AUTOMATICALLY,to prevent potential data loss, since in a lot of 
 environments (not yours using local volumes, but some cloud environments) deleting the PVC will cause the PVs to be 
 deallocated. See this post 1, which is on point for this. His doc link is still good, too, and the docs back him up.
+(See this post 1- the link)https://stackoverflow.com/questions/65687515/delete-kubernetes-persistent-volume-from-statefulset-after-scale-down/65690759#65690759
+
