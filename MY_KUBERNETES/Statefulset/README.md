@@ -47,3 +47,20 @@ environments (not yours using local volumes, but some cloud environments) deleti
 deallocated. See this post 1, which is on point for this. His doc link is still good, too, and the docs back him up.
 (See this post 1- the link)https://stackoverflow.com/questions/65687515/delete-kubernetes-persistent-volume-from-statefulset-after-scale-down/65690759#65690759
 
+dpakmishra.1983
+6m
+Thank you for the reply ,Sir.
+So is it that deleting a PVC in this case means unbinding the respective PV and PVC. And now this unbonded PV with the existing data inside it can be claimed by any other PVC leading to data loss ?
+
+Solution
+
+
+
+Reply
+
+rob_kodekloud
+1m
+Depends on the settings. Using a local or hostPath volume, your data most likely will be untouched. If you’re using an EBS volume on AWS, your data has probably gone and joined the Choir Invisible, and will not be seen again.
+
+
+
