@@ -1,4 +1,4 @@
-https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/
+Create static Pods ( https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/ )
 
 Constants and well-known values and paths (https://kubernetes.io/docs/reference/setup-tools/kubeadm/implementation-details/#constants-and-well-known-values-and-paths)
 
