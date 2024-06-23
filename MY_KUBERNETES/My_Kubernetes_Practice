@@ -55,7 +55,7 @@ kubectl get all
   188  history
 
 Date :- 11.5.2024
-HPA
+Horizontal POD autoscaler or HPA
 clear
 kubectl create deploy mydeploy --image=nginx:latest --port=80
 kubectl get all
