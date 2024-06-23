@@ -1,0 +1,24 @@
+
+k get all
+vi pv.yaml
+vi pvc.yaml
+k create deploy safari --image=httpd:2.4.41-alpine -n project-tiger --dry-run=client -o yaml > deploy1.yaml
+ls
+vi deploy1.yaml
+k create ns project-tiger # IF YOU DONT CREATE THE NS PVC WILL NOT RUN
+k apply -f pv.yaml 
+k apply -f pvc.yaml 
+k apply -f deploy1.yaml 
+k get ns
+k get pv
+k get pvc
+k get pvc -n project-tiger
+k get all
+NO OUTPUT, BECAUSE DEPLOYMENT IS CREATED IN NS project-tiger
+k get deploy
+NO OUTPUT, BECAUSE DEPLOYMENT IS CREATED IN NS project-tiger
+k get deploy -n project-tiger
+k get all -n project-tiger
+k get deploy
+k get deploy -n project-tiger
+k get all -n project-tiger
