@@ -5,6 +5,8 @@ PersistentVolumes can have various reclaim policies, including "Retain", "Recycl
 
 Q) Can a PersistentVolumeClaim (PVC) in one namespace bonded to a PersistentVolume (PV) in another namespace in Kubernetes ?
 
+Namespace restrictionsMany Kubernetes resources are restricted to the namespace that they belong to. This limitation is true for PVCs, and for apps that are built based on the concept of shared resources, it poses a challenge. PersistentVolumes (PVs) that back PVCs, on the other hand, are cluster-scoped resources.
+
 Ans) Gemini AI
 
 Yes, by default, a PersistentVolumeClaim (PVC) in one namespace can be bound to a PersistentVolume (PV) in another namespace in Kubernetes. This is because:
