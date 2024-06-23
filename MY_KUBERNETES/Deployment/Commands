@@ -1,5 +1,6 @@
 ````````````````
 kubectl create deploy mydeploy --image=nginx:latest --port=80
+```````````````````````````
 kubectl get all
 kubectl get deploy
 kubectl get rs
