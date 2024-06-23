@@ -1,5 +1,7 @@
-https://yuminlee2.medium.com/kubernetes-static-pods-734dc0684f31
-https://medium.com/jorgeacetozi/kubernetes-master-components-etcd-api-server-controller-manager-and-scheduler-3a0179fc8186
+1) https://yuminlee2.medium.com/kubernetes-static-pods-734dc0684f31
+
+2) https://medium.com/jorgeacetozi/kubernetes-master-components-etcd-api-server-controller-manager-and-scheduler-3a0179fc8186
+
 Create static Pods ( https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/ )
 
 Constants and well-known values and paths (https://kubernetes.io/docs/reference/setup-tools/kubeadm/implementation-details/#constants-and-well-known-values-and-paths)
