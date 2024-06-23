@@ -16,3 +16,15 @@ k get po
 k delete po nginx-master
 k get po
 # EVEN THOUGH WE DELETE THE PO IT AGAIN COMES UP WITH THE SAME NODE
+
+# SOME USEFUL COMMANDS
+
+cd /etc/kubernetes/manifests/
+ls /etc/kubernetes/manifests/
+rm -rf /etc/kubernetes/manifests/pod.yaml 
+vi pod.yaml /etc/kubernetes/manifests  # THIS COMMAND WILL OPEN THE POD.YAML FILE IN THE CURRENT DIRECTORY
+cp pod.yaml  /etc/kubernetes/manifests
+vi /etc/kubernetes/manifests/pod.yaml 
+rm /etc/kubernetes/manifests/pod.yaml 
+ls /etc/kubernetes/manifests/ 
+k get po
