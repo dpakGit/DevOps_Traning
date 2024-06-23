@@ -1,3 +1,4 @@
+````````````````
 kubectl create deploy mydeploy --image=nginx:latest --port=80
 kubectl get all
 kubectl get deploy
@@ -6,7 +7,7 @@ kubectl get po
 kubectl scale deploy mydeploy --replicas=2
 kubectl --dryget po
 kubectl scale depl
-
+`````````````````````````
 oy mydeploy --replicas=5
 kubectl get po
 kubectl scale deploy mydeploy --replicas=3
