@@ -1,0 +1,138 @@
+kubectl create deploy mydeploy --image=nginx:latest --port=80
+kubectl get all
+kubectl get deploy
+kubectl get rs
+kubectl get po
+kubectl scale deploy mydeploy --replicas=2
+kubectl --dryget po
+kubectl scale depl
+
+oy mydeploy --replicas=5
+kubectl get po
+kubectl scale deploy mydeploy --replicas=3
+kubectl get po
+kubectl scale deploy mydeploy --replicas=2
+kubectl get po
+kubectl scale deploy mydeploy --replicas=1
+kubectl get po
+kubectl scale deploy mydeploy --replicas=0
+kubectl get po
+k get all
+kubectl get all
+k get all
+kubectl get all
+kubectl delete deploy mydeploy
+kubectl get all
+clear
+kubectl create deploy mydeploy --image=nginx:latest --port=80
+kubectl get all
+kubectl delete po mydeploy-5b477bf648-blx7t
+kubectl get all
+kubectl delete po mydeploy-5b477bf648-fst5p
+kubectl get all
+claer
+clear
+kubectl get all
+kubectl create deploy mydeploy --image=nginx:latest --port=80 --dry-run=client -o yaml > mydeploy.yaml
+ls
+vi mydeploy.yaml 
+kubectl scale deploy mydeploy --replicas=0
+vi mydeploy.yaml 
+kubectl scale deploy mydeploy --replicas=0 -o yaml > mydeploy2.yaml
+ls
+vi mydeploy2.yaml 
+root@Master:/home/labsuser#
+kubectl get all
+  181  vi mydeploy.yaml 
+  182  kubectl apply -f mydeploy.yaml 
+  183  kubectl get all
+  184  vi mydeploy.yaml 
+  185  kubectl apply -f mydeploy.yaml 
+  186  kubectl get all
+  187  kubectl apply -f mydeploy.yaml 
+  188  history
+
+Date :- 11.5.2024
+HPA
+clear
+kubectl create deploy mydeploy --image=nginx:latest --port=80
+kubectl get all
+kubectl delete po first second name-second
+kubectl get all
+# AUTO SCALING
+kubectl autoscale deploy mydeploy --min=2 --max-10 --cpu-percent=80
+kubectl autoscale deploy mydeploy --min=2 --max=10 --cpu-percent=10
+kubectl get all
+kubectl get hpa
+kubectl autoscale deploy mydeploy --min=2 --max-10 --cpu-percent=86    ->error
+kubectl autoscale deploy mydeploy --min=2 --max=10  --cpu-percent=86
+kubectl get all
+kubectl get hpa 
+kubectl get hpa mydeploy --watch
+kubectl edit hpa 
+kubectl autoscale deploy mydeploy --min=2 --max-10 --cpu-percent=86
+kubectl autoscale deploy mydeploy --min=2 --max=10 --cpu-percent=86
+kubectl edit hpa 
+kubectl edit hpa mydeploy
+kubectl edit hpa mydeploy --cpu-percent=85
+kubectl top po
+kubectl get all
+kubectl top pod
+kubectl top pods
+kubectl edit hpa mydeploy
+kubectl get hpa
+kubectl get all
+history | cut -c 8-
+
+
+kubectl get nodes
+   68  kubectl get all
+   69  kubectl delete hpa mydeploy
+
+  ROLL BACK :
+https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#pausing-and-resuming-a-deployment
+Read the above documentation
+   70  kubectl get all
+   71  kubectl rollout status
+   72  kubectl rollout status deploy mydeploy
+   73  kubectl rollout history deploy mydeploy
+   74  kubectl rollout status
+   75  kubectl rollout history deploy mydeploy
+   76  kubectl scale deploy mydeploy --replicas=20
+   77  kubectl get all
+   78  kubectl describe po mydeploy-5b477bf648-7jzvs
+   79  kubectl set image deploy mydeploy nginx=nginx:1.8.1 --record
+   80  kubectl rollout status deploy mydeploy
+   81  kubectl get all
+   82  kubectl describe po mydeploy-6b7b846487-569n7
+   83  kubectl rollout history deploy mydeploy
+   84  kubectl set image deploy mydeploy nginx=nginx:1.9.1 --record
+   85  kubectl rollout status deploy mydeploy
+   86  kubectl get all
+   87  kubectl describe po mydeploy-
+   88  kubectl describe po mydeploy-5f69579954-xsglx
+   89  kubectl rollout history deploy mydeploy
+   90  kubectl rollout status deploy mydeploy
+   91  kubectl get all
+   92  kubectl rollout history deploy mydeploy
+   93  kubectl rollout undo deploy mydeploy
+   94  kubectl rollout history deploy mydeploy
+   95  kubectl rollout status deploy mydeploy
+   96  kubectl get all
+   97  kubectl describe po mydeploy-6b7b846487-twqv8
+   98  kubectl rollout history deploy mydeploy
+   99  kubectl rollout undo deploy mydeploy --revision=1
+  100  kubectl rollout undo deploy mydeploy --to-revision=1
+  101  kubectl rollout history deploy mydeploy
+  102  kubectl rollout status deploy mydeploy
+  103  kubectl get all
+  104  kubectl rollout status deploy mydeploy
+  105  k describe po mydeploy-5b477bf648-xwnpm
+  106  kubectl describe po mydeploy-5b477bf648-xwnpm
+  107  history
+  108  kubectl rollout history deploy mydeploy
+  109  kubectl rollout undo deploy mydeploy --to-revision=3
+  110  kubectl rollout history deploy mydeploy
+  111* kubectl ge
+  112  k describe po mydeploy-5f69579954-xtg8d 
+  113  kubectl describe po mydeploy-5f69579954-xtg8d 
