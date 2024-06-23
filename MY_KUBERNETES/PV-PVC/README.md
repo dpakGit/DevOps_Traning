@@ -7,6 +7,7 @@ Q) Can a PersistentVolumeClaim (PVC) in one namespace bonded to a PersistentVolu
 
 
 KODEKLOUD :- Pv and pvc in another namespace- why still binds?
+
 LINK : https://kodekloud.com/community/t/pv-and-pvc-in-another-namespace-why-still-binds/119119
 
 Namespace restrictionsMany Kubernetes resources are restricted to the namespace that they belong to. This limitation is true for PVCs, and for apps that are built based on the concept of shared resources, it poses a challenge. PersistentVolumes (PVs) that back PVCs, on the other hand, are cluster-scoped resources.
