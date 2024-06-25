@@ -1,3 +1,6 @@
+Resource Management for Pods and Containers
+link :- https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes
+
 I am trying to assign the following resources to a pod, using " resource " attribute.
 
 Q) CPU limits in pod.yaml is 0.2m, but when i describe the pod or node , in the output the CPU limits it is displaying 1m and not 2m.
