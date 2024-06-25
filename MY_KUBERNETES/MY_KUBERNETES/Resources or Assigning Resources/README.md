@@ -75,3 +75,22 @@ Alistair_KodeKloud.
 .....................................
 Kubernetes understands the unit u for micro, thus 200u = 0.2m, however I believe the minimum amount of CPU you can assign is 1m and that’s defined by the Linux kernel, so anything less than that will be rounded up.
 
+
+SOURCE : - GEMINI AI
+
+The reason you're seeing a CPU limit of 1m instead of the requested 0.2m in your pod description is due to Kubernetes rounding up resource requests and limits.
+
+Here's a breakdown of what's happening:
+
+Requested CPU: 0.2m (200 millicores) - This is the value you specified in your pod.yaml file.
+Rounding: Kubernetes rounds up resource requests and limits to the nearest whole millicore. In your case, 0.2m gets rounded up to 1m (1000 millicores).
+This rounding behavior applies to both CPU requests and limits. It's important to be aware of this when setting resource constraints for your pods.
+
+Here are some additional points to consider:
+
+Impact: While rounding up to the nearest millicore might seem insignificant, it can affect resource allocation, especially for clusters with limited CPU resources. If you have many pods requesting small CPU amounts, rounding up could lead to oversubscription and potential performance issues.
+Alternatives: There are a few ways to address this rounding issue:
+Request the exact amount: If precise control is crucial, you can request the exact amount of CPU needed by your pod (e.g., 0.2m). However, keep in mind that requesting too low a value might lead to pod scheduling failures if there aren't enough resources available.
+Over-request slightly: You can strategically request a slightly higher value than what your pod actually needs. This can help avoid scheduling issues due to rounding, but be mindful not to over-request significantly, as it can waste cluster resources.
+By understanding Kubernetes resource rounding behavior, you can make informed decisions when setting CPU requests and limits for your pods, ensuring efficient resource utilization and optimal pod performance.
+
