@@ -64,7 +64,7 @@ This is addressed in the docs: Note: Kubernetes doesn’t allow you to specify C
 
 
 
-This is addressed in the docs 1:
+This is addressed in the docs 1: (https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes)
 
 Note:
 Kubernetes doesn’t allow you to specify CPU resources with a precision finer than 1m or 0.001 CPU. To avoid accidentally using an invalid CPU quantity, it’s useful to specify CPU units using the milliCPU form instead of the decimal form when using less than 1 CPU unit.
