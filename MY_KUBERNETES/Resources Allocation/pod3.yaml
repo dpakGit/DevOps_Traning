@@ -1,5 +1,6 @@
+#  use the yaml file and see the difference when describing pod and the node on which it is created.
 apiVersion: v1
-kind: Pod
+kind: Pod  
 metadata:
   name: frontend
 spec:
