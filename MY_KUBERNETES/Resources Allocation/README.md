@@ -1,7 +1,7 @@
 Resource Management for Pods and Containers
 link :- https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes
 
- Understanding resource limits in kubernetes: cpu time ,Mark Betz + medium.com
+V.V. Imp -> Understanding resource limits in kubernetes: cpu time ,Mark Betz + medium.com (https://medium.com/@betz.mark/understanding-resource-limits-in-kubernetes-cpu-time-9eff74d3161b)
 Mark Betz
 Senior Devops Engineer at Olark, husband, father of three smart kids, two unruly dogs, and a resentful cat.
 
