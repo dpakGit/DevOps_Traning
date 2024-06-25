@@ -1,6 +1,11 @@
 Resource Management for Pods and Containers
 link :- https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes
 
+ Understanding resource limits in kubernetes: cpu time ,Mark Betz + medium.com
+Mark Betz
+Senior Devops Engineer at Olark, husband, father of three smart kids, two unruly dogs, and a resentful cat.
+
+
 Error :
 I am trying to assign the following resources to a pod, using " resource " attribute.
 
