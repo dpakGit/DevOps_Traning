@@ -103,3 +103,34 @@ Request the exact amount: If precise control is crucial, you can request the exa
 Over-request slightly: You can strategically request a slightly higher value than what your pod actually needs. This can help avoid scheduling issues due to rounding, but be mindful not to over-request significantly, as it can waste cluster resources.
 By understanding Kubernetes resource rounding behavior, you can make informed decisions when setting CPU requests and limits for your pods, ensuring efficient resource utilization and optimal pod performance.
 
+In the pod.yaml i used the following resource
+```````````````````
+resources:
+  requests:
+    memory: 50Mi
+    cpu: 50m
+  limits:
+    memory: 100Mi
+````````````````````````````
+k describe po nginx
+``````````````````````
+output :
+ Limits:
+      cpu:     100m
+      memory:  400M
+    Requests:
+      cpu:        50m
+      memory:     200M
+    cpu: 100m
+````````````````````````
+k describe  no node-2
+```````````````````````````````````````````````````````````````````````````````````````
+Output:
+
+ Namespace                   Name                                        CPU Requests  CPU Limits  Memory Requests  Memory Limits  Age
+  ---------                   ----                                        ------------  ----------  ---------------  -------------  ---
+  default                     nginx                                       50m (2%)      100m (5%)   200M (2%)        400M (4%)      4m20s
+````````````````````````````````````````````````````````````````````````````````````````````````````````````
+
+
+
