@@ -1,4 +1,4 @@
-#  use the yaml file and see the difference when describing pod and the node on which it is created.
+# This yamal file is copied from the kubernetes docs ,  use the yaml file and see the difference when describing pod and the node on which it is created.
 apiVersion: v1
 kind: Pod  
 metadata:
