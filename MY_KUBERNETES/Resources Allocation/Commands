@@ -1,0 +1,11 @@
+k get no
+k get po
+k run nginx --image=nginx --port=80  --dry-run=client -o yaml > pod.yaml
+vi pod.yaml 
+# Now add the Resource section
+ k apply -f pod.yaml 
+ k get po
+ k describe po nginx # check the request and limits 
+ k get no
+ k describe no < Node-name on which the pod is scheduled >
+
