@@ -1,4 +1,7 @@
 k apply -f pod2.yaml 
+
+Output: 
+
 Error from server (Forbidden): error when creating "pod2.yaml": pods "nginx-2" is forbidden: exceeded quota: myrq,  
 "requested": cpu=1m,memory=400M,
 "used": cpu=1m,memory=200M,
