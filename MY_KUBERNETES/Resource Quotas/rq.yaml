@@ -1,1 +1,10 @@
-
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: myrq
+  namespace: myns
+spec:
+  hard:
+    cpu: 1m # Also try or create another with increased cpu, lets take 2m. But before that delete this rq
+    memory: 500M
+    pods: 3
