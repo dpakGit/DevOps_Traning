@@ -1,1 +1,62 @@
-
+k get ns
+k create ns myns
+k get ns
+# CREATE RESOURCE QUOTA
+vi rq.yaml
+k apply -f rq.yaml 
+k get rq
+k get quota
+k get quota -n myns
+alias k=kubectl
+k get all
+k get ns
+k get po -n myns
+k get quota -n myns
+ls
+vi pod.yaml
+ls
+k apply pod.yaml 
+k apply -f pod.yaml 
+vi pod.yaml
+k apply -f pod.yaml 
+k get po 
+k get po -n myns
+k get quota -n myns
+vi pod
+vi pod.yaml 
+ls
+vi pod.yaml 
+vi pod2.yaml
+ls
+k apply -f pod2.yaml 
+alias k=kubectl
+k apply -f pod2.yaml 
+vi rq.yaml 
+k get rq -n myns
+k get quota -n myns
+k delete quota myrq -n myns
+k apply -f rq.yaml
+k get quota myrq -n myns
+vi rq.yaml 
+k get po -n myns
+k delete po nginx -n myns
+k delete po nginx-1 -n myns
+ls
+#     history copy from here
+k apply -f pod.yaml 
+k get po nginx-1 -n myns
+k apply -f pod2.yaml 
+# Output of the command "k apply -f pod2.yaml"   Error from server (Forbidden): error when creating "pod2.yaml": pods "nginx-2" is forbidden: exceeded quota: myrq, requested: memory=400M, used: memory=200M, limited: memory=500M
+vi pod.yaml 
+vi pod3.yaml
+k apply -f pod3.yaml 
+vi pod3.yaml
+k apply -f pod3.yaml 
+ls
+vi rq.yaml 
+vi pod.yaml 
+k get po -n myns
+k get po
+vi pod2.yaml 
+vi pod3.yaml 
+history | cut -c 8- 
