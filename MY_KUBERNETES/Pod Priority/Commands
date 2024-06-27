@@ -1,44 +1,16 @@
-k get all
-claer
+
 vi pc.yaml
-K apply -f pod.yaml
-alias k=kubectl
-K apply -f pod.yaml
-k apply -f pod.yaml
-k get po
-k get po -n ns
-k get po -n myns
-k delete  po -n myns
-k delete  po nginx -n myns
-k get po -n myns
-k delete  po nginx-1 -n myns
-k get po -n myns
-ls
-k apply -f pc.yaml 
-k api-resources
-vi pc.yaml 
+k apply -f pc.yaml
+
 # error: resource mapping not found for name: "high" namespace: "" from "pc.yaml": no matches for kind "PriorityClass" in version "v1"
 ensure CRDs are installed first
-k apply -f pc.yaml 
-k get pc
-ls
-alias k=kubectl
-k get all
-k get pc
-k get pv
-vi pod
-ls
-rm -rf pod
-ls
+
+k api-resources
+vi pc.yaml   # changed the API Version
+k apply -f pc.yaml
+k get po
+k get po -n myns
+k delete  po -n myns
+
 vi pod.yaml 
 k apply -f pod.yaml 
-k get po nginx-1
-k get po 
-vi pod.yaml 
-k apply -f pod.yaml 
-k get pod
-k get po nginx -n myns
-k get po nginx-1 -n myns
-# ACTUALLY I HAVE TO USE THE COMMAND k get po nginx-1 -n myns AS IT WAS CREATED IN THAT NS
-history | cut -c 8- 
-root@Master:/home/labsuser# 
