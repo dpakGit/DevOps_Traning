@@ -1,0 +1,16 @@
+k run database --image=nginx --port=80
+k run frontend --image=nginx --port=80
+k run backend --image=nginx --port=80
+k get po
+k get all
+k get all -o wide
+
+k exec -it frontend bash
+apt update && apt install iputils-ping -y
+ping 192.168.247.62 # <db pod IP>
+exit
+
+k exec -it backend bash
+apt update && apt install iputils-ping -y
+ping 192.168.247.62  # <db pod IP>
+exit
