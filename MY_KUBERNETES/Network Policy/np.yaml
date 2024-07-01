@@ -14,5 +14,3 @@ spec:
         matchLabels:
           role: frontend  # THIS ROLE MUST MATCH THE FRONTEND POD YAML ROLES/LABELS
 
-~                                                                                                                                                                             
-~                                    
