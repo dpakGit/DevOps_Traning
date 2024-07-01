@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: access-database
+spec:
+  podSelector:
+    matchLabels:
+      role: db # THIS ROLE MUST MATCH THE DATABASE POD YAML ROLES/LABELS , IF IT IS NOT THERE IT IS TO BE ADDED TO THE POD YAML ROLE 
+  policyTypes:
+    - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          role: frontend  # THIS ROLE MUST MATCH THE FRONTEND POD YAML ROLES/LABELS
+
+~                                                                                                                                                                             
+~                                    
