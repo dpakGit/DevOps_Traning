@@ -14,3 +14,25 @@ k exec -it backend bash
 apt update && apt install iputils-ping -y
 ping 192.168.247.62  # <db pod IP>
 exit
+
+k get po --show-labels
+vi np.yaml
+# Add Roles
+k label po database role=db
+k get po --show-labels
+k label po frontend role=frontend
+k get po --show-labels
+ls
+vi np.yaml
+k apply -f np.yaml 
+k get po -o wide
+k exec -it frontend bash
+apt update && apt install iputils-ping -y
+ping 192.168.247.62  # <db pod IP>
+k exec -it backend bash
+apt update && apt install iputils-ping -y
+ping 192.168.247.62  # <db pod IP>
+
+
+k get no
+k describe no master
