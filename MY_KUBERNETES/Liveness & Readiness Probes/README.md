@@ -3,4 +3,7 @@
 2. Increase Kubernetes Reliability: A Best Practices Guide for  **Readiness Probes** : https://www.fairwinds.com/blog/increase-kubernetes-reliability-a-best-practices-guide-for-readiness-probes
 
 3. Guide to Understanding Your Kubernetes **Liveness Probes** Best Practices : https://www.fairwinds.com/blog/a-guide-to-understanding-kubernetes-liveness-probes-best-practices#:~:text=Readiness%20probes%20enable%20developers%20to,containers.
+  
+4. Kubernetes __Readiness Probe__ – Guide & Examples (  ) :https://spacelift.io/blog/kubernetes-readiness-probe#how-to-configure-readiness-probes
+
 
