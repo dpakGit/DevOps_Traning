@@ -1,1 +1,15 @@
-
+Events:
+  Type     Reason          Age                      From               Message
+  ----     ------          ----                     ----               -------
+  Normal   Scheduled       3h26m                    default-scheduler  Successfully assigned default/nginx to node-2
+  Normal   Pulling         3h26m                    kubelet            Pulling image "nginx"
+  Normal   Pulled          3h26m                    kubelet            Successfully pulled image "nginx" in 569ms (569ms including waiting)
+  Normal   Created         3h26m                    kubelet            Created container nginx
+  Normal   Started         3h26m                    kubelet            Started container nginx
+  Warning  Unhealthy       3h21m (x152 over 3h26m)  kubelet            Readiness probe failed: Get "http://192.168.247.19:8090/": dial tcp 192.168.247.19:8090: connect: connection refused
+  Normal   SandboxChanged  19m (x2 over 20m)        kubelet            Pod sandbox changed, it will be killed and re-created.
+  Normal   Pulling         19m                      kubelet            Pulling image "nginx"
+  Normal   Pulled          19m                      kubelet            Successfully pulled image "nginx" in 1.25s (1.25s including waiting)
+  Normal   Created         19m                      kubelet            Created container nginx
+  Normal   Started         19m                      kubelet            Started container nginx
+  **Warning  Unhealthy       15s (x598 over 19m)      kubelet            Readiness probe failed: Get "http://192.168.247.20:8090/": dial tcp 192.168.247.20:8090: connect: connection refused**
