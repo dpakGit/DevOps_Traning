@@ -1,6 +1,7 @@
 
 
-__OUTPUT OF A FAILED REDINESS PROBE__
+  OUTPUT OF A FAILED REDINESS PROBE
+
 Events:
   Type     Reason          Age                      From               Message
   ----     ------          ----                     ----               -------
