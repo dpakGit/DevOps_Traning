@@ -12,4 +12,4 @@ Events:
   Normal   Pulled          19m                      kubelet            Successfully pulled image "nginx" in 1.25s (1.25s including waiting)
   Normal   Created         19m                      kubelet            Created container nginx
   Normal   Started         19m                      kubelet            Started container nginx
-  Warning  Unhealthy       15s (x598 over 19m)      kubelet          **Readiness probe failed: Get "http://192.168.247.20:8090/": dial tcp 192.168.247.20:8090: connect: connection refused**
+  Warning  Unhealthy       15s (x598 over 19m)      kubelet          **Readiness probe failed**: Get "http://192.168.247.20:8090/": dial tcp 192.168.247.20:8090: connect: connection refused
