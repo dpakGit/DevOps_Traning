@@ -3,16 +3,19 @@ vi ~/.kube/config
 cat ~/.kube/config # TO SEE THE CONTENTS OF A KUBECONFIG FILE
 
 1.  Create private key for new USER 
+
 openssl genrsa -out john.key 2048
 ls
 vi john.key 
 
 2.  Create a CertificateSigningRequest/CSR
+
 openssl req -new -key john.key -out john.csr -subj "/CN=john/O=examplegroup"
 ls
 vi john.csr 
 
 3.  Sign csr with CA certs
+
 openssl x509 -req -in john.csr -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key  -CAcreateserial -out john.crt
 ls
 vi john.crt 
@@ -21,15 +24,18 @@ ls -al
 pwd
 
 4.  Update/Add john certs in config file/ Set Credentials
+
 k config set-credentials john --client-certificate=/home/labsuser/john.crt --client-key=/home/labsuser/john.key 
 vi ~/.kube/config
 
 5.  Create context for new user
+
 k get all
 kubectl config set-context mycontext --user=john --cluster=kubernetes
 vi ~/.kube/config
 
 6.  Create role
+
 vi role.yaml
 ``````````````````````````````````````
 apiVersion: rbac.authorization.k8s.io/v1
@@ -46,14 +52,15 @@ kubectl apply -f role.yaml
 kubectl get role
 
 7. Create role binding
+
 kubectl create rolebinding myrolebinding --role=myrole --user=john
 kubectl get po
 ls
 
 8. SWITCH USER or Switch the context that we created for new user and validate
-```````````````````````````
+
 kubectl config use-context mycontext
-`````````````````````````````````````
+
 kubectl get po
 kubectk get deployment
 kubectl get ds
