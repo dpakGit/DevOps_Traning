@@ -7,12 +7,12 @@
 7. mv: Moves or renames files and directories.
 8. cp: Copies files and directories.
 9. touch: Creates an empty file or updates the access and modification times of existing file.
-10. find: Searches for files and directories in a directory hierarchy.
+10. **find**: Searches for files and directories in a directory hierarchy.
 11. ln: Creates links between files.
 12. gzip: Compresses files using the gzip algorithm.
 13. gunzip: Decompresses files compressed with gzip.
 14. tar: Archives files and directories into a single file, often used with compression.
-15. alias: Creates or lists aliases (shortcuts) for commands.
+15. **alias**: Creates or lists aliases (shortcuts) for commands.
 16. cat: Concatenates and displays the contents of files.
 17. less: Allows scrolling through the contents of files.
 18. tail: Outputs the last part of files.
