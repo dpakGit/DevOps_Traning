@@ -61,6 +61,7 @@ ls
 
 kubectl config use-context mycontext
 
+# see the output of the following commands :
 kubectl get po
 kubectk get deployment
 kubectl get ds
