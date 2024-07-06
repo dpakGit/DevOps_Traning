@@ -50,5 +50,6 @@
 51. uname: Prints system information.
 52. env: Displays the current environment or runs a program in a modified environment.
 53. printenv: Displays environment variables.
+54. **tree**: used to display the directory structure in a tree-like format
 
 
