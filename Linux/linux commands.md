@@ -1,9 +1,9 @@
 1. **man** : Displays the manual page for a given command.
-2. ls: Lists files and directories in the current directory.
-3. cd: Changes the current directory.
-4. pwd: Prints the current working directory.
-5. mkdir: Creates a new directory.
-6. rmdir: Removes an empty directory.
+2. **ls**: Lists files and directories in the current directory.
+3. **cd**: Changes the current directory.
+4. **pwd**: Prints the current working directory.
+5. **mkdir**: Creates a new directory.
+6. **rmdir**: Removes an empty directory.
 7. mv: Moves or renames files and directories.
 8. cp: Copies files and directories.
 9. touch: Creates an empty file or updates the access and modification times of existing file.
