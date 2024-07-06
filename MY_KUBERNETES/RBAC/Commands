@@ -1,0 +1,87 @@
+vi ~/.kube/config 
+cat ~/.kube/config # TO SEE THE CONTENTS OF A KUBECONFIG FILE
+
+# Create private key for new USER 
+openssl genrsa -out john.key 2048
+ls
+vi john.key 
+
+# Create a CertificateSigningRequest/CSR
+openssl req -new -key john.key -out john.csr -subj "/CN=john/O=examplegroup"
+ls
+vi john.csr 
+
+# Sign csr with CA certs
+openssl x509 -req -in john.csr -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key  -CAcreateserial -out john.crt
+ls
+vi john.crt 
+pwd
+ls -al
+pwd
+
+# Update/Add john certs in config file/ Set Credentials
+k config set-credentials john --client-certificate=/home/labsuser/john.crt --client-key=/home/labsuser/john.key 
+vi ~/.kube/config
+
+# Create context for new user
+k get all
+kubectl config set-context mycontext --user=john --cluster=kubernetes
+vi ~/.kube/config
+
+# Create role
+vi role.yaml
+``````````````````````````````````````
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+        name: myrole
+        namespace: default
+rules:
+    - apiGroups: [""]
+      resources: ["pods"]
+      verbs: ["list", "watch", "get"]
+````````````````````````````````````````````````
+kubectl apply -f role.yaml
+kubectl get role
+
+# Create role binding
+kubectl create rolebinding myrolebinding --role=myrole --user=john
+kubectl get po
+ls
+
+# SWITCH USER or Switch the context that we created for new user and validate
+kubectl config use-context mycontext
+kubectl get po
+kubectk get deployment
+kubectl get ds
+kubectl api-resources
+
+# MY PRACTICE
+
+# SWITCH TO ADMIN USER
+kubectl config use-context kubernetes-admin@kubernetes
+kubectl run nginx1 --image=nginx --port=80
+kubectl get po
+kubectk get deployment
+kubectl get ds
+k get role
+kubectl get role
+vi role.yaml 
+kubectl delete role myrole
+kubectl apply -f role.yaml 
+kubectl config use-context mycontext
+kubectl create ns myns
+vi role.yaml 
+k delete role my role
+kubectl delete role my role
+kubectl config use-context kubernetes-admin@kubernetes
+kubectl delete role myrole
+vi role.yaml 
+alias k=kubectl
+k apply -f role.yaml 
+kubectl config use-context mycontext
+k create ns myns
+kubectl run nginx2 --image=nginx --port=80
+k get po
+k get ns
+history | cut -c 8-
