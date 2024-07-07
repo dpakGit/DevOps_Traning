@@ -59,7 +59,7 @@ kubectl api-resources
 # MY PRACTICE
 
 # SWITCH TO ADMIN USER
-kubectl config use-context kubernetes-admin@kubernetes # Admin context name
+kubectl config use-context kubernetes-admin@kubernetes     # Admin context name -> kubernetes-admin@kubernetes
 kubectl run nginx1 --image=nginx --port=80
 kubectl get po
 kubectk get deployment
