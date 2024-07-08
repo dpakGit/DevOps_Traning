@@ -10,3 +10,7 @@ scroll down and read the following " How to issue a certificate for a user   "
 
 5.  **Role Based Access Control Good Practices** :https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 
+you can not manage a resource that is not part of any namespace with inherently namespaced Role/RoleBinding. Those can only be managed by ClusterRole/ClusterRoleBindings
+
+##**Cluster-Scoped Resources**
+Cluster-scoped resources are Kubernetes resources that are not namespaced. Cluster-scoped resources may be part of the Kubernetes cluster configuration or may be part of one or more applications. K10 can protect and restore cluster-scoped resources together with or separately from applications.
