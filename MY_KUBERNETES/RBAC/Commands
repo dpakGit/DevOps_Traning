@@ -126,3 +126,13 @@ Use "kubectl options" for a list of global command-line options (applies to all 
 `````````````````````````````````````````````````````````````````````````````````````````````````
 
 kubectl config current-context
+
+# shows all the resources, verbs and associated API-group.
+
+kubectl api-resources -o wide
+
+0
+
+you can not manage a resource that is not part of any namespace with inherently namespaced Role/RoleBinding. Those can only be managed by ClusterRole/ClusterRoleBindings
+Cluster-Scoped Resources
+Cluster-scoped resources are Kubernetes resources that are not namespaced. Cluster-scoped resources may be part of the Kubernetes cluster configuration or may be part of one or more applications. K10 can protect and restore cluster-scoped resources together with or separately from applications.
