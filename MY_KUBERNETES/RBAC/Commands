@@ -56,7 +56,7 @@ kubectk get deployment
 kubectl get ds
 kubectl api-resources
 
-# MY PRACTICE
+                                   # MY PRACTICE
 
 # SWITCH TO ADMIN USER
 kubectl config use-context kubernetes-admin@kubernetes     # Admin context name -> kubernetes-admin@kubernetes
