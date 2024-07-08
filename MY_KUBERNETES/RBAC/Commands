@@ -131,8 +131,69 @@ kubectl config current-context
 
 kubectl api-resources -o wide
 
-0
+ kubectl api-resources --namespaced #  -–namespaced only returns API resources that are namespaced
 
-you can not manage a resource that is not part of any namespace with inherently namespaced Role/RoleBinding. Those can only be managed by ClusterRole/ClusterRoleBindings
-Cluster-Scoped Resources
-Cluster-scoped resources are Kubernetes resources that are not namespaced. Cluster-scoped resources may be part of the Kubernetes cluster configuration or may be part of one or more applications. K10 can protect and restore cluster-scoped resources together with or separately from applications.
+````````Output`````````````````````````````````````````````````````````````````````````````````````````````````
+
+NAME                        SHORTNAMES   APIVERSION                     NAMESPACED   KIND
+bindings                                 v1                             true         Binding
+configmaps                  cm           v1                             true         ConfigMap
+endpoints                   ep           v1                             true         Endpoints
+events                      ev           v1                             true         Event
+limitranges                 limits       v1                             true         LimitRange
+persistentvolumeclaims      pvc          v1                             true         PersistentVolumeClaim
+pods                        po           v1                             true         Pod
+podtemplates                             v1                             true         PodTemplate
+replicationcontrollers      rc           v1                             true         ReplicationController
+resourcequotas              quota        v1                             true         ResourceQuota
+secrets                                  v1                             true         Secret
+serviceaccounts             sa           v1                             true         ServiceAccount
+services                    svc          v1                             true         Service
+controllerrevisions                      apps/v1                        true         ControllerRevision
+daemonsets                  ds           apps/v1                        true         DaemonSet
+deployments                 deploy       apps/v1                        true         Deployment
+replicasets                 rs           apps/v1                        true         ReplicaSet
+statefulsets                sts          apps/v1                        true         StatefulSet
+localsubjectaccessreviews                authorization.k8s.io/v1        true         LocalSubjectAccessReview
+horizontalpodautoscalers    hpa          autoscaling/v2                 true         HorizontalPodAutoscaler
+cronjobs                    cj           batch/v1                       true         CronJob
+jobs                                     batch/v1                       true         Job
+leases                                   coordination.k8s.io/v1         true         Lease
+networkpolicies                          crd.projectcalico.org/v1       true         NetworkPolicy
+networksets                              crd.projectcalico.org/v1       true         NetworkSet
+endpointslices                           discovery.k8s.io/v1            true         EndpointSlice
+events                      ev           events.k8s.io/v1               true         Event
+ingresses                   ing          networking.k8s.io/v1           true         Ingress
+networkpolicies             netpol       networking.k8s.io/v1           true         NetworkPolicy
+poddisruptionbudgets        pdb          policy/v1                      true         PodDisruptionBudget
+rolebindings                             rbac.authorization.k8s.io/v1   true         RoleBinding
+roles                                    rbac.authorization.k8s.io/v1   true         Role
+csistoragecapacities                     storage.k8s.io/v1              true         CSIStorageCapacity
+``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+
+
+ kubectl api-resources --help
+
+``````````````````````````````````````````````````````````````````````````````````````````````````````````````
+Print the supported API resources on the server.
+
+Examples:
+  # Print the supported API resources
+  kubectl api-resources
+  
+  # Print the supported API resources with more information
+  kubectl api-resources -o wide
+  
+  # Print the supported API resources sorted by a column
+  kubectl api-resources --sort-by=name
+  
+  # Print the supported namespaced resources
+    kubectl api-resources --namespaced=true
+  
+  # Print the supported non-namespaced resources
+  kubectl api-resources --namespaced=false
+  
+  # Print the supported API resources with a specific APIGroup
+  kubectl api-resources --api-group=rbac.authorization.k8s.io
+````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+
