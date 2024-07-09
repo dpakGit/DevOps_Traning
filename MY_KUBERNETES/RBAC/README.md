@@ -32,9 +32,10 @@ Roles and ClusterRoles have the same syntax. Each has a rules section, where you
 RoleBindings can link ClusterRoles, but they only grant access to the namespace of the RoleBinding. 
 ClusterRoleBindings link accounts to ClusterRoles and grant access across all resources.
 
-**Checking API access**
 
-https://kubernetes.io/docs/reference/access-authn-authz/authorization/
+
+## **Checking API access** : https://kubernetes.io/docs/reference/access-authn-authz/authorization/
+
 
 kubectl provides the auth can-i subcommand for quickly querying the API authorization layer. The command uses the SelfSubjectAccessReview API to determine if the current user can perform a given action, and works regardless of the authorization mode used.
 
