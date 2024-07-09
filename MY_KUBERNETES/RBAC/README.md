@@ -48,12 +48,12 @@ kubectl auth can-i create deployments --namespace prod
 `````````````````````````````````````````````````````````````
 The output is similar to this:
 
-no
+no`
 Administrators can combine this with user impersonation to determine what action other users can perform.
 
-```````````````````````````````````````````````````````````````
+``
 kubectl auth can-i list secrets --namespace dev --as dave
-````````````````````````````````````````````````````````````
+``
 The output is similar to this:
 
 no
