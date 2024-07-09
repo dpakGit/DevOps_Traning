@@ -34,7 +34,7 @@ ClusterRoleBindings link accounts to ClusterRoles and grant access across all re
 
 
 
-## **Checking API access** : https://kubernetes.io/docs/reference/access-authn-authz/authorization/
+### **Checking API access** : https://kubernetes.io/docs/reference/access-authn-authz/authorization/
 
 
 kubectl provides the auth can-i subcommand for quickly querying the API authorization layer. The command uses the SelfSubjectAccessReview API to determine if the current user can perform a given action, and works regardless of the authorization mode used.
