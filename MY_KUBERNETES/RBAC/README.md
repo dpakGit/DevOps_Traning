@@ -21,7 +21,7 @@ A Role always sets permissions within a particular namespace; when you create a 
 
 **What is the difference between a role and a ClusterRole?** :- https://cloud.google.com 
 
-## A Role defines access to resources within a single Namespace, while a ClusterRole defines access to resources in the entire cluster. 
+ ### A Role defines access to resources within a single Namespace, while a ClusterRole defines access to resources in the entire cluster. 
 Roles and ClusterRoles have the same syntax. Each has a rules section, where you define the resources the rule applies to and allowed operations for the Role.
 
 **Can we use RoleBinding with ClusterRole?** :- Learnk8s
