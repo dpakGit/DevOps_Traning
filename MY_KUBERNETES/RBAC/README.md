@@ -37,15 +37,19 @@ ClusterRoleBindings link accounts to ClusterRoles and grant access across all re
 https://kubernetes.io/docs/reference/access-authn-authz/authorization/
 
 kubectl provides the auth can-i subcommand for quickly querying the API authorization layer. The command uses the SelfSubjectAccessReview API to determine if the current user can perform a given action, and works regardless of the authorization mode used.
+
 ``
 kubectl auth can-i create deployments --namespace dev
 ``
+
 The output is similar to this:
 
 yes
+
 ``
 kubectl auth can-i create deployments --namespace prod
 ``
+
 The output is similar to this:
 
 no
@@ -55,9 +59,11 @@ Administrators can combine this with user impersonation to determine what action
 ``
 kubectl auth can-i list secrets --namespace dev --as dave
 ``
+
 The output is similar to this:
 
 no
+
 Similarly, to check whether a ServiceAccount named dev-sa in Namespace dev can list Pods in the Namespace target:
 
 ``
