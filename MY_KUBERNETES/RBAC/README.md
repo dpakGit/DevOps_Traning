@@ -14,3 +14,18 @@ you can not manage a resource that is not part of any namespace with inherently 
 
 ##**Cluster-Scoped Resources**
 Cluster-scoped resources are Kubernetes resources that are not namespaced. Cluster-scoped resources may be part of the Kubernetes cluster configuration or may be part of one or more applications. K10 can protect and restore cluster-scoped resources together with or separately from applications.
+ 
+ **Using RBAC Authorization-Kubernetes**  :- https://kubernetes.io › reference
+
+A Role always sets permissions within a particular namespace; when you create a Role, you have to specify the namespace it belongs in. ClusterRole, by contrast, is a non-namespaced resource.
+
+**What is the difference between a role and a ClusterRole?** :- https://cloud.google.com 
+
+## A Role defines access to resources within a single Namespace, while a ClusterRole defines access to resources in the entire cluster. 
+Roles and ClusterRoles have the same syntax. Each has a rules section, where you define the resources the rule applies to and allowed operations for the Role.
+
+**Can we use RoleBinding with ClusterRole?** :- Learnk8s
+
+
+RoleBindings can link ClusterRoles, but they only grant access to the namespace of the RoleBinding. 
+ClusterRoleBindings link accounts to ClusterRoles and grant access across all resources.
