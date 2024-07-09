@@ -1,3 +1,5 @@
+###  We can also define the term as Cluster Maintenance / Node Maintenance 
+
 **kubectl drain** :  https://kubernetes.io/docs/reference/kubectl/generated/kubectl_drain/
 
 **Safely Drain a Node** : https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
