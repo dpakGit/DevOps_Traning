@@ -133,6 +133,8 @@ FIELDS:
     kubectl explain role.rules.resourceNames
     ``
 
+    
+
     https://kubernetes.io/docs/reference/access-authn-authz/rbac/  (Use ctrl + f and search resourceNames in the page to read more about it )
 
 
