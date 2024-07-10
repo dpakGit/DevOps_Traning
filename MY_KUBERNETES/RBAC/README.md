@@ -76,3 +76,23 @@ kubectl auth can-i list pods \
 The output is similar to this:
 
 yes
+
+........................................................
+### **resourceNames Attribute**
+
+
+1. **Question to kodekloud** : 
+
+Role binding will allow user “DevUser” to read all the pods in the “development” namespace.
+
+Q) Suppose I have three Pods ( P1, P2, P3 ) running in the development namespace, how can i give permission to the User to access only two particular pods( P1 and P2 ) and deny access to the third pod ?
+
+https://kodekloud.com/community/t/role-based-access-control/461725
+
+Reply : As for your question: You can further restrict the role by actually naming the resourceNames of the pods you want the grant to apply to.
+
+2. https://stackoverflow.com/questions/65202615/proper-use-of-role-rules-resourcenames-for-creating-pods-with-limited-access-to
+
+3. https://stackoverflow.com/questions/62274122/kubernetes-rbac-roles-with-resourcename-and-listing-objects
+
+4. https://github.com/kubernetes/kubernetes/issues/56582
