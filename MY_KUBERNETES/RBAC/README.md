@@ -83,9 +83,9 @@ yes
 
 1. **Question to kodekloud** : 
 
-Role binding will allow user “DevUser” to read all the pods in the “development” namespace.
+  Q) Role binding will allow user “DevUser” to read all the pods in the “development” namespace.
 
-Q) Suppose I have three Pods ( P1, P2, P3 ) running in the development namespace, how can i give permission to the User to access only two particular pods( P1 and P2 ) and deny access to the third pod ?
+ Suppose I have three Pods ( P1, P2, P3 ) running in the development namespace, how can i give permission to the User to access only two particular pods( P1 and P2 ) and deny access to the third pod ?
 
 https://kodekloud.com/community/t/role-based-access-control/461725
 
@@ -96,3 +96,4 @@ Reply : As for your question: You can further restrict the role by actually nami
 3. https://stackoverflow.com/questions/62274122/kubernetes-rbac-roles-with-resourcename-and-listing-objects
 
 4. https://github.com/kubernetes/kubernetes/issues/56582
+   .........................................................................
