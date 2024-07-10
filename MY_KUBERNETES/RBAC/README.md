@@ -97,7 +97,7 @@ DESCRIPTION:
     rule applies to.
     
 FIELDS:
-**apiGroups**  <[]string>
+  apiGroups     <[]string>
     APIGroups is the name of the APIGroup that contains the resources.  If
     multiple API groups are specified, any action requested against one of the
     enumerated resources in any API group will be allowed. "" represents the
@@ -111,17 +111,18 @@ FIELDS:
     API resources (such as "pods" or "secrets") or non-resource URL paths (such
     as "/api"),  but not both.
 
-## **resourceNames** <[]string>
+  resourceNames <[]string>
     ResourceNames is an optional white list of names that the rule applies to.
     An empty set means that everything is allowed.
 
-**resources**     <[]string>
+  resources     <[]string>
     Resources is a list of resources this rule applies to. '*' represents all
     resources.
 
-**verbs** <[]string> -required-
+  verbs <[]string> -required-
     Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in
     this rule. '*' represents all verbs.
+
 
 
 1. **Question to kodekloud** : 
