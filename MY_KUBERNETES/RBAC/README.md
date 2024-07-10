@@ -129,6 +129,12 @@ FIELDS:
     Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in
     this rule. '*' represents all verbs.
 
+    ``
+    kubectl explain role.rules.resourceNames
+    ``
+
+    https://kubernetes.io/docs/reference/access-authn-authz/rbac/  (Use ctrl + f and search resourceNames in the page to read more about it )
+
 
 
 
