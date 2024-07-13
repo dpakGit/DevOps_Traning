@@ -151,3 +151,5 @@ vi values.yaml
 helm install myapp myapp/
 history | cut -c 8-
 root@Master:/home/labsuser/myapp# 
+
+helm install chart-myapp --generate-name
