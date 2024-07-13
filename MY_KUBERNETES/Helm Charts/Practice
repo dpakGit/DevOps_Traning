@@ -153,3 +153,22 @@ history | cut -c 8-
 root@Master:/home/labsuser/myapp# 
 
 helm install chart-myapp --generate-name
+
+
+helm uninstall chart-myapp
+kubectl get all
+kubectl delete deployment.apps/myapp service/myapp
+cd ..
+helm install chart-myapp --generate-name
+ls
+helm install chart-myapp 
+helm install chart-myapp --generate-name
+kubectl get all
+kubectl delete service/myapp
+helm uninstall chart-myapp-1720883885
+helm list
+helm uninstall chart-myapp-1720883556
+helm list
+helm uninstall myapp
+helm list
+history | cut -c 8-
