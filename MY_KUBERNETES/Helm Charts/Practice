@@ -172,3 +172,5 @@ helm list
 helm uninstall myapp
 helm list
 history | cut -c 8-
+
+helm install [release-name] [chart]
