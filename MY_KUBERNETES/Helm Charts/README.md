@@ -3,3 +3,5 @@ Simplify Application Deployment and Management with Helm Charts!  ( See the diag
 https://helm.sh/docs/
 
 Charts contain a Chart.yaml file as well as templates, default values (values.yaml), and dependencies.
+
+The Chart Best Practices Guide : https://v2-14-0.helm.sh/docs/chart_best_practices/
