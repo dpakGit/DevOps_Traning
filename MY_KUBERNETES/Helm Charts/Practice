@@ -1,0 +1,153 @@
+# Date : 13.7.2024
+helm
+snap install helm
+snap install helm --classic
+helm
+helm version
+helm create myapp
+ls
+cd myapp/
+ls
+vi Chart.yaml 
+vi values.yaml 
+cd charts/
+ls
+cd ..
+cd templates/
+ls
+vi deployment.yaml 
+cd ..
+ls
+rm -rf charts
+ls
+rm values.yaml 
+rm -rf *
+ls
+cd ..
+ls
+rm -rf myapp/
+ls
+helm create myapp
+ls
+cd myapp/
+ls
+rm -rf charts/
+rm values.yaml 
+cd templates/
+ls
+rm -rf *
+ls
+cd ..
+ls
+cd ..
+ls
+alias k=kubectl
+k get all
+k create deploy mydeploy --image=nginx --port=80 --replicas=5 -o yaml > deploy.yaml
+ls
+cd myapp/
+ls
+pwd
+cd .
+cd ..
+pwd
+ls
+cd myapp/
+cp ~/deploy.yaml .
+cd ..
+pwd
+exit
+ls
+pwd 
+cd myapp/
+ls
+cp /home/labsuser/deploy.yaml .
+ls
+vi deploy.yaml 
+cd ..
+ls
+vi deploy.yaml 
+k create deploy mydeploy --image=nginx --port=80 --replicas=5 -o yaml > deploy.yaml
+alias k=kubectl
+k create deploy mydeploy --image=nginx --port=80 --replicas=5 -o yaml > deploy.yaml
+k create deploy mydeploy --image=nginx --port=80 --replicas=5 --dry-run=client -o yaml > deploy.yaml
+ls
+vi deploy.yaml 
+cd myapp/
+ls
+rm deploy.yaml 
+ls
+vi deploy.yaml 
+cd ..
+pwd
+ls
+vi test.yaml
+cp ./test.yaml  /home/labsuser/myapp/
+cd myapp/
+ls
+rm test.yaml 
+ls
+vi deploy.yaml 
+ls
+vi values.yaml
+pwd
+pwd
+k expose po nginx --name mysvc --type=NodePort --port=80 --target-port=80  -o yaml > service.yaml
+k get all
+kubectl create service nodeport my-ns --tcp=5678:8080 -o yaml > service.yaml
+ls
+pwd
+cd myapp/
+ls
+cp /home/labsuser/service.yaml .
+ls
+vi service.yaml 
+cd ..
+kubectl create service nodeport my-ns --tcp=5678:8080 -o yaml > service.yaml --dry-run=client
+ls
+vi service.yaml 
+cp ./service.yaml /home/labsuser/myapp
+cd myapp/
+ls
+vi service.yaml 
+vi values.yaml
+vi service.yaml 
+vi deploy.yaml 
+vi service.yaml 
+ls
+cp ./service.yaml  templates/
+cd templates/
+ls
+mv /home/labsuser/myapp/deploy.yaml .
+ls
+vi deploy.yaml 
+vi service.yaml 
+cd ../..
+pwd
+helm template myapp myapp/
+k get all
+k delete deploy mydeploy 
+k delete service my-ns
+k get all
+helm list
+helm install myapp myapp/
+helm list
+k get all
+vi values.yaml
+ls
+k get no -o wide
+curl 172.31.18.174:31404
+ls
+cd myapp/
+ls
+vi service.yaml 
+cd templates/
+ls
+vi deploy.yaml 
+ls
+cd myapp/
+ls
+vi values.yaml 
+helm install myapp myapp/
+history | cut -c 8-
+root@Master:/home/labsuser/myapp# 
