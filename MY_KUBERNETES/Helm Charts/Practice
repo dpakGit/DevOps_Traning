@@ -210,9 +210,70 @@ vi service.yaml
 cd ..
 helm list
 cd ..
+
+helm template  mychart/
+
+or
+
+helm template myapp mychart/ # name given by us is myapp this can be anything
+
+output :.........................................................
+---
+# Source: mychart/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: myapp
+  name: myapp
+spec:
+  ports:
+  - name: myapp
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: myapp
+  type: NodePort
+status:
+  loadBalancer: {}
+---
+# Source: mychart/templates/deploy.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: myapp
+  name: myapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: myapp
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - image: nginx:latest
+        name: myapp
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}
+
+...................................................................................................
+
 helm install release-name mychart/
 helm list
 kubectl get all
 kubectl get no -o wide
 curl 172.31.18.174:31271  # THE ABOVE COMMAND WILL DISPLAY THE NGINX PAGE
+
+
 
