@@ -137,6 +137,7 @@ vi values.yaml
 ls
 k get no -o wide
 curl 172.31.18.174:31404
+................................................................................................
 ls
 cd myapp/
 ls
@@ -174,3 +175,44 @@ helm list
 history | cut -c 8-
 
 helm install [release-name] [chart]
+
+............................................................................................................................
+
+# DATE : 14. 7 . 2024
+#  HELM PRACTICE
+helm
+helm version
+helm create mychart
+ls
+cd mychart/
+ls
+cd charts/
+ls
+cd ..
+rm -rf charts/
+ls
+cd templates/
+ls
+rm -rf *
+ls
+cd ..
+rm values.yaml 
+ls
+cd templates/
+vi deploy.yaml
+vi service.yaml
+cd ..
+values.yaml
+vi values.yaml
+cd templates/
+ls
+vi service.yaml 
+cd ..
+helm list
+cd ..
+helm install release-name mychart/
+helm list
+kubectl get all
+kubectl get no -o wide
+curl 172.31.18.174:31271  # THE ABOVE COMMAND WILL DISPLAY THE NGINX PAGE
+
