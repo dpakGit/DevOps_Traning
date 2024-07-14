@@ -6,7 +6,7 @@ Charts contain a Chart.yaml file as well as templates, default values (values.ya
 
 The Chart Best Practices Guide : https://v2-14-0.helm.sh/docs/chart_best_practices/
 
-#### Create Your First Helm Chart ( VMWARE ): https://docs.vmware.com/en/VMware-Tanzu-Application-Catalog/services/tutorials/GUID-create-first-helm-chart-index.html
+#### Create Your First Helm Chart ( VMWARE ): https://docs.vmware.com/en/VMware-Tanzu-Application-Catalog/services/tutorials/GUID-create-first-helm-chart-index.html (use the digram to do a project on helm)
 
 
 
