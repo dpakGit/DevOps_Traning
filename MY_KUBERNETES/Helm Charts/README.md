@@ -9,7 +9,7 @@ The Chart Best Practices Guide : https://v2-14-0.helm.sh/docs/chart_best_practic
 #### Create Your First Helm Chart ( VMWARE ): https://docs.vmware.com/en/VMware-Tanzu-Application-Catalog/services/tutorials/GUID-create-first-helm-chart-index.html (use the digram to do a project on helm)
 
 
-### **Helm Install Cmmand**
+### **Helm Install Command**
 
 
 Helm is a package manager for Kubernetes, and the `helm install` command is used to install a chart (a packaged application) into a Kubernetes cluster.
