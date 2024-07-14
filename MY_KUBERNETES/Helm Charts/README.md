@@ -8,3 +8,6 @@ The Chart Best Practices Guide : https://v2-14-0.helm.sh/docs/chart_best_practic
 
 #### Create Your First Helm Chart ( VMWARE ): https://docs.vmware.com/en/VMware-Tanzu-Application-Catalog/services/tutorials/GUID-create-first-helm-chart-index.html
 
+![Screenshot 2024-07-14 124256](https://github.com/user-attachments/assets/6c997769-339e-4070-b2a5-76710faaee5c)
+
+
