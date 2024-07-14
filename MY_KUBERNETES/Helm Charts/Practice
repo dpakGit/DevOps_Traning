@@ -275,5 +275,21 @@ kubectl get all
 kubectl get no -o wide
 curl 172.31.18.174:31271  # THE ABOVE COMMAND WILL DISPLAY THE NGINX PAGE
 
+RUN ANOTHER MICRO SERVICE " your app "
+
+cp -R mychart/ yourchart
+ls
+cd yourchart/
+ls
+vi values.yaml 
+vi Chart.yaml 
+cd ..
+helm template yourchart/
+helm install your-release yourchart/
+helm list
+kubectl get all
+kubectl get no -o wide
+curl 172.31.18.174:30219
+
 
 
