@@ -327,5 +327,26 @@ helm upgrade your-release yourchart/
 kubectl get all
 
 
+kubectl get all
+# Delete older stuffs
+helm list
+helm uninstall your-release
+helm list
+helm install my-release oci://registry-1.docker.io/bitnamicharts/mysql
+helm list
+kubectl get all
+kubectl describe po pod/my-release-mysql-0
+kubectl describe pod/my-release-mysql-0
+kubectl get pvc
+kubectl get pv
+kubectl unbound pv safari-pv
+kubectl delete pvc project-tiger/safari-pvc
+kubectl delete pvc safari-pvc
+kubectl get pv
+ls
+helm list
+cd mysql-11.1.9
+
+
 
 
