@@ -292,4 +292,40 @@ kubectl get no -o wide
 curl 172.31.18.174:30219
 
 
+# DATE : 15.7.2024
+ls
+vi mychart/values.yaml 
+helm list
+ helm upgrade release-name mychart/
+
+Output:.........................
+Release "release-name" has been upgraded. Happy Helming!
+NAME: release-name
+LAST DEPLOYED: Mon Jul 15 13:19:16 2024
+NAMESPACE: default
+STATUS: deployed
+REVISION: 2
+TEST SUITE: None
+...............................................
+helm list
+kubectl get all
+kubectl get po
+kubectl describe po myapp-766cdd4648-4c8vf 
+
+helm uninstall RELEASE_NAME [...] [flags]
+
+Use the '--dry-run' flag to see which releases will be uninstalled without actually uninstalling them.
+
+helm list
+helm uninstall release-name
+helm list
+kubectl get all
+
+vi yourchart/values.yaml 
+helm list
+helm upgrade your-release yourchart/
+kubectl get all
+
+
+
 
