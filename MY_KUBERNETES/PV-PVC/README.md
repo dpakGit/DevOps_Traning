@@ -29,3 +29,6 @@ Use namespaces appropriately: Organize your PVs and PVCs within namespaces based
 Specify both claimRef and volumeName in PVs: While optional, specifying both claimRef (referencing the desired PVC) and volumeName in the PV definition ensures the PV binds only to the intended PVC, even if there are PVCs with the same name in other namespaces.
 Consider storage classes: Leverage Storage Classes to define provisioning rules and access modes for PVs, further restricting access based on namespaces.
 For shared storage scenarios across namespaces with certain storage providers (like NFS with ReadWriteMany access mode), you can create multiple PVs referencing the same underlying storage and use them with separate PVCs in different namespaces. But be cautious about potential data inconsistencies when multiple Pods write to the shared storage.
+
+
+**Reclaiming Persistent Volumes in Kubernetes** : https://medium.com/building-the-open-data-stack/reclaiming-persistent-volumes-in-kubernetes-5e035ba8c770
