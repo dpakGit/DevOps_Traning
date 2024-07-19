@@ -1,0 +1,56 @@
+root@Master:/home/labsuser# kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.1/aio/deploy/recommended.yaml
+
+OUTPUT : -.....................................................
+namespace/kubernetes-dashboard unchanged
+
+serviceaccount/kubernetes-dashboard unchanged
+
+service/kubernetes-dashboard created
+
+secret/kubernetes-dashboard-certs unchanged
+
+secret/kubernetes-dashboard-csrf unchanged
+
+secret/kubernetes-dashboard-key-holder unchanged
+
+configmap/kubernetes-dashboard-settings unchanged
+
+role.rbac.authorization.k8s.io/kubernetes-dashboard unchanged
+
+clusterrole.rbac.authorization.k8s.io/kubernetes-dashboard unchanged
+
+rolebinding.rbac.authorization.k8s.io/kubernetes-dashboard unchanged
+
+clusterrolebinding.rbac.authorization.k8s.io/kubernetes-dashboard unchanged
+
+deployment.apps/kubernetes-dashboard created
+
+service/dashboard-metrics-scraper created
+
+Warning: spec.template.metadata.annotations[seccomp.security.alpha.kubernetes.io/pod]: non-functional in v1.27+; use the "seccompProfile" field instead
+deployment.apps/dashboard-metrics-scraper created
+root@Master:/home/labsuser# 
+.........................................................................
+
+root@Master:/home/labsuser# kubectl get all -n kubernetes-dashboard
+
+NAME                                             READY   STATUS    RESTARTS   AGE
+pod/dashboard-metrics-scraper-856cb79ffb-55mnx   1/1     Running   0          3m38s
+pod/kubernetes-dashboard-6bf75d85b9-snwkw        1/1     Running   0          3m38s
+
+NAME                                TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+service/dashboard-metrics-scraper   ClusterIP   10.107.52.42     <none>        8000/TCP   3m38s
+service/kubernetes-dashboard        ClusterIP   10.102.241.140   <none>        443/TCP    3m38s
+
+NAME                                        READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/dashboard-metrics-scraper   1/1     1            1           3m38s
+deployment.apps/kubernetes-dashboard        1/1     1            1           3m38s
+
+NAME                                                   DESIRED   CURRENT   READY   AGE
+replicaset.apps/dashboard-metrics-scraper-856cb79ffb   1         1         1       3m38s
+replicaset.apps/kubernetes-dashboard-6bf75d85b9        1         1         1       3m38s
+root@Master:/home/labsuser# 
+
+
+
+
