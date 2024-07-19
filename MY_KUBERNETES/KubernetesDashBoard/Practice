@@ -1,6 +1,10 @@
-root@Master:/home/labsuser# kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.1/aio/deploy/recommended.yaml
+# DATE : 19.7.2024     KUBERNETES DASHBOARD PRACTICE
+
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.1/aio/deploy/recommended.yaml
 
 OUTPUT : -.....................................................
+
 namespace/kubernetes-dashboard unchanged
 
 serviceaccount/kubernetes-dashboard unchanged
@@ -29,10 +33,13 @@ service/dashboard-metrics-scraper created
 
 Warning: spec.template.metadata.annotations[seccomp.security.alpha.kubernetes.io/pod]: non-functional in v1.27+; use the "seccompProfile" field instead
 deployment.apps/dashboard-metrics-scraper created
-root@Master:/home/labsuser# 
+
 .........................................................................
 
-root@Master:/home/labsuser# kubectl get all -n kubernetes-dashboard
+kubectl get all
+kubectl get all -n kubernetes-dashboard
+
+OUTPUT : -.....................................................
 
 NAME                                             READY   STATUS    RESTARTS   AGE
 pod/dashboard-metrics-scraper-856cb79ffb-55mnx   1/1     Running   0          3m38s
@@ -49,25 +56,20 @@ deployment.apps/kubernetes-dashboard        1/1     1            1           3m3
 NAME                                                   DESIRED   CURRENT   READY   AGE
 replicaset.apps/dashboard-metrics-scraper-856cb79ffb   1         1         1       3m38s
 replicaset.apps/kubernetes-dashboard-6bf75d85b9        1         1         1       3m38s
-root@Master:/home/labsuser# 
-
-
-# DATE : 19 .7. 2024
-KUBERNETES DASHBOARD PRACTICE
-# KUBERNETES DASHBOARD PRACTICE
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.1/aio/deploy/recommended.yaml
-kubectl get all
-kubectl get all -n kubernetes-dashboard
 kubectl get po -n kubernetes-dashboard
 kubectl get deploy -n kubernetes-dashboard
 kubectl get svc -n kubernetes-dashboard
 kubectl edit svc -n kubernetes-dashboard kubernetes-dashboard # EDIT kubernetes-dashboard SVC TO ACCESS THE DASHBOARD FROM OUTSIDE
 kubectl get all -n kubernetes-dashboard
+
+
 # How to install Chrome browser properly via command line?  : - https://askubuntu.com/questions/79280/how-to-install-chrome-browser-properly-via-command-line
+
 sudo apt-get install libxss1 libappindicator1 libindicator7
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome*.deb
 sudo apt-get install -f
+
 k get no -o wide
 vi cr.yaml
 k apply -f cr.yaml 
