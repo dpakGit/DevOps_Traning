@@ -1,3 +1,5 @@
+file:///C:/Users/dpakm/AppData/Local/Temp/6f098ca3-1e3a-4076-b797-caa0f2711c50_Practices_Nov.zip.c50/Assisted_Practices/Lesson_03_Kubernetes_Cluster/PDF/07_Backing_Up_and_Restoring_Etcd_Cluster_Data.pdf
+
 Backup and restore etcd cluster on Kubernetes : https://medium.com/@mehmetodabashi/backup-and-restore-etcd-cluster-on-kubernetes-93c19b1c070
 
 
