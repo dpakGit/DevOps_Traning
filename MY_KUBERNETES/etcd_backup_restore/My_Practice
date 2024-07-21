@@ -1,0 +1,310 @@
+root@Master:/home/labsuser# # We can retrieve information regarding the endpoints with the following command:
+
+root@Master:/home/labsuser# kubectl describe po etcd-master -n kube-system
+Name:                 etcd-master
+Namespace:            kube-system
+Priority:             2000001000
+Priority Class Name:  system-node-critical
+Node:                 master/172.31.20.142
+Start Time:           Sun, 21 Jul 2024 13:09:05 +0000
+Labels:               component=etcd
+                      tier=control-plane
+Annotations:          kubeadm.kubernetes.io/etcd.advertise-client-urls: https://172.31.20.142:2379
+                      kubernetes.io/config.hash: 1d42acec0be01951d30f1f7921b7607e
+                      kubernetes.io/config.mirror: 1d42acec0be01951d30f1f7921b7607e
+                      kubernetes.io/config.seen: 2024-06-05T18:21:22.527380616Z
+                      kubernetes.io/config.source: file
+Status:               Running
+SeccompProfile:       RuntimeDefault
+IP:                   172.31.20.142
+IPs:
+  IP:           172.31.20.142
+Controlled By:  Node/master
+Containers:
+  etcd:
+    Container ID:  containerd://8b7c45e69f0c1eee49d5fcf1bba1039e1fda4c570ad4edb5c5764c01a155654b
+    Image:         registry.k8s.io/etcd:3.5.9-0
+    Image ID:      registry.k8s.io/etcd@sha256:e013d0d5e4e25d00c61a7ff839927a1f36479678f11e49502b53a5e0b14f10c3
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      etcd
+      --advertise-client-urls=https://172.31.20.142:2379
+      --cert-file=/etc/kubernetes/pki/etcd/server.crt
+      --client-cert-auth=true
+      --data-dir=/var/lib/etcd
+      --experimental-initial-corrupt-check=true
+      --experimental-watch-progress-notify-interval=5s
+      --initial-advertise-peer-urls=https://172.31.20.142:2380
+      --initial-cluster=master=https://172.31.20.142:2380
+      --key-file=/etc/kubernetes/pki/etcd/server.key
+      --listen-client-urls=https://127.0.0.1:2379,https://172.31.20.142:2379
+      --listen-metrics-urls=http://127.0.0.1:2381
+      --listen-peer-urls=https://172.31.20.142:2380
+      --name=master
+      --peer-cert-file=/etc/kubernetes/pki/etcd/peer.crt
+      --peer-client-cert-auth=true
+      --peer-key-file=/etc/kubernetes/pki/etcd/peer.key
+      --peer-trusted-ca-file=/etc/kubernetes/pki/etcd/ca.crt
+      --snapshot-count=10000
+      --trusted-ca-file=/etc/kubernetes/pki/etcd/ca.crt
+    State:          Running
+      Started:      Sun, 21 Jul 2024 13:09:08 +0000
+    Last State:     Terminated
+      Reason:       Unknown
+      Exit Code:    255
+      Started:      Sun, 21 Jul 2024 08:21:41 +0000
+      Finished:     Sun, 21 Jul 2024 13:09:03 +0000
+    Ready:          True
+    Restart Count:  54
+    Requests:
+      cpu:        100m
+      memory:     100Mi
+    Liveness:     http-get http://127.0.0.1:2381/health%3Fexclude=NOSPACE&serializable=true delay=10s timeout=15s period=10s #success=1 #failure=8
+    Startup:      http-get http://127.0.0.1:2381/health%3Fserializable=false delay=10s timeout=15s period=10s #success=1 #failure=24
+    Environment:  <none>
+    Mounts:
+      /etc/kubernetes/pki/etcd from etcd-certs (rw)
+      /var/lib/etcd from etcd-data (rw)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  etcd-certs:
+    Type:          HostPath (bare host directory volume)
+    Path:          /etc/kubernetes/pki/etcd
+    HostPathType:  DirectoryOrCreate
+  etcd-data:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/lib/etcd
+    HostPathType:  DirectoryOrCreate
+QoS Class:         Burstable
+Node-Selectors:    <none>
+Tolerations:       :NoExecute op=Exists
+Events:
+  Type     Reason          Age    From     Message
+  ----     ------          ----   ----     -------
+  Normal   SandboxChanged  23h    kubelet  Pod sandbox changed, it will be killed and re-created.
+  Normal   Pulled          23h    kubelet  Container image "registry.k8s.io/etcd:3.5.9-0" already present on machine
+  Normal   Created         23h    kubelet  Created container etcd
+  Normal   Started         23h    kubelet  Started container etcd
+  Warning  Unhealthy       23h    kubelet  Startup probe failed: Get "http://127.0.0.1:2381/health?serializable=false": dial tcp 127.0.0.1:2381: connect: connection refused
+  Normal   SandboxChanged  6h12m  kubelet  Pod sandbox changed, it will be killed and re-created.
+  Normal   Pulled          6h12m  kubelet  Container image "registry.k8s.io/etcd:3.5.9-0" already present on machine
+  Normal   Created         6h12m  kubelet  Created container etcd
+  Normal   Started         6h12m  kubelet  Started container etcd
+  Normal   SandboxChanged  4h56m  kubelet  Pod sandbox changed, it will be killed and re-created.
+  Normal   Pulled          4h56m  kubelet  Container image "registry.k8s.io/etcd:3.5.9-0" already present on machine
+  Normal   Created         4h56m  kubelet  Created container etcd
+  Normal   Started         4h56m  kubelet  Started container etcd
+  Normal   SandboxChanged  8m43s  kubelet  Pod sandbox changed, it will be killed and re-created.
+  Normal   Pulled          8m42s  kubelet  Container image "registry.k8s.io/etcd:3.5.9-0" already present on machine
+  Normal   Created         8m42s  kubelet  Created container etcd
+  Normal   Started         8m41s  kubelet  Started container etcd
+root@Master:/home/labsuser# 
+root@Master:/home/labsuser# 
+root@Master:/home/labsuser# 
+root@Master:/home/labsuser# # Take Backup or Run the snapshot save command using etcdctl
+root@Master:/home/labsuser# ETCDCTL_API etcdctl --endpoints=https://172.31.20.142:2379 --cacert /etc/kubernetes/pki/etcd/ca.crt --key /etc/kubernetes/pki/etcd/server.key --cert /etc/kubernetes/pki/etcd/server.crt snapshot save etcd_backup.db
+ETCDCTL_API: command not found
+root@Master:/home/labsuser# ETCDCTL_API=3 etcdctl --endpoints=https://172.31.20.142:2379 --cacert /etc/kubernetes/pki/etcd/ca.crt --key /etc/kubernetes/pki/etcd/server.key --cert /etc/kubernetes/pki/etcd/server.crt snapshot save etcd_backup.db
+2024-07-21 13:32:10.322772 I | clientv3: opened snapshot stream; downloading
+2024-07-21 13:32:10.519257 I | clientv3: completed snapshot read; closing
+Snapshot saved at etcd_backup.db
+root@Master:/home/labsuser# kubectl get all
+NAME                        READY   STATUS    RESTARTS      AGE
+pod/demo-5f7bb54887-2nb2l   1/1     Running   3 (25m ago)   23h
+pod/demo-5f7bb54887-8hrgb   1/1     Running   3 (25m ago)   23h
+pod/demo-5f7bb54887-8t4rd   1/1     Running   3 (25m ago)   23h
+pod/demo-5f7bb54887-rql9c   1/1     Running   3 (25m ago)   23h
+pod/demo-5f7bb54887-vlnwj   1/1     Running   3 (25m ago)   23h
+
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   45d
+
+NAME                   READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/demo   5/5     5            5           23h
+
+NAME                              DESIRED   CURRENT   READY   AGE
+replicaset.apps/demo-5f7bb54887   5         5         5       23h
+root@Master:/home/labsuser# kubectl delete deploy demo
+deployment.apps "demo" deleted
+root@Master:/home/labsuser# kubectl get all
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   45d
+root@Master:/home/labsuser# # Deloyment demo deleted along with its associated pods
+root@Master:/home/labsuser# kubectl run pod  --image=nginx --port=80
+pod/pod created
+root@Master:/home/labsuser# k get all
+k: command not found
+root@Master:/home/labsuser# kubectl get all
+NAME      READY   STATUS    RESTARTS   AGE
+pod/pod   1/1     Running   0          10s
+
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   45d
+root@Master:/home/labsuser# # Verify the backup
+root@Master:/home/labsuser# ETCDCTL_API=3 etcdctl --endpoints=https://172.31.20.142:2379 --cacert /etc/kubernetes/pki/etcd/ca.crt --key /etc/kubernetes/pki/etcd/server.key --cert /etc/kubernetes/pki/etcd/server.crt --write-out=table snapshot status etcd_backup.db
++----------+----------+------------+------------+
+|   HASH   | REVISION | TOTAL KEYS | TOTAL SIZE |
++----------+----------+------------+------------+
+| 8044cfd2 |   343246 |       1874 |     9.4 MB |
++----------+----------+------------+------------+
+root@Master:/home/labsuser# 
+root@Master:/home/labsuser# 
+root@Master:/home/labsuser# 
+root@Master:/home/labsuser# # Restoring etcd from the snapshot
+root@Master:/home/labsuser# ETCDCTL_API=3 etcdctl --endpoints=https://172.31.20.142:2379 --cacert /etc/kubernetes/pki/etcd/ca.crt --key /etc/kubernetes/pki/etcd/server.key --cert /etc/kubernetes/pki/etcd/server.crt snapshot restore etcd_backup.db
+2024-07-21 13:40:58.896613 I | mvcc: restore compact to 342540
+2024-07-21 13:40:58.913181 I | etcdserver/membership: added member 8e9e05c52164694d [http://localhost:2380] to cluster cdf818194e3a8c32
+root@Master:/home/labsuser# 
+root@Master:/home/labsuser# 
+root@Master:/home/labsuser# ls
+DCV-Storage  Pictures            Videos                               default.etcd                            john.csr       role1.yaml
+Desktop      Public              cni-plugins-linux-amd64-v1.1.1.tgz   deploy.yaml                             john.key       runc.amd64
+Documents    Role_Binding.yaml   containerd-1.6.8-linux-amd64.tar.gz  etcd_backup.db                          mychart        service.yaml
+Downloads    Role_Binding2.yaml  cr.yaml                              google-chrome-stable_current_amd64.deb  pod-test.yaml  snap
+Music        Templates           crb.yaml                             john.crt                                role.yaml      yourchart
+root@Master:/home/labsuser# # Folder default.etcd created
+root@Master:/home/labsuser# kubectl get po
+NAME   READY   STATUS    RESTARTS   AGE
+pod    1/1     Running   0          5m58s
+root@Master:/home/labsuser# pwd
+/home/labsuser
+root@Master:/home/labsuser# # Change ownership of default.etcd
+root@Master:/home/labsuser# stat -c %U:%G /var/lib/etcd    
+root:root
+root@Master:/home/labsuser# ls -al default.etcd/
+total 12
+drwx------  3 root     root     4096 Jul 21 13:40 .
+drwxr-x--- 22 labsuser labsuser 4096 Jul 21 13:40 ..
+drwx------  4 root     root     4096 Jul 21 13:40 member
+root@Master:/home/labsuser# chown -R root:root /var/lib/etcd/
+root@Master:/home/labsuser# ls -al default.etcd/
+total 12
+drwx------  3 root     root     4096 Jul 21 13:40 .
+drwxr-x--- 22 labsuser labsuser 4096 Jul 21 13:40 ..
+drwx------  4 root     root     4096 Jul 21 13:40 member
+root@Master:/home/labsuser# # Health Check
+root@Master:/home/labsuser# ETCDCTL_API=3 etcdctl endpoint health --endpoints=https://172.31.20.142:2379 --cacert /etc/kubernetes/pki/etcd/ca.crt --key /etc/kubernetes/pki/etcd/server.key --cert /etc/kubernetes/pki/etcd/server.crt
+https://172.31.20.142:2379 is healthy: successfully committed proposal: took = 7.947843ms
+root@Master:/home/labsuser# # Modify path of etcd 
+root@Master:/home/labsuser# vi /etc/kubernetes/manifests/etcd.yaml 
+root@Master:/home/labsuser# vi /etc/kubernetes/manifests/etcd.yaml 
+root@Master:/home/labsuser# kubectl get po
+
+
+^C
+root@Master:/home/labsuser# kubectl get po
+^C
+root@Master:/home/labsuser# kubectl get po
+^C
+root@Master:/home/labsuser# docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+root@Master:/home/labsuser# docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+root@Master:/home/labsuser# systemctl restart docker
+root@Master:/home/labsuser# systemctl status docker
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sun 2024-07-21 13:59:23 UTC; 21s ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 23822 (dockerd)
+      Tasks: 9
+     Memory: 25.1M
+        CPU: 569ms
+     CGroup: /system.slice/docker.service
+             └─23822 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+Jul 21 13:59:22 Master dockerd[23822]: time="2024-07-21T13:59:22.792535375Z" level=info msg="Starting up"
+Jul 21 13:59:22 Master dockerd[23822]: time="2024-07-21T13:59:22.794113818Z" level=info msg="detected 127.0.0.53 nameserver, assuming systemd-resolved, so using resolv.conf:>
+Jul 21 13:59:22 Master dockerd[23822]: time="2024-07-21T13:59:22.849944634Z" level=info msg="[graphdriver] using prior storage driver: overlay2"
+Jul 21 13:59:22 Master dockerd[23822]: time="2024-07-21T13:59:22.851675794Z" level=info msg="Loading containers: start."
+Jul 21 13:59:23 Master dockerd[23822]: time="2024-07-21T13:59:23.364002245Z" level=info msg="Default bridge (docker0) is assigned with an IP address 172.17.0.0/16. Daemon op>
+Jul 21 13:59:23 Master dockerd[23822]: time="2024-07-21T13:59:23.481577772Z" level=info msg="Loading containers: done."
+Jul 21 13:59:23 Master dockerd[23822]: time="2024-07-21T13:59:23.527085695Z" level=info msg="Docker daemon" commit="24.0.5-0ubuntu1~22.04.1" graphdriver=overlay2 version=24.>
+Jul 21 13:59:23 Master dockerd[23822]: time="2024-07-21T13:59:23.527155228Z" level=info msg="Daemon has completed initialization"
+Jul 21 13:59:23 Master dockerd[23822]: time="2024-07-21T13:59:23.588778597Z" level=info msg="API listen on /run/docker.sock"
+Jul 21 13:59:23 Master systemd[1]: Started Docker Application Container Engine.
+lines 1-22/22 (END)
+^C
+root@Master:/home/labsuser# systemctl restart kubelet
+root@Master:/home/labsuser# systemctl status kubelet
+● kubelet.service - kubelet: The Kubernetes Node Agent
+     Loaded: loaded (/lib/systemd/system/kubelet.service; enabled; vendor preset: enabled)
+    Drop-In: /usr/lib/systemd/system/kubelet.service.d
+             └─10-kubeadm.conf
+     Active: active (running) since Sun 2024-07-21 14:00:08 UTC; 7s ago
+       Docs: https://kubernetes.io/docs/
+   Main PID: 24276 (kubelet)
+      Tasks: 9 (limit: 4597)
+     Memory: 27.5M
+        CPU: 531ms
+     CGroup: /system.slice/kubelet.service
+             └─24276 /usr/bin/kubelet --bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --kubeconfig=/etc/kubernetes/kubelet.conf --config=/var/lib/kubelet/confi>
+
+Jul 21 14:00:09 Master kubelet[24276]: I0721 14:00:09.194504   24276 pod_container_deletor.go:80] "Container not found in pod's containers" containerID="df343af27066ef6ac3ef>
+Jul 21 14:00:09 Master kubelet[24276]: I0721 14:00:09.194529   24276 pod_container_deletor.go:80] "Container not found in pod's containers" containerID="43c201dab1e8c2969d0a>
+Jul 21 14:00:09 Master kubelet[24276]: I0721 14:00:09.194548   24276 pod_container_deletor.go:80] "Container not found in pod's containers" containerID="1fa269e6eeb7c2a73f78>
+Jul 21 14:00:09 Master kubelet[24276]: I0721 14:00:09.194564   24276 pod_container_deletor.go:80] "Container not found in pod's containers" containerID="9da7581c26fb4dc5c2bd>
+Jul 21 14:00:09 Master kubelet[24276]: I0721 14:00:09.841763   24276 apiserver.go:52] "Watching apiserver"
+Jul 21 14:00:09 Master kubelet[24276]: I0721 14:00:09.849999   24276 topology_manager.go:215] "Topology Admit Handler" podUID="0db53ca6-b152-476b-805c-9fe346c4ff7b" podNames>
+Jul 21 14:00:09 Master kubelet[24276]: I0721 14:00:09.850125   24276 topology_manager.go:215] "Topology Admit Handler" podUID="37398449-c27d-4c17-9067-862b5de40af2" podNames>
+Jul 21 14:00:09 Master kubelet[24276]: I0721 14:00:09.850198   24276 topology_manager.go:215] "Topology Admit Handler" podUID="bd843d08-d670-458d-bbc5-cb0443c59d51" podNames>
+Jul 21 14:00:09 Master kubelet[24276]: I0721 14:00:09.850274   24276 topology_manager.go:215] "Topology Admit Handler" podUID="409fe3c1-d3e9-4407-a4a7-15de8407822f" podNames>
+Jul 21 14:00:09 Master kubelet[24276]: I0721 14:00:09.860971   24276 desired_state_of_world_populator.go:159] "Finished populating initial desired state of world"
+
+root@Master:/home/labsuser# kubectl get po
+The connection to the server 172.31.20.142:6443 was refused - did you specify the right host or port?
+root@Master:/home/labsuser# kubectl get po
+The connection to the server 172.31.20.142:6443 was refused - did you specify the right host or port?
+root@Master:/home/labsuser# kubectl get po
+The connection to the server 172.31.20.142:6443 was refused - did you specify the right host or port?
+root@Master:/home/labsuser# kubectl get po
+The connection to the server 172.31.20.142:6443 was refused - did you specify the right host or port?
+root@Master:/home/labsuser# kubectl get po
+The connection to the server 172.31.20.142:6443 was refused - did you specify the right host or port?
+root@Master:/home/labsuser# kubectl get po
+The connection to the server 172.31.20.142:6443 was refused - did you specify the right host or port?
+root@Master:/home/labsuser# kubectl get po
+The connection to the server 172.31.20.142:6443 was refused - did you specify the right host or port?
+root@Master:/home/labsuser# kubectl get po
+The connection to the server 172.31.20.142:6443 was refused - did you specify the right host or port?
+root@Master:/home/labsuser# kubectl get po
+The connection to the server 172.31.20.142:6443 was refused - did you specify the right host or port?
+root@Master:/home/labsuser# docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+root@Master:/home/labsuser# docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+root@Master:/home/labsuser# systemctl restart docker
+root@Master:/home/labsuser# systemctl restart kubelet
+root@Master:/home/labsuser# kubectl get po
+NAME                    READY   STATUS    RESTARTS      AGE
+demo-5f7bb54887-2nb2l   1/1     Running   3 (52m ago)   24h
+demo-5f7bb54887-8hrgb   1/1     Running   3 (52m ago)   24h
+demo-5f7bb54887-8t4rd   1/1     Running   3 (52m ago)   24h
+demo-5f7bb54887-rql9c   1/1     Running   3 (52m ago)   24h
+demo-5f7bb54887-vlnwj   1/1     Running   3 (52m ago)   24h
+root@Master:/home/labsuser# kubectl get all
+NAME                        READY   STATUS    RESTARTS      AGE
+pod/demo-5f7bb54887-2nb2l   1/1     Running   3 (52m ago)   24h
+pod/demo-5f7bb54887-8hrgb   1/1     Running   3 (52m ago)   24h
+pod/demo-5f7bb54887-8t4rd   1/1     Running   3 (52m ago)   24h
+pod/demo-5f7bb54887-rql9c   1/1     Running   3 (52m ago)   24h
+pod/demo-5f7bb54887-vlnwj   1/1     Running   3 (52m ago)   24h
+
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   45d
+
+NAME                   READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/demo   5/5     5            5           24h
+
+NAME                              DESIRED   CURRENT   READY   AGE
+replicaset.apps/demo-5f7bb54887   5         5         5       24h
+root@Master:/home/labsuser# 
+
+NOTE : 
