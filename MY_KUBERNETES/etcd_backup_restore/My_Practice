@@ -1,3 +1,6 @@
+Date : 21.7.2024
+
+
 root@Master:/home/labsuser# # We can retrieve information regarding the endpoints with the following command:
 
 root@Master:/home/labsuser# kubectl describe po etcd-master -n kube-system
@@ -307,4 +310,4 @@ NAME                              DESIRED   CURRENT   READY   AGE
 replicaset.apps/demo-5f7bb54887   5         5         5       24h
 root@Master:/home/labsuser# 
 
-NOTE : 
+NOTE : - In command nunber 139 i have created a pod after taking the snapshot , so when i run the command kubectl get po in line number 285 or 292 , in the output that pod is not visible. Since it was created after the backup was taken.
