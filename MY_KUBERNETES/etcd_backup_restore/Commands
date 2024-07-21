@@ -1,1 +1,46 @@
-
+# Create a stand alone pod
+kubectl run pod  --image=nginx --port=80
+# CREATE A DEPLOYMENT HAVING FIVE REPLICAS
+kubectl create deploy demo --image=nginx --port=80 --replicas=5
+kubectl get all
+# 1. First of all, we need to make sure that we have the etcdctl installed.
+etcdctl version
+#Install 'etcdctl'
+# Install 'etcdctl'
+apt  install etcd-client  # version 3.3.25+dfsg-7ubuntu0.22.04.1
+etcdctl
+kubectl get po -n kube-system
+kubectl describe po etcd-master -n kube-system
+ls
+# We can retrieve information regarding the endpoints with the following command:
+kubectl describe po etcd-master -n kube-system
+# Take Backup or Run the snapshot save command using etcdctl
+ETCDCTL_API=3 etcdctl --endpoints=https://172.31.20.142:2379 --cacert /etc/kubernetes/pki/etcd/ca.crt --key /etc/kubernetes/pki/etcd/server.key --cert /etc/kubernetes/pki/etcd/server.crt snapshot save etcd_backup.db
+kubectl get all
+kubectl delete deploy demo
+kubectl get all
+# Deloyment demo deleted along with its associated pods
+# Verify the backup
+ETCDCTL_API=3 etcdctl --endpoints=https://172.31.20.142:2379 --cacert /etc/kubernetes/pki/etcd/ca.crt --key /etc/kubernetes/pki/etcd/server.key --cert /etc/kubernetes/pki/etcd/server.crt --write-out=table snapshot status etcd_backup.db
+# Restoring etcd from the snapshot
+ETCDCTL_API=3 etcdctl --endpoints=https://172.31.20.142:2379 --cacert /etc/kubernetes/pki/etcd/ca.crt --key /etc/kubernetes/pki/etcd/server.key --cert /etc/kubernetes/pki/etcd/server.crt snapshot restore etcd_backup.db
+ls
+# Folder default.etcd created
+kubectl get po
+pwd
+# Change ownership of default.etcd
+stat -c %U:%G /var/lib/etcd   
+ls -al default.etcd/
+chown -R root:root /var/lib/etcd/
+ls -al default.etcd/
+# Health Check
+ETCDCTL_API=3 etcdctl endpoint health --endpoints=https://172.31.20.142:2379 --cacert /etc/kubernetes/pki/etcd/ca.crt --key /etc/kubernetes/pki/etcd/server.key --cert /etc/kubernetes/pki/etcd/server.crt
+# Modify path of etcd 
+vi /etc/kubernetes/manifests/etcd.yaml 
+kubectl get po
+systemctl restart docker
+systemctl status docker
+systemctl restart kubelet
+systemctl status kubelet
+kubectl get po
+kubectl get all
