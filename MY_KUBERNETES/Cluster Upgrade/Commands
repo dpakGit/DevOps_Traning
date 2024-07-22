@@ -1,0 +1,23 @@
+# Upgrading Master Node
+kubectl get no
+sudo apt update
+sudo apt-cache madison kubeadm
+sudo apt-mark unhold kubeadm 
+sudo apt-get update 
+sudo apt-get install -y kubeadm='1.28.3-1.1' 
+sudo apt-mark hold kubeadm
+kubeadm version
+kubeadm upgrade apply v1.28.3
+kubectl drain master.example.com --ignore-daemonsets
+k get no
+kubectl get no
+kubectl drain master --ignore-daemonsets
+sudo apt-mark unhold kubelet kubectl
+sudo apt-get update
+sudo apt-get install -y kubelet='1.28.3-1.1' kubectl='1.28.3-1.1'
+sudo apt-mark hold kubelet kubectl
+kubectl get nodes
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+kubectl uncordon master
+kubectl get nodes
