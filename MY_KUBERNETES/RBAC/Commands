@@ -127,6 +127,8 @@ Use "kubectl options" for a list of global command-line options (applies to all 
 
 kubectl config current-context
 
+kubectl config get-contexts
+
 # shows all the resources, verbs and associated API-group.
 
 kubectl api-resources -o wide
