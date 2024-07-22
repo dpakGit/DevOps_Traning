@@ -6,7 +6,6 @@ kubectl get all
 # 1. First of all, we need to make sure that we have the etcdctl installed.
 etcdctl version
 #Install 'etcdctl'
-# Install 'etcdctl'
 apt  install etcd-client  # version 3.3.25+dfsg-7ubuntu0.22.04.1
 etcdctl
 kubectl get po -n kube-system
