@@ -34,6 +34,8 @@ chown -R root:root /var/lib/etcd/
 ls -al default.etcd/
 # Health Check
 ETCDCTL_API=3 etcdctl endpoint health --endpoints=https://172.31.20.142:2379 --cacert /etc/kubernetes/pki/etcd/ca.crt --key /etc/kubernetes/pki/etcd/server.key --cert /etc/kubernetes/pki/etcd/server.crt
+or ETCDCTL_API=3 etcdctl --endpoints=https://172.31.22.24:2379 --cacert /etc/kubernetes/pki/etcd/ca.crt --key /etc/kubernetes/pki/etcd/server.key --cert /etc/kubernetes/pki/etcd/server.crt endpoint health
+
 # Modify path of etcd 
 vi /etc/kubernetes/manifests/etcd.yaml 
 kubectl get po
