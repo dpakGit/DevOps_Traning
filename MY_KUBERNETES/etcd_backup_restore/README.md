@@ -13,4 +13,12 @@ Understanding etcd in Kubernetes: A Beginner's Guide by Srinivas Karnati , Sourc
 
 etcdctl : https://github.com/etcd-io/etcd/blob/main/etcdctl/README.md
 
+https://kodekloud.com/community/t/hi-folks-i-made-an-attempt-to-backup-and-restore-etcd-by-executing-the-client-c/36685
+
+Etcd backup & Restore - Kubernetes-Slack Discussions - KodeKloud - DevOps Learning Community
+ :https://kodekloud.com/community/t/etcd-backup-restore/167255
+
+
+
+
 
