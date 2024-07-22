@@ -18,6 +18,8 @@ https://kodekloud.com/community/t/hi-folks-i-made-an-attempt-to-backup-and-resto
 Etcd backup & Restore - Kubernetes-Slack Discussions - KodeKloud - DevOps Learning Community
  :https://kodekloud.com/community/t/etcd-backup-restore/167255
 
+ https://kodekloud.com/community/t/hello-i-restored-the-etcd-backup-without-any-error-message-but-when-i-check-the/15526/9
+
 
 
 
