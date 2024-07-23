@@ -10,4 +10,8 @@
 
  Managing Kubernetes Objects Using Imperative Commands : https://kubernetes.io/docs/tasks/manage-kubernetes-objects/imperative-command/
 
+
+Imperative Commands in Kubernetes — A Primer by poornima narasimhan : https://talktopoorni.medium.com/imperative-commands-in-kubernetes-a-primer-9565c25535f7
+
+
  
