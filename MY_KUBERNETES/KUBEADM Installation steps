@@ -1,4 +1,4 @@
-sudo apt update
+     sudo apt update
      hostnamectl set-hostname Master
      exec bash
      hostnamectl set-hostname WORKER-NODE-1
