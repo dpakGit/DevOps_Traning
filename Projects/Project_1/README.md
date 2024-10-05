@@ -4,9 +4,7 @@
 # **Project Overview:**
 This project demonstrates expertise in Kubernetes service deployment, containerization, and microservices architecture.
 
-# ** Diagram **
-
-
+### Diagram
 
 ![image](https://github.com/user-attachments/assets/1374e7b9-4c5e-40a8-9341-677039d71139)
 
