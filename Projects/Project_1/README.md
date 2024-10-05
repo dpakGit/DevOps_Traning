@@ -1,10 +1,12 @@
 **Objective:**
  The following project demonstrates the use of Kubernetes NodePort Service and ClusterIP Service to access a container running inside a Kubernetes cluster by the end user and simultaneously providing inter cluster communication between pods using ClusterIP Service.  
 
-Project Overview:
+**Project Overview:**
 This project demonstrates expertise in Kubernetes service deployment, containerization, and microservices architecture. 
 
-Deployment:
+<u>Deployment:</u>
+
+<center>text</center>
 The solution comprises two pods:
 - Pod-1: Houses a Python frontend application and a Redis cache database within two separate containers.
 - Pod-2: Dedicated MySQL database pod.
@@ -51,7 +53,7 @@ The Redis cache database stores user data for a specified period. Subsequent req
 
 
 
-Technical Skills Demonstrated:
+**Technical Skills Demonstrated:**
 
 - Kubernetes (NodePort and ClusterIP Services)
 - Containerization (Docker)
@@ -61,7 +63,7 @@ Technical Skills Demonstrated:
 - Redis
 - API Design
 
-Outcomes:
+**Outcomes:**
 
 - Enabling external traffic to containerized services within the cluster
 - Scalable backend architecture
