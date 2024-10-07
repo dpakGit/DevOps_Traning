@@ -1,7 +1,7 @@
 # **Objective:**
  The following project demonstrates the use of Kubernetes NodePort Service and ClusterIP Service to access a container running inside a Kubernetes cluster by the end user and simultaneously providing inter cluster communication between pods using ClusterIP Service.  
 
- The following link contains the required file and folders to execute the project : https://github.com/rskTech/serviceDemo/tree/master
+ The following link contains the required file and folders to execute the project : https://github.com/Deepakranjanmishra/serviceDemo
 
 # **Project Overview:**
 This project demonstrates expertise in Kubernetes service deployment, containerization, and microservices architecture.
