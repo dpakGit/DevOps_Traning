@@ -1,4 +1,4 @@
-kubectl create deploy mydeploy --image=nginx:latest --port=80
+kubectl create deploy mydeploy --image=nginx:latest --port=80 #deploy an application
 
 kubectl get all
 kubectl get deploy
