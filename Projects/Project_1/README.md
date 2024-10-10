@@ -1,6 +1,7 @@
 # **Challenge in accessing an application running inside a cluster**
 Pods within a Kubernetes cluster are ephemeral, frequently destroyed and recreated, and may not return to the same node.
 As a result, their IP addresses change, making it difficult for end-users to consistently access applications or containers running within the pods.
+
 **Kubernetes Service Objects:** A Solution to this problem, providing a reliable and persistent entry point for accessing pod-based applications.
 
 # **Objective:**
