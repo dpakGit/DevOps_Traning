@@ -28,6 +28,63 @@ Method 2: Binary Installation
 3. Move binary to /usr/local/bin: sudo mv terraform /usr/local/bin/
 4. Verify installation: terraform --version
 
+history  of practice on 13.10.2024
+..........................................
+root@ip-172-31-35-197:/home/ubuntu# history | cut -c 8-
+pwd
+apt update && apt install unzip -y
+Linux - Binary download
+# linux  Binary download
+# linux  Binary download - AMD64
+wget https://releases.hashicorp.com/terraform/1.9.7/terraform_1.9.7_linux_amd64.zip
+ls
+unzip terraform_1.9.7_linux_amd64.zip 
+or
+sudo unzip terraform_1.9.2_linux_amd64.zip -d /usr/bin # This wii move the terraform file to the following directory
+ls
+terraform version
+echo $PATH
+terraform -version
+mv terraform /usr/bin/
+chmod +x /usr/bin/terraform
+terraform --version
+ls -l /usr/bin
+set | grep Terraform /usr/bin/
+set | grep terraform 
+set | grep /usr/bin/terraform
+find /usr/bin -iname terraform
+find /usr/bin -iname terraform # Use find /path -iname filename to search for a file by exact name. If you know the exact name and directory of the file, you'd use this command to find it. This will return all of the . conf files in Pat's user directory and subdirectories.
+ls
+history | cut -c 8-~
+history | cut -c 8-
+sudo vi main.tf
+terraform init
+terraform plan
+echo "export AWS_ACCESS_KEY_ID="xxxxxxxxxxxxxxxxx" " >> ~/.bashrc
+echo "export AWS_SECRET_ACCESS_KEY="xxxxxxxxxxxxxyyyyyyyyy" " >>  ~/.bashrc
+source ~/.bashrc
+set | grep -i AWS
+terraform plan
+terraform apply 
+
+cat main.tf 
+provider "aws" {
+  region = "us-east-1"
+}
+
+
+resource "aws_instance" "web" { 
+  ami = "ami-005fc0f236362e99f"
+  instance_type = "t2.micro"
+  
+ tags = { 
+   Name = "HelloWorld"
+   Team = "DevOps"
+  } 
+
+}
+...................................................................................
+
 Method 3: Homebrew (optional)
 
 1. Install Homebrew: sudo apt install -y linuxbrew
