@@ -6,6 +6,43 @@
 
 3. DevOps Beacon : https://github.com/devopsbeacon/terraform/blob/main/terraform-setup.sh
 
+..................................................
+
+source : WhatsApp - MetaAI
+
+Installing Terraform on Ubuntu 22.04:
+
+Method 1: Official HashiCorp Repository
+
+1. Update package index: sudo apt update
+2. Install HashiCorp repository: sudo apt install -y gnupg software-properties-common
+3. Add Terraform repository: sudo add-apt-repository ppa:hashicorp/terraform
+4. Update package index again: sudo apt update
+5. Install Terraform: sudo apt install -y terraform
+
+Method 2: Binary Installation
+
+1. Download Terraform binary: `wget (link unavailable)
+2. Unzip binary: unzip terraform_1.3.6_linux_amd64.zip
+3. Move binary to /usr/local/bin: sudo mv terraform /usr/local/bin/
+4. Verify installation: terraform --version
+
+Method 3: Homebrew (optional)
+
+1. Install Homebrew: sudo apt install -y linuxbrew
+2. Install Terraform: brew install terraform
+
+Verify Installation
+
+1. Run terraform --version to verify installation.
+
+Configure Terraform
+
+1. Create a new directory for your Terraform project.
+2. Initialize Terraform: terraform init
+3. Create a (link unavailable) file to define your infrastructure.
+.....................................
+
 # TERRAFORM INSTALLATION COMMANDS
 sudo -s
 apt update
