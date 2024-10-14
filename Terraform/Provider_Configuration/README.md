@@ -1,6 +1,8 @@
 # Provider Authentication and Configuration
 
  Note : Here the provider is AWS Cloud service
+ 
+ ## Step -1  Create an User
 
 -> Login to the AWS console
 
@@ -21,7 +23,7 @@
 
 -> Return to users list
 
- -> Click on the user name
+-> Click on the user name
  
  ### **User-Name**       
 -> Security Credentials -> Access keys -> Create access keys 
@@ -36,12 +38,12 @@
  Access key                                
        
  ```                                  
- AKIAYSCKECF5REAA                     
+ my_access_key_id                     
  ```                                 
 
  Secret access key
  ```
- ***************
+ my_secret_access_key
  ```
 
 
@@ -51,6 +53,7 @@
 
 
 
+## Step - 2
 
 ## Now export the AWS Keys into Env. Variables
 
@@ -59,11 +62,11 @@ In the CLI run the following commands :
 
 
 ```
-echo "export AWS_ACCESS_KEY_ID="xxxxxxxxxx" " >> ~/.bashrc
+echo "export AWS_ACCESS_KEY_ID="my_access_key_id" " >> ~/.bashrc
 ```
 
 ```
-echo "export AWS_SECRET_ACCESS_KEY="XXXXXXYYYYYYYYYYYYYYYYYYYYYYYYYYY" " >>  ~/.bashrc
+echo "export AWS_SECRET_ACCESS_KEY=" my_secret_access_key" " >>  ~/.bashrc
 ```
 
 ```
