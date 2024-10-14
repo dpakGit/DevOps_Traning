@@ -20,8 +20,9 @@
 
 -> Return to users list
 
+ ## Click on the user name
  
- # **User-Name**       Click on the user name
+ # **User-Name**       
 -> Security Credentials -> Access keys -> Create access keys 
 
 # **Access key best practices & alternatives**
