@@ -38,7 +38,7 @@
  Access key                                
        
  ```                                  
- my_access_key_id                     
+ **my_access_key_id**                     
  ```                                 
 
  Secret access key
