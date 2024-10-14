@@ -1,4 +1,3 @@
-
 # Provider Authentication and Configuration
 
  Note : Here the provider is AWS Cloud service
