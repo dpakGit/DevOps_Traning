@@ -38,7 +38,7 @@
  Access key                                
        
  ```                                  
- **my_access_key_id**                     
+ my_access_key_id                    
  ```                                 
 
  Secret access key
@@ -62,11 +62,11 @@ In the CLI run the following commands :
 
 
 ```
-echo "export AWS_ACCESS_KEY_ID="my_access_key_id" " >> ~/.bashrc
+1. echo "export AWS_ACCESS_KEY_ID="my_access_key_id" " >> ~/.bashrc
 ```
 
 ```
-echo "export AWS_SECRET_ACCESS_KEY=" my_secret_access_key" " >>  ~/.bashrc
+2. echo "export AWS_SECRET_ACCESS_KEY=" my_secret_access_key" " >>  ~/.bashrc
 ```
 
 ```
