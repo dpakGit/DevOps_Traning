@@ -36,7 +36,7 @@ The output shows the path where the extracted Terraform file is located.
 
 
 `````````````````````````
-ls -l /usr/local/bin
+ls -l /usr/bin
 ``````````````````````````
 
 8. Verify the installation by running a terraform command. For example, check the version with:
