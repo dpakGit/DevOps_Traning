@@ -60,7 +60,7 @@
 
 In the CLI run the following commands :
 
-Copy the Access key Id and Secret Access key in the respective commands
+Copy and paste the Access key Id and Secret Access key in the respective commands
 
 
 ```
