@@ -25,7 +25,7 @@ We will place the Terraform executable file in /usr/bin
 
 6. Unzip the file to the directory you chose in the previous step. Use the full file name with the extension when extracting the archive. Make sure to use the correct name for your architecture and the version you downloaded. For example, for version 1.9.2, run:
 `````````````````````````````````````````````````````````````````
-sudo unzip terraform_1.9.2_linux_amd64.zip -d /usr/local/bin
+sudo unzip terraform_1.9.2_linux_amd64.zip -d /usr/bin
 ``````````````````````````````````````````````````````````````````
 
 The output shows the path where the extracted Terraform file is located.
