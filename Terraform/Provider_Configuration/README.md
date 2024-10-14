@@ -60,6 +60,8 @@
 
 In the CLI run the following commands :
 
+Copy the Access key Id and Secret Access key in the respective commands
+
 
 ```
 1. echo "export AWS_ACCESS_KEY_ID="my_access_key_id" " >> ~/.bashrc
