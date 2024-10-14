@@ -31,31 +31,36 @@
 # **Retrieve access keys **
 
 ### **Access key**
- Access key                                Secret access key
+ Access key                                
        
- ````````                                  `````````````````
- AKIAYDL7PISCKECF5REE                      ***************
- ``````````                                ````````````````````` 
+ ```                                  
+ AKIAYDL7PISCKECF5REE                     
+ ```                                 
+
+ Secret access key
+ ```
+ ***************
+ ```
 
 
 
  
 
 
-# Now export the AWS Keys into Env. Variables
+## Now export the AWS Keys into Env. Variables
 
-``````````````````````
-echo "export AWS_ACCESS_KEY_ID="my-access-key" " >> ~/.bashrc
-```````````````````````
+```
+echo "export AWS_ACCESS_KEY_ID="XXXXXXXXXXXX" " >> ~/.bashrc
+```
 
-```````````````````````````````````````````````````````````````````````````````
-echo "export AWS_SECRET_ACCESS_KEY="my-secret-access-key" " >>  ~/.bashrc
-``````````````````````````````````````````````````````````````````````````
-```````````
+```
+echo "export AWS_SECRET_ACCESS_KEY="XXXXXXYYYYYYYYYYYYYYYYYYYYYYYYYYY" " >>  ~/.bashrc
+```
+
+```
 source ~/.bashrc
-`````````````
+```
 
-``````````````````````
+```
 set | grep -i AWS
-``````````````````````````
-
+```
