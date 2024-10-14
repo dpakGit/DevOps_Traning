@@ -34,7 +34,7 @@
  Access key                                
        
  ```                                  
- AKIAYDL7PISCKECF5REE                     
+ AKIAYSCKECF5REAA                     
  ```                                 
 
  Secret access key
@@ -45,6 +45,7 @@
 
 
  
+
 
 
 ## Now export the AWS Keys into Env. Variables
