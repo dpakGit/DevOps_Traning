@@ -31,11 +31,11 @@
 # **Retrieve access keys **
 
 ### **Access key**
- Access key                Secret access key
+ Access key                                Secret access key
        
- ````````                   `````````````````
- AKIAYDL7PISCKECF5REE        ***************
- ``````````                  ````````````````````` 
+ ````````                                  `````````````````
+ AKIAYDL7PISCKECF5REE                      ***************
+ ``````````                                ````````````````````` 
 
 
 
