@@ -32,9 +32,9 @@
 
 ### Retrieve access keys 
 
-#### **Access key**
+#### ***Access key***
 
- ***Access key***                                
+ Access key                                
        
  ```                                  
  AKIAYSCKECF5REAA                     
