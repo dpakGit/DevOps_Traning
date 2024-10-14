@@ -28,7 +28,7 @@
 # **Access key best practices & alternatives**
 -> Command Line Interface (CLI) 
 
-# **Retrieve access keys **
+## Retrieve access keys 
 
 ### **Access key**
  Access key                                
