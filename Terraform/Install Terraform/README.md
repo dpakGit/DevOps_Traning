@@ -28,16 +28,23 @@ We will place the Terraform executable file in /usr/bin
 sudo unzip terraform_1.9.2_linux_amd64.zip -d /usr/bin
 ``````````````````````````````````````````````````````````````````
 
+The above command will also move the unziped file to the desired location
+
 The output shows the path where the extracted Terraform file is located.
 
 7. To verify if the Terraform directory is in the selected location, use the ls command. For example:
+
+
 `````````````````````````
 ls -l /usr/local/bin
 ``````````````````````````
+
 8. Verify the installation by running a terraform command. For example, check the version with:
-```````````````````````````````
+
+
+```
 terraform -version
-````````````````````````````
+```
 
 The output shows the Terraform version you installed.
 
