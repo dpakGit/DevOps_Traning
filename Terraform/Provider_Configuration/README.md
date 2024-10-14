@@ -2,16 +2,18 @@
 # Provider Authentication and Configuration
 
  Note : Here the provider is AWS Cloud service
-## Login to the AWS console
-  Search for IAM
+
+-> Login to the AWS console
+
+-> Search for IAM
   
-## **IAM** 
+### **IAM** 
 -> User -> Create user
 
-## **Specify user details** 
+### **Specify user details** 
 -> User name -> Provide user access to the AWS Management Console
 
-## **Set permissions**
+### **Set permissions**
 -> Permissions options -> Attach policies directly
 
 -> Permissions policies -> AmazonEC2FullAccess
@@ -20,17 +22,17 @@
 
 -> Return to users list
 
- ## Click on the user name
+ -> Click on the user name
  
- # **User-Name**       
+ ### **User-Name**       
 -> Security Credentials -> Access keys -> Create access keys 
 
-# **Access key best practices & alternatives**
+### **Access key best practices & alternatives**
 -> Command Line Interface (CLI) 
 
-## Retrieve access keys 
+### Retrieve access keys 
 
-### **Access key**
+#### **Access key**
  Access key                                
        
  ```                                  
@@ -48,7 +50,10 @@
 
 
 
+
+
 ## Now export the AWS Keys into Env. Variables
+
 
 In the CLI run the following commands :
 
