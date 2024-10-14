@@ -1,5 +1,5 @@
 
-# Provide Authentication and Configuration
+# Provider Authentication and Configuration
 
  Note : Here the provider is AWS Cloud service
 ## Login to the AWS console
@@ -13,16 +13,22 @@
 
 ## **Set permissions**
 -> Permissions options -> Attach policies directly
+
 -> Permissions policies -> AmazonEC2FullAccess
-- create user
+
+-> create user
+
 -> Return to users list
 
 Click on the user 
  # **User-Name**
 -> Security Credentials -> Access keys -> Create access keys 
+
 # **Access key best practices & alternatives**
 -> Command Line Interface (CLI) 
+
 # **Retrieve access keys **
+
 ### **Access key**
  Access key                Secret access key
        
