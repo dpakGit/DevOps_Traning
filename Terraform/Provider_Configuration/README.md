@@ -2,7 +2,7 @@
 
  Note : Here the provider is AWS Cloud service
  
- ## Step -1  Create an User
+ ## Step-1    Create an User
 
 -> Login to the AWS console
 
@@ -53,9 +53,7 @@
 
 
 
-## Step - 2
-
-## Now export the AWS Keys into Env. Variables
+## Step-2    Now export the AWS Keys into Env. Variables
 
 
 In the CLI run the following commands :
