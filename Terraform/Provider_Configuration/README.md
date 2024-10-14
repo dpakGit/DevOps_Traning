@@ -50,8 +50,11 @@
 
 ## Now export the AWS Keys into Env. Variables
 
+In the CLI run the following commands :
+
+
 ```
-echo "export AWS_ACCESS_KEY_ID="XXXXXXXXXXXX" " >> ~/.bashrc
+echo "export AWS_ACCESS_KEY_ID="xxxxxxxxxx" " >> ~/.bashrc
 ```
 
 ```
