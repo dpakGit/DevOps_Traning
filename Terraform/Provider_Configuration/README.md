@@ -2,7 +2,7 @@
 
  Note : Here the provider is AWS Cloud service
  
- ## Step-1    Create an User
+ ## Step-1    Steps for creating an User
 
 -> Login to the AWS console
 
@@ -22,6 +22,9 @@
 -> create user
 
 -> Return to users list
+
+
+# Step-2 Steps to Create Access Keys and Secret Access key
 
 -> Click on the user name
  
@@ -53,7 +56,7 @@
 
 
 
-## Step-2    Now export the AWS Keys into Env. Variables
+## Step-3    Now export the AWS Keys into Env. Variables
 
 
 In the CLI run the following commands :
@@ -72,6 +75,8 @@ Copy and paste the Access key Id and Secret Access key in the respective command
 ```
 source ~/.bashrc
 ```
+
+Run the following commnad to verify AWS credentials are set.
 
 ```
 set | grep -i AWS
