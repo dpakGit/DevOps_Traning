@@ -8,4 +8,3 @@
 4. Install Terraform on Ubuntu 22.04-Areful Islam - medium
     Link: https://islamarif.medium.com/install-terraform-on-ubuntu-22-04-6c6700f83467
 
-5. Terraform | Create a VPC, subnets and more…  https://medium.com/@aliatakan/terraform-create-a-vpc-subnets-and-more-6ef43f0bf4c1
