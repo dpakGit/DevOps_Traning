@@ -2,8 +2,8 @@
 
 # Install Terraform
 echo "[TASK 1] Install Base Packages"
-#apt update
-#apt install unzip -y
+apt update
+apt install unzip -y
 
 # Download Terraform
 echo "[TASK 2] Install Terraform Packages"
