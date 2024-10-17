@@ -1,4 +1,4 @@
-Breakdown of the Configuration File :
+Breakdown of the main.tf Configuration File :
 
 This Terraform configuration file consists of two main sections:
 
