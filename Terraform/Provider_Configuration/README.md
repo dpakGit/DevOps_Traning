@@ -24,7 +24,7 @@
 -> Return to users list
 
 
-# Step-2 Steps to Create Access Keys and Secret Access key
+## Step-2 Steps to Create Access Keys and Secret Access key
 
 -> Click on the user name
  
