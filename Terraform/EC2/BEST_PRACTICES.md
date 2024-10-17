@@ -8,7 +8,7 @@ Breakdown:
 
 - aws_instance: Resource type, specifically an AWS EC2 instance.
 
-- example: Resource name or identifier, used to reference this resource in Terraform configuration.
+- example: **Resource name or identifier**, used to reference this resource in Terraform configuration.
 
 Terraform Resource Declaration Structure:
 
