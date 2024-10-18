@@ -1,7 +1,7 @@
 # https://spacelift.io/blog/terraform-security-group
 
 # See the AWS VPC and security group console screenshots in the README.md 
-
+```
 provider "aws" {
   region = "us-east-1"
 }
@@ -33,4 +33,5 @@ tags = {
    Name = "Hello_World_Security_Group"
   }
 }
+```
 
