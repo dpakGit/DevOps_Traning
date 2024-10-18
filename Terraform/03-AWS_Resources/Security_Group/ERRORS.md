@@ -59,7 +59,8 @@ Planning failed. Terraform encountered an error while generating this plan.
 │   on main2.tf line 8, in data "aws_vpc" "Demo-VPC":
 │    8: data "aws_vpc" "Demo-VPC" {
 
-│ Solution : MetaAI
+`````````````````````````````````````````````````````````````````````````
+### Solution : MetaAI
 
 This error occurs when Terraform finds multiple VPCs that match the specified configuration, and it can't determine which one to use.
 
@@ -136,4 +137,5 @@ Would you like:
 2. Help with VPC configuration
 3. AWS-related documentation
 4. Other (please specify)
+````````````````````````````````````````````````````
 
