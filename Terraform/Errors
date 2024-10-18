@@ -13,7 +13,7 @@ root@Master:/home/labsuser/DevOps_Class/Terraform/03-AWS_Resources/VPC# terrafor
  
 
 
-2. I got this error when i tried.. see note
+2. I got this error when i tried.. see note on date 18.10.2024 Kubernetes Note-3
 root@Master:/home/labsuser/DevOps_Class/Terraform/03-AWS_Resources/Security_Group# terraform init
 Initializing the backend...
 
