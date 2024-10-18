@@ -9,6 +9,8 @@ https://awstip.com/automating-infrastructure-management-terraform-intro-c31573a8
      cat terraform.tfstate 
     
      terraform show
+     Command: state list : https://developer.hashicorp.com/terraform/cli/commands/state/list
+     terraform state list
       
      vim main.tf 
      
