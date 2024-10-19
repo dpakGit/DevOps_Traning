@@ -1,3 +1,6 @@
+
+## count.index
+
 Source MetaAI : 
 
 In Terraform, **count.index** is a built-in variable that provides the current index of the resource being created when using the count meta-argument.
@@ -9,6 +12,10 @@ count.index allows you to access the current index of the resource being created
 Example:
 
 ```
+provider "aws" {
+  region = "us-east-1"
+}
+
 resource "aws_instance" "example" {
 
   count = 3
