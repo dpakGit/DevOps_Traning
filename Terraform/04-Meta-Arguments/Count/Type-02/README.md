@@ -8,7 +8,7 @@ count.index allows you to access the current index of the resource being created
 
 Example:
 
-
+```
 resource "aws_instance" "example" {
 
   count = 3
@@ -18,13 +18,12 @@ resource "aws_instance" "example" {
   instance_type = "t2.micro"
   
   tags = {
-  
-    Name = "Server-${count.index + 1}"  # Uses count.index to create unique names
-    
+      Name = "Server-${count.index + 1}"  # Uses count.index to create unique names
+   
   }
   
 }
-
+```
 
 In this example:
 
