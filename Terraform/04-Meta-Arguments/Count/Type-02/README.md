@@ -65,3 +65,9 @@ Would you like:
 2. Guidance on using count and for_each
 3. Help with dynamic resource configuration
 4. Other (please specify)
+
+**Screenshots**
+  ![Screenshot (193)](https://github.com/user-attachments/assets/b69d9992-eeeb-4158-ad89-db8d0a6c76e8)
+  ![Screenshot (192)](https://github.com/user-attachments/assets/7803ffd6-4d8e-4c07-bd7f-3c0769681004)
+
+ 
