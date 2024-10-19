@@ -1,3 +1,6 @@
+![Screenshot (195)](https://github.com/user-attachments/assets/33db40fe-7808-47e4-86a0-3cf793c9f1a2)
+
+
 ## When to Use for_each Instead of count
 https://developer.hashicorp.com/terraform/language/meta-arguments/count#count-index
 Read the above
