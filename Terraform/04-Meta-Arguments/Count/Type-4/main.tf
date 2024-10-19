@@ -7,7 +7,6 @@ variable "subnet_ids" {
 }
 
 resource "aws_instance" "EC2" {
-  # Create one instance for each subnet
   count = length(var.subnet_ids)
 
   ami = "ami-0cd59ecaf368e5ccf"
