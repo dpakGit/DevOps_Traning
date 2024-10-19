@@ -8,26 +8,36 @@ count.index allows you to access the current index of the resource being created
 
 Example:
 
-terraform
+
 resource "aws_instance" "example" {
+
   count = 3
 
   ami           = "ami-123456"
+  
   instance_type = "t2.micro"
+  
   tags = {
+  
     Name = "Server-${count.index + 1}"  # Uses count.index to create unique names
+    
   }
+  
 }
+
 
 In this example:
 
 - count = 3 creates three aws_instance resources.
+- 
 - count.index is used to create unique Name tags (Server-1, Server-2, Server-3).
 
 Properties:
 
 - count.index starts at 0.
+  
 - Incremented by 1 for each resource created.
+
 - Available only within the resource block using count.
 
 Use cases:
