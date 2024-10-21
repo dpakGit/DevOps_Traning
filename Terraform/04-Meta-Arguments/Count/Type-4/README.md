@@ -5,6 +5,7 @@
 https://developer.hashicorp.com/terraform/language/meta-arguments/count#count-index
 Read the above
 
+
 Source : MetaAI
 Let's break down the syntax:
 
@@ -41,7 +42,7 @@ Use Case:
 This syntax is commonly used to create resources or modules dynamically based on the number of elements in a variable.
 
 
-terraform
+
 resource "aws_instance" "example" {
   count = length(var.subnet_ids)
 
