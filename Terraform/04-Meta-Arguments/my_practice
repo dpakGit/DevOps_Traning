@@ -98,4 +98,6 @@ root@Master:/home/labsuser/each.key_value# terraform state list # what was creat
 aws_instance.by_map["inst_a"]
 aws_instance.by_map["inst_b"]
 
+AWS console Screenshot :
+
 
