@@ -13,6 +13,18 @@ resource "aws_iam_user" "example" {
 variable "user_names" {
   description = "IAM usernames"
   type        = set(string)
-  default     = ["Todd-2", "James-2", "Alice-2", "Dottie-2"]
+  default     = ["Todd-2", "James-2", "Alice-2", "Dottie-2"]                              ## Compare 1 and 2 examples
 }
-# 2.
+
+
+# 2. https://developer.hashicorp.com/terraform/language/meta-arguments/for_each#when-to-use-for_each-instead-of-count
+     https://github.com/Deepakranjanmishra/DevOps_Class/blob/main/Terraform/04-Meta-Arguments/for_each/toset/main.tf
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_iam_user" "the-accounts" {
+  for_each = toset(["Todd", "James", "Alice", "Dottie"])
+  name     = each.key
+}
