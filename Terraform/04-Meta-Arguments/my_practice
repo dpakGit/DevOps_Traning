@@ -18,8 +18,8 @@ variable "user_names" {
 
 
 # 2. https://developer.hashicorp.com/terraform/language/meta-arguments/for_each#when-to-use-for_each-instead-of-count
-     https://github.com/Deepakranjanmishra/DevOps_Class/blob/main/Terraform/04-Meta-Arguments/for_each/toset/main.tf
-
+#     https://github.com/Deepakranjanmishra/DevOps_Class/blob/main/Terraform/04-Meta-Arguments/for_each/toset/main.tf
+```
 provider "aws" {
   region = "us-east-1"
 }
@@ -28,3 +28,42 @@ resource "aws_iam_user" "the-accounts" {
   for_each = toset(["Todd", "James", "Alice", "Dottie"])
   name     = each.key
 }
+```
+
+# 3.
+```
+provider "aws" {
+  region = "us-east-1"
+}
+
+
+resource "aws_instance" "sandbox" {
+  ami = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+  for_each = toset(["sandbox_one", "sandbox_two", "sandbox_three"])
+ 
+tags = {
+    Name = each.value            # for a set, each.value and each.key is the same
+  }
+}
+```
+# 4.
+```
+provider "aws" {
+  region = "us-east-1"
+}
+
+
+resource "aws_instance" "sandbox" {
+  ami = "ami-0cd59ecaf368e5ccf" 
+  instance_type = "t2.micro"
+  for_each = toset(["sandbox_1", "sandbox_2", "sandbox_3"])
+  
+
+tags = { 
+
+   Name = each.key          # for a set, each.value and each.key is the same
+}
+}
+
+```
