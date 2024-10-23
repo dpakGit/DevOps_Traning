@@ -69,8 +69,8 @@ tags = {
 ```
 
 # 5. # used the terraform documentation and spacelift doc (https://spacelift.io/blog/terraform-for-each). 
-# Two instances will be created with inst_a and inst_b as resource identifier, which is used to reference it
-# within the Terraform configuration and the names of the instance in the console will be Instance A and Instance B.  
+# Two instances will be created with inst_a and inst_b as resource identifier, which is used to reference it ...
+# ... within the Terraform configuration and the names of the instance in the console will be Instance A and Instance B.  
 
 ```
 provider "aws" {
