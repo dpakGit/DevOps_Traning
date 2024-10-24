@@ -10,3 +10,12 @@ The for_each meta-argument accepts a map or a set of strings, and creates an ins
 
 4. Terraform Count vs. For Each Meta-Argument -spacelift – When to Use It :
     https://spacelift.io/blog/terraform-count-for-each
+
+# What is the difference between a count and for loop on a resource object in Terraform and why might you use them?
+
+
+What is the difference between a count and for loop on a resource object in Terraform and why might you use them?
+
+**count** – This looping construct creates a fixed number of resources based on a count value.
+
+**for_each** – This looping construct allows you to create multiple instances of a resource based on a set of input values, such as a list or map.
