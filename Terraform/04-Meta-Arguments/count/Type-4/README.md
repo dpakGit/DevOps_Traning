@@ -1,3 +1,5 @@
+***Source: GeminiAI:*** length(var.subnet_ids): This expression calculates the length of the variable var.subnet_ids. The length function is used to determine the number of elements in a list or a set.
+
 ![Screenshot (195)](https://github.com/user-attachments/assets/33db40fe-7808-47e4-86a0-3cf793c9f1a2)
 
 
@@ -9,7 +11,7 @@ Read the above
 Source : MetaAI
 Let's break down the syntax:
 
-count = length(var.subnet_ids)
+#### count = length(var.subnet_ids)
 
 Components:
 
