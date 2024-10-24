@@ -61,7 +61,7 @@ When applied, this configuration will:
 
 Notes
 
-- Using tomap() with a map-like structure is unnecessary; you can simplify the for_each argument to:
+# - Using tomap() with a map-like structure is unnecessary; you can simplify the for_each argument to:
 
 for_each = {
   "inst_a" = var.subnet_ids[0]
