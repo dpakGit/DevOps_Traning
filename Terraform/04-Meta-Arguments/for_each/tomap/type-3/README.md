@@ -64,13 +64,16 @@ Notes
 # - Using tomap() with a map-like structure is unnecessary; you can simplify the for_each argument to:
 
 for_each = {
+ 
   "inst_a" = var.subnet_ids[0]
+ 
   "inst_b" = var.subnet_ids[1]
 }
 
 - Consider using for_each with var.subnet_ids directly for dynamic instance creation:
 
 resource "aws_instance" "ec2_instances" {
+ 
   for_each = var.subnet_ids
 
   // ...
