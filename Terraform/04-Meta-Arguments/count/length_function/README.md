@@ -1,4 +1,4 @@
-**Source: GeminiAI:** length(var.subnet_ids): This expression calculates the length of the variable var.subnet_ids. The length function is used to determine the number of elements in a list or a set.
+**Source: GeminiAI:**    length(var.subnet_ids): This expression calculates the length of the variable var.subnet_ids. The length function is used to determine the number of elements in a list or a set.
 
 
 
