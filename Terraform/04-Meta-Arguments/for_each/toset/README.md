@@ -1,6 +1,7 @@
  This file contains all the file in the **toset** directory.
 
-1. 00-main.tf
+## 1. 00-main.tf
+
 ```
 provider "aws" {
   region = "us-east-1"
@@ -18,7 +19,8 @@ resource "aws_iam_user" "example" {
 }
 ```
 
-2. main.tf
+## 2. main.tf
+
  # Source : https://developer.hashicorp.com/terraform/language/meta-arguments/for_each#when-to-use-for_each-instead-of-count
 
 ```
@@ -32,7 +34,7 @@ resource "aws_iam_user" "the-accounts" {
 }
 ```
 
-3. # Creating an ec2 instance using for_each
+## 3. Creating an ec2 instance using for_each
 
 ```
 provider "aws" {
@@ -52,7 +54,7 @@ tags = {
 
 ```
 
-# 4. # Creating an ec2 instance using for_each
+## 4. Creating an ec2 instance using for_each
 
 ```
 provider "aws" {
