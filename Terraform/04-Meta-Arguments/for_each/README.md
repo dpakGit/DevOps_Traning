@@ -5,3 +5,5 @@ The for_each meta-argument accepts a map or a set of strings, and creates an ins
 
 
 2. https://developer.hashicorp.com/terraform/language/meta-arguments/for_each
+
+3. **KODEKLOUD** : - https://kodekloud.com/blog/terraform-for_each/  { Imp }
