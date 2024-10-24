@@ -1,4 +1,4 @@
-### This page copird from the Terraform documentation Github page so that i can see how writing styles are written
+### This page copied from the Terraform documentation Github page so that i can see how writing styles are written
  
  https://github.com/hashicorp/terraform/blob/main/website/docs/language/meta-arguments/count.mdx
 
