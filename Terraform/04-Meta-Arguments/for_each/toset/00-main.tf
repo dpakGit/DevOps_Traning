@@ -1,4 +1,5 @@
-# Compare 00-main.tf and main.tf examples, both gives the same result
+# Compare IAM-main.tf and main.tf examples, both gives the same result
+
 
 provider "aws" {
   region = "us-east-1"
