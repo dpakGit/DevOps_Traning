@@ -1,3 +1,5 @@
+# Source : https://developer.hashicorp.com/terraform/language/meta-arguments/for_each#when-to-use-for_each-instead-of-count
+
 provider "aws" {
   region = "us-east-1"
 }
