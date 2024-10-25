@@ -79,10 +79,9 @@ Note: This will automatically asssign numbers to the names starting from 0
 
 **Source_MetaAI**
 
- To create an instance in each of the two zones, you can use the for_each argument with toset():
+###### To create an instance in each of the two zones, you can use the for_each argument with toset():
 
-
-```
+ ```
 provider "aws" {
   region = "us-east-1"
 }
@@ -122,8 +121,8 @@ When you run terraform apply, this code will create two instances:
 
 2. One in us-east-1b with name Web-us-east-1b.
 
-Alternatively, you can use zipmap() to create a map with zone names as keys and values:
 
+##### Alternatively, you can use zipmap() to create a map with zone names as keys and values:
 
 ```
 resource "aws_instance" "web" {
@@ -151,7 +150,7 @@ Would you like:
 ................................................
 
    
-CLI Output: 
+CLI Output: for the above **for_each** 
 
 root@ip-172-31-92-164:/home/ubuntu/variable# t state list
 
