@@ -22,7 +22,7 @@ resource "aws_instance" "web" {
   }
 }
 ```
-Output:
+CLI Output:
 
 ubuntu@ip-172-31-83-175:~/var$ t state list
 
@@ -60,9 +60,12 @@ resource "aws_instance" "web" {
 }
 }
 ```
-Output: 
+CLI Output: 
+
 root@ip-172-31-83-175:/home/ubuntu/var# terraform state list
+
 aws_instance.web[0]
+
 aws_instance.web[1]
 
 Screenshot of AWS console: ![Screenshot (202)](https://github.com/user-attachments/assets/716e3128-4f99-493d-9b77-8496556d5e3a)
@@ -106,7 +109,9 @@ Incorrect syntax :  Name = "var.names ${count.index}" output of the names in the
 CLI Output: 
 
 root@ip-172-31-83-175:/home/ubuntu/var# terraform state list
+
 aws_instance.web[0]
+
 aws_instance.web[1]
 
 Screenshot of AWS console: ![Screenshot (203)](https://github.com/user-attachments/assets/7163219e-7a2c-4093-a5d9-3c2b7479e04c)
