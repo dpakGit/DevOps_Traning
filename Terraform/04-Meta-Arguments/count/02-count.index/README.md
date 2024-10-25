@@ -1,7 +1,9 @@
 
 ## count.index
 
-Source MetaAI : 
+1. https://kodekloud.com/blog/terraform-count/ # Also tead from here about count.index
+
+2. Source MetaAI : 
 
 In Terraform, **count.index** is a built-in variable that provides the current index of the resource being created when using the count meta-argument.
 
