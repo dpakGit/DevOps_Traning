@@ -79,7 +79,7 @@ Note: This will automatically asssign numbers to the names starting from 0
 
 **Source_MetaAI**
 
-###### To create an instance in each of the two zones, you can use the for_each argument with toset():
+##### To create an instance in each of the two zones, you can use the for_each argument with toset():
 
  ```
 provider "aws" {
@@ -150,7 +150,7 @@ Would you like:
 ................................................
 
    
-CLI Output: for the above **for_each** 
+CLI Output: for the above **for_each** **argument** **with** **toset()** 
 
 root@ip-172-31-92-164:/home/ubuntu/variable# t state list
 
