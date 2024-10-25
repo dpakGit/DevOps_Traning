@@ -1,5 +1,6 @@
 
-
+1. 01-main.tf # The following file will create two Ec2 instances in two zones
+   
 ```
 provider "aws" {
   region = "us-east-1"
@@ -21,3 +22,14 @@ resource "aws_instance" "web" {
   }
 }
 ```
+Output:
+
+ubuntu@ip-172-31-83-175:~/var$ t state list
+
+aws_instance.web[0]
+
+aws_instance.web[1] 
+
+Screenshot of AWS console:  ![Screenshot (201)](https://github.com/user-attachments/assets/d495bc91-1edf-4747-b762-1b779e2ca02c)
+ 
+Conclusion: But the names of the instances in the console is same i.e; "Web-Var"
