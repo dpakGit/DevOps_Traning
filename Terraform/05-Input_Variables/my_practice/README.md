@@ -150,7 +150,7 @@ Would you like:
 ................................................
 
    
-CLI Output: for the above **for_each** **argument** **with** **toset()** 
+CLI Output:   for the above code with "**for_each** **argument** **with** **toset()**" 
 
 root@ip-172-31-92-164:/home/ubuntu/variable# t state list
 
