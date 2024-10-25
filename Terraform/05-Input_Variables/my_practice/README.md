@@ -159,7 +159,12 @@ aws_instance.web["us-east-1a"]
 aws_instance.web["us-east-1b"]
 
 
-Screenshot of AWS console: ![Screenshot (204)](https://github.com/user-attachments/assets/0b03189d-9013-456f-9470-dec5a1ca3803)
+
+Screenshot of AWS console:
+
+
+![Screenshot (204)](https://github.com/user-attachments/assets/0b03189d-9013-456f-9470-dec5a1ca3803)
+
 
 Conclusion:
 
