@@ -75,7 +75,7 @@ Note: This will automatically asssign numbers to the names starting from 0
 
 
 
- #### 2.1 OR use for_each argument
+ #### 2.1     Or use the for_each argument.
 
 **Source_MetaAI**
 
