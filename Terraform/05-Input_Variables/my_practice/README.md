@@ -30,7 +30,10 @@ aws_instance.web[0]
 
 aws_instance.web[1] 
 
-Screenshot of AWS console:  ![Screenshot (201)](https://github.com/user-attachments/assets/d495bc91-1edf-4747-b762-1b779e2ca02c)
+Screenshot of AWS console:
+
+
+![Screenshot (201)](https://github.com/user-attachments/assets/d495bc91-1edf-4747-b762-1b779e2ca02c)
  
 
 Conclusion: But the names of the instances in the console is same i.e; "Web-Var"
@@ -68,7 +71,12 @@ aws_instance.web[0]
 
 aws_instance.web[1]
 
-Screenshot of AWS console: ![Screenshot (202)](https://github.com/user-attachments/assets/716e3128-4f99-493d-9b77-8496556d5e3a)
+Screenshot of AWS console:
+
+
+![Screenshot (202)](https://github.com/user-attachments/assets/716e3128-4f99-493d-9b77-8496556d5e3a)
+
+
 
 Conclusion: **${count.index}** # Adding this lines gives two different names to the instances in the console.
 Note: This will automatically asssign numbers to the names starting from 0
@@ -174,6 +182,7 @@ Conclusion:
 
 
 #### 3. 03-main.tf Suppose we want to give unique or specific names to the instances.
+  
    Then how to define the variables
 
    ```
@@ -213,7 +222,10 @@ aws_instance.web[0]
 
 aws_instance.web[1]
 
-Screenshot of AWS console: ![Screenshot (203)](https://github.com/user-attachments/assets/7163219e-7a2c-4093-a5d9-3c2b7479e04c)
+Screenshot of AWS console:
+
+
+![Screenshot (203)](https://github.com/user-attachments/assets/7163219e-7a2c-4093-a5d9-3c2b7479e04c)
 
 
 Conclusion: Two instances wiyh unique names "sandy" and "boxy" created in two different zones
