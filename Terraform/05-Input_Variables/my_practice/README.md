@@ -97,7 +97,9 @@ resource "aws_instance" "web" {
   tags = {
     Name = var.names[count.index] #   Incorrect syntax : Name = "var.names ${count.index}" 
 }
-}```
+}
+
+```
 
 Incorrect syntax :  Name = "var.names ${count.index}" output of the names in the console will be "var.names 1" and "var.names 2".
 
