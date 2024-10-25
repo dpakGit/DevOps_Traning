@@ -148,6 +148,25 @@ Would you like:
 3. Help with dynamic resource creation.
 4. Other (please specify).
 
+................................................
+
+   
+CLI Output: 
+
+root@ip-172-31-92-164:/home/ubuntu/variable# t state list
+
+aws_instance.web["us-east-1a"]
+
+aws_instance.web["us-east-1b"]
+
+
+Screenshot of AWS console: ![Screenshot (204)](https://github.com/user-attachments/assets/0b03189d-9013-456f-9470-dec5a1ca3803)
+
+Conclusion:
+
+
+   
+
 
 
 #### 3. 03-main.tf Suppose we want to give unique or specific names to the instances.
