@@ -74,6 +74,82 @@ Conclusion: **${count.index}** # Adding this lines gives two different names to 
 Note: This will automatically asssign numbers to the names starting from 0
 
 
+
+ #### 2.1 OR use for_each argument
+
+**Source_MetaAI**
+
+ To create an instance in each of the two zones, you can use the for_each argument with toset():
+
+
+```
+provider "aws" {
+  region = "us-east-1"
+}
+
+variable "zones" {
+  type        = list(string)
+  default     = ["us-east-1a", "us-east-1b"]
+}
+
+resource "aws_instance" "web" {
+  for_each = toset(var.zones)
+
+  ami           = "ami-005fc0f236362e99f"
+  instance_type = "t2.micro"
+  availability_zone = each.value
+
+  tags = {
+    Name = "Web-${each.value}"
+  }
+}
+
+```
+
+Here's what's happening:
+
+1. toset(var.zones) converts the list of zones to a set, which allows Terraform to iterate over each zone.
+
+2. for_each = toset(var.zones) creates an instance for each zone in the set.
+
+3. availability_zone = each.value sets the availability zone for each instance.
+
+4. tags includes the zone name for each instance.
+
+When you run terraform apply, this code will create two instances:
+
+1. One in us-east-1a with name Web-us-east-1a.
+
+2. One in us-east-1b with name Web-us-east-1b.
+
+Alternatively, you can use zipmap() to create a map with zone names as keys and values:
+
+
+```
+resource "aws_instance" "web" {
+  for_each = zipmap(var.zones, var.zones)
+
+  ami           = "ami-005fc0f236362e99f"
+  instance_type = "t2.micro"
+  availability_zone = each.value
+
+  tags = {
+    Name = "Web-${each.key}"
+  }
+}
+```
+
+Both approaches achieve the same result.
+
+Would you like:
+
+1. More Terraform examples.
+2. Guidance on using for_each.
+3. Help with dynamic resource creation.
+4. Other (please specify).
+
+
+
 #### 3. 03-main.tf Suppose we want to give unique or specific names to the instances.
    Then how to define the variables
 
