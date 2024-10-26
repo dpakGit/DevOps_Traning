@@ -1,3 +1,6 @@
+-> This feature was introduced in Terraform CLI v0.13.0.
+
+
 ##### Source: GeminiAI
 
 #### 1. expalin the syntax -  tags = {
