@@ -1,6 +1,6 @@
 ##### Source: GeminiAI
 
-1. expalin the syntax -  tags = {
+#### 1. expalin the syntax -  tags = {
 
     Name = "${join("-", tolist([var.myname]))}-${count.index}"
 
@@ -12,7 +12,7 @@
 Show drafts
 
 
-Understanding the Syntax
+##### Understanding the Syntax
 
 The provided code snippet is likely part of a configuration file or a scripting language, such as HCL (Hashicorp Configuration Language) or a templating language like Jinja2, often used in infrastructure as code (IaC) tools like Terraform.
 
@@ -52,10 +52,10 @@ tags = {
 }
 
 
-2.explain the following command elaborately - ${join("-", tolist([var.myname]))}
+#### 2.  explain the following command elaborately - ${join("-", tolist([var.myname]))}
 
 
- Breaking Down the Command: ${join("-", tolist([var.myname]))}`
+##### Breaking Down the Command: ${join("-", tolist([var.myname]))}`
 
 This command, often found in configuration languages like HCL (Hashicorp Configuration Language) or templating languages like Jinja2, is a concise way to manipulate strings and create dynamic values. Let's dissect it step-by-step:
 
