@@ -1,4 +1,10 @@
-
+```html
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>Hello World</h1>
+  </div>
+</div>
+```
 
 
 #### 1. expalin the syntax -  tags = {
@@ -24,11 +30,10 @@ Let's break down the syntax step-by-step:
 
 1. Declaring a Dictionary:
 
-`
 tags = {
      ...
 }
-`
+
 
 
 `This line declares a dictionary named tags. Dictionaries are key-value pairs, where each key is associated with a value. In this case, the keys are Name and Team.`
