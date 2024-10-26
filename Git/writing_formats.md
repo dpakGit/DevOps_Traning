@@ -127,3 +127,49 @@ _index_ instead of the string values in the list. If an element was removed from
 the middle of the list, every instance _after_ that element would see its
 `subnet_id` value change, resulting in more remote object changes than intended.
 Using `for_each` gives the same flexibility without the extra churn.
+
+
+
+### Colour format
+
+https://stackoverflow.com/questions/11509830/how-to-add-color-to-githubs-readme-md-file
+
+```diff
+- text in red
++ text in green
+! text in orange
+# text in gray
+@@ text in purple (and bold)@@
+```
+
+
+```diff
+
+```
+
+```json
+   // code for coloring
+```
+
+Code             	Appearing
+
+$${\color{red}Red}$$	$${\color{red}Red}$$
+
+$${\color{green}Green}$$	$${\color{green}Green}$$
+
+$${\color{lightgreen}Light \space Green}$$	$${\color{lightgreen}Light \space Green}$$
+
+$${\color{blue}Blue}$$	$${\color{blue}Blue}$$
+
+$${\color{lightblue}Light \space Blue}$$	$${\color{lightblue}Light \space Blue}$$
+
+$${\color{black}Black}$$	$${\color{black}Black}$$
+
+$${\color{white}White}$$	$${\color{white}White}$$ 
+
+
+More than one color
+
+$${\color{red}Welcome \space \color{lightblue}To \space \color{orange}Stackoverflow}$$
+ 
+
