@@ -24,9 +24,11 @@ Let's break down the syntax step-by-step:
 
 1. Declaring a Dictionary:
 
-`tags = {
+`
+tags = {
      ...
-}`
+}
+`
 
 
 `This line declares a dictionary named tags. Dictionaries are key-value pairs, where each key is associated with a value. In this case, the keys are Name and Team.`
