@@ -10,7 +10,7 @@ description: >-
   without writing a separate block for each one.
 ---
 
-# The `count` Meta-Argument
+# The `count` Meta-Argument 
 
 -> **Version note:** Module support for `count` was added in Terraform 0.13, and
 previous versions can only use it with resources.
