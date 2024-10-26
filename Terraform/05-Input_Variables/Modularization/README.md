@@ -19,16 +19,16 @@ Let's break down the syntax step-by-step:
 
 1. Declaring a Dictionary:
 
-tags = {
+`tags = {
     ...
-}
+}`
 This line declares a dictionary named tags. Dictionaries are key-value pairs, where each key is associated with a value. In this case, the keys are Name and Team.
 
 2. Defining the Name Key:
 
 Name = "${join("-", tolist([var.myname]))}-${count.index}"
 
-**${...}**: This syntax indicates a template expression, where the enclosed expression will be evaluated and substituted with its result.
+`${...}**`: This syntax indicates a template expression, where the enclosed expression will be evaluated and substituted with its result.
 join("-", ...): This function takes a list of strings and joins them together using the specified delimiter, in this case, a hyphen (-).
 tolist([var.myname]): This converts the variable var.myname into a list. This is likely necessary if var.myname is a string that needs to be split into individual characters or words.
 -${count.index}: This concatenates a hyphen and the value of the count.index variable to the end of the joined string.
@@ -77,9 +77,9 @@ Convert to List: The var.myname variable, which is likely a string, is converted
 Join the List: The join function takes this list of characters and concatenates them using the hyphen (-) as the delimiter.
 Example:
 
-If -> var.myname is "JohnDoe", the expression would be evaluated as follows:
+If  `var.myname` is "JohnDoe", the expression would be evaluated as follows:
 
-1.  tolist([var.myname]) would result in ["J", "o", "h", "n", "D", "o", "e"].
+1.  `tolist([var.myname])` would result in `["J", "o", "h", "n", "D", "o", "e"]`.
 
 2.  `join("-", ["J", "o", "h", "n", "D", "o", "e"])` would result in `"J-o-h-n-D-o-e"`.
 
