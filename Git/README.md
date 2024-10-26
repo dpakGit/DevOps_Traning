@@ -10,3 +10,5 @@ kubectl get node
 ```
 
 https://github.com/mattcone/markdown-guide/tree/master/_basic-syntax
+
+https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks
