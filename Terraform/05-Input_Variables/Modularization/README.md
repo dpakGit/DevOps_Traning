@@ -9,10 +9,9 @@
 
 Show drafts
 
-```diff
+
 ##### Understanding the Syntax
 
-```
 
 The provided code snippet is likely part of a configuration file or a scripting language, such as HCL (Hashicorp Configuration Language) or a templating language like Jinja2, often used in infrastructure as code (IaC) tools like Terraform.
 
@@ -82,7 +81,7 @@ If -> var.myname is "JohnDoe", the expression would be evaluated as follows:
 
 1.  tolist([var.myname]) would result in ["J", "o", "h", "n", "D", "o", "e"].
 
-2.  join("-", ["J", "o", "h", "n", "D", "o", "e"]) would result in "J-o-h-n-D-o-e".
+2.  `join("-", ["J", "o", "h", "n", "D", "o", "e"])` would result in `"J-o-h-n-D-o-e"`.
 
 Common Use Cases:
 
