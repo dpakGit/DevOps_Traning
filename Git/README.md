@@ -31,11 +31,9 @@ puts markdown.to_html
   </div>
 </div>
 ```
-use the below line 
-````````````````````````````````````````````````````````
 
 
-````````````````````````````````````````````````
+
 ```
 Colons can be used to align columns.
 
