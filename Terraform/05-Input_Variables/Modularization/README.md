@@ -1,6 +1,3 @@
-`
-Name = "${join("-", tolist([var.myname]))}-${count.index}"
-`
 
 
 
@@ -27,17 +24,19 @@ Let's break down the syntax step-by-step:
 
 1. Declaring a Dictionary:
 
-tags = {
-    
-    ...
-}
+`tags = {
+     ...
+}`
 
 
 `This line declares a dictionary named tags. Dictionaries are key-value pairs, where each key is associated with a value. In this case, the keys are Name and Team.`
 
 2. Defining the Name Key:
 
+`
 Name = "${join("-", tolist([var.myname]))}-${count.index}"
+`
+
 
 `${...}**`: This syntax indicates a template expression, where the enclosed expression will be evaluated and substituted with its result.
 join("-", ...): This function takes a list of strings and joins them together using the specified delimiter, in this case, a hyphen (-).
