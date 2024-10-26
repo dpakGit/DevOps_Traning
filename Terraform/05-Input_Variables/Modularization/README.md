@@ -1,8 +1,7 @@
-### Custom Validation Rules
-
-[inpage-validation]: #custom-validation-rules
-
--> This feature was introduced in Terraform CLI v0.13.0.
+- text in red
++ text in green
+! text in orange
+# text in gray
 
 
 
@@ -88,8 +87,10 @@ Example:
 
 If -> var.myname is "JohnDoe", the expression would be evaluated as follows:
 
-1. -> tolist([var.myname]) would result in ["J", "o", "h", "n", "D", "o", "e"].
-2. -> join("-", ["J", "o", "h", "n", "D", "o", "e"]) would result in "J-o-h-n-D-o-e".
+1.  tolist([var.myname]) would result in ["J", "o", "h", "n", "D", "o", "e"].
+
+2.  join("-", ["J", "o", "h", "n", "D", "o", "e"]) would result in "J-o-h-n-D-o-e".
+
 Common Use Cases:
 
 Creating Unique Identifiers: This technique can be used to generate unique identifiers for resources in infrastructure as code tools like Terraform.
