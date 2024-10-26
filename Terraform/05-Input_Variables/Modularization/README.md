@@ -78,10 +78,10 @@ Convert to List: The var.myname variable, which is likely a string, is converted
 Join the List: The join function takes this list of characters and concatenates them using the hyphen (-) as the delimiter.
 Example:
 
-If var.myname is "JohnDoe", the expression would be evaluated as follows:
+If -> var.myname is "JohnDoe", the expression would be evaluated as follows:
 
-tolist([var.myname]) would result in ["J", "o", "h", "n", "D", "o", "e"].
-join("-", ["J", "o", "h", "n", "D", "o", "e"]) would result in "J-o-h-n-D-o-e".
+1. -> tolist([var.myname]) would result in ["J", "o", "h", "n", "D", "o", "e"].
+2. -> join("-", ["J", "o", "h", "n", "D", "o", "e"]) would result in "J-o-h-n-D-o-e".
 Common Use Cases:
 
 Creating Unique Identifiers: This technique can be used to generate unique identifiers for resources in infrastructure as code tools like Terraform.
