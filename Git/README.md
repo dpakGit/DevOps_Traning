@@ -77,36 +77,7 @@ puts markdown.to_html
  
 
 ``````````````````````````````````````````````````````````````````````````
-#### 1. expalin the syntax -  tags = {
-
-    Name = "${join("-", tolist([var.myname]))}-${count.index}"
-
-    Team = "DevOps"
-
-  }
-
-  
-
-
-Show drafts
-
-
-##### Understanding the Syntax
-
-
-The provided code snippet is likely part of a configuration file or a scripting language, such as HCL (Hashicorp Configuration Language) or a templating language like Jinja2, often used in infrastructure as code (IaC) tools like Terraform.
-
-Let's break down the syntax step-by-step:
-
-1. Declaring a Dictionary:
-
-tags = {
-     ...
-}
-
-
-
-`This line declares a dictionary named tags. Dictionaries are key-value pairs, where each key is associated with a value. In this case, the keys are Name and Team.`
+d with a value. In this case, the keys are Name and Team.`
 
 2. Defining the Name Key:
 
