@@ -13,6 +13,12 @@ puts markdown.to_html
 ```
 
 
+> Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+
+>     for(;;) 
+        echo 'badger ';
+
+
 #### 1. expalin the syntax -  tags = {
 
     Name = "${join("-", tolist([var.myname]))}-${count.index}"
