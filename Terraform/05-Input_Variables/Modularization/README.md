@@ -11,14 +11,19 @@ require 'redcarpet'
 markdown = Redcarpet.new("Hello World!")
 puts markdown.to_html
 ```
+Some basic Git commands are:
+```
+git status
+git add
+git commit
+```
 
 
-> Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-
->     for(;;) 
-        echo 'badger ';
 
 
+ 
+
+``````````````````````````````````````````````````````````````````````````
 #### 1. expalin the syntax -  tags = {
 
     Name = "${join("-", tolist([var.myname]))}-${count.index}"
