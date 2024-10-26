@@ -18,7 +18,7 @@
 $${\color{red}Red}$$
 
 
-$${\color{lightgreen}##### \Source: \ GeminiAI}$$
+$${\color{lightgreen}##### \ Source \: \ GeminiAI}$$
 
 
 #### 1. expalin the syntax -  tags = {
