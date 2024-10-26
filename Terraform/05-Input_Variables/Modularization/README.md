@@ -28,7 +28,8 @@ This line declares a dictionary named tags. Dictionaries are key-value pairs, wh
 2. Defining the Name Key:
 
 Name = "${join("-", tolist([var.myname]))}-${count.index}"
-${...}: This syntax indicates a template expression, where the enclosed expression will be evaluated and substituted with its result.
+
+**${...}**: This syntax indicates a template expression, where the enclosed expression will be evaluated and substituted with its result.
 join("-", ...): This function takes a list of strings and joins them together using the specified delimiter, in this case, a hyphen (-).
 tolist([var.myname]): This converts the variable var.myname into a list. This is likely necessary if var.myname is a string that needs to be split into individual characters or words.
 -${count.index}: This concatenates a hyphen and the value of the count.index variable to the end of the joined string.
