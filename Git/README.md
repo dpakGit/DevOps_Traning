@@ -5,6 +5,7 @@ https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-f
 
 https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github#enabling-fixed-width-fonts-in-the-editor
 
+How to add color to GitHub's README.md file: https://stackoverflow.com/questions/11509830/how-to-add-color-to-githubs-readme-md-file
 
 
 
