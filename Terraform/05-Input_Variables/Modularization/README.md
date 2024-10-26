@@ -1,33 +1,3 @@
-```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
-
-
-```diff
-
-```
-
-```json
-   // code for coloring
-```
-
-Code             	Appearing
-$${\color{red}Red}$$	$${\color{red}Red}$$
-$${\color{green}Green}$$	$${\color{green}Green}$$
-$${\color{lightgreen}Light \space Green}$$	$${\color{lightgreen}Light \space Green}$$
-$${\color{blue}Blue}$$	$${\color{blue}Blue}$$
-$${\color{lightblue}Light \space Blue}$$	$${\color{lightblue}Light \space Blue}$$
-$${\color{black}Black}$$	$${\color{black}Black}$$
-$${\color{white}White}$$	$${\color{white}White}$$ 
-
-$${\color{red}Welcome \space \color{lightblue}To \space \color{orange}Stackoverflow}$$
- 
-
-
 #### 1. expalin the syntax -  tags = {
 
     Name = "${join("-", tolist([var.myname]))}-${count.index}"
