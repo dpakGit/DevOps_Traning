@@ -3,7 +3,7 @@ Name = "${join("-", tolist([var.myname]))}-${count.index}"
 `
 
 
-
+`
 #### 1. expalin the syntax -  tags = {
 
     Name = "${join("-", tolist([var.myname]))}-${count.index}"
@@ -11,6 +11,7 @@ Name = "${join("-", tolist([var.myname]))}-${count.index}"
     Team = "DevOps"
 
   }
+  `
 
 
 Show drafts
