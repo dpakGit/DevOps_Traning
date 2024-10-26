@@ -4,4 +4,8 @@
 
 3. ![Screenshot (191)](https://github.com/user-attachments/assets/0572ced6-99be-4809-84bd-28fda25c2350)
 
+4. Managing AWS Security Groups Through Terraform: https://spacelift.io/blog/terraform-security-group
+
+5.  
+
 
