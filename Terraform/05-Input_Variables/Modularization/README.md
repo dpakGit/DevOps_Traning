@@ -1,11 +1,65 @@
+To highlight code blocks in a Git (link unavailable) page without displaying a copy icon, you can use Markdown syntax with fenced code blocks and specify the programming language. Here are a few methods:
 
-// Your Java code here
-public class HelloWorld {
-  public static void main(String[] args) {
-    System.out.println("Hello, World!");
-  }
+*Using triple backticks (`)*
+
+
+python
+# Your code here
+print("Hello World")
+
+
+
+### Specifying Language
+
+
+
+// Your code here
+console.log("Hello World");
+
+
+
+### No Language Specified
+
+
+
+# Your code here
+print("Hello World")
+
+``
+
+To remove the copy icon, you can:
+
+Using CSS
+
+Add the following CSS code to your (link unavailable)
+
+
+/* Remove copy button from code blocks */
+.code-header {
+  display: none;
 }
 
+
+Or:
+
+Using HTML
+
+Wrap your code block in a div with style:
+
+
+<div style="display: flex; justify-content: center; margin: 10px;">
+
+
+# Your code here
+print("Hello World")
+
+
+</div>
+
+
+However, please note that the copy icon is a useful feature for many users, and removing it might affect readability and usability.
+
+Would you like more information on Markdown syntax or code highlighting?
 
 
 
