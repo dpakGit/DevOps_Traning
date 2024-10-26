@@ -1,5 +1,8 @@
-// Some code
+`
 
+    Name = "${join("-", tolist([var.myname]))}-${count.index}"
+
+`
 
 
 
