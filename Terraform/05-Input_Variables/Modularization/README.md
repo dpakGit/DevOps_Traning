@@ -3,7 +3,7 @@ Name = "${join("-", tolist([var.myname]))}-${count.index}"
 `
 
 
-`
+
 #### 1. expalin the syntax -  tags = {
 
     Name = "${join("-", tolist([var.myname]))}-${count.index}"
@@ -12,7 +12,7 @@ Name = "${join("-", tolist([var.myname]))}-${count.index}"
 
   }
 
-  `
+  
 
 
 Show drafts
@@ -33,7 +33,7 @@ tags = {
 }
 
 
-This line declares a dictionary named tags. Dictionaries are key-value pairs, where each key is associated with a value. In this case, the keys are Name and Team.
+`This line declares a dictionary named tags. Dictionaries are key-value pairs, where each key is associated with a value. In this case, the keys are Name and Team.`
 
 2. Defining the Name Key:
 
