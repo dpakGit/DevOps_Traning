@@ -7,6 +7,11 @@
 ```
 
 
+```diff
+
+```
+
+
 ##### Source: GeminiAI
 
 #### 1. expalin the syntax -  tags = {
@@ -20,8 +25,10 @@
 
 Show drafts
 
-
+```diff
 ##### Understanding the Syntax
+
+```
 
 The provided code snippet is likely part of a configuration file or a scripting language, such as HCL (Hashicorp Configuration Language) or a templating language like Jinja2, often used in infrastructure as code (IaC) tools like Terraform.
 
