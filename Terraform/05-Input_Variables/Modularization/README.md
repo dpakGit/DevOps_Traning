@@ -13,7 +13,7 @@ puts markdown.to_html
 ```
 2. Multiline Code Block
 3. 
-```In a multiline code block, a set of lines is formatted to a single block of code. To format multiple lines of code in Discord, enclose it within three backticks(```). For example, to make a code block containing "This is sample multiline code block", you need to type the following:```
+```In a multiline code block, a set of lines is formatted to a single block of code. To format multiple lines of code in Discord, enclose it within three backticks(````). For example, to make a code block containing "This is sample multiline code block", you need to type the following:```
 
 
 
