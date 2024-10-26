@@ -11,6 +11,8 @@ The for_each meta-argument accepts a map or a set of strings, and creates an ins
 4. Terraform Count vs. For Each Meta-Argument -spacelift – When to Use It :
     https://spacelift.io/blog/terraform-count-for-each
 
+5. How to Use Terraform For_Each Meta-Argument: https://spacelift.io/blog/terraform-for-each   
+
 # What is the difference between a count and for loop on a resource object in Terraform and why might you use them?
 
 
