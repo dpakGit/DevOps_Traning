@@ -23,6 +23,13 @@ How to add color to GitHub's README.md file: https://stackoverflow.com/questions
 kubectl get node 
 ```
 
+```shell
+terraform apply -var-file="testing.tfvars"
+```
+
+
+
+
 ```ruby
 require 'redcarpet'
 markdown = Redcarpet.new("Hello World!")
