@@ -85,3 +85,16 @@ puts markdown.to_html
 - ^^This was inserted (underline)^^
 - ~~This was deleted (strikethrough)~~
 
+```
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>Hello World</h1>
+  </div>
+</div>
+```
+
+2. Multiline Code Block
+
+```In a multiline code block, a set of lines is formatted to a single block of code. To format multiple lines of code in Discord, enclose it within three backticks(````). For example, to make a code block containing "This is sample multiline code block", you need to type the following:```
+
+
