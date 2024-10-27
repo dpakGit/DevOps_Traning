@@ -14,6 +14,11 @@ How to add color to GitHub's README.md file: https://stackoverflow.com/questions
 # ADD COPY ICON TO A COMMAND
 ## ADD COPY ICON TO A COMMAND
 ### ADD COPY ICON TO A COMMAND
+
+... as described in [_Modules_](/terraform/language/modules).
+
+
+
 ```
 kubectl get node 
 ```
