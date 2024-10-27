@@ -1,3 +1,8 @@
+# How to split Your Terraform main.tf File into Multiple Files
+
+https://jhooq.com/terraform-split-main-tf/
+
+
 ### Source: Gemini AI
 
 
