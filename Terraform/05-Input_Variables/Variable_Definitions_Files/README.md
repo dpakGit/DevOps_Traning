@@ -1,7 +1,3 @@
- as described in
-[_Modules_](/terraform/language/modules).
-
-
 
 ### Variable Definitions Files -  (.tfvars) 
 
