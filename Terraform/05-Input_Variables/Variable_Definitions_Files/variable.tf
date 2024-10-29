@@ -1,6 +1,6 @@
 variable "zones" { 
   type = list(string)
-  default = ["us-west-2c", "us-west-2b"]
+  default = ["us-east-1a", "us-east-1b"]
 }
 
 variable "myname" {
