@@ -21,6 +21,7 @@ resource "aws_instance" "webs" {
 }
 ```
 
+
  ## cat variable.tf 
  
  ```
@@ -40,6 +41,7 @@ variable "myname" {
 }
 ```
 
+
 ## cat testing.tfvars
 
 ```
@@ -56,9 +58,14 @@ zones =        [                           # Variable-3        Zones in which th
   "us-east-1f"
 ]
 ```
+
+
+```
 t apply -var-file="testing.tfvars" -auto-approve
 ```
-When e run the above command, terraform creates six EC2 instances in the above six zones.
+
+When we run the above command, terraform creates six EC2 instances in the above six zones.
+
 
 root@Master:/home/labsuser# # Output:-
 root@Master:/home/labsuser# terraform state list
@@ -70,7 +77,10 @@ aws_instance.webs[4]
 aws_instance.webs[5]
 root@Master:/home/labsuser#
 
+
 AWS console screenshot : ![Screenshot (228)](https://github.com/user-attachments/assets/9160e2a1-777d-44db-9caa-32386e61a1ec)
+
+
 
 
 ### Practice :-2
