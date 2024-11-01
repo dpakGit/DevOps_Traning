@@ -6,6 +6,9 @@ https://awstip.com/automating-infrastructure-management-terraform-intro-c31573a8
      
      terraform plan 
      
+     Terraform plan -auto-approve     # Automatic Plan Mode-
+     https://developer.hashicorp.com/terraform/cli/commands/apply#automatic-plan-mode
+     
      terraform apply
     
      cat terraform.tfstate 
