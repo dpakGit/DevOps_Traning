@@ -28,7 +28,8 @@ Variable Declaration
 In (link unavailable), you declare variables using the variable block:
 
 
-# (link unavailable)
+#### variable.tf
+
 variable "image_id" {
   type = string
   default = "ami-abc-123"
@@ -81,11 +82,52 @@ Terraform's variable scope is global, meaning variables declared in `(link unava
 
 * Keep variable declarations separate from resource configurations.
 * Use meaningful variable names and descriptions.
-* Use default values for optional variables.
+### * Use default values for optional variables.
 
 By following these practices, you'll maintain clean, reusable, and scalable Terraform configurations.
 
 Do you have further questions on Terraform variables or configurations?
+
+
+Meaning of the following sentence "Use default values for optional variables."
+
+
+The sentence "Use default values for optional variables" means:
+
+Optional Variables: Variables that are not required to be explicitly set by the user.
+
+Default Values: Pre-defined values assigned to optional variables in case they are not provided by the user.
+
+In other words, when declaring variables in Terraform (or other configuration files), it's a good practice to provide default values for variables that are:
+
+1. Not critical to the configuration.
+2. Can have a reasonable fallback value.
+3. Don't require explicit user input.
+
+Benefits of using default values for optional variables:
+
+1. Simplifies configuration: Users don't need to provide values for non-essential variables.
+2. Reduces errors: Default values ensure consistent behavior even if users forget to set optional variables.
+3. Improves maintainability: Default values make it clear what values are expected or recommended.
+
+Example:
+
+
+variable "instance_type" {
+  type = string
+  default = "t2.micro" # default value for optional variable
+}
+
+
+In this case, instance_type is an optional variable with a default value of "t2.micro". If the user doesn't provide a value, Terraform will use the default value.
+
+Best practices:
+
+1. Document optional variables and their default values.
+2. Use meaningful default values that make sense for your configuration.
+3. Keep default values up-to-date and consistent across your configuration.
+
+Do you have further questions on Terraform variables or configuration best practices?
 ....................................
 
 Here's a step-by-step explanation of how Terraform fetches variable values from (link unavailable) to (link unavailable):
