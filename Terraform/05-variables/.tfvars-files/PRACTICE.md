@@ -84,6 +84,59 @@ aws_instance.webs[5]
 root@Master:/home/labsuser#
 
 
+#### How it works .
+Let's break down how this Terraform configuration works:
+
+(link unavailable)
+
+1. provider "aws" { region = "us-east-1" }:
+    - Specifies the AWS provider and sets the region to us-east-1.
+2. resource "aws_instance" "webs" { ... }:
+    - Defines an AWS EC2 instance resource named webs.
+3. count = length(var.zones):
+    - Creates multiple instances based on the length of the var.zones list.
+4. ami = var.image_id:
+    - Sets the Amazon Machine Image (AMI) ID for the instances.
+5. instance_type = "t2.micro":
+    - Specifies the instance type.
+6. availability_zone = var.zones[count.index]:
+    - Sets the Availability Zone (AZ) for each instance based on the var.zones list index.
+7. tags = { ... }:
+    - Adds tags to the instances.
+
+(link unavailable)
+
+1. variable "image_id" { type = string }:
+    - Declares a variable image_id of type string without a default value.
+2. variable "zones" { type = list(string) default = ["us-east-1a", "us-east-1b"] }:
+    - Declares a variable zones of type list(string) with a default value of ["us-east-1a", "us-east-1b"].
+3. variable "myname" { type = string default = "mydefault-instances" }:
+    - Declares a variable myname of type string with a default value of "mydefault-instances".
+
+How it works
+
+1. When you run terraform apply, Terraform initializes the configuration.
+2. It reads the (link unavailable) file and sets the default values for zones and myname.
+3. You must provide a value for image_id using the -var flag (e.g., -var "image_id=ami-abc123").
+4. Terraform creates multiple EC2 instances based on the length of the zones list (2 instances in this case).
+5. For each instance:
+    - It sets the AMI ID to the provided image_id value.
+    - It sets the instance type to t2.micro.
+    - It sets the Availability Zone to the corresponding value in the zones list (us-east-1a and us-east-1b).
+    - It adds tags with the Name set to <myname>-<index+1> (e.g., mydefault-instances-1 and mydefault-instances-2) and Team set to DevOps.
+
+Example output:
+
+2 EC2 instances created:
+
+| Instance ID | Availability Zone | Name                 | Team   |
+|-------------|-------------------|----------------------|--------|
+| i-012345678 | us-east-1a        | mydefault-instances-1 | DevOps |
+| i-098765432 | us-east-1b        | mydefault-instances-2 | DevOps |
+
+Do you have any specific questions about this configuration or Terraform in general?
+
+
 AWS console screenshot : ![Screenshot (228)](https://github.com/user-attachments/assets/9160e2a1-777d-44db-9caa-32386e61a1ec)
 
 
