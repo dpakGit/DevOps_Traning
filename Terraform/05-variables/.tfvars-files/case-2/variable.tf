@@ -2,6 +2,7 @@
 
 variable "image_id" {
  type = string
+ # default = "ami-0866a3c8686eaeeba"   # Ubuntu Server 24.04 LTS (HVM),EBS General Purpose (SSD) Volume Type.
 }
 
 
