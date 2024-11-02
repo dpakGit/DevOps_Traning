@@ -231,3 +231,91 @@ Screenshot of AWS console:
 Conclusion: Two instances wiyh unique names "sandy" and "boxy" created in two different zones
 
 
+# Variables on the Command Line
+
+https://developer.hashicorp.com/terraform/language/values/variables#variables-on-the-command-line
+
+
+#### Practice Date: 2.11.2024
+root@ip-172-31-27-115:/home/ubuntu/DevOps_Class/Terraform/05-variables/.tfvars-files/case-2# cat main.tf && cat variable.tf 
+provider "aws" {
+ region = "us-east-1"
+}
+
+resource "aws_instance" "webs" {
+ ami = var.image_id
+ instance_type = "t2.micro"
+ availability_zone = var.zones
+
+  tags = { 
+   Name = "HelloWorld"
+   Team = "DevOps"
+  } 
+}
+variable "image_id" {
+ type = string
+ default = "ami-0866a3c8686eaeeba"   # Ubuntu Server 24.04 LTS (HVM),EBS General Purpose (SSD) Volume Type.
+}
+
+
+variable "zones" {
+  type = string
+}
+
+
+
+
+variable "myname" {
+ type = string
+ default = "mydefault-instances"
+}
+
+
+**command**:
+terraform apply -var="zones=us-east-1c" -auto-approve   # This command will create an instance in the given zone
+
+
+
+### 2nd practice today: Passing multiple values of one variable
+
+**Command**
+terraform apply -var='zones_list=["us-east-1c","us-east-1d"]' -auto-approve
+
+root@ip-172-31-27-115:/home/ubuntu/DevOps_Class/Terraform/05-variables/.tfvars-files/case-2# cat main.tf && cat variable.tf 
+provider "aws" {
+ region = "us-east-1"
+}
+
+resource "aws_instance" "webs" {
+ count         = length(var.zones_list)
+ ami = var.image_id
+ instance_type = "t2.micro"
+ availability_zone = var.zones_list[count.index]
+
+
+  tags = { 
+   Name = "Test-instance"
+   Team = "DevOps"
+  } 
+}
+
+
+variable "image_id" {
+ type = string
+ default = "ami-0866a3c8686eaeeba"   # Ubuntu Server 24.04 LTS (HVM),EBS General Purpose (SSD) Volume Type.
+}
+
+
+variable "zones_list" {
+  type = list(string)
+}
+
+
+
+
+variable "myname" {
+ type = string
+ default = "mydefault-instances"
+}
+
+
