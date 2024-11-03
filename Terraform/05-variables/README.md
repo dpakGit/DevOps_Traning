@@ -26,7 +26,10 @@ Source: MetaAI
   default = "..."
 }
 
+
+
 ``
+
 The two variable blocks differ in their data types and use cases:
 
 *1. variable "zones" { type = list(string) default = [...] }*
@@ -77,9 +80,12 @@ When choosing a variable type, consider:
 - The complexity of the configuration.
 
 Hope this clarifies the differences!
-``
 
-``
+```
+
+
+```
+
 The main difference between the two variable blocks lies in their data types and use cases:
 
 *1. variable "zones" { type = list(string) default = [...] }*
@@ -121,6 +127,7 @@ Additional considerations:
 - Error handling: Incorrect types can lead to errors.
 
 By choosing the appropriate variable type, you ensure Terraform configurations accurately reflect your infrastructure needs.
-``
+
+```
 
 
