@@ -13,22 +13,30 @@ kodekloud - Terraform Variables: Types & Use Cases for Beginners: https://kodekl
 
 ### What is the difference between the following two variable blocks, especially the use case of the type
 
-Source: MetaAI
 
-1) variable "zones" { 
-  type = list(string)
-  default = ...
+
+1) variable "zones" {
+ 
+    type = list(string)
+
+    default = ...
+
 }
 
 
 2) variable "zones" {
-  type = string
-  default = "..."
+
+    type = string
+   
+    default = "..."
+
 }
 
 
 
-``
+```
+
+Source: MetaAI
 
 The two variable blocks differ in their data types and use cases:
 
