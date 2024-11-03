@@ -92,6 +92,11 @@ Hope this clarifies the differences!
 ```
 
 
+
+
+
+
+
 ```
 
 The main difference between the two variable blocks lies in their data types and use cases:
