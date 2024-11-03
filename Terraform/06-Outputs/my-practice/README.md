@@ -162,6 +162,63 @@ public_ips = [
 ]
 
 
+#### practice:-6 - To get the desire output of a public or private ip
+
+
+#### Display the public IP of the first Instances and private IP of the second on the CLI.
+
+
+main.tf
+
+```
+provider "aws" {
+  region = "us-east-1"
+}
+
+variable "zones" { 
+  type = list(string)
+  default = ["us-east-1a", "us-east-1b"]
+}
+
+resource "aws_instance" "web" {
+  count = 2
+  ami = "ami-005fc0f236362e99f"
+  instance_type = "t2.micro"
+  availability_zone = var.zones[count.index]
+
+  tags = {
+    Name = "Web-Var"
+  }
+}
+
+# Disply public ip of first instance
+
+output "public_ips_of_first_instance" { 
+  value = aws_instance.web.0.public_ip
+}
+
+
+# Display the private ip of the second instance
+
+output "private_ips_of_second_instance" {
+  value = aws_instance.web.1.private_ip
+}
+
+
+```
+
+
+
+#### Output on the CLI
+
+
+Outputs:
+
+private_ips_of_second_instance = "172.31.46.45"
+
+public_ips_of_first_instance = "54.234.210.90"
+
+
 
 
 
