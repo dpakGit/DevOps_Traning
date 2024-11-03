@@ -139,7 +139,8 @@ Additional considerations:
 - Validation: Terraform validates input values based on the declared type.
 - Error handling: Incorrect types can lead to errors.
 
-By choosing the appropriate variable type, you ensure Terraform configurations accurately reflect your infrastructure needs.
+By choosing the appropriate variable type, you ensure Terraform configurations accurately reflect
+your infrastructure needs.
 
 ```
 
