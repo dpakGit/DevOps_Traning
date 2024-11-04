@@ -218,7 +218,71 @@ private_ips_of_second_instance = "172.31.46.45"
 
 public_ips_of_first_instance = "54.234.210.90"
 
+Date 4.11.2024
+
+#### practice:-7 -  Different Outputs,variable and main.tf files
+
+
+ **main.tf**
+
+``` 
+provider "aws" {
+  region = "us-east-1"
+}
 
 
 
+resource "aws_instance" "web" {
+  count = 2
+  ami           = "ami-005fc0f236362e99f"
+  instance_type = "t2.micro"
+  availability_zone = var.zones[count.index]
 
+  tags = {
+    Name = "WebServer-AV"
+    Team = "DevOps"
+  }
+
+}
+
+```
+
+ **variable.tf**  
+
+ ```
+
+variable "zones" {
+  type = list(string)
+  default = ["us-east-1c", "us-east-1b"]
+}
+
+dpakmishra1983g@ip-172-31-3-164:~$ cat outputs.tf
+output "public_ips" {
+  value = aws_instance.web.*.public_ip
+}
+
+```
+
+
+**Output.tf** 
+
+```
+
+output "public_ips" {
+  value = aws_instance.web.*.public_ip
+}
+
+
+
+output "private_ips" {
+  value = aws_instance.web.*.private_ip
+}
+
+
+
+output "private_ips_of_first_instance" {
+  value = aws_instance.web.0.private_ip
+}
+
+
+```
