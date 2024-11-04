@@ -218,9 +218,10 @@ private_ips_of_second_instance = "172.31.46.45"
 
 public_ips_of_first_instance = "54.234.210.90"
 
+
 Date 4.11.2024
 
-#### practice:-7 -  Different Outputs,variable and main.tf files
+#### practice:-7 -  Separate Outputs (variable and main.tf) files
 
 
  **main.tf**
