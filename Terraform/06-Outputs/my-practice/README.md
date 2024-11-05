@@ -398,12 +398,18 @@ Choose the method that suits your needs!
 ####  > aws_instance.web.*.public_ip # inside it i ran the following command, which gave me the desired output
 
 [
+
   "34.207.74.98",
+    
   "18.232.75.68",
+  
   "54.205.104.209",
+  
   "34.207.139.204",
+  
 ]
-> exit # To exit from the bash shell
+
+> exit                # Type exit from the bash shell
 
 
 
