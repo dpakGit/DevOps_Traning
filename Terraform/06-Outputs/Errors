@@ -1,0 +1,18 @@
+Got the following error when i applied a main.tf file without the output block or output.tf file
+
+root@ip-172-31-32-119:/home/ubuntu# t output
+╷
+│ Warning: No outputs found
+│ 
+│ The state file either has no outputs defined, or all the defined outputs are empty. Please define an output in your configuration
+│ with the `output` keyword and run `terraform refresh` for it to become available. If you are using interpolation, please verify the
+│ interpolated value is not empty. You can use the `terraform console` command to assist.
+╵
+root@ip-172-31-32-119:/home/ubuntu# t output aws_instance.web.*.public_ip
+╷
+│ Warning: No outputs found
+│ 
+│ The state file either has no outputs defined, or all the defined outputs are empty. Please define an output in your configuration
+│ with the `output` keyword and run `terraform refresh` for it to become available. If you are using interpolation, please verify the
+│ interpolated value is not empty. You can use the `terraform console` command to assist.
+╵
