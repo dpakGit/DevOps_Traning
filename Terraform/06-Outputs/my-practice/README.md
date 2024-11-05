@@ -287,3 +287,18 @@ output "private_ips_of_first_instance" {
 
 
 ```
+
+
+#### practice:- - Create infrastructure :: 
+
+
+https://developer.hashicorp.com/terraform/tutorials/configuration-language/outputs#create-infrastructure
+
+
+#### Clone the example repository for this tutorial, which contains Terraform configuration for a web application including a VPC, load balancer, EC2 instances, and a database.
+
+
+cmd :- git clone https://github.com/hashicorp/learn-terraform-outputs.git
+
+... Rest read from the above link.
+ 
