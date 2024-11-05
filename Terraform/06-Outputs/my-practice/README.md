@@ -1,4 +1,6 @@
-#### practice:-1 - Display only the public IPs of the Instances on the CLI.
+#### Practice:-1 
+
+#### Display only the public IPs of the Instances on the CLI.
 
 
 main.tf
@@ -303,7 +305,13 @@ cmd :- git clone https://github.com/hashicorp/learn-terraform-outputs.git
 ... Rest read from the above link.
 
 
-#### Practice-9 How to get the value of a desired output on the CLI when the output block or Output.tf file is not used
+
+
+
+
+#### Practice-9 
+
+#### How to get the value of a desired output on the CLI when the output block or Output.tf file is not used
 
 
 #### Source: MetaAI
