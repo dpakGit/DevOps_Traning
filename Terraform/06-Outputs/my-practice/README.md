@@ -303,7 +303,7 @@ cmd :- git clone https://github.com/hashicorp/learn-terraform-outputs.git
 ... Rest read from the above link.
 
 
-#### practice-9 
+#### Practice-9 How to get the value of a desired output on the CLI when the output block or Output.tf file is not used
 
 
 #### Source: MetaAI
@@ -392,7 +392,9 @@ Choose the method that suits your needs!
 
 
 
- root@ip-172-31-32-119:/home/ubuntu# terraform console # Ran the following command
+ root@ip-172-31-32-119:/home/ubuntu# terraform console #
+ 
+ Ran the following command from the MetaAI Method-3 instructions
 
 
 ####  > aws_instance.web.*.public_ip # inside it i ran the following command, which gave me the desired output
