@@ -289,7 +289,7 @@ output "private_ips_of_first_instance" {
 ```
 
 
-#### practice:- - Create infrastructure :: 
+#### practice-8 :- - Create infrastructure :: 
 
 
 https://developer.hashicorp.com/terraform/tutorials/configuration-language/outputs#create-infrastructure
@@ -301,4 +301,109 @@ https://developer.hashicorp.com/terraform/tutorials/configuration-language/outpu
 cmd :- git clone https://github.com/hashicorp/learn-terraform-outputs.git
 
 ... Rest read from the above link.
- 
+
+
+#### practice-9 
+
+
+#### Source: MetaAI
+
+Following is my main.tf file
+
+```
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_instance" "web" {
+  ami = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+  count = 4
+
+ tags = {
+   Name = "HelloWorld"
+   Team = "DevOps"
+  }
+}
+
+```
+
+
+#### Solution by MetaAI
+
+How to get the public ip of the the instances created by the above main.tf file on the CLI
+
+
+To get the public IP addresses of the instances created by your (link unavailable) file, you can use the Terraform output command or the AWS CLI.
+
+#### Method 1: Terraform Output
+
+Add the following code to your (link unavailable) file:
+
+
+terraform
+output "public_ips" {
+  value = aws_instance.web.*.public_ip
+}
+
+
+Then, run:
+
+
+bash
+terraform apply
+
+
+The public IP addresses will be displayed in the output.
+
+#### Method 2: AWS CLI
+
+Run the following command:
+
+
+bash
+aws ec2 describe-instances --filters "Name=tag:Name,Values=HelloWorld" --query 'Reservations[*].Instances[*].PublicIpAddress' --output text
+
+
+This command filters instances by the Name tag (HelloWorld) and retrieves their public IP addresses.
+
+#### Method 3: Terraform Console
+
+Run the following command:
+
+
+bash
+terraform console
+
+
+Then, execute:
+
+
+terraform
+aws_instance.web.*.public_ip
+
+
+This will display the public IP addresses in the Terraform console.
+
+Choose the method that suits your needs!
+
+
+ .......................
+
+
+
+ root@ip-172-31-32-119:/home/ubuntu# terraform console # Ran the following command
+
+
+####  > aws_instance.web.*.public_ip # inside it i ran the following command, which gave me the desired output
+
+[
+  "34.207.74.98",
+  "18.232.75.68",
+  "54.205.104.209",
+  "34.207.139.204",
+]
+> exit # To exit from the bash shell
+
+
+
