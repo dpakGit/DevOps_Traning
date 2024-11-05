@@ -27,7 +27,7 @@ output "web_server_count" {
 #### Redact sensitive outputs
 
 Example:- 
-#### sensitive** = true
+#### sensitive = true
 
 ```
 outputs.tf
