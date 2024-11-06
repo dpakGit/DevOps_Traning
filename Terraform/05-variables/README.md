@@ -5,6 +5,15 @@ Terraform Docs : https://developer.hashicorp.com/terraform/language/values/varia
 
 https://developer.hashicorp.com/terraform/language/values/variables#variables-on-the-command-line
 
+Read the following two links in the input variables itself:- 
+
+**Arguments:** https://developer.hashicorp.com/terraform/language/values/variables#arguments
+
+
+**Type Constraints:**  https://developer.hashicorp.com/terraform/language/values/variables#type-constraints
+[inpage-type]: #type-constraints
+
+
 kodekloud - Terraform Variables: Types & Use Cases for Beginners: https://kodekloud.com/blog/terraform-variables/
 
 
@@ -17,7 +26,7 @@ kodekloud - Terraform Variables: Types & Use Cases for Beginners: https://kodekl
 
 1) variable "zones" {
  
-    type = list(string)
+    type = **list(string)**
 
     default = ...
 
@@ -26,7 +35,7 @@ kodekloud - Terraform Variables: Types & Use Cases for Beginners: https://kodekl
 
 2) variable "zones" {
 
-    type = string
+    type =**string**
    
     default = "..."
 
