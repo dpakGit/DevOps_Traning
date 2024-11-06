@@ -12,7 +12,7 @@ Read the following two links in the input variables itself:-
 
 **Type Constraints:**  https://developer.hashicorp.com/terraform/language/values/variables#type-constraints
  
- [inpage-type]: #type-constraints
+[inpage-type]: #type-constraints
 
 
 kodekloud - Terraform Variables: Types & Use Cases for Beginners: https://kodekloud.com/blog/terraform-variables/
