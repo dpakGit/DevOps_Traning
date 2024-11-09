@@ -4,17 +4,17 @@
   "serial": 1,
   "lineage": "bbd5d7d9-6f16-316f-1ae7-ea4e92bce380",
   "outputs": {},
- #### "resources": [
+  **"resources"**: [
     {
       "mode": "managed",
       "type": "aws_instance",
       "name": "web",
       "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
-####  "instances": [
+    **"instances"**: [
         {
           "schema_version": 1,
-####      "attributes" : {
-####      "ami": "ami-005fc0f236362e99f",
+        **"attributes"** : {
+          "ami": "ami-005fc0f236362e99f",
             "arn": "arn:aws:ec2:us-east-1:726032358740:instance/i-0c48e4d29a949d44b",
             "associate_public_ip_address": true,
             "availability_zone": "us-east-1d", 
@@ -53,12 +53,12 @@
             "host_id": "",
             "host_resource_group_arn": null,
             "iam_instance_profile": "",
-####        "id": "i-0c48e4d29a949d44b",
+          **"id": "i-0c48e4d29a949d44b"**,
             "instance_initiated_shutdown_behavior": "stop",
             "instance_lifecycle": "",
             "instance_market_options": [],
             "instance_state": "running",
-####        "instance_type": "t2.micro",
+          **"instance_type": "t2.micro"**,
             "ipv6_address_count": 0,
             "ipv6_addresses": [],
             "key_name": "",
@@ -92,9 +92,9 @@
                 "hostname_type": "ip-name"
               }
             ],
-####        "private_ip": "172.31.85.40",
+           **"private_ip": "172.31.85.40"**,
             "public_dns": "ec2-54-167-138-98.compute-1.amazonaws.com",
-####        "public_ip": "54.167.138.98",
+            **"public_ip": "54.167.138.98"**,
             "root_block_device": [
               {
                 "delete_on_termination": true,
@@ -117,10 +117,10 @@
             "source_dest_check": true,
             "spot_instance_request_id": "",
             "subnet_id": "subnet-079ec28c1678b08c7",
-####        "tags": {
-              "Name": "Terraform_ec2"
+          **"tags"**: {
+            **"Name"**: "Terraform_ec2"
             },
-####         "tags_all": {
+             "tags_all": {
                "Name": "Terraform_ec2"
             },
             "tenancy": "default",
