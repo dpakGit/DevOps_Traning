@@ -4,7 +4,9 @@
   "serial": 1,
   "lineage": "bbd5d7d9-6f16-316f-1ae7-ea4e92bce380",
   "outputs": {},
+  
   **"resources"**: [
+  
     {
       "mode": "managed",
       "type": "aws_instance",
