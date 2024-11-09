@@ -1,4 +1,3 @@
-
 {
   "version": 4,
   "terraform_version": "1.9.8",
