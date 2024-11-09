@@ -1,8 +1,9 @@
+
 {
   "version": 4,
   "terraform_version": "1.9.8",
   "serial": 1,
-  "lineage": "bbd5d7d9-6f16-316f-1ae7-ea4e92bce380",
+  "lineage": "7c9ae51b-d736-73dc-897c-d3458c1d6e4b",
   "outputs": {},
   "resources": [
     {
@@ -14,10 +15,10 @@
         {
           "schema_version": 1,
           "attributes": {
-            "ami": "ami-005fc0f236362e99f",
-            "arn": "arn:aws:ec2:us-east-1:726032358740:instance/i-0c48e4d29a949d44b",
+            "ami": "ami-0cd59ecaf368e5ccf",
+            "arn": "arn:aws:ec2:us-east-1:986585660737:instance/i-0081639327e4e7657",
             "associate_public_ip_address": true,
-            "availability_zone": "us-east-1d",
+            "availability_zone": "us-east-1b",
             "capacity_reservation_specification": [
               {
                 "capacity_reservation_preference": "open",
@@ -53,7 +54,7 @@
             "host_id": "",
             "host_resource_group_arn": null,
             "iam_instance_profile": "",
-            "id": "i-0c48e4d29a949d44b",
+            "id": "i-0081639327e4e7657",
             "instance_initiated_shutdown_behavior": "stop",
             "instance_lifecycle": "",
             "instance_market_options": [],
@@ -83,8 +84,8 @@
             "password_data": "",
             "placement_group": "",
             "placement_partition_number": 0,
-            "primary_network_interface_id": "eni-09656686ef8b51805",
-            "private_dns": "ip-172-31-85-40.ec2.internal",
+            "primary_network_interface_id": "eni-0de6389afd03a69ed",
+            "private_dns": "ip-172-31-90-113.ec2.internal",
             "private_dns_name_options": [
               {
                 "enable_resource_name_dns_a_record": false,
@@ -92,9 +93,9 @@
                 "hostname_type": "ip-name"
               }
             ],
-            "private_ip": "172.31.85.40",
-            "public_dns": "ec2-54-167-138-98.compute-1.amazonaws.com",
-            "public_ip": "54.167.138.98",
+            "private_ip": "172.31.90.113",
+            "public_dns": "ec2-18-212-168-67.compute-1.amazonaws.com",
+            "public_ip": "18.212.168.67",
             "root_block_device": [
               {
                 "delete_on_termination": true,
@@ -105,7 +106,7 @@
                 "tags": {},
                 "tags_all": {},
                 "throughput": 0,
-                "volume_id": "vol-0d428ad85acc4a7ec",
+                "volume_id": "vol-07e89be9eacccfc02",
                 "volume_size": 8,
                 "volume_type": "gp2"
               }
@@ -116,12 +117,14 @@
             ],
             "source_dest_check": true,
             "spot_instance_request_id": "",
-            "subnet_id": "subnet-079ec28c1678b08c7",
+            "subnet_id": "subnet-0cb37c05f732734d9",
             "tags": {
-              "Name": "Terraform_ec2"
+              "Name": "HelloWorld",
+              "Team": "DevOps"
             },
             "tags_all": {
-              "Name": "Terraform_ec2"
+              "Name": "HelloWorld",
+              "Team": "DevOps"
             },
             "tenancy": "default",
             "timeouts": null,
@@ -130,7 +133,7 @@
             "user_data_replace_on_change": false,
             "volume_tags": null,
             "vpc_security_group_ids": [
-              "sg-0ced7e594ad686a90"
+              "sg-05e4471fc261e408d"
             ]
           },
           "sensitive_attributes": [],
@@ -140,4 +143,3 @@
     }
   ],
   "check_results": null
-}
