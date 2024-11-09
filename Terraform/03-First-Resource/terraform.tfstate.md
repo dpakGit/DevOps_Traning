@@ -1,6 +1,6 @@
 #### terraform.tfstate file with its attributes
 
-{
+**{**
   "version": 4,
   "terraform_version": "1.9.8",
   "serial": 1,
