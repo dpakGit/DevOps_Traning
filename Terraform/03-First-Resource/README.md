@@ -5,19 +5,10 @@ This guide provides step-by-step instructions for creating an EC2 instance on AW
 ### 1. Create ec2_instance.tf File
 Create a file named ec2_instance.tf in your project directory and add the following content:
 ```
-terraform {
-  required_providers {
-    aws = {
-      source = "hashicorp/aws"
-      version = "5.10.0"
-    }
-  }
-}
 
 provider "aws" {
   region     = "us-east-1"
-  access_key = "<access-key>"
-  secret_key = "<secret-key>"
+  
 }
 
 resource "aws_instance" "web" {
