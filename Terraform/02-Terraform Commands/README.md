@@ -4,9 +4,12 @@ https://awstip.com/automating-infrastructure-management-terraform-intro-c31573a8
     
      terraform init 
      
-     terraform plan 
+     terraform plan
+
+     terraform plan -out "file_name"    # this is the file name to which you want to save the plan
      
-     Terraform plan -auto-approve     # Automatic Plan Mode-
+     
+     Terraform apply -auto-approve     # Automatic Plan Mode-
      https://developer.hashicorp.com/terraform/cli/commands/apply#automatic-plan-mode
      
      terraform apply
