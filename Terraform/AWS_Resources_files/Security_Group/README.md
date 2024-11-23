@@ -33,7 +33,7 @@ resource "aws_security_group" "allow_tls" {
 
 
 Ans:
-..........................
+
 
  This block of Terraform code is known as a **Resource Declaration** or a **Resource Definition**.
 
@@ -48,9 +48,7 @@ In Terraform, this block is composed of:
 
 This Resource Declaration is used to create and manage an AWS Security Group with the specified properties.
 
-..................................................
 
-...........................................
 
 More elaborate explanation :
 
