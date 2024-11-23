@@ -10,9 +10,12 @@
 
 
 
+
+
+
 Date : 23.11.2024
 
-#### Explanation of various blocks and attributes of a Terraform security grouo code
+#### Explanation of various blocks and attributes of a Terraform security group code.
 
 Source : Meta AI
 
