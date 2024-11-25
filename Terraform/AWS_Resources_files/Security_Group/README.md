@@ -127,5 +127,8 @@ resource "aws_security_group" "allow_tls" {
 
 **AWS Console output:**
 
-![Uploading Screenshot (254).png…]()
+1. ![Screenshot (254)](https://github.com/user-attachments/assets/c5a79d23-59d9-443a-a4cd-8f26c3e2d759)
+2. ![Screenshot (252)](https://github.com/user-attachments/assets/dec7967a-7666-4a72-ba27-dd813a183e28)
+3. ![Screenshot (253)](https://github.com/user-attachments/assets/8269d34a-5a56-4a0e-b724-ec47c85eaea7)
+
 
