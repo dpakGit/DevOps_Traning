@@ -87,3 +87,45 @@ tags = { Name = "allow_tls" }
 **Summary**
 
 This Terraform code defines an AWS Security Group named allow_tls in a VPC referenced by aws_vpc.main. The Security Group has a description and a tag. However, this code does not define any ingress or egress rules for the Security Group. Those would need to be added separately using the ingress and egress blocks.
+
+**Practice:**
+
+**Date: -** 25.112024
+
+```
+root@ip-172-31-19-195:/home/labsuser/practice# terraform state list
+aws_security_group.allow_tls
+root@ip-172-31-19-195:/home/labsuser/practice# cat main.tf 
+resource "aws_security_group" "allow_tls" {
+  name        = "allow_tls"
+
+  ingress {
+    from_port        = 443
+    to_port          = 443
+    protocol         = "tcp"
+ cidr_blocks      = ["11.22.33.44/32"]
+    
+  }
+
+  
+
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+  }
+
+  tags = {
+    Name = "allow_tls"
+  }
+}
+
+```
+
+
+**AWS Console output:**
+
+![Uploading Screenshot (254).png…]()
+
