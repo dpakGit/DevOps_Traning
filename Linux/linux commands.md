@@ -46,10 +46,29 @@
 47. traceroute: Prints the route packets take to a network host.
 48. clear: Clears the terminal screen.
 49. history: Displays the command history list.
-50. crontab: Schedules commands to run periodically.
-51. uname: Prints system information.
-52. env: Displays the current environment or runs a program in a modified environment.
-53. printenv: Displays environment variables.
-54. **tree**: used to display the directory structure in a tree-like format
+
+50. linux command to see the history of a particular time
+
+To view a history of commands in Linux, you can use the history command:
+history: Lists the last 1,000 commands
+history 20: Lists the last 20 commands 
+You can also use options with the history command, such as:
+Limit the number of entries
+Append the number of entries to the command. For example, history 5 shows only the latest five entries.
+Search commands in history
+Pipe history with the grep command. For example, history | grep "ls" finds the ls command. 
+You can also use keyboard shortcuts to navigate your command history: 
+Ctrl+r: Enters reverse search mode 
+Ctrl+g: Escapes from history searching mode 
+Ctrl+p, ↑: Previous command in history 
+Ctrl+n, ↓: Next command in history 
+How to Display Command History in Linux | history Command ...
+You can also scroll through previous commands using the up and down arrow keys. To reissue a command, you can press enter. To quickly reissue the last command, you can use the !! command. 
+
+51. crontab: Schedules commands to run periodically.
+52. uname: Prints system information.
+53. env: Displays the current environment or runs a program in a modified environment.
+54. printenv: Displays environment variables.
+55. **tree**: used to display the directory structure in a tree-like format
 
 
