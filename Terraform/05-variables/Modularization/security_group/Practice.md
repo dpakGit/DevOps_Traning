@@ -160,3 +160,23 @@ root@ip-172-31-19-195:/home/labsuser/variable# terraform apply -var="cidr=11.22.
 │ 
 │ A variable named "cidr" was assigned on the command line, but the root module does not declare a variable of that name. To use this value, add a "variable" block to the
 │ configuration.
+
+
+**Error:**
+root@ip-172-31-19-195:/home/labsuser/variable# t plan
+
+Planning failed. Terraform encountered an error while generating this plan.
+
+╷
+│ Error: "" is not a valid CIDR block: invalid CIDR address: 
+│ 
+│   with aws_security_group.allow_tls,
+│   on securitygroup.tf line 1, in resource "aws_security_group" "allow_tls":
+│    1: resource "aws_security_group" "allow_tls" {
+│ 
+
+...................
+
+variable "cidr" {    # the above error as i have kept the variable name inside double colons / "" -> "cidr"
+  default = ["33.44.55.66/32"]
+}
