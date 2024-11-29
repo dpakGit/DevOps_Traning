@@ -116,3 +116,47 @@ Error: Incorrect attribute value type
 The following isthe right syntax to write the code :
 
  cidr_blocks      = ["11.22.33.44/32]"  , use the brackets.
+
+
+
+
+**Practice-3**  date 29.11.2024
+
+root@ip-172-31-19-195:/home/labsuser/variable# terraform init
+Terraform initialized in an empty directory!                   # Got this error as provider file was not created
+
+The directory has no Terraform configuration files. You may begin working
+with Terraform immediately by creating Terraform configuration files.
+root@ip-172-31-19-195:/home/labsuser/variable# terraform --version
+Terraform v1.9.8
+on linux_amd64
+root@ip-172-31-19-195:/home/labsuser/variable# vi provider.tf
+root@ip-172-31-19-195:/home/labsuser/variable# terraform init
+Initializing the backend...
+Initializing provider plugins...
+- Finding latest version of hashicorp/aws...
+- Installing hashicorp/aws v5.78.0...
+- Installed hashicorp/aws v5.78.0 (signed by HashiCorp)
+Terraform has created a lock file .terraform.lock.hcl to record the provider
+selections it made above. Include this file in your version control repository
+so that Terraform can guarantee to make the same selections by default when
+you run "terraform init" in the future.
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+
+
+
+root@ip-172-31-19-195:/home/labsuser/variable# terraform apply -var="cidr=11.22.33.44/32"
+╷
+│ Error: Value for undeclared variable
+│ 
+│ A variable named "cidr" was assigned on the command line, but the root module does not declare a variable of that name. To use this value, add a "variable" block to the
+│ configuration.
