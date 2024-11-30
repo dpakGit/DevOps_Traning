@@ -7,6 +7,7 @@ https://developer.hashicorp.com/terraform/language/values/variables#assigning-va
 
 #### Variable Definitions (.tfvars) Files:
 
+
 https://developer.hashicorp.com/terraform/language/values/variables#variable-definitions-tfvars-files
 
 Linux, Mac OS, and UNIX:
@@ -16,6 +17,36 @@ terraform apply -var-file="uat.tfvars" or prod.tfvar
 
 ```
 
+Source:- MetaAI
+
+Q.) What is the difference between terraform.tfvars file and dev.tfvars file , explain ?
+
+Ans.) In Terraform, you can use variables to make your configuration more flexible and reusable. There are two types of variable files: terraform.tfvars and dev.tfvars (or any other custom .tfvars file).
+
+terraform.tfvars:
+
+- This is the default variable file that Terraform looks for in the current working directory.
+- It's used to store sensitive or environment-specific variables that shouldn't be committed to version control.
+- When you run terraform apply, Terraform automatically loads the variables from terraform.tfvars if it exists.
+
+dev.tfvars (or custom .tfvars file):
+
+- This is a custom variable file that you can create to store environment-specific or deployment-specific variables.
+- It's not automatically loaded by Terraform, so you need to specify it explicitly when running Terraform commands.
+- You can use multiple custom .tfvars files to store variables for different environments (e.g., dev.tfvars, stg.tfvars, prod.tfvars).
+
+Key differences:
+
+1. Automatic loading: terraform.tfvars is loaded automatically, while custom .tfvars files need to be specified explicitly.
+2. Purpose: terraform.tfvars is meant for sensitive or environment-specific variables, while custom .tfvars files are for environment-specific or deployment-specific variables.
+3. File name: terraform.tfvars is a fixed file name, while custom .tfvars files can have any name you choose.
+
+To use a custom .tfvars file, you can specify it when running Terraform commands, like this:
+
+bash
+terraform apply -var-file=dev.tfvars
+
+This tells Terraform to load the variables from the dev.tfvars file in addition to the terraform.tfvars file (if it exists).
 
 ### How Terraform main .tf file fetches variable values from variable.tf file.
 
