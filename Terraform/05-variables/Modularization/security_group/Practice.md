@@ -193,6 +193,9 @@ Files: ec2.tf  provider.tf  sg.tf  variable.tf
 root@ip-172-31-30-202:/home/ubuntu# ls
 LICENSE.txt  ec2.tf  provider.tf  sg.tf  terraform.tfstate  terraform_1.9.8_linux_amd64.zip  variable.tf
 root@ip-172-31-30-202:/home/ubuntu# cat ec2.tf sg.tf variable.tf 
+
+
+
 resource "aws_instance" "Web" {
   ami           = "ami-005fc0f236362e99f"
   instance_type = "t2.micro"
@@ -201,6 +204,10 @@ resource "aws_instance" "Web" {
     Name = var.instance_name
   }
 }
+
+
+
+
 resource "aws_security_group" "allow_tls" {
   name        = "allow_tls"
 
@@ -246,6 +253,8 @@ resource "aws_security_group" "allow_tls" {
 }
 
 
+
+vi variable.tf
 
 variable instance_name {}
 
