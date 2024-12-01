@@ -180,3 +180,90 @@ Planning failed. Terraform encountered an error while generating this plan.
 variable "cidr" {    # the above error as i have kept the variable name inside double colons / "" -> "cidr"
   default = ["33.44.55.66/32"]
 }
+
+
+
+**Practice**  Date - 1.12.2024
+
+**Data_Types**
+
+Files: ec2.tf  provider.tf  sg.tf  variable.tf
+
+```
+root@ip-172-31-30-202:/home/ubuntu# ls
+LICENSE.txt  ec2.tf  provider.tf  sg.tf  terraform.tfstate  terraform_1.9.8_linux_amd64.zip  variable.tf
+root@ip-172-31-30-202:/home/ubuntu# cat ec2.tf sg.tf variable.tf 
+resource "aws_instance" "Web" {
+  ami           = "ami-005fc0f236362e99f"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = var.instance_name
+  }
+}
+resource "aws_security_group" "allow_tls" {
+  name        = "allow_tls"
+
+  ingress {
+    from_port        = var.port-1
+    to_port          = var.port-1
+    protocol         = "tcp"
+    cidr_blocks      = ["11.22.33.44/32"]
+  }
+
+  ingress {
+    from_port        = var.port-2
+    to_port          = var.port-2
+    protocol         = "tcp"
+    cidr_blocks      = ["11.22.33.44/32"]
+  }
+
+  ingress {
+    from_port        = var.port-3
+    to_port          = var.port-3
+    protocol         = "tcp"
+    cidr_blocks      = ["11.22.33.44/32"]
+  }
+
+  ingress {
+    from_port        = var.port-4
+    to_port          = var.port-4
+    protocol         = "tcp"
+    cidr_blocks      = ["11.22.33.44/32"]
+  }
+
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+  }
+
+  tags = {
+    Name = "allow_tls"
+  }
+}
+
+
+
+variable instance_name {}
+
+variable port-1 {
+description = "Enter a number for port-1"
+type = number
+}
+
+variable port-2 {
+type = number
+}
+
+variable port-3 {
+type = number
+}
+
+variable port-4 {
+type = number
+}
+
+```
