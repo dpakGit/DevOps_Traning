@@ -450,12 +450,14 @@ The error message suggests that Terraform is interpreting My-SG as a reference t
 
 To fix this, you can simply wrap the value in double quotes, like this:
 
-
+```
 resource "aws_security_group" "allow_tls" {
    ... other attributes ...
-  **name = "My-SG"**
+    name = "My-SG"
    ... other attributes ...
 }
+
+```
 
 
 By wrapping the value in double quotes, you're telling Terraform to treat it as a string literal, rather than a reference to a resource.
