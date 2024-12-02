@@ -1,4 +1,4 @@
-#### Documentation link: https://developer.hashicorp.com/terraform/language/expressions
+#### Documentation link: https://developer.hashicorp.com/terraform/language/expressions/types
 
 **Practice-1**
 
