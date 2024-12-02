@@ -353,29 +353,29 @@ resource "aws_security_group" "allow_tls" {
   name        = "allow_tls"
 
   ingress {
-    from_port        = var.port[0]
-    to_port          = var.port[0]
+    from_port        = var.port_number[0]
+    to_port          = var.port_number[0]
     protocol         = "tcp"
     cidr_blocks      = ["11.22.33.44/32"]
   }
 
   ingress {
-    from_port        = var.port[1]
-    to_port          = var.port[1]
+    from_port        = var.port_number[1]
+    to_port          = var.port_number[1]
     protocol         = "tcp"
     cidr_blocks      = ["11.22.33.44/32"]
   }
 
   ingress {
-    from_port        = var.port[2]
-    to_port          = var.port[2]
+    from_port        = var.port_number[2]
+    to_port          = var.port_number[2]
     protocol         = "tcp"
     cidr_blocks      = ["11.22.33.44/32"]
   }
 
   ingress {
-    from_port        = var.port[3]
-    to_port          = var.port[3]
+    from_port        = var.port_number[3]
+    to_port          = var.port_number[3]
     protocol         = "tcp"
     cidr_blocks      = ["11.22.33.44/32"]
   }
@@ -389,7 +389,75 @@ resource "aws_security_group" "allow_tls" {
   }
 
   tags = {
-    Name = My-SG
+    Name = My-SG   
   }
 }
+
 ```
+
+**Date-2.12.2024**
+
+root@ip-172-31-19-195:/home/labsuser/datatypes# terraform plan
+var.port_number
+  Enter four  port numbers for inbound rules
+
+  Enter a value:  [ 8080,9090,80,443]
+
+╷
+│ Error: Invalid reference   # this error is for the above code, bellow is its MetaAI solution
+│ 
+│   on sg.tf line 41, in resource "aws_security_group" "allow_tls":
+│   41:     Name = My-SG
+│ 
+│ A reference to a resource type must be followed by at least one attribute access, specifying the resource name.
+
+
+MetaAI:- 
+
+The error message indicates that there's an issue with the Name attribute in the aws_security_group resource.
+
+The problem is that the Name attribute is not a valid attribute for the aws_security_group resource. Instead, you should use the name attribute (note the lowercase "n").
+
+Here's the corrected code:
+
+
+resource "aws_security_group" "allow_tls" {
+  # ... other attributes ...
+  name = "My-SG"
+  # ... other attributes ...
+}
+
+
+By changing **Name** to **name**, you should be able to resolve the error.
+
+
+again the following error
+
+
+ Error: Invalid reference
+│ 
+│   on sg.tf line 41, in resource "aws_security_group" "allow_tls":
+│   41:     name = My-SG
+│ 
+│ A reference to a resource type must be followed by at least one attribute access, specifying the resource name.
+╵
+
+Soolution:-
+
+It looks like the issue is not with the name attribute itself, but rather with the value assigned to it.
+
+The error message suggests that Terraform is interpreting My-SG as a reference to a resource, rather than a string value.
+
+To fix this, you can simply wrap the value in double quotes, like this:
+
+
+resource "aws_security_group" "allow_tls" {
+  # ... other attributes ...
+  name = "My-SG"
+  # ... other attributes ...
+}
+
+
+By wrapping the value in double quotes, you're telling Terraform to treat it as a string literal, rather than a reference to a resource.
+
+
