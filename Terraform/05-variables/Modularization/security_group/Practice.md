@@ -462,4 +462,67 @@ resource "aws_security_group" "allow_tls" {
 
 By wrapping the value in double quotes, you're telling Terraform to treat it as a string literal, rather than a reference to a resource.
 
+Proper code for variable.tf and security group.tf
+
+
+root@ip-172-31-19-195:/home/labsuser/datatypes# cat variable.tf sg.tf
+
+vi variable.tf
+ 
+```
+variable port_number {
+     description = "Enter four  port numbers for inbound rules"
+     type = list(number)
+}
+
+```
+
+vi sg.tf
+
+```
+resource "aws_security_group" "allow_tls" {
+  name        = "allow_tls"
+
+  ingress {
+    from_port        = var.port_number[0]
+    to_port          = var.port_number[0]
+    protocol         = "tcp"
+    cidr_blocks      = ["11.22.33.44/32"]
+  }
+
+  ingress {
+    from_port        = var.port_number[1]
+    to_port          = var.port_number[1]
+    protocol         = "tcp"
+    cidr_blocks      = ["11.22.33.44/32"]
+  }
+
+  ingress {
+    from_port        = var.port_number[2]
+    to_port          = var.port_number[2]
+    protocol         = "tcp"
+    cidr_blocks      = ["11.22.33.44/32"]
+  }
+
+  ingress {
+    from_port        = var.port_number[3]
+    to_port          = var.port_number[3]
+    protocol         = "tcp"
+    cidr_blocks      = ["11.22.33.44/32"]
+  }
+
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+  }
+
+  tags = {
+    Name = "My-SG"
+  }
+}
+
+```
 
