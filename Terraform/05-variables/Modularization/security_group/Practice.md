@@ -528,3 +528,8 @@ resource "aws_security_group" "allow_tls" {
 
 ```
 
+
+**Data_Type- Map**
+
+Docs: {Imp read all}
+https://spacelift.io/blog/terraform-map-variable
