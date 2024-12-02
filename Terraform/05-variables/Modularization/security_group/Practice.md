@@ -1,3 +1,5 @@
+#### Documentation link: https://developer.hashicorp.com/terraform/language/expressions
+
 **Practice-1**
 
 
