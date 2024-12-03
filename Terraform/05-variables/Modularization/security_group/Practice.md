@@ -533,3 +533,98 @@ resource "aws_security_group" "allow_tls" {
 
 Docs: {Imp read all}
 https://spacelift.io/blog/terraform-map-variable
+
+
+**Date:-3.12.2024**
+
+```
+Question: MetaAI
+Following is my ec2 terraform code:
+ 
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_instance" "web" { 
+  ami = "ami-0cd59ecaf368e5ccf"
+  instance_type = var.instance_type_map["web"]
+  
+ tags = { 
+   Name = "HelloWorld"
+   Team = "DevOps"
+  } 
+}
+and the following is my variable.tf code:
+
+variable instance_type_map {
+  type = map(string)
+  default = {
+    "web" = "t2.nano"
+    "db" = "t2.micro"
+    "devops" = "t3.micro"   
+
+How to use the values in the variable to create the number of instances as is the number of keys
+
+Solution:
+To create multiple EC2 instances based on the number of keys in the instance_type_map variable, you can use Terraform's for_each argument.
+
+Here's an updated version of your (link unavailable) code:
+
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_instance" "web" {
+  for_each = var.instance_type_map
+
+  ami           = "ami-0cd59ecaf368e5ccf"
+  instance_type = each.value
+  tags = {
+    Name = "HelloWorld-${each.key}"
+    Team = "DevOps"
+  }
+}
+
+
+In this code:
+
+- We've added the for_each argument to the aws_instance resource and set it to var.instance_type_map.
+- We've replaced the instance_type attribute with each.value, which refers to the value of each key-value pair in the instance_type_map variable.
+- We've updated the Name tag to include the key from the instance_type_map variable using each.key.
+
+With this code, Terraform will create multiple EC2 instances, one for each key-value pair in the instance_type_map variable.
+
+Question:
+
+will it create instances depending on the number of key-value pair ?
+
+Solution:
+
+With the for_each argument, Terraform will create a separate instance for each key-value pair in the instance_type_map variable.
+
+For example, if your instance_type_map variable looks like this:
+
+
+variable "instance_type_map" {
+  type = map(string)
+  default = {
+    "web" = "t2.nano"
+    "db"  = "t2.micro"
+    "devops" = "t3.micro"
+  }
+}
+
+
+Terraform will create three separate EC2 instances:
+
+1. One instance with instance type t2.nano and tags Name = "HelloWorld-web" and Team = "DevOps"
+2. One instance with instance type t2.micro and tags Name = "HelloWorld-db" and Team = "DevOps"
+3. One instance with instance type t3.micro and tags Name = "HelloWorld-devops" and Team = "DevOps"
+
+So, yes, the number of instances created will depend on the number of key-value pairs in the instance_type_map variable.
+
+```
+
+
+
