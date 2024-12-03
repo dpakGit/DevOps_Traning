@@ -1,5 +1,3 @@
-#### Documentation link: https://developer.hashicorp.com/terraform/language/expressions/types
-
 **Practice-1**
 
 
@@ -531,9 +529,15 @@ resource "aws_security_group" "allow_tls" {
 
 **Data_Type- Map**
 
-Docs: {Imp read all}
-https://spacelift.io/blog/terraform-map-variable
 
+
+Docs: {Imp read all}
+
+1. Documentation link: https://developer.hashicorp.com/terraform/language/expressions/types
+
+2.  https://spacelift.io/blog/terraform-map-variable
+
+3. https://www.env0.com/blog/terraform-map-variable-a-complete-guide-with-practical-examples#:~:text=Terraform%20map%20variable%20helps%20with,regions%20without%20repeating%20your%20code. 
 
 **Date:-3.12.2024**
 
