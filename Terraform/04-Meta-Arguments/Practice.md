@@ -227,3 +227,93 @@ resource "aws_instance" "web" {
 }
 
 
+
+**My_Practice**
+
+```
+variable "instance_tuple" {
+  type = tuple([string, string, string])
+  default = ["devTuple", "testTuple", "devopsTuple"]
+}
+
+
+resource "aws_instance" "web-tuple" {
+  ami           = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+  count         = length(var.instance_tuple)
+
+  tags = {
+    Name = var.instance_tuple[count.index]
+    Team = "DevOps"
+  }
+}
+```
+
+
+**Errors**:
+  Error: Invalid default value for variable
+│ 
+│   on ec2-3.tf line 3, in variable "instance_tuple":
+│    3:   default = ["devTuple", "testTuple", "devopsTuple"]
+│ 
+│ This default value is not compatible with the variable's type constraint: tuple required.Variable.type = tuple([string])
+
+
+sol: 
+variable "instance_tuple" {
+  type = tuple([string])
+  default = ("devTuple", "testTuple", "devopsTuple")
+}
+
+
+
+
+Error: Invalid default value for variable
+│ 
+│   on ec2-3.tf line 3, in variable "instance_tuple":
+│    3:   default = ("devTuple", "testTuple", "devopsTuple")
+│ 
+│ This default value is not compatible with the variable's type constraint: tuple required.
+╵
+
+sol: The issue is that the tuple type in Terraform requires a specific syntax, which is [string, string, string].
+
+Try modifying the instance_tuple variable to use the correct syntax:
+
+
+variable "instance_tuple" {
+  type = tuple([string, string, string])
+  default = ["devTuple", "testTuple", "devopsTuple"]
+}
+
+
+Or, if you want to use the tuple syntax:
+
+
+variable "instance_tuple" {
+  type = tuple([string, string, string])
+  default = [ "devTuple", "testTuple", "devopsTuple" ]
+}
+
+
+
+
+```
+terraform state list
+aws_instance.web-map[0]
+aws_instance.web-map[1]
+aws_instance.web-map[2]
+aws_instance.web-list[0]
+aws_instance.web-list[1]
+aws_instance.web-list[2]
+aws_instance.web-tuple[0]
+aws_instance.web-tuple[1]
+aws_instance.web-tuple[2]
+
+```
+
+
+
+
+
+
