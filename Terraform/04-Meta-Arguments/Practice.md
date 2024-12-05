@@ -88,3 +88,111 @@ In this modified code:
 
 With this modified code, Terraform will create three instances with the specific names "dev", "test", and "devops".
 
+
+#### Using Variables
+
+Here are different ways to achieve the same result using variables:
+
+1. Using a **list variable**
+
+variable "instance_names" {
+  type = list(string)
+  default = ["dev", "test", "devops"]
+}
+
+resource "aws_instance" "web" {
+  ami           = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+  count         = length(var.instance_names)
+
+  tags = {
+    Name = var.instance_names[count.index]
+    Team = "DevOps"
+  }
+}
+
+
+1. Using a **map variable**
+
+variable "instance_names" {
+  type = map(string)
+  default = {
+    "0" = "dev"
+    "1" = "test"
+    "2" = "devops"
+  }
+}
+
+resource "aws_instance" "web" {
+  ami           = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+  count         = length(var.instance_names)
+
+  tags = {
+    Name = var.instance_names[count.index]
+    Team = "DevOps"
+  }
+}
+
+
+1. Using a **Tuple variable**
+
+variable "instance_names" {
+  type = tuple([string])
+  default = ["dev", "test", "devops"]
+}
+
+resource "aws_instance" "web" {
+  ami           = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+  count         = length(var.instance_names)
+
+  tags = {
+    Name = var.instance_names[count.index]
+    Team = "DevOps"
+  }
+}
+
+
+These are just a few examples of how you can use variables to achieve the same result. The choice of which one to use depends on your specific use case and personal preference.
+
+#### What is a tuple variable ?
+
+
+In Terraform, a tuple variable is a type of variable that can store a collection of values of different types. A tuple is similar to a list, but it can **contain values of different types**, and its length is fixed.
+
+#### Here's an example of a tuple variable in Terraform:
+
+```
+variable "my_tuple" {
+  type = tuple([string, number, bool])  # **contain values of different types**
+  default = ["hello", 42, true]
+}
+
+```
+In this example, the my_tuple variable is a tuple that contains three values:
+
+- A string value "hello"
+- A number value 42
+- A boolean value true
+
+#### You can access the values in a tuple using their index, like this:
+
+```
+output "first_value" {
+  value = var.my_tuple[0]
+}
+
+output "second_value" {
+  value = var.my_tuple[1]
+}
+
+output "third_value" {
+  value = var.my_tuple[2]
+}
+```
+
+Tuples are useful when you need to store a small, fixed number of values of different types. They are also useful when you need to return multiple values from a module or a function.
+
+Note that tuples are a relatively new feature in Terraform, and they were introduced in version 0.14. If you're using an earlier version of Terraform, you may not be able to use tuples.
+
