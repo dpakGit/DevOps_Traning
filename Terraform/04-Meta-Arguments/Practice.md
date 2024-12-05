@@ -39,7 +39,7 @@ To have different names for the instances created by the Terraform code, you can
 
 Here's an example of how you can modify the code to achieve this:
 
-
+```
 resource "aws_instance" "web" {
   ami           = "ami-0cd59ecaf368e5ccf"
   instance_type = "t2.micro"
@@ -51,6 +51,7 @@ resource "aws_instance" "web" {
   }
 }
 
+```
 
 In this modified code:
 
@@ -70,7 +71,7 @@ To have specific names like "dev", "test", and "devops" for the instances, you c
 
 Here's an example of how you can modify the code to achieve this:
 
-
+```
 resource "aws_instance" "web" {
   ami           = "ami-0cd59ecaf368e5ccf"
   instance_type = "t2.micro"
@@ -81,7 +82,7 @@ resource "aws_instance" "web" {
     Team = "DevOps"
   }
 }
-
+```
 
 In this modified code:
 
