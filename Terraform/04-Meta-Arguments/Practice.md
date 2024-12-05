@@ -199,3 +199,24 @@ Tuples are useful when you need to store a small, fixed number of values of diff
 
 Note that tuples are a relatively new feature in Terraform, and they were introduced in version 0.14. If you're using an earlier version of Terraform, you may not be able to use tuples.
 
+
+#### To modify the command to use a tuple variable for instance names, you can use the following code:
+
+
+variable "instance_names" {
+  type = tuple([string, string, string])
+  default = ["dev", "test", "devops"]
+}
+
+resource "aws_instance" "web" {
+  ami           = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+  count         = length(var.instance_names)
+
+  tags = {
+    Name = var.instance_names[count.index]
+    Team = "DevOps"
+  }
+}
+
+
