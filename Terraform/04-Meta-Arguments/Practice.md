@@ -99,6 +99,7 @@ Here are different ways to achieve the same result using variables:
 
 1. Using a **list variable**
 
+```
 variable "instance_names" {
   type = list(string)
   default = ["dev", "test", "devops"]
@@ -115,9 +116,11 @@ resource "aws_instance" "web" {
   }
 }
 
+```
 
 1. Using a **map variable**
 
+```
 variable "instance_names" {
   type = map(string)
   default = {
@@ -138,9 +141,11 @@ resource "aws_instance" "web" {
   }
 }
 
+```
 
 1. Using a **Tuple variable**
 
+```
 variable "instance_names" {
   type = tuple([string])
   default = ["dev", "test", "devops"]
@@ -157,6 +162,7 @@ resource "aws_instance" "web" {
   }
 }
 
+```
 
 These are just a few examples of how you can use variables to achieve the same result. The choice of which one to use depends on your specific use case and personal preference.
 
