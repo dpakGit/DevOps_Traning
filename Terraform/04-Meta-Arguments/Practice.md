@@ -471,7 +471,7 @@ resource "aws_instance" "Tuple" {
 root@ip-172-31-88-65:/home/ubuntu/ec2_practice# **terraform state list | nl**
 
 ```
-      1  aws_instance.Element[0]
+     1  aws_instance.Element[0]
      2  aws_instance.Element[1]
      3  aws_instance.Element[2]
      4  aws_instance.List[0]
