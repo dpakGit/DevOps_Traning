@@ -463,6 +463,33 @@ resource "aws_instance" "Tuple" {
 
 ```
 
+**CLI output**
+
+root@ip-172-31-88-65:/home/ubuntu/ec2_practice# **terraform state list | nl**
+
+```
+     1  aws_instance.Element[0]
+     2  aws_instance.Element[1]
+     3  aws_instance.List[0]
+     4  aws_instance.List[1]
+     5  aws_instance.List[2]
+     6  aws_instance.Map[0]
+     7  aws_instance.Map[1]
+     8  aws_instance.Map[2]
+     9  aws_instance.Tuple[0]
+    10  aws_instance.Tuple[1]
+    11  aws_instance.Tuple[2]
+    12  aws_instance.count[0]
+    13  aws_instance.count[1]
+    14  aws_instance.count_index[0]
+    15  aws_instance.count_index[1]
+    16  aws_instance.count_index-1[0]
+    17  aws_instance.count_index-1[1]
+    18  aws_instance.format[0]
+    19  aws_instance.format[1]
+    20  aws_instance.web-1
+```
+
 
 
 
