@@ -26,3 +26,13 @@ https://awstip.com/automating-infrastructure-management-terraform-intro-c31573a8
     
      
      terraform destroy
+
+Q.   How to execute the command to display output with line numbers. - terraform state list
+
+Sol. You can use the following command to display the Terraform state list with line numbers:
+
+Command:-  **terraform state list | nl**
+
+The nl command is used to add line numbers to the output.
+     
+
