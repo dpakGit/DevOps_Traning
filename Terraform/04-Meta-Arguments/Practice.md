@@ -318,6 +318,7 @@ aws_instance.web-tuple[2]
 #### The following code demonstrates various methods for creating EC2 instances with unique names.
 
 ```
+
 # 1) Simple Ec2 Creation
 
 resource "aws_instance" "web-1" {
@@ -354,7 +355,7 @@ resource "aws_instance" "count_index" {
   instance_type = "t2.micro"
 
   tags = {
-    Name = "webcount_index-${count.index}"
+    Name = "count_index-${count.index}"
   }
 }
 
@@ -368,7 +369,7 @@ resource "aws_instance" "count_index-1" {
   instance_type = "t2.micro"
 
   tags = {
-    Name = "webcount_index-${count.index + 1}"
+    Name = "count_index-1-${count.index + 1}"
   }
 }
 
@@ -390,7 +391,7 @@ resource "aws_instance" "format" {
 resource "aws_instance" "Element" {
   ami           = "ami-0cd59ecaf368e5ccf"
   instance_type = "t2.micro"
-  count         = 2
+  count         = 3
 
   tags = {
     Name = element(["Element-1", "Element-2", "Element-3"], count.index)
@@ -432,7 +433,7 @@ variable "instance_map" {
 resource "aws_instance" "Map" {
   ami           = "ami-0cd59ecaf368e5ccf"
   instance_type = "t2.micro"
-  count         = length(var.instance_map)
+  count         = length(var.instance_map)  # Length Function
 
   tags = {
     Name = var.instance_map[count.index]
@@ -461,6 +462,8 @@ resource "aws_instance" "Tuple" {
   }
 }
 
+
+
 ```
 
 **CLI output**
@@ -468,26 +471,28 @@ resource "aws_instance" "Tuple" {
 root@ip-172-31-88-65:/home/ubuntu/ec2_practice# **terraform state list | nl**
 
 ```
-     1  aws_instance.Element[0]
+      1  aws_instance.Element[0]
      2  aws_instance.Element[1]
-     3  aws_instance.List[0]
-     4  aws_instance.List[1]
-     5  aws_instance.List[2]
-     6  aws_instance.Map[0]
-     7  aws_instance.Map[1]
-     8  aws_instance.Map[2]
-     9  aws_instance.Tuple[0]
-    10  aws_instance.Tuple[1]
-    11  aws_instance.Tuple[2]
-    12  aws_instance.count[0]
-    13  aws_instance.count[1]
-    14  aws_instance.count_index[0]
-    15  aws_instance.count_index[1]
-    16  aws_instance.count_index-1[0]
-    17  aws_instance.count_index-1[1]
-    18  aws_instance.format[0]
-    19  aws_instance.format[1]
-    20  aws_instance.web-1
+     3  aws_instance.Element[2]
+     4  aws_instance.List[0]
+     5  aws_instance.List[1]
+     6  aws_instance.List[2]
+     7  aws_instance.Map[0]
+     8  aws_instance.Map[1]
+     9  aws_instance.Map[2]
+    10  aws_instance.Tuple[0]
+    11  aws_instance.Tuple[1]
+    12  aws_instance.Tuple[2]
+    13  aws_instance.count[0]
+    14  aws_instance.count[1]
+    15  aws_instance.count_index[0]
+    16  aws_instance.count_index[1]
+    17  aws_instance.count_index-1[0]
+    18  aws_instance.count_index-1[1]
+    19  aws_instance.format[0]
+    20  aws_instance.format[1]
+    21  aws_instance.web-1
+
 ```
 
 
