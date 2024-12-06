@@ -313,6 +313,161 @@ aws_instance.web-tuple[2]
 ```
 
 
+**Practice Date: 6.12.2024**
+
+#### The following code demonstrates various methods for creating EC2 instances with unique names.
+
+```
+# 1) Simple Ec2 Creation
+
+resource "aws_instance" "web-1" {
+    ami = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "web-1"
+  }
+}
+
+# 2) [Count Function].........
+
+resource "aws_instance" "count" {
+  count = 2
+
+  ami = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "count"
+  }
+}
+
+
+
+# 3) [Count.index] ...........................
+
+
+resource "aws_instance" "count_index" {
+  count = 2
+
+  ami = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "webcount_index-${count.index}"
+  }
+}
+
+
+# 4) [Count.index + 1 ]......................
+
+resource "aws_instance" "count_index-1" {
+  count = 2
+
+  ami = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "webcount_index-${count.index + 1}"
+  }
+}
+
+# 5) Format function..................
+
+resource "aws_instance" "format" {
+  ami           = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+  count         = 2
+
+  tags = {
+    Name = format("format-%02d", count.index + 1)
+    Team = "DevOps"
+  }
+}
+
+# 6) Element Function.................
+
+resource "aws_instance" "Element" {
+  ami           = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+  count         = 2
+
+  tags = {
+    Name = element(["Element-1", "Element-2", "Element-3"], count.index)
+    Team = "DevOps"
+  }
+}
+
+# 7) Using a list variable..........................
+
+
+variable "list" {
+  type = list(string)
+  default = ["List-1", "List-2", "List-3"]
+}
+
+resource "aws_instance" "List" {
+  ami           = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+  count         = length(var.list)
+
+  tags = {
+    Name = var.list[count.index]
+    Team = "DevOps"
+  }
+}
+
+# 8)  Using a map variable.................
+
+
+variable "instance_map" {
+  type = map(string)
+  default = {
+    "0" = "Map-1"
+    "1" = "Map-2"
+    "2" = "Map-3"
+  }
+}
+
+resource "aws_instance" "Map" {
+  ami           = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+  count         = length(var.instance_map)
+
+  tags = {
+    Name = var.instance_map[count.index]
+    Team = "DevOps"
+  }
+}
+
+
+# 9) Using a Tuple variable........................
+
+
+variable "instance_tuple" {
+  type = tuple([string, string, string])
+  default = ["Tuple-1", "Tuple-1", "Tuple-3"]
+}
+
+
+resource "aws_instance" "Tuple" {
+  ami           = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+  count         = length(var.instance_tuple)
+
+  tags = {
+    Name = var.instance_tuple[count.index]
+    Team = "DevOps"
+  }
+}
+
+```
+
+
+
+
+
+
 
 
 
