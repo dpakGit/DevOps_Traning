@@ -6,12 +6,13 @@
 
 3. Understanding terraform count, for_each and for loop? : https://jhooq.com/terraform-for-and-for-each-loop/#2-_loops-with-for_each_
 
+4. [Under this link see - Creating Multiple Instances using a Map, and various other examples] https://www.env0.com/blog/terraform-count-index-examples-and-use-cases#:~:text=In%20Terraform%2C%20count.,you%20to%20customize%20each%20instance.  
 
 **Date:-6.12.2024**
 
 #### Q. Explain how terraform count.index works
 
-4. **Count.index**
+5. **Count.index**
 
 In Terraform, count.index is a built-in variable that is used in conjunction with the count meta-argument to iterate over a resource or module multiple times.
 
