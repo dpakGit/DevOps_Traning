@@ -495,9 +495,45 @@ root@ip-172-31-88-65:/home/ubuntu/ec2_practice# **terraform state list | nl**
 
 ```
 
+**Date: 8.12.2024**
+
+## Assignment
+
+Source MetaAI:
+
+Q. Improve the sentence - write a terraform code to create three ec2 instances where the names of the three instances are web.db and devops. web named instance will have instance type t2.nano, db named instance will have instance type t2.micro and devops named instance will have instance type t3.medium
 
 
+Sol: 
 
+Here is a rewritten Terraform code that meets the requirements:
+
+
+variable "instance_types" {
+  type = map(string)
+  default = {
+    "web"    = "t2.nano"
+    "db"     = "t2.micro"
+    "devops" = "t3.medium"
+  }
+}
+
+variable "instance_names" {
+  type = list(string)
+  default = ["web", "db", "devops"]
+}
+
+resource "aws_instance" "this" {
+  count         = length(var.instance_names)
+  ami           = "ami-0cd59ecaf368e5ccf" # Replace with your desired AMI
+  instance_type = var.instance_types[var.instance_names[count.index]]
+  tags = {
+    Name = var.instance_names[count.index]
+  }
+}
+
+
+This code creates three EC2 instances with the specified names and instance types. Note that you should replace the ami value with your desired Amazon Machine Image (AMI).
 
 
 
