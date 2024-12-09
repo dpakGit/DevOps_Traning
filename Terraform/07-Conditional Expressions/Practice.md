@@ -105,6 +105,17 @@ So, if the user enters "web", only the "web" instance will be created. If the us
 
 
 
+### Conditional Expressions:
+
+https://developer.hashicorp.com/terraform/language/expressions/conditionals
+
+## Syntax
+The syntax of a conditional expression is as follows:
+
+```hcl
+condition ? true_val : false_val
+```
+
 **DevopsPro Code**
 
 ```
