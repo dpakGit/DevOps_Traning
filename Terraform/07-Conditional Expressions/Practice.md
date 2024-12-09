@@ -8,7 +8,6 @@ Sol: You're looking to create a conditional EC2 instance creation based on user 
 
 #### Practice - 1
 
-`````
 provider "aws" {
   region = "us-east-1"
 }
@@ -38,7 +37,6 @@ resource "aws_instance" "db" {
 
 }
 
-```
 
 In this example:
 
@@ -52,15 +50,8 @@ Yes, that's correct. When you run terraform apply, Terraform will evaluate the c
 In the example I provided earlier, if the default value of the instance_type variable is "web", Terraform will create one instance of the aws_instance resource with the name "web".
 
 
-
-
-
 #### Practice - 2
 
-
-
-
-```
 provider "aws" {
   region = "us-east-1"
 }
@@ -90,12 +81,6 @@ resource "aws_instance" "db" {
 
 }
 
-```
-
-
-
-
-
 
 ##### Explanation of the above code .
 
@@ -104,6 +89,8 @@ Since the variable block doesn't have a default value, Terraform will prompt the
 Based on the user's input, Terraform will then evaluate the count attribute in each resource block and create only the corresponding instance.
 
 So, if the user enters "web", only the "web" instance will be created. If the user enters "db", only the "db" instance will be created (and it will create 3 instances since the count is set to 3).
+
+
 #### How it works
 
 1. When you run terraform apply, Terraform will prompt you to enter a value for the instance_type variable.
