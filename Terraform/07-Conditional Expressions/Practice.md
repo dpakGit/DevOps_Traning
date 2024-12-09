@@ -133,9 +133,9 @@ Here's a breakdown of the syntax:
 
 ``Here's an example:``
 
-x > 5 ? "greater than 5" : "less than or equal to 5"
+``x > 5 ? "greater than 5" : "less than or equal to 5"``
 
-In this example, if x is greater than 5, the expression returns the string "greater than 5". Otherwise, it returns the string "less than or equal to 5"``.
+``In this example, if x is greater than 5, the expression returns the string "greater than 5". Otherwise, it returns the string "less than or equal to 5"``.
 
 The ternary operator is often used to simplify if-else statements and make code more concise.
 
