@@ -1,4 +1,4 @@
-**MetaAI**
+**MetaAI**  Date: 9.12.2024
 
 Q. I have two separate EC2 instance blocks, and I want to create only the instance that corresponds to the user's input. How can I achieve this conditional instance creation?
 
@@ -102,3 +102,79 @@ So, if the user enters "web", only the "web" instance will be created. If the us
 2. Based on the value you enter, Terraform will evaluate the count attribute in each resource block.
 3. If the instance_name variable matches the condition in the count attribute, Terraform will create the specified number of EC2 instances.
 4. If the instance_name variable does not match the condition, the count attribute will be set to 0, and no instances will be created.
+
+
+
+**DevopsPro Code**
+
+```
+# Variable Block
+
+variable "is_dev_env" {
+  type = bool
+}
+
+# Resource Block
+
+resource "aws_instance" "dev" {
+  count = var.is_dev_env == true ? 1 : 0
+  ami           = "ami-0f34c5ae932e6f0e4"
+  instance_type = "t2.nano"
+  tags = {
+    Name = "dev-ec2"
+  }
+}
+
+resource "aws_instance" "prod" {
+  count = var.is_dev_env == false ? 2 : 0
+  ami           = "ami-0f34c5ae932e6f0e4"
+  instance_type = "t2.large"
+  tags = {
+    Name = "prod-ec2"
+  } 
+}
+```
+
+**MetaAI**
+
+Explanation:
+
+The creation of these instances is conditional, based on the value of the var.is_dev_env variable.
+- dev instance:
+    - Created only if var.is_dev_env is true.
+    - Has a count of 1, meaning only one instance will be created.
+    - Uses the t2.nano instance type.
+    - Has a tag with the name dev-ec2.
+- prod instance:
+    - Created only if var.is_dev_env is false.
+    - Has a count of 2, meaning two instances will be created.
+    - Uses the t2.large instance type.
+    - Has a tag with the name prod-ec2.
+
+Q. Explain the following part of the code -  **count = var.is_dev_env == true ? 1 : 0**
+
+Sol: 
+
+**This line of code is using a conditional expression to determine the value of the count attribute**.
+
+Here's a breakdown:
+
+- var.is_dev_env == true is a condition that checks if the value of the is_dev_env variable is true.
+- The ? symbol is a ternary operator that evaluates the condition and returns one of two values.
+- If the condition is true, the expression returns 1.
+- If the condition is false, the expression returns 0.
+
+So, in essence, this line of code is saying:
+
+"If var.is_dev_env is true, create 1 instance. Otherwise, create 0 instances."
+
+This is a concise way to express a conditional statement and assign a value to the count attribute based on the condition.
+
+If the value is 2 or 3 instead of 1, Terraform will create that many instances accordingly.
+
+For example:
+
+- count = var.is_dev_env == true ? 2 : 0 will create 2 instances if var.is_dev_env is true.
+- count = var.is_dev_env == true ? 3 : 0 will create 3 instances if var.is_dev_env is true.
+
+This allows you to dynamically control the number of instances created based on the value of the is_dev_env variable.
