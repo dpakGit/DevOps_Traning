@@ -6,11 +6,9 @@ Q. I have two separate EC2 instance blocks, and I want to create only the instan
 
 Sol: You're looking to create a conditional EC2 instance creation based on user input. You can achieve this using Terraform's count attribute and a conditional expression.
 
-
-`````
 #### Practice - 1
 
-
+`````
 provider "aws" {
   region = "us-east-1"
 }
@@ -55,6 +53,7 @@ In the example I provided earlier, if the default value of the instance_type var
 
 
 #### Practice - 2
+
 
 ```
 provider "aws" {
