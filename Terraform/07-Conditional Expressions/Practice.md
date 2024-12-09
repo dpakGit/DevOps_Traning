@@ -52,7 +52,12 @@ Yes, that's correct. When you run terraform apply, Terraform will evaluate the c
 In the example I provided earlier, if the default value of the instance_type variable is "web", Terraform will create one instance of the aws_instance resource with the name "web".
 
 
+
+
+
 #### Practice - 2
+
+
 
 
 ```
@@ -86,6 +91,10 @@ resource "aws_instance" "db" {
 }
 
 ```
+
+
+
+
 
 
 ##### Explanation of the above code .
