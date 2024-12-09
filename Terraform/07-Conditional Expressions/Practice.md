@@ -8,6 +8,8 @@ Sol: You're looking to create a conditional EC2 instance creation based on user 
 
 #### Practice - 1
 
+
+```
 provider "aws" {
   region = "us-east-1"
 }
@@ -36,6 +38,7 @@ resource "aws_instance" "db" {
   }
 
 }
+```
 
 
 In this example:
@@ -52,6 +55,7 @@ In the example I provided earlier, if the default value of the instance_type var
 
 #### Practice - 2
 
+```
 provider "aws" {
   region = "us-east-1"
 }
@@ -80,6 +84,7 @@ resource "aws_instance" "db" {
   }
 
 }
+```
 
 
 ##### Explanation of the above code .
