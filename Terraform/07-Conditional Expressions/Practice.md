@@ -131,7 +131,7 @@ Here's a breakdown of the syntax:
 - false_val: This is the value returned if the condition is false.
 
 
-``Here's an example:
+``Here's an example:``
 
 x > 5 ? "greater than 5" : "less than or equal to 5"
 
