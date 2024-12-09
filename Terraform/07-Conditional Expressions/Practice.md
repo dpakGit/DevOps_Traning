@@ -14,13 +14,13 @@ provider "aws" {
   region = "us-east-1"
 }
 
-variable "instance_type" {    # Make it "instance_name" in all the following places
+variable "instance_name" {    # Make it "instance_name" in all the following places
   type    = string
   default = "db"
 }
 
 resource "aws_instance" "web" {
-  count         = var.instance_type == "web" ? 1 : 0
+  count         = var.instance_name == "web" ? 1 : 0
   ami           = "ami-0cd59ecaf368e5ccf"
   instance_type = "t2.nano"
 
@@ -30,7 +30,7 @@ resource "aws_instance" "web" {
 }
 
 resource "aws_instance" "db" {
-  count         = var.instance_type == "db" ? 3 : 0
+  count         = var.instance_name == "db" ? 3 : 0
   ami           = "ami-0cd59ecaf368e5ccf"
   instance_type = "t2.micro"
   tags = {
@@ -43,9 +43,9 @@ resource "aws_instance" "db" {
 
 In this example:
 
-- We define a instance_type variable with a default value of "web".
+- We define a instance_name variable with a default value of "web".
 - We create two separate aws_instance resources, one for "web" and one for "db".
-- We use the count attribute to conditionally create the instance based on the value of var.instance_type. If the value matches the instance type, the count is set to 1, otherwise it's set to 0.
+- We use the count attribute to conditionally create the instance based on the value of var.instance_name. If the value matches the instance type, the count is set to 1, otherwise it's set to 0.
 
 
 Yes, that's correct. When you run terraform apply, Terraform will evaluate the count attribute in each resource block. If the default value in the variable block matches the condition in the count attribute, Terraform will create that many instances.
@@ -60,12 +60,12 @@ provider "aws" {
   region = "us-east-1"
 }
 
-variable "instance_type" {
+variable "instance_name" {
   type = string
 }
 
 resource "aws_instance" "web" {
-  count         = var.instance_type == "web" ? 1 : 0
+  count         = var.instance_name == "web" ? 1 : 0
   ami           = "ami-0cd59ecaf368e5ccf"
   instance_type = "t2.nano"
 
@@ -75,7 +75,7 @@ resource "aws_instance" "web" {
 }
 
 resource "aws_instance" "db" {
-  count         = var.instance_type == "db" ? 3 : 0
+  count         = var.instance_name == "db" ? 3 : 0
   ami           = "ami-0cd59ecaf368e5ccf"
   instance_type = "t2.micro"
   tags = {
@@ -89,7 +89,7 @@ resource "aws_instance" "db" {
 
 ##### Explanation of the above code .
 
-Since the variable block doesn't have a default value, Terraform will prompt the user to enter a value for instance_type when running terraform apply.
+Since the variable block doesn't have a default value, Terraform will prompt the user to enter a value for instance_name when running terraform apply.
 
 Based on the user's input, Terraform will then evaluate the count attribute in each resource block and create only the corresponding instance.
 
@@ -98,7 +98,7 @@ So, if the user enters "web", only the "web" instance will be created. If the us
 
 #### How it works
 
-1. When you run terraform apply, Terraform will prompt you to enter a value for the instance_type variable.
+1. When you run terraform apply, Terraform will prompt you to enter a value for the instance_name variable.
 2. Based on the value you enter, Terraform will evaluate the count attribute in each resource block.
-3. If the instance_type variable matches the condition in the count attribute, Terraform will create the specified number of EC2 instances.
-4. If the instance_type variable does not match the condition, the count attribute will be set to 0, and no instances will be created.
+3. If the instance_name variable matches the condition in the count attribute, Terraform will create the specified number of EC2 instances.
+4. If the instance_name variable does not match the condition, the count attribute will be set to 0, and no instances will be created.
