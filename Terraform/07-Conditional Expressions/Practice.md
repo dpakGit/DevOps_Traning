@@ -105,18 +105,40 @@ So, if the user enters "web", only the "web" instance will be created. If the us
 
 
 
-### Conditional Expressions:
+## Conditional Expressions:
 
 https://developer.hashicorp.com/terraform/language/expressions/conditionals
 
-## Syntax
+### Syntax
 The syntax of a conditional expression is as follows:
 
 ```hcl
 condition ? true_val : false_val
 ```
 
-**DevopsPro Code**
+Explain the syntax : - **condition ? true_val : false_val**
+
+This is a conditional expression, also known as a ternary operator. It's a concise way to evaluate a condition and return one of two values.
+
+Here's a breakdown of the syntax:
+
+- condition: This is the condition being evaluated. It can be a boolean expression, a comparison, or any other type of condition.
+- ?: This is the ternary operator. It separates the condition from the two possible values.
+- true_val: This is the value returned if the condition is true.
+- false_val: This is the value returned if the condition is false.
+
+```Here's an example:
+
+x > 5 ? "greater than 5" : "less than or equal to 5"
+
+In this example, if x is greater than 5, the expression returns the string "greater than 5". Otherwise, it returns the string "less than or equal to 5".```
+
+The ternary operator is often used to simplify if-else statements and make code more concise.
+
+
+
+
+### DevopsPro Code
 
 ```
 # Variable Block
@@ -162,7 +184,7 @@ The creation of these instances is conditional, based on the value of the var.is
     - Uses the t2.large instance type.
     - Has a tag with the name prod-ec2.
 
-Q. Explain the following part of the code -  **count = var.is_dev_env == true ? 1 : 0**
+Q. Explain the following part of the code -  **count = var.is_dev_env == true ? 1 : 0** -**V.V.IMP**
 
 Sol: 
 
