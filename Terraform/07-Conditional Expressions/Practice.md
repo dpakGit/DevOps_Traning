@@ -1,4 +1,4 @@
-**MetaAI**  Date: 9.12.2024
+**MetaAI**      Date: 9.12.2024
 
 Q. I have two separate EC2 instance blocks, and I want to create only the instance that corresponds to the user's input. How can I achieve this conditional instance creation?
 
