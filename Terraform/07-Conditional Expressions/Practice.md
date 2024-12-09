@@ -105,18 +105,21 @@ So, if the user enters "web", only the "web" instance will be created. If the us
 
 
 
+
 ## Conditional Expressions:
 
 https://developer.hashicorp.com/terraform/language/expressions/conditionals
 
-### Syntax
+**Syntax**
 The syntax of a conditional expression is as follows:
 
 ```hcl
 condition ? true_val : false_val
 ```
 
-Explain the syntax : - **condition ? true_val : false_val**
+
+Q. 
+**Explain the syntax : - condition ? true_val : false_val**
 
 This is a conditional expression, also known as a ternary operator. It's a concise way to evaluate a condition and return one of two values.
 
@@ -127,11 +130,12 @@ Here's a breakdown of the syntax:
 - true_val: This is the value returned if the condition is true.
 - false_val: This is the value returned if the condition is false.
 
-```Here's an example:
+
+``Here's an example:
 
 x > 5 ? "greater than 5" : "less than or equal to 5"
 
-In this example, if x is greater than 5, the expression returns the string "greater than 5". Otherwise, it returns the string "less than or equal to 5".```
+In this example, if x is greater than 5, the expression returns the string "greater than 5". Otherwise, it returns the string "less than or equal to 5"``.
 
 The ternary operator is often used to simplify if-else statements and make code more concise.
 
