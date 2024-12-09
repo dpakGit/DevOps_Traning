@@ -14,7 +14,7 @@ provider "aws" {
   region = "us-east-1"
 }
 
-variable "instance_type" {
+variable "instance_type" {    # Make it "instance_name" in all the following places
   type    = string
   default = "db"
 }
