@@ -205,7 +205,8 @@ Here's a breakdown:
 
 So, in essence, this line of code is saying:
 
-"If var.is_dev_env is true, create 1 instance. Otherwise, create 0 instances."
+"If var.is_dev_env is true, create 1 instance. Otherwise, create 0 instances." 
+``Meaning, if var.is_dev_env is true, the count attribute is set to 1, resulting in the creation of one instance. Conversely, if var.is_dev_env is false, the count attribute is set to 0, meaning no instance will be created.``` 
 
 This is a concise way to express a conditional statement and assign a value to the count attribute based on the condition.
 
