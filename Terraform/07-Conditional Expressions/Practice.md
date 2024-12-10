@@ -219,3 +219,23 @@ For example:
 - count = var.is_dev_env == true ? 3 : 0 will create 3 instances if var.is_dev_env is true.
 
 This allows you to dynamically control the number of instances created based on the value of the is_dev_env variable.
+
+
+
+**Date:- 10.12.2024**
+
+**Error:** creating EC2 Instance: operation error EC2: RunInstances, https response error StatusCode: 400, RequestID: 7444c4b1-d38a-4d2f-9a54-3b6045cb155e, api error InvalidAMIID.NotFound: The image id '[ami-0cd59ecaf368e5ccf]' does not exist
+│ 
+│   with aws_instance.dev[0],
+│   on ec2.tf line 12, in resource "aws_instance" "dev":
+│   12: resource "aws_instance" "dev" {
+│ 
+╵
+╷
+│ Error: creating EC2 Instance: operation error EC2: RunInstances, https response error StatusCode: 400, RequestID: f5275591-41a4-4036-bf25-a9114958f553, api error InvalidAMIID.NotFound: The image id '[ami-0cd59ecaf368e5ccf]' does not exist
+│ 
+│   with aws_instance.prod,
+│   on ec2.tf line 22, in resource "aws_instance" "prod":
+│   22: resource "aws_instance" "prod" {
+
+
