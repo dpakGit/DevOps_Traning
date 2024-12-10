@@ -188,7 +188,7 @@ The creation of these instances is conditional, based on the value of the var.is
     - Uses the t2.large instance type.
     - Has a tag with the name prod-ec2.
 
-Q. Explain the following part of the code -   **V.V.IMP**
+Q. Explain the following part of the code -             **V.V.IMP**
 
 Syntax: -  **count = var.is_dev_env == true ? 1 : 0**    
 
