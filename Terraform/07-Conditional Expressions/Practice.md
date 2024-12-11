@@ -241,5 +241,47 @@ This allows you to dynamically control the number of instances created based on 
 
 **Date:-11.12.2024**
 
-**Error**
-While running terraform plan i encountered this error and out of the two ec2 instances only dev instance was created and not prod because instance type was "instance_type = "t2.large"" which is not allowed in my account
+**Practice -1**
+
+ terraform apply -auto-approve
+var.is_dev_env
+  Enter a value: true
+
+root@ip-172-31-18-189:/home/ubuntu# cat code_1.tf 
+```
+# Variable Block
+
+variable "is_dev_env" {
+  type = bool
+}
+
+# Resource Block
+
+resource "aws_instance" "dev" {
+  count = var.is_dev_env == true ? 1 : 0
+  ami           = "ami-005fc0f236362e99f"
+  instance_type = "t2.micro"
+  tags = {
+    Name = "dev-ec2"
+  }
+}
+
+resource "aws_instance" "prod" {
+  # count = var.is_dev_env == false ? 2 : 0
+  ami           = "ami-005fc0f236362e99f"
+  instance_type = "t3.medium"
+  tags = {
+    Name = "prod-ec2"
+  } 
+}
+```
+
+  root@ip-172-31-18-189:/home/ubuntu# terraform state list
+aws_instance.dev[0]
+aws_instance.prod
+
+
+The above code created two instances
+
+
+
