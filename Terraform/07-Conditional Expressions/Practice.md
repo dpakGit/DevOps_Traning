@@ -395,3 +395,101 @@ aws_instance.prod[0]
 aws_instance.prod[1]
 
 Created "prod" instance, prod, when the input value is false.
+
+
+
+**Case:-**
+
+**Meta Ai**
+
+Since i have two resource blocks to be created so i took the variable type as a boolian. But if i have 4vresource blocks then how to define he variable.
+
+Sol:
+
+```
+If you have more than two resource blocks, using a boolean variable might not be the most scalable approach. Here are a few alternatives:
+
+1. String variable: You can define a string variable and use its value to determine which resources to create.
+
+
+variable "environment" {
+  type        = string
+  default     = "dev"
+  description = "Environment to deploy to (dev, prod, staging, etc.)"
+}
+
+resource "aws_instance" "dev" {
+  count = var.environment == "dev" ? 1 : 0
+  # ...
+}
+
+resource "aws_instance" "prod" {
+  count = var.environment == "prod" ? 2 : 0
+  # ...
+}
+
+resource "aws_instance" "staging" {
+  count = var.environment == "staging" ? 1 : 0
+  # ...
+}
+
+resource "aws_instance" "test" {
+  count = var.environment == "test" ? 1 : 0
+  # ...
+}
+
+
+1. Map variable: You can define a map variable to store the environment-specific configuration.
+
+
+variable "environments" {
+  type = map(object({
+    instance_count = number
+    instance_type  = string
+  }))
+  default = {
+    dev = {
+      instance_count = 1
+      instance_type  = "t2.micro"
+    },
+    prod = {
+      instance_count = 2
+      instance_type  = "t3.medium"
+    },
+    staging = {
+      instance_count = 1
+      instance_type  = "t2.micro"
+    },
+    test = {
+      instance_count = 1
+      instance_type  = "t2.micro"
+    }
+  }
+}
+
+resource "aws_instance" "dev" {
+  count         = var.environments["dev"].instance_count
+  ami           = "ami-005fc0f236362e99f"
+  instance_type = var.environments["dev"].instance_type
+  # ...
+}
+
+# Repeat for other environments...
+
+
+1. List/Array variable: If you have a fixed set of environments, you can define a list/array variable to store the environment names.
+
+
+variable "environments" {
+  type        = list(string)
+  default     = ["dev", "prod", "staging", "test"]
+  description = "List of environments to deploy to"
+}
+
+resource "aws_instance" "dev" {
+  count = contains(var.environments, "dev") ? 1 : 0
+  # ...
+}
+
+# Repeat for other environments...
+```
