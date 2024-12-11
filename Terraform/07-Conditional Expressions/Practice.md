@@ -407,7 +407,8 @@ Since i have two resource blocks to be created so i took the variable type as a 
 Sol:
 
 ```
-If you have more than two resource blocks, using a boolean variable might not be the most scalable approach. Here are a few alternatives:
+If you have more than two resource blocks, using a boolean variable might not
+ be the most scalable approach. Here are a few alternatives:
 
 1. String variable: You can define a string variable and use its value to determine which resources to create.
 
@@ -439,7 +440,8 @@ resource "aws_instance" "test" {
 }
 
 
-1. Map variable: You can define a map variable to store the environment-specific configuration.
+1. Map variable: You can define a map variable to store the
+ environment-specific configuration.
 
 
 variable "environments" {
@@ -477,7 +479,8 @@ resource "aws_instance" "dev" {
 # Repeat for other environments...
 
 
-1. List/Array variable: If you have a fixed set of environments, you can define a list/array variable to store the environment names.
+1. List/Array variable: If you have a fixed set of environments, you can define a
+ list/array variable to store the environment names.
 
 
 variable "environments" {
