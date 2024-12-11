@@ -410,7 +410,8 @@ Sol:
 If you have more than two resource blocks, using a boolean variable might not
  be the most scalable approach. Here are a few alternatives:
 
-1. String variable: You can define a string variable and use its value to determine which resources to create.
+1. String variable: You can define a string variable and use its value to determine
+ which resources to create.
 
 
 variable "environment" {
