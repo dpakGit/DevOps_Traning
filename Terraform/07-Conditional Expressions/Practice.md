@@ -370,8 +370,11 @@ resource "aws_instance" "prod" {
 ```
 
 ***1st- when input is true***
+
 root@ip-172-31-18-189:/home/ubuntu# terraform apply -auto-approve
+
 var.is_dev_env
+
   Enter a value: true
 
   output:
