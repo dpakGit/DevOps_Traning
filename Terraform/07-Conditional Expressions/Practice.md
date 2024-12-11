@@ -247,7 +247,8 @@ This allows you to dynamically control the number of instances created based on 
 var.is_dev_env
   Enter a value: true
 
-root@ip-172-31-18-189:/home/ubuntu# cat code_1.tf 
+root@ip-172-31-18-189:/home/ubuntu# cat **code_1.tf**
+
 ```
 # Variable Block
 
@@ -277,11 +278,61 @@ resource "aws_instance" "prod" {
 ```
 
   root@ip-172-31-18-189:/home/ubuntu# terraform state list
+
+
+Output:
+  
 aws_instance.dev[0]
+
 aws_instance.prod
 
 
 The above code created two instances
+
+**2nd -case**
+
+root@ip-172-31-18-189:/home/ubuntu# terraform apply -auto-approve
+var.is_dev_env
+  Enter a value: false
+
+root@ip-172-31-18-189:/home/ubuntu# cat **code_2.tf**
+
+```
+# Variable Block
+
+variable "is_dev_env" {
+  type = bool
+}
+
+# Resource Block
+
+resource "aws_instance" "dev" {
+  #count = var.is_dev_env == true ? 1 : 0
+  ami           = "ami-005fc0f236362e99f"
+  instance_type = "t2.micro"
+  tags = {
+    Name = "dev-ec2"
+  }
+}
+
+resource "aws_instance" "prod" {
+   count = var.is_dev_env == false ? 2 : 0
+  ami           = "ami-005fc0f236362e99f"
+  instance_type = "t3.medium"
+  tags = {
+    Name = "prod-ec2"
+  } 
+}
+```
+
+Created 3 instances 1 dev and two prod:
+
+root@ip-172-31-18-189:/home/ubuntu# terraform state list
+aws_instance.dev
+
+aws_instance.prod[0]
+
+aws_instance.prod[1]
 
 
 
