@@ -80,4 +80,11 @@ tags = {
 }
 
 
+**Date:-16.12.2024**
+
+
+
+https://developer.hashicorp.com/terraform/language/expressions/type-constraints#collection-types
+
+https://developer.hashicorp.com/terraform/language/expressions/type-constraints
 
