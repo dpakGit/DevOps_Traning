@@ -160,9 +160,6 @@ resource "aws_instance" "server" {
 
 **Practice-2**
 
-
-**Practice-3**
-
 ```
 # Here's the modified code to create two AWS instances, one in us-east-1 and another in us-east-2:
 
@@ -238,6 +235,108 @@ resource "aws_instance" "server_east2" {
 
 ```
 
+
+
+
+**Practice-3**
+
+
+#### See the Output part in this code compared to the above code,how it is written.
+
+```
+# Provider for us-east-1
+
+provider "aws" {
+  alias  = "east1"
+  region = "us-east-1"
+}
+
+# Provider for us-east-2
+
+provider "aws" {
+  alias  = "east2"
+  region = "us-east-2"
+}
+
+# Data source for Ubuntu AMI in us-east-1
+
+data "aws_ami" "ubuntu_east1" {
+  provider = aws.east1
+  most_recent = true
+  owners = ["amazon"]
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20230516"]
+  }
+}
+
+# Data source for Ubuntu AMI in us-east-2
+
+data "aws_ami" "ubuntu_east2" {
+  provider = aws.east2
+  most_recent = true
+  owners = ["amazon"]
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20230516"]
+  }
+}
+
+# Output the AMI IDs    See the Output part in this code compared to the above code,how it is written.
+
+output "ubuntu_ami_id_east1" {
+  value = {
+    id         = data.aws_ami.ubuntu_east1.id
+    image_id   = data.aws_ami.ubuntu_east1.image_id
+  }
+}
+
+output "ubuntu_ami_id_east22" {
+  value = {
+    id         = data.aws_ami.ubuntu_east2.id
+    image_id   = data.aws_ami.ubuntu_east2.image_id
+  }
+}
+
+
+# Create instance in us-east-1
+resource "aws_instance" "server_east1" {
+  provider      = aws.east1
+  ami            = (data.aws_ami.ubuntu_east1.id)
+  instance_type = "t2.micro"
+  tags = {
+    Name = "ubuntu_instance_east1"
+  }
+}
+
+# Create instance in us-east-2
+resource "aws_instance" "server_east2" {
+  provider      = aws.east2
+  ami            = (data.aws_ami.ubuntu_east2.id)
+  instance_type = "t2.micro"
+  tags = {
+    Name = "ubuntu_instance_east2"
+  }
+}
+```
+
+
+**Following is the output that is displayed in the CLI when the terraform apply command is ran, it displays only the id and image_id removing other things in the log**
+
+```Apply complete! Resources: 2 added, 0 changed, 2 destroyed.
+
+Outputs:
+
+ubuntu_ami_id_east1 = {
+  "id" = "ami-053b0d53c279acc90"
+  "image_id" = "ami-053b0d53c279acc90"
+}
+ubuntu_ami_id_east22 = {
+  "id" = "ami-024e6efaf93d85776"
+  "image_id" = "ami-024e6efaf93d85776"
+}
+```
+see that in 
 
 **Practice-4**
 
