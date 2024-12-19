@@ -81,4 +81,16 @@ In this specific log, you can see that Terraform plans to:
 The plan also indicates that there are no resources to change or destroy.
 
 
+**Filter results of datasource**
+
+https://registry.terraform.io/providers/fortinetdev/fortios/latest/docs/guides/fgt_filter
+
+
+**The use of the "filter" in data sources - AWS**
+
+https://discuss.hashicorp.com/t/the-use-of-the-filter-in-data-sources/34848
+
+
+
+
 
