@@ -338,7 +338,7 @@ ubuntu_ami_id_east22 = {
   "image_id" = "ami-024e6efaf93d85776"
 }
 ```
-see that in 
+
 
 **Practice-4**
 
