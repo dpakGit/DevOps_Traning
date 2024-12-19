@@ -91,6 +91,155 @@ https://registry.terraform.io/providers/fortinetdev/fortios/latest/docs/guides/f
 https://discuss.hashicorp.com/t/the-use-of-the-filter-in-data-sources/34848
 
 
+**Date: 19.12.2024**
+
+Practice: - 1
+
+```
+# Code-1 : The following code will create an ecw=2 instance in us-east-1, i:e; north virginia
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+data "aws_ami" "ubuntu" {
+  most_recent = true
+
+  owners = ["amazon"]
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-"]    # "20240927" Update this value to the latest
+  }
+}
+
+output "ubuntu_ami_id" {
+  value = data.aws_ami.ubuntu
+}
+
+resource "aws_instance" "server" {
+  ami           = data.aws_ami.ubuntu.id
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "ubuntu_instance"
+  }
+}
+```
+
+
+```
+# Code-1 : The following code will create an ecw=2 instance in us-east-, i:e; ohio region
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+data "aws_ami" "ubuntu" {
+  most_recent = true
+
+  owners = ["amazon"]
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20240927"]   # "20240927" Update this value to the latest
+  }
+}
+
+output "ubuntu_ami_id" {
+  value = data.aws_ami.ubuntu
+}
+
+resource "aws_instance" "server" {
+  ami           = data.aws_ami.ubuntu.id
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "ubuntu_instance"
+  }
+}
+```
+
+**Practice-2**
+
+
+**Practice-3**
+
+```
+# Here's the modified code to create two AWS instances, one in us-east-1 and another in us-east-2:
+
+
+
+# Provider for us-east-1
+
+provider "aws" {
+  alias  = "east1"
+  region = "us-east-1"
+}
+
+# Provider for us-east-2
+
+provider "aws" {
+  alias  = "east2"
+  region = "us-east-2"
+}
+
+# Data source for Ubuntu AMI in us-east-1
+
+data "aws_ami" "ubuntu_east1" {
+  provider = aws.east1
+  most_recent = true
+  owners = ["amazon"]
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20240927"]
+  }
+}
+
+# Data source for Ubuntu AMI in us-east-2
+
+data "aws_ami" "ubuntu_east2" {
+  provider = aws.east2
+  most_recent = true
+  owners = ["amazon"]
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20240927"]
+  }
+}
+
+# Output the AMI IDs
+output "ubuntu_ami_id_east1" {
+  value = (data.aws_ami.ubuntu_east1)
+}
+
+output "ubuntu_ami_id_east2" {
+  value = (data.aws_ami.ubuntu_east2)
+}
+
+# Create instance in us-east-1
+
+resource "aws_instance" "server_east1" {
+  provider      = aws.east1
+  ami            = (data.aws_ami.ubuntu_east1.id)
+  instance_type = "t2.micro"
+  tags = {
+    Name = "ubuntu_instance_east1"
+  }
+}
+
+# Create instance in us-east-2
+resource "aws_instance" "server_east2" {
+  provider      = aws.east2
+  ami            = (data.aws_ami.ubuntu_east2.id)
+  instance_type = "t2.micro"
+  tags = {
+    Name = "ubuntu_instance_east2"
+  }
+}
+
+```
+
+
+**Practice-4**
 
 
 
