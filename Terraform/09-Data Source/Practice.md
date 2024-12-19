@@ -339,6 +339,23 @@ ubuntu_ami_id_east22 = {
 }
 ```
 
+**Gemini AI**
+
+output "ubuntu_ami_id_east1" {
+  value = {
+    id         = data.aws_ami.ubuntu_east1.id
+    image_id   = data.aws_ami.ubuntu_east1.image_id
+  }
+}
+
+data "aws_ami" "ubuntu_east1" {
+  most_recent = true
+  owners      = ["099720109477"] # Canonical
+  filters = {
+    name = "ubuntu/images/hvm-ssd/ubuntu-focal-22.04-amd64-server-*"
+    virtualization-type = "hvm"
+  }
+}
 
 **Practice-4**
 
