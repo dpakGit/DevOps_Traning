@@ -129,7 +129,7 @@ resource "aws_instance" "server" {
 
 
 ```
-# Code-1 : The following code will create an ecw=2 instance in us-east-, i:e; ohio region
+# Code-2 : The following code will create an ecw=2 instance in us-east-, i:e; ohio region
 
 provider "aws" {
   region = "us-east-1"
@@ -141,7 +141,8 @@ data "aws_ami" "ubuntu" {
   owners = ["amazon"]
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20240927"]   # "20240927" Update this value to the latest
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20240927"]  
+           # "20240927" Update this value to the latest 
   }
 }
 
