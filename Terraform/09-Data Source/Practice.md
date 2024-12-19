@@ -243,7 +243,7 @@ resource "aws_instance" "server_east2" {
 **Practice-3**
 
 
-#### See the Output part in this code compared to the above code,how it is written.
+#### See the Output part in this code compared to the above code,how it is written in the code.
 
 ```
 # Provider for us-east-1
