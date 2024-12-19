@@ -108,7 +108,7 @@ data "aws_ami" "ubuntu" {
   owners = ["amazon"]
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-"]    # "20240927" Update this value to the latest
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-"] #"20240927" Update this value to the latest
   }
 }
 
