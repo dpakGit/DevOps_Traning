@@ -341,6 +341,7 @@ ubuntu_ami_id_east22 = {
 
 **Gemini AI**
 
+```
 output "ubuntu_ami_id_east1" {
   value = {
     id         = data.aws_ami.ubuntu_east1.id
@@ -356,7 +357,29 @@ data "aws_ami" "ubuntu_east1" {
     virtualization-type = "hvm"
   }
 }
+```
 
+
+Explanation:
+
+Data Source:
+
+data "aws_ami" "ubuntu_east1": This data source fetches information about the latest Ubuntu AMI in the us-east-1 region.
+most_recent = true: Specifies that we want the most recent AMI.
+owners = ["099720109477"]: Filters the AMI to those owned by Canonical, the official provider of Ubuntu.
+filters: Further filters the AMI based on its name and virtualization type.
+Output:
+
+output "ubuntu_ami_id_east1": Defines an output block named ubuntu_ami_id_east1.
+value: Specifies the value of the output, which is a map containing the id and image_id of the fetched AMI.
+data.aws_ami.ubuntu_east1.id: References the id attribute of the fetched AMI.
+data.aws_ami.ubuntu_east1.image_id: References the image_id attribute of the fetched AMI.
+Note:
+
+Replace "099720109477" with the correct owner ID if you're using a different AMI provider.
+Adjust the filters block to match the specific AMI you need.
+Ensure that you have the necessary AWS provider configuration set up in your Terraform configuration.
+This code will dynamically fetch the latest Ubuntu AMI ID and image ID in the us-east-1 region and make them available as output values in your Terraform configuration.
 **Practice-4**
 
 
