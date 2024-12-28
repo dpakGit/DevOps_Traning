@@ -298,6 +298,52 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 **Practice-2**
 
 ```
+# SG-2
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+
+variable "ingress_ports" {
+  type    = list(number)
+  default = [222, 443, 5990, 8080, 9090]
+}
+
+variable "egress_ports" {
+  type    = list(number)
+  default = [7000, 8000, 9000, 9292]
+}
+
+resource "aws_security_group" "allow_tls" {
+
+  name = "dev_sg"
+
+
+  dynamic "ingress" {
+    for_each = var.ingress_ports
+    content {
+      from_port   = ingress.value
+      to_port     = ingress.value
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+  dynamic "egress" {
+    for_each = var.egress_ports
+    iterator = port
+    content {
+      from_port = port.value
+      to_port   = port.value
+      protocal  = "tcp"
+      cidr      = ["98.87.76.65/32"]
+    }
+  }
+  tags = {
+    Name = "dev-sg"
+  }
+}
+
 
 ```
 
