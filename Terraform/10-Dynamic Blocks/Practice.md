@@ -494,3 +494,11 @@ Terraform will perform the following actions:
 
 Plan: 1 to add, 0 to change, 0 to destroy.
 ```
+
+**Console output**
+
+![Screenshot (284)](https://github.com/user-attachments/assets/721bb8cf-b4fe-4ba4-83fa-9694bb749ffd)
+
+
+![Screenshot (283)](https://github.com/user-attachments/assets/7cc6f823-e0ad-4629-9550-ce7ba4dacedb)
+
