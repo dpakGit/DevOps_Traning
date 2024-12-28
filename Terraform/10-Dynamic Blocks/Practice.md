@@ -288,10 +288,11 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 
 **Console output**
 
+![Screenshot (281)](https://github.com/user-attachments/assets/ec11794c-c833-4899-8b51-860c2194f455)
+
+
 ![Screenshot (282)](https://github.com/user-attachments/assets/c69040cf-7176-47a6-8aed-f2e94c677d52)
 
-
-![Screenshot (281)](https://github.com/user-attachments/assets/ec11794c-c833-4899-8b51-860c2194f455)
 
 
 **Practice-2**
