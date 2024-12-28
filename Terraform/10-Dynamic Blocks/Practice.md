@@ -46,7 +46,9 @@ resource "aws_security_group" "allow_tls" {
 
 **Date : - 28.12.2024**
 
+**Practice-1**
 
+### Following is a Terraform Security Group code that has multiple  ingress and egress blocks.
 
 ```
 # SG-1
@@ -132,9 +134,11 @@ resource "aws_security_group" "allow_tls" {
 }
 ```
 
+### Following is the terraform plan output
 
-root@ip-172-31-26-227:/home/ubuntu/sg-1# t plan
+root@ip-172-31-26-227:/home/ubuntu/sg-1#   terraform plan
 
+```
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   + create
 
@@ -280,5 +284,16 @@ Terraform will perform the following actions:
     }
 
 Plan: 1 to add, 0 to change, 0 to destroy.
+```
 
-────────────────────────────────────────────────────────
+**Console output**
+
+![Screenshot (281)](https://github.com/user-attachments/assets/ec11794c-c833-4899-8b51-860c2194f455)
+
+
+**Practice-2**
+
+```
+
+```
+
