@@ -1,47 +1,16 @@
-**Date : - 27.12.2024**
+**Docunemtation :**
+
+1. Terraform official
+
+2.  Kode Kloud :  https://kodekloud.com/blog/terraform-dynamic-block/
 
 
-```
-variable "ingress_ports" {
-  type = list(number)
-  default = [ 443, 22, 8080, 9090, 5990 ]
-}
+3.  Cloud Bolt :  https://www.cloudbolt.io/terraform-best-practices/terraform-dynamic-blocks/
 
-variable "egress_ports" {
-  type = list(number)
-  default = [ 7000, 9000, 9292, 8000 ]
-}
+The following image was in the above documentation
 
-resource "aws_security_group" "allow_tls" {
-  name        = "dev_sg"
+   ![image](https://github.com/user-attachments/assets/3930e3de-26ea-449d-b435-4fc27b730fae)
 
-  dynamic "ingress" {
-    for_each = var.ingress_ports
-    iterator = port
-    content {
-        description      = "TLS from VPC"
-        from_port        = port.value
-        to_port          = port.value
-        protocol         = "tcp"
-        cidr_blocks      = ["98.87.76.56/32"]
-    }
-  }
-
-  dynamic "egress" {
-    for_each = var.egress_ports
-    content {
-        from_port        = egress.value
-        to_port          = egress.value
-        protocol         = "tcp"
-        cidr_blocks      = ["0.0.0.0/0"]
-    }
-  }
-
-  tags = {
-    Name = "dev_sg"
-  }
-}
-```
 
 
 **Date : - 28.12.2024**
@@ -295,7 +264,9 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 
 
 
-**Practice-2**
+**Practice-2** 
+
+#### Terraform Security Group code using Dynamic 
 
 ```
 # SG-2
