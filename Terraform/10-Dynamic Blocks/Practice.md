@@ -12,7 +12,9 @@ The following image was in the above documentation
    ![image](https://github.com/user-attachments/assets/3930e3de-26ea-449d-b435-4fc27b730fae)
 
 
-4. Also see other docs om Mediun and other site in google.
+4. Also see other docs on Mediun and other site in google.
+
+
 
 
 
