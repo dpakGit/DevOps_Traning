@@ -484,9 +484,9 @@ resource "aws_vpc" "main" {
 
 Command -1
 
-   ```
-    terraform apply -auto-approve 
-   ```
+```
+terraform apply -auto-approve
+```
 
 When we use the apply command it will ask for a value like below:
 
@@ -503,14 +503,15 @@ var.custom_uuid
  
   Command-2 :
   
-    ```
-    terraform apply -var "custom_uuid=$(uuidgen)"
-    ```
+```
+terraform apply -var "custom_uuid=$(uuidgen)"
+```
 
     Alternatively, you can hardcode the UUID value:
 
 
 Command -3 :
-    ```
-    terraform apply -var "custom_uuid=my-custom-uuid"   # in place of my-custom-uuid we can give any name
-    ```
+   
+```
+terraform apply -var "custom_uuid=my-custom-uuid"   # in place of my-custom-uuid we can give any name
+```
