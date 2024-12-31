@@ -395,7 +395,7 @@ Apply complete! Resources: 1 added, 0 changed, 1 destroyed.
 
 ```
 
-**Practice-3**
+**Practice-3**  ### How terraform automatically change the name or version of the VPC each time it is updated
 
 **Source : Meta AI**
 
@@ -450,7 +450,7 @@ resource "aws_vpc" "main" {
 Note that using either of these approaches will result in a new VPC being created each time you apply the configuration, as the name will be different. If you want to update the existing VPC instead, you'll need to use a different approach.
 
 
-Q) Modify the code so that the user can customize the uuid -resource "aws_vpc" "main" {
+Q) Modify the following code so that the user can customize the uuid -resource "aws_vpc" "main" {
   cidr_block = "10.0.0.0/16"
   lifecycle {
     create_before_destroy = true
@@ -477,18 +477,27 @@ resource "aws_vpc" "main" {
   }
 }
 ```
-terraform apply -auto-approve - 
-When we ru the apply command it will ask for a value like below:
+
+Command -1 
+   ```
+    terraform apply -auto-approve 
+   ```
+
+When we use the apply command it will ask for a value like below:
+
 var.custom_uuid
+
   Custom UUID for VPC name
 
-  Enter a value: Version-1.0
+  Enter a value: Version-1.0  # This is the input value, Version-1.0
+  
   The input value will be the name of the VPC in the console.
 
-  Also alternatively, when running terraform apply, provide the default value for the custom_uuid variable:
-
-
-    command :  
+ 
+ Or alternatively, when running terraform apply, provide the default value for the custom_uuid variable:
+ 
+  command-2 :
+  
     ```
     terraform apply -var "custom_uuid=$(uuidgen)"
     ```
@@ -496,7 +505,7 @@ var.custom_uuid
     Alternatively, you can hardcode the UUID value:
 
 
-Command:
-```
-terraform apply -var "custom_uuid=my-custom-uuid"   # in place of my-custom-uuid we can give any name
-```
+Command -3 :
+    ```
+    terraform apply -var "custom_uuid=my-custom-uuid"   # in place of my-custom-uuid we can give any name
+    ```
