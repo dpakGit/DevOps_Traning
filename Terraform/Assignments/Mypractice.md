@@ -501,13 +501,19 @@ var.custom_uuid
  
  Or alternatively, when running terraform apply, provide the default value for the custom_uuid variable:
  
-  Command-2 :
+Command-2 :
   
 ```
 terraform apply -var "custom_uuid=$(uuidgen)"
 ```
 
-    Alternatively, you can hardcode the UUID value:
+Output: 
+This will create a random console name like the following :
+
+first-87a3b7af-9425-4c69-8c29-e2c016996e68
+
+
+Alternatively, you can hardcode the UUID value:
 
 
 Command -3 :
