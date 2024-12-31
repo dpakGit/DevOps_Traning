@@ -150,6 +150,61 @@ resource "aws_s3_bucket" "example" {
 In this example, we define an AWS provider configuration with an alias attribute set to us-west-2. We can then use this alias to reference the provider configuration when creating resources in the us-west-2 region.
 
 By using an alias, we can make our Terraform configuration more readable and easier to maintain.
+```
 
+
+**Date : 31.12.2024**
+
+**Practice-1**
+
+Reffered Youtube video link : https://www.youtube.com/watch?v=KHVmt22OXCU 
+
+Created a VPC with cidr block as 10.0.0.0/16.
+applied the terraform apply command and created the resource.
+changed or modified the cidr block from 10.0.0.0/16 to 20.0.0.0/16, and the applied the apply command , it first created the modified instance and then deleted the old one .
+
+root@ip-172-31-31-194:/home/ubuntu/first# t apply -auto-approve
 
 ```
+aws_vpc.main: Refreshing state... [id=vpc-08e967c0ad1a5c047]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
++/- create replacement and then destroy
+
+Terraform will perform the following actions:
+
+  # aws_vpc.main must be replaced
++/- resource "aws_vpc" "main" {
+      ~ arn                                  = "arn:aws:ec2:us-east-1:246839783311:vpc/vpc-08e967c0ad1a5c047" -> (known after apply)
+      - assign_generated_ipv6_cidr_block     = false -> null
+      ~ cidr_block                           = "10.0.0.0/16" -> "20.0.0.0/16" # forces replacement
+      ~ default_network_acl_id               = "acl-02edaa849dd128e43" -> (known after apply)
+      ~ default_route_table_id               = "rtb-0fce54933bccead2d" -> (known after apply)
+      ~ default_security_group_id            = "sg-0f70c34d8d0e09d3b" -> (known after apply)
+      ~ dhcp_options_id                      = "dopt-b7951fcd" -> (known after apply)
+      ~ enable_dns_hostnames                 = false -> (known after apply)
+      ~ enable_network_address_usage_metrics = false -> (known after apply)
+      ~ id                                   = "vpc-08e967c0ad1a5c047" -> (known after apply)
+      + ipv6_association_id                  = (known after apply)
+      + ipv6_cidr_block                      = (known after apply)
+      + ipv6_cidr_block_network_border_group = (known after apply)
+      - ipv6_netmask_length                  = 0 -> null
+      ~ main_route_table_id                  = "rtb-0fce54933bccead2d" -> (known after apply)
+      ~ owner_id                             = "246839783311" -> (known after apply)
+        tags                                 = {
+            "Name" = "first"
+        }
+        # (4 unchanged attributes hidden)
+    }
+# See the following lines, it first created then destroyed
+
+Plan: 1 to add, 0 to change, 1 to destroy.
+aws_vpc.main: Creating...
+aws_vpc.main: Creation complete after 1s [id=vpc-0654cc90b0a6d77c0]
+aws_vpc.main (deposed object 175a108b): Destroying... [id=vpc-08e967c0ad1a5c047]
+aws_vpc.main: Destruction complete after 0s
+
+Apply complete! Resources: 1 added, 0 changed, 1 destroyed.
+```
+
+
