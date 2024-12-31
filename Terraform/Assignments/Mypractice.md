@@ -163,7 +163,7 @@ Created a VPC with cidr block as 10.0.0.0/16.
 applied the terraform apply command and created the resource.
 changed or modified the cidr block from 10.0.0.0/16 to 20.0.0.0/16, and the applied the apply command , it first created the modified instance and then deleted the old one .
 
-root@ip-172-31-31-194:/home/ubuntu/first# t apply -auto-approve
+root@ip-172-31-31-194:/home/ubuntu/first#   t apply -auto-approve  # Terraform apply command
 
 ```
 aws_vpc.main: Refreshing state... [id=vpc-08e967c0ad1a5c047]
