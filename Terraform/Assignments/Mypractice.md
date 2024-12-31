@@ -516,7 +516,7 @@ first-87a3b7af-9425-4c69-8c29-e2c016996e68
 Alternatively, you can hardcode the UUID value:
 
 
-Command -3 :
+Command -3 :  #### Directly pass the Resource Name in the CLI
    
 ```
 terraform apply -var "custom_uuid=My-Custom-uuid-Name" -auto-approve
