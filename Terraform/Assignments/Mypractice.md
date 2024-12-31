@@ -157,6 +157,21 @@ By using an alias, we can make our Terraform configuration more readable and eas
 
 **Practice-1**
 
+**VPC-Code**
+
+```
+resource "aws_vpc" "main" {
+  cidr_block = "30.0.0.0/16" # change it to 20 ,30 etc to see the changes.
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  tags = {
+    Name = "second"
+  }
+}
+```
+
 Reffered Youtube video link : https://www.youtube.com/watch?v=KHVmt22OXCU 
 
 Created a VPC with cidr block as 10.0.0.0/16.
@@ -212,6 +227,29 @@ Apply complete! Resources: 1 added, 0 changed, 1 destroyed.
 Created an ec2 with ubuntu 20.04 instance
 changed the AMI to ubuntu 24.04 
 Now it changed and firt cteated the new one and destroyed the old one.
+
+
+**EC2-Code**
+
+```
+resource "aws_instance" "web" {
+  ami           = "ami-0e2c8caa4b6378d8c"   # ubuntu 20.04 AMI
+
+# ami           = "ami-0f34c5ae932e6f0e4"   # ubuntu 22.04 AMI
+# When using one AMI comment out the other
+
+  instance_type = "t2.micro"
+  #count = 2
+  depends_on = [aws_instance.web]
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  tags = {
+    Name = "Terraform_ec2"
+  }
+}
+```
 
 ```
 root@ip-172-31-31-194:/home/ubuntu/first# t apply -auto-approve
