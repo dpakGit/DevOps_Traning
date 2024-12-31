@@ -451,7 +451,8 @@ Note that using either of these approaches will result in a new VPC being create
 
 
 Q) Modify the following code so that the user can customize the uuid -resource "aws_vpc" "main" {
-  cidr_block = "10.0.0.0/16"
+ ```
+ cidr_block = "10.0.0.0/16"
   lifecycle {
     create_before_destroy = true
   }
@@ -459,6 +460,9 @@ Q) Modify the following code so that the user can customize the uuid -resource "
     Name = "first-${uuid()}"
   }
 }
+```
+
+**Modified Code**
 
 ```
 variable "custom_uuid" {
@@ -478,7 +482,8 @@ resource "aws_vpc" "main" {
 }
 ```
 
-Command -1 
+Command -1
+
    ```
     terraform apply -auto-approve 
    ```
@@ -496,7 +501,7 @@ var.custom_uuid
  
  Or alternatively, when running terraform apply, provide the default value for the custom_uuid variable:
  
-  command-2 :
+  Command-2 :
   
     ```
     terraform apply -var "custom_uuid=$(uuidgen)"
