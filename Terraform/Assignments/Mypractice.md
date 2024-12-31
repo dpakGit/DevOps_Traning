@@ -519,7 +519,8 @@ Alternatively, you can hardcode the UUID value:
 Command -3 :
    
 ```
-terraform apply -var "custom_uuid=my-custom-uuid"   # in place of ' My-Custom-uuid-Name ' we can give any name.
+terraform apply -var "custom_uuid=my-custom-uuid"
+ # in place of ' My-Custom-uuid-Name ' we can give any name.
 ```
 
 Utilizing the first and third commands enables manual renaming or versioning of the resource with each update.
