@@ -467,20 +467,19 @@ Q) Modify the following code so that the user can customize the uuid -resource "
 ```
 variable "custom_uuid" {
   type        = string
-  default     = uuid()
   description = "Custom UUID for VPC name"
 }
 
 resource "aws_vpc" "main" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block = "30.0.0.0/16"
   lifecycle {
     create_before_destroy = true
   }
   tags = {
-    Name = "VPC-${var.custom_uuid}"
+    Name = "first-${var.custom_uuid}"
+
   }
-}
-```
+}```
 
 Command -1
 
