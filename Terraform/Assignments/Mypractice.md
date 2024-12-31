@@ -519,7 +519,7 @@ Alternatively, you can hardcode the UUID value:
 Command -3 :
    
 ```
-terraform apply -var "custom_uuid=My-Custom-uuid-Name"
+terraform apply -var "custom_uuid=My-Custom-uuid-Name" -auto-approve
 ```
  
 In place of ' My-Custom-uuid-Name ' we can give any name.
