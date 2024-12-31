@@ -207,4 +207,152 @@ aws_vpc.main: Destruction complete after 0s
 Apply complete! Resources: 1 added, 0 changed, 1 destroyed.
 ```
 
+**Practice-2**
 
+Created an ec2 with ubuntu 20.04 instance
+changed the AMI to ubuntu 24.04 
+Now it changed and firt cteated the new one and destroyed the old one.
+
+```
+root@ip-172-31-31-194:/home/ubuntu/first# t apply -auto-approve
+
+aws_instance.web: Refreshing state... [id=i-0eb4a5e77d1260f9e]
+aws_vpc.main: Refreshing state... [id=vpc-0cff3ae627adfdeac]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
++/- create replacement and then destroy
+
+Terraform will perform the following actions:
+
+  # aws_instance.web must be replaced
++/- resource "aws_instance" "web" {
+      ~ ami                                  = "ami-0f34c5ae932e6f0e4" -> "ami-0e2c8caa4b6378d8c" # forces replacement
+      ~ arn                                  = "arn:aws:ec2:us-east-1:246839783311:instance/i-0eb4a5e77d1260f9e" -> (known after apply)
+      ~ associate_public_ip_address          = true -> (known after apply)
+      ~ availability_zone                    = "us-east-1d" -> (known after apply)
+      ~ cpu_core_count                       = 1 -> (known after apply)
+      ~ cpu_threads_per_core                 = 1 -> (known after apply)
+      ~ disable_api_stop                     = false -> (known after apply)
+      ~ disable_api_termination              = false -> (known after apply)
+      ~ ebs_optimized                        = false -> (known after apply)
+      + enable_primary_ipv6                  = (known after apply)
+      - hibernation                          = false -> null
+      + host_id                              = (known after apply)
+      + host_resource_group_arn              = (known after apply)
+      + iam_instance_profile                 = (known after apply)
+      ~ id                                   = "i-0eb4a5e77d1260f9e" -> (known after apply)
+      ~ instance_initiated_shutdown_behavior = "stop" -> (known after apply)
+      + instance_lifecycle                   = (known after apply)
+      ~ instance_state                       = "running" -> (known after apply)
+      ~ ipv6_address_count                   = 0 -> (known after apply)
+      ~ ipv6_addresses                       = [] -> (known after apply)
+      + key_name                             = (known after apply)
+      ~ monitoring                           = false -> (known after apply)
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      ~ placement_partition_number           = 0 -> (known after apply)
+      ~ primary_network_interface_id         = "eni-057dbda8fb9cca16a" -> (known after apply)
+      ~ private_dns                          = "ip-172-31-20-14.ec2.internal" -> (known after apply)
+      ~ private_ip                           = "172.31.20.14" -> (known after apply)
+      ~ public_dns                           = "ec2-54-234-140-181.compute-1.amazonaws.com" -> (known after apply)
+      ~ public_ip                            = "54.234.140.181" -> (known after apply)
+      ~ secondary_private_ips                = [] -> (known after apply)
+      ~ security_groups                      = [
+          - "default",
+        ] -> (known after apply)
+      + spot_instance_request_id             = (known after apply)
+      ~ subnet_id                            = "subnet-03c4f8316293bddf5" -> (known after apply)
+        tags                                 = {
+            "Name" = "Terraform_ec2"
+        }
+      ~ tenancy                              = "default" -> (known after apply)
+      + user_data                            = (known after apply)
+      + user_data_base64                     = (known after apply)
+      ~ vpc_security_group_ids               = [
+          - "sg-0d8da08c9115c7e2a",
+        ] -> (known after apply)
+        # (5 unchanged attributes hidden)
+
+      ~ capacity_reservation_specification (known after apply)
+      - capacity_reservation_specification {
+          - capacity_reservation_preference = "open" -> null
+        }
+
+      ~ cpu_options (known after apply)
+      - cpu_options {
+          - core_count       = 1 -> null
+          - threads_per_core = 1 -> null
+            # (1 unchanged attribute hidden)
+        }
+
+      - credit_specification {
+          - cpu_credits = "standard" -> null
+        }
+
+      ~ ebs_block_device (known after apply)
+
+      ~ enclave_options (known after apply)
+      - enclave_options {
+          - enabled = false -> null
+        }
+
+      ~ ephemeral_block_device (known after apply)
+
+      ~ instance_market_options (known after apply)
+
+      ~ maintenance_options (known after apply)
+      - maintenance_options {
+          - auto_recovery = "default" -> null
+        }
+
+      ~ metadata_options (known after apply)
+      - metadata_options {
+          - http_endpoint               = "enabled" -> null
+          - http_protocol_ipv6          = "disabled" -> null
+          - http_put_response_hop_limit = 2 -> null
+          - http_tokens                 = "required" -> null
+          - instance_metadata_tags      = "disabled" -> null
+        }
+
+      ~ network_interface (known after apply)
+
+      ~ private_dns_name_options (known after apply)
+      - private_dns_name_options {
+          - enable_resource_name_dns_a_record    = false -> null
+          - enable_resource_name_dns_aaaa_record = false -> null
+          - hostname_type                        = "ip-name" -> null
+        }
+
+      ~ root_block_device (known after apply)
+      - root_block_device {
+          - delete_on_termination = true -> null
+          - device_name           = "/dev/xvda" -> null
+          - encrypted             = false -> null
+          - iops                  = 3000 -> null
+          - tags                  = {} -> null
+          - tags_all              = {} -> null
+          - throughput            = 125 -> null
+          - volume_id             = "vol-00086fccbca7a6fec" -> null
+          - volume_size           = 8 -> null
+          - volume_type           = "gp3" -> null
+            # (1 unchanged attribute hidden)
+        }
+    }
+
+Plan: 1 to add, 0 to change, 1 to destroy.
+aws_instance.web: Creating...
+aws_instance.web: Still creating... [10s elapsed]
+aws_instance.web: Creation complete after 12s [id=i-07c7497793a25c64b]
+aws_instance.web (deposed object 87318425): Destroying... [id=i-0eb4a5e77d1260f9e]
+aws_instance.web: Still destroying... [id=i-0eb4a5e77d1260f9e, 10s elapsed]
+aws_instance.web: Still destroying... [id=i-0eb4a5e77d1260f9e, 20s elapsed]
+aws_instance.web: Still destroying... [id=i-0eb4a5e77d1260f9e, 30s elapsed]
+aws_instance.web: Still destroying... [id=i-0eb4a5e77d1260f9e, 40s elapsed]
+aws_instance.web: Still destroying... [id=i-0eb4a5e77d1260f9e, 50s elapsed]
+aws_instance.web: Still destroying... [id=i-0eb4a5e77d1260f9e, 1m0s elapsed]
+aws_instance.web: Destruction complete after 1m1s
+
+Apply complete! Resources: 1 added, 0 changed, 1 destroyed.
+
+```
