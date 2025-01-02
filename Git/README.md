@@ -1,3 +1,10 @@
+**Open your github repo. Press the . key on your keyboard to open it with web vs code. Rename there. Stage and commit the changes.**
+
+
+#### Q. How to rename a directory/folder on GitHub website?
+
+Sol:. Ref - https://stackoverflow.com/questions/31861651/how-to-rename-a-directory-folder-on-github-website
+
 ``````````````````````````````````````````````````````````````````````````````````
 1. __Basic writing and formatting syntax__ : (GitHub Docs) : https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 2. https://github.com/mattcone/markdown-guide/tree/master/_basic-syntax
