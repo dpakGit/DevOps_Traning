@@ -591,24 +591,50 @@ resource "aws_instance" "Backend" {
 ```
 
 **Code-2**
+```
+# Depends - On
+
+provider "aws" {
+  region = "us-east-1"
+
+}
+resource "aws_instance" "Frontend" {
+  ami           = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+
+  count = 3
+
+  depends_on = [aws_instance.Backend]
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  tags = {
+    Name = "Frontend-${count.index}"
+    Team = "DevOps"
+  }
+}
+
+resource "aws_instance" "Backend" {
+  ami           = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+
+  count = 1
+
+  lifecycle {
+    prevent_destroy = false
+  }
+  tags = {
+    Name = "Backend-${count.index}"
+    Team = "DevOps"
+  }
+}
+```
 
 **Apply command Output**
 
 ```
-Plan: 4 to add, 0 to change, 0 to destroy.
-aws_instance.Backend[0]: Creating...
-aws_instance.Backend[0]: Still creating... [10s elapsed]
-aws_instance.Backend[0]: Creation complete after 13s [id=i-049581b220c9c97d8]
-aws_instance.Frontend[1]: Creating...
-aws_instance.Frontend[2]: Creating...
-aws_instance.Frontend[0]: Creating...
-aws_instance.Frontend[1]: Still creating... [10s elapsed]
-aws_instance.Frontend[2]: Still creating... [10s elapsed]
-aws_instance.Frontend[0]: Still creating... [10s elapsed]
-aws_instance.Frontend[0]: Creation complete after 12s [id=i-09a7b5d2560fa6776]
-aws_instance.Frontend[1]: Creation complete after 12s [id=i-013846b4a4bcbdb9d]
-aws_instance.Frontend[2]: Creation complete after 13s [id=i-0634335e5c322ce19]
-
 Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
 root@ip-172-31-86-188:/home/ubuntu/practice# t state list
 aws_instance.Backend[0]
