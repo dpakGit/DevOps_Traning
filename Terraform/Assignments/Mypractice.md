@@ -757,6 +757,9 @@ In this modified code:
 - The count attribute in the aws_instance "Frontend" resource block is set to length(aws_instance.Backend), which means it will create as many frontend instances as there are backend instances.
 - The depends_on attribute ensures that the frontend instances are created only after the backend instances are created.
 
+
+**Apply command Output**
+
 ```
 Plan: 6 to add, 0 to change, 0 to destroy.
 aws_instance.Backend[2]: Creating...
