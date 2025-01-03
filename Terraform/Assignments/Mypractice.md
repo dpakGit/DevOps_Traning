@@ -794,4 +794,95 @@ root@ip-172-31-86-188:/home/ubuntu/practice# t state list | nl
      6  aws_instance.Frontend[2]
 ```
 
-  
+#### Code-5
+
+**Note:** In this modified code, similar to the previous example, the depends_on attribute in the Frontend resource block has been commented out to test whether it still creates the same number of Frontend instances as Backend instances.
+Also read the below docs from Meta AI.
+
+```
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_instance" "Backend" {
+  ami           = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+  count         = 3
+
+  lifecycle {
+    prevent_destroy = false
+  }
+
+  tags = {
+    Name = "Backend-${count.index + 1}"
+    Team = "DevOps"
+  }
+}
+
+resource "aws_instance" "Frontend" {
+  ami           = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+  count         = length(aws_instance.Backend)
+
+  # depends_on = [aws_instance.Backend]       
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  tags = {
+    Name = "Frontend-${count.index + 1}"
+    Team = "DevOps"
+  }
+}
+```
+
+**Apply command Output**
+```
+Plan: 6 to add, 0 to change, 0 to destroy.
+aws_instance.Backend[0]: Creating...
+aws_instance.Backend[1]: Creating...
+aws_instance.Backend[2]: Creating...
+aws_instance.Backend[0]: Still creating... [10s elapsed]
+aws_instance.Backend[1]: Still creating... [10s elapsed]
+aws_instance.Backend[2]: Still creating... [10s elapsed]
+aws_instance.Backend[0]: Creation complete after 12s [id=i-086715708dde82382]
+aws_instance.Backend[1]: Creation complete after 12s [id=i-072769d6fe0a765c8]
+aws_instance.Backend[2]: Creation complete after 13s [id=i-068bd0174fc23e8e3]
+aws_instance.Frontend[1]: Creating...
+aws_instance.Frontend[2]: Creating...
+aws_instance.Frontend[0]: Creating...
+aws_instance.Frontend[1]: Still creating... [10s elapsed]
+aws_instance.Frontend[2]: Still creating... [10s elapsed]
+aws_instance.Frontend[0]: Still creating... [10s elapsed]
+aws_instance.Frontend[2]: Creation complete after 12s [id=i-0ff46d5ad1009ff4b]
+aws_instance.Frontend[0]: Creation complete after 12s [id=i-09449eafa6d9c984f]
+aws_instance.Frontend[1]: Creation complete after 12s [id=i-0973592544ad33b1a]
+
+Apply complete! Resources: 6 added, 0 changed, 0 destroyed.
+root@ip-172-31-30-55:/home/ubuntu# 
+root@ip-172-31-30-55:/home/ubuntu# 
+root@ip-172-31-30-55:/home/ubuntu# 
+root@ip-172-31-30-55:/home/ubuntu# 
+root@ip-172-31-30-55:/home/ubuntu# 
+root@ip-172-31-30-55:/home/ubuntu# 
+root@ip-172-31-30-55:/home/ubuntu# t state list
+aws_instance.Backend[0]
+aws_instance.Backend[1]
+aws_instance.Backend[2]
+aws_instance.Frontend[0]
+aws_instance.Frontend[1]
+aws_instance.Frontend[2]
+```
+
+
+**Source Meta AI** 
+
+Since you've set the count parameter of the aws_instance "Frontend" resource to length(aws_instance.Backend), Terraform will automatically create the frontend instances after the backend instances are created.
+
+In this case, the depends_on = [aws_instance.Backend] attribute is not strictly necessary, as the count parameter already establishes an implicit dependency between the frontend and backend instances.
+
+However, including the depends_on attribute can still be useful for clarity and explicitness, as it clearly communicates the dependency between the two resources.
+
+So, while it's not required, leaving it in can make the code more readable and maintainable.
+
