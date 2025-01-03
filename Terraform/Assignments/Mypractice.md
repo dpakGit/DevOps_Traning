@@ -635,13 +635,83 @@ resource "aws_instance" "Backend" {
 **Apply command Output**
 
 ```
+.
+.
+.
 Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
-root@ip-172-31-86-188:/home/ubuntu/practice# t state list
+root@ip-172-31-86-188:/home/ubuntu/practice# terraform state list
 aws_instance.Backend[0]
 aws_instance.Frontend[0]
 aws_instance.Frontend[1]
 aws_instance.Frontend[2]
 ```
 
+The apply command output log indicates that even if one backend instance is created all the three Frontend instances will be created. So Here depend on is not working
+
+**Code-3**
+
+```
+# Depends - On
+
+provider "aws" {
+  region = "us-east-1"
+
+}
+resource "aws_instance" "Frontend" {
+  ami           = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+
+  count = 2
+
+  depends_on = [aws_instance.Backend]
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  tags = {
+    Name = "Frontend-${count.index}"
+    Team = "DevOps"
+  }
+}
+
+resource "aws_instance" "Backend" {
+  ami           = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+
+  count = 0
+
+  lifecycle {
+    prevent_destroy = false
+  }
+  tags = {
+    Name = "Backend-${count.index}"
+    Team = "DevOps"
+  }
+}
+```
+
+**Apply command Output**
+
+```
+Plan: 2 to add, 0 to change, 0 to destroy.
+aws_instance.Frontend[0]: Creating...
+aws_instance.Frontend[1]: Creating...
+aws_instance.Frontend[0]: Still creating... [10s elapsed]
+aws_instance.Frontend[1]: Still creating... [10s elapsed]
+aws_instance.Frontend[1]: Creation complete after 13s [id=i-0f7c645ccf5642349]
+aws_instance.Frontend[0]: Creation complete after 13s [id=i-0fe3a93da95d6e0d9]
+
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
+root@ip-172-31-86-188:/home/ubuntu/practice# terraform state list
+aws_instance.Frontend[0]
+aws_instance.Frontend[1]
+```
+Even if count=0 in the backend it is creating the frontend instances.
 
 
+**Code-4**
+
+```
+
+```
