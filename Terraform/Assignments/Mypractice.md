@@ -710,7 +710,9 @@ aws_instance.Frontend[1]
 Even if count=0 in the backend it is creating the frontend instances.
 
 
-#### Code-4   Source : Meat AI
+#### Code-4   
+
+**Source : Meat AI**
 
 To create a frontend instance for every backend instance and prevent frontend instance creation when no backend instances exist, you can modify the count attribute in the aws_instance "Frontend" resource block to reference the count attribute of the aws_instance "Backend" resource block.
 
