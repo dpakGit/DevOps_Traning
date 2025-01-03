@@ -868,6 +868,7 @@ aws_instance.Frontend[1]
 aws_instance.Frontend[2]```
 
 
+
 **Source Meta AI** 
 
 Since you've set the count parameter of the aws_instance "Frontend" resource to length(aws_instance.Backend), Terraform will automatically create the frontend instances after the backend instances are created.
@@ -877,4 +878,3 @@ In this case, the depends_on = [aws_instance.Backend] attribute is not strictly 
 However, including the depends_on attribute can still be useful for clarity and explicitness, as it clearly communicates the dependency between the two resources.
 
 So, while it's not required, leaving it in can make the code more readable and maintainable.
-
