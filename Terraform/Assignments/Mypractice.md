@@ -839,7 +839,7 @@ resource "aws_instance" "Frontend" {
 
 **Apply command Output**
 
- Plan: 6 to add, 0 to change, 0 to destroy.
+```Plan: 6 to add, 0 to change, 0 to destroy.
 aws_instance.Backend[0]: Creating...
 aws_instance.Backend[1]: Creating...
 aws_instance.Backend[2]: Creating...
@@ -858,21 +858,14 @@ aws_instance.Frontend[0]: Still creating... [10s elapsed]
 aws_instance.Frontend[2]: Creation complete after 12s [id=i-0ff46d5ad1009ff4b]
 aws_instance.Frontend[0]: Creation complete after 12s [id=i-09449eafa6d9c984f]
 aws_instance.Frontend[1]: Creation complete after 12s [id=i-0973592544ad33b1a]
-
 Apply complete! Resources: 6 added, 0 changed, 0 destroyed.
-root@ip-172-31-30-55:/home/ubuntu# 
-root@ip-172-31-30-55:/home/ubuntu# 
-root@ip-172-31-30-55:/home/ubuntu# 
-root@ip-172-31-30-55:/home/ubuntu# 
-root@ip-172-31-30-55:/home/ubuntu# 
-root@ip-172-31-30-55:/home/ubuntu# 
 root@ip-172-31-30-55:/home/ubuntu# t state list
 aws_instance.Backend[0]
 aws_instance.Backend[1]
 aws_instance.Backend[2]
 aws_instance.Frontend[0]
 aws_instance.Frontend[1]
-aws_instance.Frontend[2]
+aws_instance.Frontend[2]```
 
 
 **Source Meta AI** 
