@@ -710,8 +710,83 @@ aws_instance.Frontend[1]
 Even if count=0 in the backend it is creating the frontend instances.
 
 
-**Code-4**
+#### Code-4   Source : Meat AI
+
+To create a frontend instance for every backend instance and prevent frontend instance creation when no backend instances exist, you can modify the count attribute in the aws_instance "Frontend" resource block to reference the count attribute of the aws_instance "Backend" resource block.
 
 ```
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_instance" "Backend" {
+  ami           = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+  count         = 3
+
+  lifecycle {
+    prevent_destroy = false
+  }
+
+  tags = {
+    Name = "Backend-${count.index + 1}"
+    Team = "DevOps"
+  }
+}
+
+resource "aws_instance" "Frontend" {
+  ami           = "ami-0cd59ecaf368e5ccf"
+  instance_type = "t2.micro"
+  count         = length(aws_instance.Backend)
+
+  depends_on = [aws_instance.Backend]
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  tags = {
+    Name = "Frontend-${count.index + 1}"
+    Team = "DevOps"
+  }
+}
+```
+
+In this modified code:
+
+- The count attribute in the aws_instance "Frontend" resource block is set to length(aws_instance.Backend), which means it will create as many frontend instances as there are backend instances.
+- The depends_on attribute ensures that the frontend instances are created only after the backend instances are created.
 
 ```
+Plan: 6 to add, 0 to change, 0 to destroy.
+aws_instance.Backend[2]: Creating...
+aws_instance.Backend[0]: Creating...
+aws_instance.Backend[1]: Creating...
+aws_instance.Backend[2]: Still creating... [10s elapsed]
+aws_instance.Backend[0]: Still creating... [10s elapsed]
+aws_instance.Backend[1]: Still creating... [10s elapsed]
+aws_instance.Backend[0]: Creation complete after 12s [id=i-0bfb86bb3cb705996]
+aws_instance.Backend[1]: Creation complete after 12s [id=i-0b3da14acb04613a6]
+aws_instance.Backend[2]: Creation complete after 12s [id=i-04baf15dc92ba395a]
+aws_instance.Frontend[1]: Creating...
+aws_instance.Frontend[2]: Creating...
+aws_instance.Frontend[0]: Creating...
+aws_instance.Frontend[1]: Still creating... [10s elapsed]
+aws_instance.Frontend[2]: Still creating... [10s elapsed]
+aws_instance.Frontend[0]: Still creating... [10s elapsed]
+aws_instance.Frontend[1]: Creation complete after 12s [id=i-00cd04b1a4fde48dc]
+aws_instance.Frontend[2]: Creation complete after 12s [id=i-05778e84404835fb9]
+aws_instance.Frontend[0]: Creation complete after 12s [id=i-0f5b2b87240786628]
+
+Apply complete! Resources: 6 added, 0 changed, 0 destroyed.
+
+root@ip-172-31-86-188:/home/ubuntu/practice# t state list | nl
+     1  aws_instance.Backend[0]
+     2  aws_instance.Backend[1]
+     3  aws_instance.Backend[2]
+     4  aws_instance.Frontend[0]
+     5  aws_instance.Frontend[1]
+     6  aws_instance.Frontend[2]
+```
+
+  
