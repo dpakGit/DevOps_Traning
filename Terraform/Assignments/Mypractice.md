@@ -839,7 +839,7 @@ resource "aws_instance" "Frontend" {
 
 **Apply command Output**
 
-``` Plan: 6 to add, 0 to change, 0 to destroy.
+ Plan: 6 to add, 0 to change, 0 to destroy.
 aws_instance.Backend[0]: Creating...
 aws_instance.Backend[1]: Creating...
 aws_instance.Backend[2]: Creating...
@@ -872,7 +872,7 @@ aws_instance.Backend[1]
 aws_instance.Backend[2]
 aws_instance.Frontend[0]
 aws_instance.Frontend[1]
-aws_instance.Frontend[2] ```
+aws_instance.Frontend[2]
 
 
 **Source Meta AI** 
