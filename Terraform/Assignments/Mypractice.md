@@ -880,3 +880,32 @@ In this case, the depends_on = [aws_instance.Backend] attribute is not strictly 
 However, including the depends_on attribute can still be useful for clarity and explicitness, as it clearly communicates the dependency between the two resources.
 
 So, while it's not required, leaving it in can make the code more readable and maintainable.
+
+
+**Practice Date : 4.1.2025**
+
+**Error:**
+
+I got the following error as the AMI for all resources was same bu the zones are different. 
+
+**Note :** AMI's for the same OS are different for different regions.
+
+```
+verify the error and give a solution - │ Error: Error launching source instance: InvalidParameterValue: Invalid availability zone: [us-east-2a]
+│       status code: 400, request id: f30a62ed-ab8c-4bd6-b664-919c31a9f7cb
+│ 
+│   with aws_instance.Backend-East-2[0],
+│   on ec2.tf line 69, in resource "aws_instance" "Backend-East-2":
+│   69: resource "aws_instance" "Backend-East-2" {
+│ 
+╵
+╷
+│ Error: Error launching source instance: InvalidParameterValue: Invalid availability zone: [us-east-2b]
+│       status code: 400, request id: 8ed4aabc-ced6-4c4b-8120-ccba1bba5bd5
+│ 
+│   with aws_instance.Backend-East-2[1],
+│   on ec2.tf line 69, in resource "aws_instance" "Backend-East-2":
+│   69: resource "aws_instance" "Backend-East-2" {
+│ 
+╵
+```
