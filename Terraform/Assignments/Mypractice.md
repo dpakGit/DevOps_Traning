@@ -909,3 +909,142 @@ verify the error and give a solution - │ Error: Error launching source instanc
 │ 
 ╵
 ```
+
+
+**Date : 6.1.2024**
+
+```
+# Provider Block
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+
+provider "aws" {
+  region = "us-east-2"
+  alias  = "us-east-2"
+}
+
+
+# Variable Block
+
+
+variable "zones_east-1" { #  Zone-1    :  N.Virginia               
+  default = ["us-east-1a", "us-east-1b"]
+}
+
+data "aws_availability_zones" "available" {
+  state = "available"
+  filter {
+    name   = "region-name"
+    values = ["us-east-2"]
+  }
+}
+
+
+
+
+
+# Resource Block in  US-east-1 - N.Virginia
+
+resource "aws_instance" "Backend-East-1" {
+  ami               = "ami-0e2c8caa4b6378d8c" # AMI : Ubuntu Server 24.04 LTS (HVM),EBS General Purpose (SSD) Volume Type
+  instance_type     = "t2.micro"
+  availability_zone =  data.aws_availability_zones.available.names[count.index]
+  count             = 1
+
+  lifecycle {
+    prevent_destroy = false
+  }
+
+  tags = {
+    Name = "Backend-East-1-${count.index + 1}" # Also we can name it as "Backend_N.Virginia-${count.index + 1}" or Baknd_N.Virginia               
+    Team = "DevOps"
+  }
+}
+
+resource "aws_instance" "Frontend-East-1" {
+  ami               = "ami-0e2c8caa4b6378d8c" # AMI : Ubuntu Server 24.04 LTS (HVM),EBS General Purpose (SSD) Volume Type
+  instance_type     = "t2.micro"
+  availability_zone = var.zones_east-1[count.index]
+
+  count = length(aws_instance.Backend-East-1)
+
+  depends_on = [aws_instance.Backend-East-1]
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  tags = {
+    Name = "Frontend-East-1-${count.index + 1}"
+    Team = "DevOps"
+  }
+}
+
+# Resource Block in  US-east-2 - Ohio
+
+
+data "aws_ami" "ubuntu" {
+  most_recent = true
+
+  owners = ["amazon"]
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+  }
+}
+
+resource "aws_instance" "Backend-East-2" {
+  ami               = data.aws_ami.ubuntu.id
+  instance_type     = "t2.micro"
+ depends_on = [data.aws_availability_zones.available]
+
+availability_zone = data.aws_availability_zones.available.names[count.index]
+
+  count = 1
+
+  lifecycle {
+    prevent_destroy = false
+  }
+
+  tags = {
+    Name = "Backend-East-2-${count.index + 1}" # "Backend_Ohio-${count.index + 1}"
+    Team = "DevOps"
+  }
+}
+
+resource "aws_instance" "Frontend-East-2" {
+  ami               = data.aws_ami.ubuntu.id
+  instance_type     = "t2.micro"
+ depends_on = [data.aws_availability_zones.available]
+
+availability_zone = data.aws_availability_zones.available.names[count.index]
+
+  
+  count = length(aws_instance.Backend-East-2)
+
+  depends_on = [aws_instance.Backend-East-2]
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  tags = {
+    Name = "Frontend-East-2-${count.index + 1}"
+    Team = "DevOps"
+  }
+}
+```
+
+root@ip-172-31-26-33:/home/ubuntu/prac# t fmt
+╷
+│ Error: Attribute redefined
+│ 
+│   on ec2.tf line 112, in resource "aws_instance" "Frontend-East-2":
+│  112:   depends_on = [aws_instance.Backend-East-2]
+│ 
+│ The argument "depends_on" was already set at ec2.tf:105,2-12. Each argument may be set only once.
+╵
+
