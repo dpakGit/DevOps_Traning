@@ -2365,3 +2365,173 @@ When you define a resource block without specifying a provider, it will use the 
 So, even though you didn't explicitly specify the provider for the Resource Block in US-east-1 - N.Virginia, it's automatically using the default provider for the us-east-1 region.
 
 However, for the Resource Block in US-east-2 - Ohio, you explicitly specified the provider as aws.east2, which is the second provider block. This tells Terraform to use the us-east-2 region for those resources.
+```
+
+
+**Format of the Code**
+
+#### The code format is mostly correct, but here are some minor improvements for better readability and consistency:
+
+```
+# Code-1 - NEW - Version - 1 - Ami hardcoded
+
+# Provider Blocks
+provider "aws" {
+  region = "us-east-1"
+}
+
+provider "aws" {
+  region  = "us-east-2"
+  alias   = "east2"
+}
+
+# Variable Blocks
+variable "zones_east-1" {
+  # Zone-1 : N.Virginia
+  default = ["us-east-1a", "us-east-1b"]
+}
+
+variable "zones_east-2" {
+  default = ["us-east-2a", "us-east-2b"]
+}
+
+# Resource Blocks
+# US-east-1 - N.Virginia
+resource "aws_instance" "Backend-East-1" {
+  # Backend Resource Block - N.Virginia
+  ami           = "ami-0e2c8caa4b6378d8c"
+  instance_type = "t2.micro"
+  availability_zone = var.zones_east-1[count.index]
+  count         = 2
+
+  lifecycle {
+    prevent_destroy = false
+  }
+
+  tags = {
+    Name = "Backend-East-1-${count.index + 1}"
+    Team = "DevOps"
+  }
+}
+
+resource "aws_instance" "Frontend-East-1" {
+  ami           = "ami-0e2c8caa4b6378d8c"
+  instance_type = "t2.micro"
+  availability_zone = var.zones_east-1[count.index]
+  count         = length(aws_instance.Backend-East-1)
+
+  depends_on = [aws_instance.Backend-East-1]
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  tags = {
+    Name = "Frontend-East-1-${count.index + 1}"
+    Team = "DevOps"
+  }
+}
+
+# US-east-2 - Ohio
+resource "aws_instance" "Backend-East-2" {
+  provider        = aws.east2
+  ami              = "ami-00eb69d236edcfaf8"
+  instance_type    = "t2.micro"
+  availability_zone = var.zones_east-2[count.index]
+  count            = 2
+
+  lifecycle {
+    prevent_destroy = false
+  }
+
+  tags = {
+    Name = "Backend-East-2-${count.index + 1}"
+    Team = "DevOps"
+  }
+}
+
+resource "aws_instance" "Frontend-East-2" {
+  provider        = aws.east2
+  ami              = "ami-00eb69d236edcfaf8"
+  instance_type    = "t2.micro"
+  availability_zone = var.zones_east-2[count.index]
+  count            = length(aws_instance.Backend-East-2)
+
+  depends_on = [aws_instance.Backend-East-2]
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  tags = {
+    Name = "Frontend-East-2-${count.index + 1}"
+    Team = "DevOps"
+  }
+}
+```
+
+Changes made:
+
+- Added blank lines to separate logical blocks of code
+- Standardized indentation and spacing
+- Renamed some comments for clarity
+- Removed unnecessary comments
+
+
+**How to write the Code for Presenation Purpose**
+
+The format is clean and well-organized, making it easy to understand for most audiences. However, for presentation purposes, you may want to consider a few additional improvements:
+
+1. Add a header or title: Include a clear title that describes the purpose of the code, such as "AWS Infrastructure as Code (IaC) Example".
+2. Use clear and concise comments: While your comments are good, consider making them more descriptive and concise. This will help others quickly understand the purpose of each section.
+3. Consider using a more visual format: For presentation purposes, you may want to use a format that makes the code more visually appealing, such as using different colors or fonts for comments, headers, and code.
+4. Break up long lines: Some lines of code are quite long. Consider breaking them up into multiple lines for better readability.
+5. Use consistent naming conventions: Your variable and resource names are clear, but consider using a consistent naming convention throughout the code.
+
+Here's an updated version incorporating these suggestions:
+
+```
+# AWS Infrastructure as Code (IaC) Example
+
+# Provider Blocks
+provider "aws" {
+  region = "us-east-1"
+}
+
+provider "aws" {
+  region  = "us-east-2"
+  alias   = "east2"
+}
+
+# Variable Blocks
+variable "zones_east-1" {
+  # Availability zones for US East 1 (N. Virginia)
+  default = ["us-east-1a", "us-east-1b"]
+}
+
+variable "zones_east-2" {
+  # Availability zones for US East 2 (Ohio)
+  default = ["us-east-2a", "us-east-2b"]
+}
+
+# Resource Blocks
+# US East 1 (N. Virginia)
+resource "aws_instance" "Backend-East-1" {
+  # Backend instance in US East 1
+  ami           = "ami-0e2c8caa4b6378d8c"
+  instance_type = "t2.micro"
+  availability_zone = var.zones_east-1[count.index]
+  count         = 2
+
+  lifecycle {
+    prevent_destroy = false
+  }
+
+  tags = {
+    Name = "Backend-East-1-${count.index + 1}"
+    Team = "DevOps"
+  }
+}
+
+ ... (rest of the code remains the same)
+```
