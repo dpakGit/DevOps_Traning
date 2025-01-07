@@ -10,23 +10,16 @@ provider "aws" {
   alias  = "east2"
 }
 
-# N.virginia 
-
-#````````````````````````````````````````````````````````
-
-# Variable Block
-
-
 variable "zones_east-1" { #  Zone-1    :  N.Virginia               
   default = ["us-east-1a", "us-east-1b"]
 }
 
+variable "zones_east-2" {
+  default = ["us-east-2a", "us-east-2b"]
+}
 
-
-# Resource Block in  US-east-1 - N.Virginia
-
-
-
+$${\color{blue}# Instances and resources to be created in the US East 1 (N. Virginia) region}$$
+# Instances and resources to be created in the US East 1 (N. Virginia) region.
 
 
 resource "aws_instance" "Backend-East-1" { # Backend Resource Block - N.Virginia
@@ -74,9 +67,6 @@ resource "aws_instance" "Frontend-East-1" {
 # Ohio
 
 
-variable "zones_east-2" {
-  default = ["us-east-2a", "us-east-2b"]
-}
 
 
 # Resource Block in  US-east-2 - Ohio
