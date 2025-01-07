@@ -1,5 +1,9 @@
 #  Code-1  - NEW - Version - 1 - Ami hardcoded
 
+# My code to be modified like Rajendra Sir
+
+#  Code-1  - NEW - Version - 1 - Ami hardcoded
+
 
 provider "aws" {
   region = "us-east-1"
@@ -11,62 +15,69 @@ provider "aws" {
 }
 
 
-variable "zones_east-1" { 
+variable "zones_north_virginia" {
   default = ["us-east-1a", "us-east-1b"]
 }
 
-variable "zones_east-2" {
+variable "zones_ohio" {
   default = ["us-east-2a", "us-east-2b"]
 }
 
+# Note: AMI Ids for N. Virginia and Ohio are different for same AMIs
 
-# Frontend and Backend Instances to be created in the US East 1 (N. Virginia) region.
+resource "aws_instance" "N_Virginia_Frontend" {
 
-
-resource "aws_instance" "Backend-East-1" { 
-  ami               = "ami-0e2c8caa4b6378d8c" 
+  ami               = "ami-0e2c8caa4b6378d8c" # AMI id : Ubuntu Server 24.04
   instance_type     = "t2.micro"
-  availability_zone = var.zones_east-1[count.index]
-  count             = 2
+  availability_zone = var.zones_north_virginia[count.index]
 
-  lifecycle {
-    prevent_destroy = false
-  }
+  count = length(aws_instance.N_Virginia_Backend)
 
-  tags = {
-    Name = "Backend-East-1-${count.index + 1}" # Also we can name it as "Backend_N.Virginia-${count.index + 1}" or Baknd_N.Virginia               
-    Team = "DevOps"
-  }
-}
-
-
-resource "aws_instance" "Frontend-East-1" {
-  ami               = "ami-0e2c8caa4b6378d8c" # AMI : Ubuntu Server 24.04 LTS (HVM),EBS General Purpose (SSD) Volume Type
-  instance_type     = "t2.micro"
-  availability_zone = var.zones_east-1[count.index]
-
-  count = length(aws_instance.Backend-East-1)
-
-  depends_on = [aws_instance.Backend-East-1]
+  depends_on = [aws_instance.N_Virginia_Backend]
 
   lifecycle {
     create_before_destroy = true
   }
 
   tags = {
-    Name = "Frontend-East-1-${count.index + 1}"
+    Name = "N_Virginia_Frontend-${element(var.zones_north_virginia, count.index)}"
     Team = "DevOps"
   }
 }
 
-# Frontend and Backend Instances to be created in the US East 2 (Ohio) region.
 
-resource "aws_instance" "Backend-East-2" {
+
+resource "aws_instance" "Ohio_Frontend" {
+
   provider = aws.east2
 
-  ami               = "ami-00eb69d236edcfaf8"
+  ami = "ami-00eb69d236edcfaf8"
+
   instance_type     = "t2.micro"
-  availability_zone = var.zones_east-2[count.index]
+  availability_zone = var.zones_ohio[count.index]
+
+
+  count = length(aws_instance.Ohio_Backend)
+
+  depends_on = [aws_instance.Ohio_Backend]
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  tags = {
+    Name = "Ohio_Frontend-${element(var.zones_ohio, count.index)}"
+
+    Team = "DevOps"
+  }
+}
+
+
+
+resource "aws_instance" "N_Virginia_Backend" {
+  ami               = "ami-0e2c8caa4b6378d8c"
+  instance_type     = "t2.micro"
+  availability_zone = var.zones_north_virginia[count.index]
 
   count = 2
 
@@ -75,31 +86,32 @@ resource "aws_instance" "Backend-East-2" {
   }
 
   tags = {
-    Name = "Backend-East-2-${count.index + 1}" # "Backend_Ohio-${count.index + 1}"
+    Name = "N_Virginia_Backend-${element(var.zones_north_virginia, count.index)}"
+
     Team = "DevOps"
   }
 }
 
 
 
-resource "aws_instance" "Frontend-East-2" {
+resource "aws_instance" "Ohio_Backend" {
   provider = aws.east2
 
-  ami = "ami-00eb69d236edcfaf8"
-
+  ami               = "ami-00eb69d236edcfaf8"
   instance_type     = "t2.micro"
-  availability_zone = var.zones_east-2[count.index]
+  availability_zone = var.zones_ohio[count.index]
 
-  count = length(aws_instance.Backend-East-2)
 
-  depends_on = [aws_instance.Backend-East-2]
+  count = 2
 
   lifecycle {
-    create_before_destroy = true
+    prevent_destroy = false
   }
 
   tags = {
-    Name = "Frontend-East-2-${count.index + 1}"
+    Name = "Ohio_Backend-${element(var.zones_ohio, count.index)}"
+
     Team = "DevOps"
   }
 }
+
