@@ -2535,3 +2535,40 @@ resource "aws_instance" "Backend-East-1" {
 
  ... (rest of the code remains the same)
 ```
+
+
+#### Q) Modify the resource tag name to include the availability zone where the instance is provisioned .
+
+Sol : Meta AI
+
+Instead, you can use the availability_zone attribute directly in the tags block, like this:
+
+```
+resource "aws_instance" "N_Virginia_Frontend" {
+  # ... (other properties)
+
+  tags = {
+    Name = "N_Virginia_Frontend-${availability_zone}"
+    Team = "DevOps"
+  }
+}
+```
+
+However, this will not work because availability_zone is not a valid variable in this context.
+
+To achieve the desired result, you can use the element() function to access the availability_zone attribute of the current instance:
+
+**Correct Code**
+
+```
+resource "aws_instance" "N_Virginia_Frontend" {
+  # ... (other properties)
+
+  tags = {
+    Name = "N_Virginia_Frontend-${element(var.zones_north_virginia, count.index)}"
+    Team = "DevOps"
+  }
+}
+```
+
+This should work as expected!
