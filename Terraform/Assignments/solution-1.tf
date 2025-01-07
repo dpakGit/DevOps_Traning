@@ -18,13 +18,11 @@ variable "zones_east-2" {
   default = ["us-east-2a", "us-east-2b"]
 }
 
-$${\color{blue}# Instances and resources to be created in the US East 1 (N. Virginia) region}$$
-# Instances and resources to be created in the US East 1 (N. Virginia) region.
+# Frontend and Backend Instances to be created in the US East 1 (N. Virginia) region.
 
 
-resource "aws_instance" "Backend-East-1" { # Backend Resource Block - N.Virginia
-
-  ami               = "ami-0e2c8caa4b6378d8c" # AMI : Ubuntu Server 24.04 LTS (HVM),EBS General Purpose (SSD) Volume Type
+resource "aws_instance" "Backend-East-1" { 
+  ami               = "ami-0e2c8caa4b6378d8c" 
   instance_type     = "t2.micro"
   availability_zone = var.zones_east-1[count.index]
   count             = 2
@@ -39,7 +37,7 @@ resource "aws_instance" "Backend-East-1" { # Backend Resource Block - N.Virginia
   }
 }
 
-# Frontend Resource Block - N.Virginia
+
 
 resource "aws_instance" "Frontend-East-1" {
   ami               = "ami-0e2c8caa4b6378d8c" # AMI : Ubuntu Server 24.04 LTS (HVM),EBS General Purpose (SSD) Volume Type
@@ -60,21 +58,7 @@ resource "aws_instance" "Frontend-East-1" {
   }
 }
 
-#``````````````````````````````````````````````````
-
-
-
-# Ohio
-
-
-
-
-# Resource Block in  US-east-2 - Ohio
-
-
-
-
-# Backend Resource Block - Ohio
+# Frontend and Backend Instances to be created in the US East 2 (Ohio) region.
 
 resource "aws_instance" "Backend-East-2" {
   provider = aws.east2
@@ -95,7 +79,7 @@ resource "aws_instance" "Backend-East-2" {
   }
 }
 
-# Frontend Resource Block - Ohio
+
 
 resource "aws_instance" "Frontend-East-2" {
   provider = aws.east2
