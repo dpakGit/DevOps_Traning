@@ -2725,3 +2725,301 @@ In summary: By using this combination, you can reliably obtain the ID of the lat
 }
 ```
 
+
+#### Using Data Source instead f hard coding the AMI Id
+
+
+│ Error: Your query returned no results. Please change your search criteria and try again.
+│ 
+│   with data.aws_ami.ubuntu_north_virginia,
+│   on ec2withdata.tf line 25, in data "aws_ami" "ubuntu_north_virginia":
+│   25: data "aws_ami" "ubuntu_north_virginia" { 
+│ 
+╵
+╷
+│ Error: Your query returned no results. Please change your search criteria and try again.
+│ 
+│   with data.aws_ami.ubuntu_ohio,
+│   on ec2withdata.tf line 37, in data "aws_ami" "ubuntu_ohio":
+│   37: data "aws_ami" "ubuntu_ohio" { 
+
+**META AI**
+
+Q)
+following is my code -provider "aws" {
+  region = "us-east-1"
+  alias  = "east1"
+}
+
+provider "aws" {
+  region = "us-east-2"
+  alias  = "east2"
+}
+
+
+variable "zones_north_virginia" {
+  default = ["us-east-1a", "us-east-1b"]
+}
+
+variable "zones_ohio" {
+  default = ["us-east-2a", "us-east-2b"]
+}
+
+
+# Data source for Ubuntu AMI 
+
+
+data "aws_ami" "ubuntu_north_virginia" { 
+  provider    = aws.east1
+  most_recent = true
+  owners      = ["amazon"]
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-24.04-amd64-server-*"]
+  }
+}
+
+
+
+data "aws_ami" "ubuntu_ohio" { 
+
+  provider    = aws.east2
+  most_recent = true
+  owners      = ["amazon"]
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-24.04-amd64-server-*"]
+  }
+}
+
+
+
+
+# Output the AMI IDs
+output "ubuntu_ami_id_N_Virginia" {
+  value = {
+    id         = data.aws_ami.ubuntu_north_virginia.id
+    image_id   = data.aws_ami.ubuntu_north_virginia.image_id
+  }
+}
+
+output "ubuntu_ami_id_Ohio" {
+  value = {
+    id         = data.aws_ami.ubuntu_ohio.id
+    image_id   = data.aws_ami.ubuntu_ohio.image_id
+  }
+
+}
+
+
+
+
+
+
+
+resource "aws_instance" "N_Virginia_Backend" {
+  ami = (data.aws_ami.ubuntu_north_virginia.id) # "ami-0e2c8caa4b6378d8c"
+
+  provider          = aws.east1
+  instance_type     = "t2.micro"
+  availability_zone = var.zones_north_virginia[count.index]
+
+  count = 2
+
+  lifecycle {
+    prevent_destroy = false
+  }
+
+  tags = {
+    Name = "N_Virginia_Backend-${element(var.zones_north_virginia, count.index)}"
+
+    Team = "DevOps"
+  }
+}
+
+
+
+resource "aws_instance" "Ohio_Backend" {
+  provider = aws.east2
+
+  ami               = (data.aws_ami.ubuntu_ohio.id) # "ami-00eb69d236edcfaf8"
+  instance_type     = "t2.micro"
+  availability_zone = var.zones_ohio[count.index]
+
+
+  count = 2
+
+  lifecycle {
+    prevent_destroy = false
+  }
+
+  tags = {
+    Name = "Ohio_Backend-${element(var.zones_ohio, count.index)}"
+
+    Team = "DevOps"
+  }
+}
+and following is the error - 
+│ Error: Your query returned no results. Please change your search criteria and try again.
+│ 
+│   with data.aws_ami.ubuntu_north_virginia,
+│   on ec2withdata.tf line 25, in data "aws_ami" "ubuntu_north_virginia":
+│   25: data "aws_ami" "ubuntu_north_virginia" { 
+│ 
+╵
+╷
+│ Error: Your query returned no results. Please change your search criteria and try again.
+│ 
+│   with data.aws_ami.ubuntu_ohio,
+│   on ec2withdata.tf line 37, in data "aws_ami" "ubuntu_ohio":
+│   37: data "aws_ami" "ubuntu_ohio" {
+
+
+Sol:
+
+The error message indicates that the query for the Ubuntu AMI returned no results. This is likely due to the fact that the filter block in the data "aws_ami" resource is too specific.
+
+The issue lies in the values field of the filter block. The value "ubuntu/images/hvm-ssd/ubuntu-jammy-24.04-amd64-server-*" is too specific and doesn't match any available AMI.
+
+To fix this issue, you can modify the filter block to use a more general pattern. For example, you can use the following value:
+
+
+values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-*-amd64-server-*"]
+
+
+This pattern will match any Ubuntu Jammy AMI with the amd64 architecture and server type.
+
+Here's the corrected data "aws_ami" resource:
+
+
+data "aws_ami" "ubuntu_north_virginia" {
+  provider    = aws.east1
+  most_recent = true
+  owners      = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-*-amd64-server-*"]
+  }
+}
+
+data "aws_ami" "ubuntu_ohio" {
+  provider    = aws.east2
+  most_recent = true
+  owners      = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-*-amd64-server-*"]
+  }
+}
+
+
+**Practice Code** only backend instances
+
+```
+provider "aws" {
+  region = "us-east-1"
+  alias  = "east1"
+}
+
+provider "aws" {
+  region = "us-east-2"
+  alias  = "east2"
+}
+
+
+variable "zones_north_virginia" {
+  default = ["us-east-1a", "us-east-1b"]
+}
+
+variable "zones_ohio" {
+  default = ["us-east-2a", "us-east-2b"]
+}
+
+
+# Data source for Ubuntu AMI 
+
+data "aws_ami" "ubuntu_north_virginia" { 
+  provider    = aws.east1
+  most_recent = true
+  owners      = ["amazon"]
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+  }
+}
+
+data "aws_ami" "ubuntu_ohio" { 
+
+  provider    = aws.east2
+  most_recent = true
+  owners      = ["amazon"]
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+  }
+}
+
+
+
+
+# Output the AMI IDs
+output "ubuntu_ami_id_N_Virginia" {
+  value = {
+    id         = data.aws_ami.ubuntu_north_virginia.id
+    image_id   = data.aws_ami.ubuntu_north_virginia.image_id
+  }
+}
+
+output "ubuntu_ami_id_Ohio" {
+  value = {
+    id         = data.aws_ami.ubuntu_ohio.id
+    image_id   = data.aws_ami.ubuntu_ohio.image_id
+  }
+
+}
+
+resource "aws_instance" "N_Virginia_Backend" {
+  ami = (data.aws_ami.ubuntu_north_virginia.id) # "ami-0e2c8caa4b6378d8c"
+
+  provider          = aws.east1
+  instance_type     = "t2.micro"
+  availability_zone = var.zones_north_virginia[count.index]
+
+  count = 2
+
+  lifecycle {
+    prevent_destroy = false
+  }
+
+  tags = {
+    Name = "N_Virginia_Backend-${element(var.zones_north_virginia, count.index)}"
+
+    Team = "DevOps"
+  }
+}
+
+
+
+resource "aws_instance" "Ohio_Backend" {
+  provider = aws.east2
+
+  ami               = (data.aws_ami.ubuntu_ohio.id) # "ami-00eb69d236edcfaf8"
+  instance_type     = "t2.micro"
+  availability_zone = var.zones_ohio[count.index]
+
+
+  count = 2
+
+  lifecycle {
+    prevent_destroy = false
+  }
+
+  tags = {
+    Name = "Ohio_Backend-${element(var.zones_ohio, count.index)}"
+
+    Team = "DevOps"
+  }
+}
+```
