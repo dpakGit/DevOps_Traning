@@ -88,3 +88,19 @@ https://developer.hashicorp.com/terraform/language/expressions/type-constraints#
 
 https://developer.hashicorp.com/terraform/language/expressions/type-constraints
 
+
+**Date : 8.1.2024**
+
+#### Types of Named Values
+
+Read the content of this link -  https://developer.hashicorp.com/terraform/language/expressions/references#types-of-named-values
+
+The main kinds of named values available in Terraform are:
+
+Resources
+Input variables
+Local values
+Child module outputs
+Data sources
+Filesystem and workspace info
+Block-local values
