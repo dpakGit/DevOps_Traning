@@ -104,3 +104,14 @@ Child module outputs
 Data sources
 Filesystem and workspace info
 Block-local values
+
+
+#### 5 Ways to Manage Terraform at Scale – Best Practices
+
+https://spacelift.io/blog/5-ways-to-manage-terraform-at-scale
+
+#### How to Use Terraform Join and Split Functions with Strings
+
+https://spacelift.io/blog/terraform-join
+
+
