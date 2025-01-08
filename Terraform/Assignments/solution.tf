@@ -1,10 +1,5 @@
 #  Code-1  - NEW - Version - 1 - Ami hardcoded
 
-# My code to be modified like Rajendra Sir
-
-#  Code-1  - NEW - Version - 1 - Ami hardcoded
-
-
 provider "aws" {
   region = "us-east-1"
 }
@@ -113,5 +108,13 @@ resource "aws_instance" "Ohio_Backend" {
 
     Team = "DevOps"
   }
+}
+
+output "PublicIP_N_Virginia_Frontend" {
+  value = aws_instance.N_Virginia_Frontend.*.public_ip
+}
+
+output "PublicIP_N_Virginia_Backend" {
+  value = aws_instance.N_Virginia_Backend.*.public_ip
 }
 
