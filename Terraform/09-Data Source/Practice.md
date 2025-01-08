@@ -242,6 +242,8 @@ resource "aws_instance" "server_east2" {
 
 **Practice-3**
 
+#### How to print only AMI Id and not other logs.
+
 
 #### See the Output part in this code compared to the above code,how it is written in the code.
 
