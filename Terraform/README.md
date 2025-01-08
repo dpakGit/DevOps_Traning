@@ -99,11 +99,16 @@ The main kinds of named values available in Terraform are:
 
 Resources
 Input variables
-Local values
-Child module outputs
-Data sources
-Filesystem and workspace info
-Block-local values
+
+ Local values
+  
+ Child module outputs
+
+ Data sources
+
+ Filesystem and workspace info
+
+ Block-local values
 
 
 #### 5 Ways to Manage Terraform at Scale – Best Practices
