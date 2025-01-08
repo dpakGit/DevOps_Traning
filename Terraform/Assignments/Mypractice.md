@@ -2707,4 +2707,21 @@ most_recent = true: This crucial parameter instructs Terraform to select the AMI
 In summary: By using this combination, you can reliably obtain the ID of the latest available Ubuntu Jammy 22.04 AMI for your AWS deployments.
 
 
+**Date : 8.1.2025**
+
+
+│ Error: Reference to undeclared resource
+│ 
+│   on ec2.tf line 117, in output "PublicIP_N_Virginia_Frontend":
+│  117:   value = aws_instance.N_Virginia_frontend.*.public_ip
+│ 
+│ A managed resource "aws_instance" "N_Virginia_frontend" has not been declared in the root module.
+
+
+...because in the code, the instance name would have been "aws_instance.N_Virginia_Frontend.*.public_ip", but the "F" in "Frontend" was written in lowercase.
+
+```output "PublicIP_N_Virginia_Frontend" {
+  **value = aws_instance.N_Virginia_frontend.*.public_ip**
+}
+```
 
