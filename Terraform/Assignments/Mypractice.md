@@ -3169,8 +3169,8 @@ resource "aws_instance" "Ohio_Backend" {
 When i ran the code without default values in the two variables , it asked for the input values.
 But then it showed the following error:-
 
-╷
-│ **Error:** Invalid index
+```
+│ Error: Invalid index
 │ 
 │   on ec2.tf line 111, in resource "aws_instance" "N_Virginia_Backend":
 │  111:   availability_zone = var.zones_north_virginia[count.index]
@@ -3260,3 +3260,4 @@ But then it showed the following error:-
 │     │ var.zones_ohio is "us-east-2c us-east-2d"
 │ 
 │ Call to function "element" failed: cannot read elements from string.
+```
