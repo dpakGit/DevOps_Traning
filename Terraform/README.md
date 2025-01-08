@@ -114,4 +114,9 @@ https://spacelift.io/blog/5-ways-to-manage-terraform-at-scale
 
 https://spacelift.io/blog/terraform-join
 
+## Amazon EC2 AMI Locator :
+
+https://cloud-images.ubuntu.com/locator/ec2/
+
+![Screenshot (5)](https://github.com/user-attachments/assets/7326c0d4-78ff-4bd7-b1b7-17fff15186f1)
 
