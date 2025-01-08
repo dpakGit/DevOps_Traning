@@ -3162,3 +3162,101 @@ resource "aws_instance" "Ohio_Backend" {
   }
 }
 ```
+
+
+
+**Note :**
+When i ran the code without default values in the two variables , it asked for the input values.
+But then it showed the following error:-
+
+╷
+│ **Error:** Invalid index
+│ 
+│   on ec2.tf line 111, in resource "aws_instance" "N_Virginia_Backend":
+│  111:   availability_zone = var.zones_north_virginia[count.index]
+│     ├────────────────
+│     │ count.index is 0
+│     │ var.zones_north_virginia is "us-east-1c us-east-1d"
+│ 
+│ This value does not have any indices.
+╵
+╷
+│ Error: Invalid index
+│ 
+│   on ec2.tf line 111, in resource "aws_instance" "N_Virginia_Backend":
+│  111:   availability_zone = var.zones_north_virginia[count.index]
+│     ├────────────────
+│     │ count.index is 1
+│     │ var.zones_north_virginia is "us-east-1c us-east-1d"
+│ 
+│ This value does not have any indices.
+╵
+╷
+│ Error: Error in function call
+│ 
+│   on ec2.tf line 120, in resource "aws_instance" "N_Virginia_Backend":
+│  120:     Name = "N_Virginia_Backend-${element(var.zones_north_virginia, count.index)}"
+│     ├────────────────
+│     │ while calling element(list, index)
+│     │ count.index is 0
+│     │ var.zones_north_virginia is "us-east-1c us-east-1d"
+│ 
+│ Call to function "element" failed: cannot read elements from string.
+╵
+╷
+│ Error: Error in function call
+│ 
+│   on ec2.tf line 120, in resource "aws_instance" "N_Virginia_Backend":
+│  120:     Name = "N_Virginia_Backend-${element(var.zones_north_virginia, count.index)}"
+│     ├────────────────
+│     │ while calling element(list, index)
+│     │ count.index is 1
+│     │ var.zones_north_virginia is "us-east-1c us-east-1d"
+│ 
+│ Call to function "element" failed: cannot read elements from string.
+╵
+╷
+│ Error: Invalid index
+│ 
+│   on ec2.tf line 133, in resource "aws_instance" "Ohio_Backend":
+│  133:   availability_zone = var.zones_ohio[count.index]
+│     ├────────────────
+│     │ count.index is 0
+│     │ var.zones_ohio is "us-east-2c us-east-2d"
+│ 
+│ This value does not have any indices.
+╵
+╷
+│ Error: Invalid index
+│ 
+│   on ec2.tf line 133, in resource "aws_instance" "Ohio_Backend":
+│  133:   availability_zone = var.zones_ohio[count.index]
+│     ├────────────────
+│     │ count.index is 1
+│     │ var.zones_ohio is "us-east-2c us-east-2d"
+│ 
+│ This value does not have any indices.
+╵
+╷
+│ Error: Error in function call
+│ 
+│   on ec2.tf line 143, in resource "aws_instance" "Ohio_Backend":
+│  143:     Name = "Ohio_Backend-${element(var.zones_ohio, count.index)}"
+│     ├────────────────
+│     │ while calling element(list, index)
+│     │ count.index is 0
+│     │ var.zones_ohio is "us-east-2c us-east-2d"
+│ 
+│ Call to function "element" failed: cannot read elements from string.
+╵
+╷
+│ Error: Error in function call
+│ 
+│   on ec2.tf line 143, in resource "aws_instance" "Ohio_Backend":
+│  143:     Name = "Ohio_Backend-${element(var.zones_ohio, count.index)}"
+│     ├────────────────
+│     │ while calling element(list, index)
+│     │ count.index is 1
+│     │ var.zones_ohio is "us-east-2c us-east-2d"
+│ 
+│ Call to function "element" failed: cannot read elements from string.
