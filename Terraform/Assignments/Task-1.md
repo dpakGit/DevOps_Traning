@@ -20,3 +20,6 @@ Maintain the existing backend servers without deletion or modification.
 **5. Output Requirements**
 
 Provide the public IP addresses of frontend and backend instances in Region 1 as output.
+
+Also provide the AMI IDs and corresponding Image IDs for the frontend and backend instances in both regions as output.
+
