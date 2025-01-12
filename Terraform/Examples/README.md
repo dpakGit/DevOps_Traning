@@ -151,11 +151,11 @@ In this modified code:
 
 Please note that creating an instance for every IP address in a /16 VPC will result in creating 65,536 instances, which might not be practical or cost-effective. You may want to consider using a smaller CIDR block or limiting the number of instances created.
 
-Change the cidr range such that four instances will be created and only after the vpc is created
+Q) Change the cidr range such that four instances will be created and only after the vpc is created
 
 Here's an updated version of the code:
 
-
+```
 # Create VPC
 resource "aws_vpc" "my_vpc" {
   cidr_block = "10.0.0.0/30"
@@ -176,6 +176,7 @@ resource "aws_instance" "ec2_test" {
     Team = "DevOps"
   }
 }
+```
 
 
 In this updated version:
