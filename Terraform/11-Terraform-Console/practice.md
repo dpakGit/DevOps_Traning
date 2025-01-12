@@ -291,9 +291,6 @@ So, the output of lookup({a="Welcome", b="Terraform"},"a", "Please use the right
 > lookup({a="Welcome", b="Terraform"},"c", "Please use the right key")
 "Please use the right key"
 
-> lookup({a="Welcome", b="Terraform"},"0", "Please use the right key")
-"Please use the right key"
-
 
 The lookup() function in Terraform returns the value of a given key in a map. If the key is not found, it returns a default value.
 
@@ -311,6 +308,9 @@ Since the key "c" does not exist in the map, the lookup() function returns the d
 
 So, the output of lookup({a="Welcome", b="Terraform"},"c", "Please use the right key") is "Please use the right key".
 
+
+> lookup({a="Welcome", b="Terraform"},"0", "Please use the right key")
+"Please use the right key"
 
 > lookup({a="Welcome", b="Terraform"},"1", "Please use the right key")
 "Please use the right key"
