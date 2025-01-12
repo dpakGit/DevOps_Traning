@@ -374,4 +374,58 @@ output "PrivateIP_ec2_test" {
 }
 ```
  
+When the output of the public Ip is following:
+```
+PublicIP_ec2_test = [
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+]
+```
+sol:
+It seems like the public IP addresses are not being assigned to the instances.
 
+This could be because the map_public_ip_on_launch attribute is not being applied correctly or the instances are being launched in a private subnet.
+
+Here are a few things you can try:
+
+1. Make sure that the subnet is a public subnet. You can do this by checking the subnet's route table. If the route table has a route to the internet gateway, then it's a public subnet.
+
+2. Make sure that the map_public_ip_on_launch attribute is set to true for the subnet.
+
+3. Try specifying the associate_public_ip_address attribute in the aws_instance resource and set it to true.
+
+Here's an example of how you can modify your code:
+
+```
+# Create subnet within the VPC
+resource "aws_subnet" "my_subnet" {
+  vpc_id            = aws_vpc.my_vpc.id
+  cidr_block        = "10.0.0.0/28"
+  availability_zone = "us-east-1a"
+  map_public_ip_on_launch = true
+}
+
+# Create EC2 instances
+resource "aws_instance" "ec2_test" {
+  count         = length(cidrhost("10.0.0.0/28", "10"))
+  ami           = "ami-0e2c8caa4b6378d8c"
+  instance_type = "t2.micro"
+  subnet_id     = aws_subnet.my_subnet.id
+  associate_public_ip_address = true
+  vpc_security_group_ids = [aws_security_group.sg.id]
+
+  tags = {
+    Name = "ec2_test-${count.index}"
+    Team = "DevOps"
+  }
+}
+```
+
+This should ensure that the instances are launched with public IP addresses.
