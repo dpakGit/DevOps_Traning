@@ -1,16 +1,61 @@
-root@ip-172-31-23-60:/home/ubuntu# terraform console
+The **Terraform console** is a command-line interface that allows you to experiment with Terraform expressions and functions.
+
+The Terraform console allows you to experiment with different expressions and functions, including arithmetic operations, string manipulation, and more. This can be useful for testing and debugging Terraform configurations.
+```
+terraform console
+```
+
+#### Simple arithmetic expression
+
+```
 > 2 + 2
 4
+
 > 10-3
 7
+
 > 5*4
 20
+
 > 20/4
 5
-> contains(tolist(["apple", "mango", "orange"]), "kiwi")
-false
-> contains(tolist(["apple", "mango", "orange"]), "apple")
-true
+```
+#### Contains() function
+
+The contains() function in Terraform checks if a given element is present in a collection (such as a list or a set).
+
+Here are the results:
+
+Example 1
+```
+contains(tolist(["apple", "mango", "orange"]), "kiwi") 
+```
+returns false, because "kiwi" is not in the list.
+
+
+Example 2
+```
+contains(tolist(["apple", "mango", "orange"]), "apple") 
+```
+returns true, because "apple" is in the list.
+
+#### The length() function in Terraform returns the number of characters in a string.
+
+The length() function in Terraform returns the number of characters in a string.
+In the following example:
+```
+length("a,b,c")
+```
+,the string is "a,b,c".
+
+So, the output of length("a,b,c") would be 5, because there are 5 characters in the string:
+
+1. a
+2. ,
+3. b
+4. ,
+5. c
+
 > length("a,b,c")
 5
 > length(split(",", "a,b,c")) 
