@@ -1,3 +1,9 @@
+https://spacelift.io/blog/terraform-locals    - Good explanation with examples
+
+https://developer.hashicorp.com/terraform/tutorials/configuration-language/locals#combine-variables-with-local-values
+
+
+
 **Date: - 16.12.2024**
 
 **Code-1**
