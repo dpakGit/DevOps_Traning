@@ -13,12 +13,12 @@ As a result, their IP addresses change, making it difficult for end-users to con
  **Project Overview:**
 This project demonstrates expertise in Kubernetes service deployment, containerization, and microservices architecture.
 
-### Diagram
+**Diagram**
 
 ![image](https://github.com/user-attachments/assets/1374e7b9-4c5e-40a8-9341-677039d71139)
 
 
-### Deployment:
+**Deployment:**
 
 The solution comprises two pods:
 - Pod-1: Houses a Python frontend application and a Redis cache database within two separate containers.
@@ -40,7 +40,7 @@ ClusterIP Service:
 - Configuration: Allocates a cluster-internal IP address, enabling Pod-1 to access Pod-2.
 
 
-### API Functionality:
+**API Functionality:**
 The Python frontend application features three APIs:
 
 1)	Initialization API:  Creates a user table in the MySQL database
@@ -61,12 +61,7 @@ Caching Mechanism:
 The Redis cache database stores user data for a specified period. Subsequent requests for the same data are served directly from the cache, reducing latency and optimizing performance.
 
 
-
-
-
-
-
-# **Technical Skills Demonstrated:**
+ **Technical Skills Demonstrated:**
 
 - Kubernetes (NodePort and ClusterIP Services)
 - Containerization (Docker)
@@ -76,7 +71,7 @@ The Redis cache database stores user data for a specified period. Subsequent req
 - Redis
 - API Design
 
-# **Outcomes:**
+ **Outcomes:**
 
 - Enabling external traffic to containerized services within the cluster
 - Scalable backend architecture
