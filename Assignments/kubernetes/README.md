@@ -8,7 +8,8 @@ As a result, their IP addresses change, making it difficult for end-users to con
  **Objective:**
  The following project demonstrates the use of Kubernetes NodePort Service and ClusterIP Service to access a container running inside a Kubernetes cluster by the end user and simultaneously providing inter cluster communication between pods using ClusterIP Service.  
 
- The following link contains the required file and folders to execute the project : https://github.com/Deepakranjanmishra/serviceDemo
+ The following link contains the required file and folders to execute the project : 
+ https://github.com/dpakGit/serviceDemo
 
  **Project Overview:**
 This project demonstrates expertise in Kubernetes service deployment, containerization, and microservices architecture.
