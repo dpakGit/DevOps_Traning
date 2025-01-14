@@ -14,3 +14,4 @@ resource "example_resource" "example" {
   }
 }
 ```
+By using this local variable, you can easily reference the current timestamp throughout your Terraform configuration.
