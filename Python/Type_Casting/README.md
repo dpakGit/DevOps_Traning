@@ -102,9 +102,9 @@ bool_value = False
 int_value = int(bool_value)
 print(int_value)  # Output: 0
 ```
-#### In Python, True is equivalent to 1 and False is equivalent to 0 when converted to integers. The int() function is used to perform this conversion.
+In Python, True is equivalent to 1 and False is equivalent to 0 when converted to integers. The int() function is used to perform this conversion.
 
-#### Alternatively, you can also use a conditional expression or a ternary operator to achieve the same result:
+Alternatively, you can also use a conditional expression or a ternary operator to achieve the same result:
 
 ```
 bool_value = True
