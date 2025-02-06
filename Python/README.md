@@ -6,7 +6,9 @@
 
 2) python_tutorial_notes - rishabhnmishra : https://github.com/rishabhnmishra/python_tutorial_notes
 
-3) 
+3) Compiler vs. Interpreter in Programming:
+
+https://builtin.com/software-engineering-perspectives/compiler-vs-interpreter
 
 #### First Python Program 
 
@@ -17,3 +19,9 @@ print("Hello Deepak")
 #### How to Add Two Numbers in Python – Easy Programs
 https://www.geeksforgeeks.org/python-program-to-add-two-numbers/
 
+### NCERT Book Pdf Links
+1. https://pythonclassroomdiary.wordpress.com/wp-content/uploads/2020/11/sumita-arora-class-xi-computer-science-with-python-pdf.pdf
+
+2. https://www.scribd.com/document/481122306/Python-Class-11-Full-Book-Sumita-Arora-Good-Quality-Print
+
+ 
