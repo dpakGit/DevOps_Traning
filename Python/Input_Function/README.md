@@ -17,12 +17,15 @@ print(a+b)
 ```
 # Ex:-4
 a=input()
+
 b=input()
+
 print(int(a)+int(b))
 ```
 ```
 # Ex:-5
 name=input("Enter your name: ")
+
 print(f"My name is {name}")
 ```
 ```
@@ -40,8 +43,11 @@ num1 = input("Enter First number: - ")
 num2 = input("Enter Second number:- ")
 
 sum=int(num1) + int(num2)
+
 print(f"Sum of two munbers is - {sum}")
+
 # Or
+
 print(f"Sum of {num1} and {num2} is {int(num1) + int(num2)} ")
 ```
 
