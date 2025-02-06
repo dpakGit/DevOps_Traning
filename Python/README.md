@@ -16,6 +16,10 @@ https://builtin.com/software-engineering-perspectives/compiler-vs-interpreter
 print("Hello Deepak")
 ```
 
+### 5 Different Ways to Print in Python
+
+https://medium.com/@DoneWithWork/5-different-ways-to-print-in-python-17528bb5c173
+
 #### How to Add Two Numbers in Python – Easy Programs
 https://www.geeksforgeeks.org/python-program-to-add-two-numbers/
 
