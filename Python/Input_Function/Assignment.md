@@ -1,4 +1,6 @@
-# "Create a Python program that takes input for a student's name and their marks in three subjects, calculates the total percentage score, and outputs the student's name along with their total percentage score."
+## Assignment Brief
+
+**"Create a Python program that takes input for a student's name and their marks in three subjects, calculates the total percentage score, and outputs the student's name along with their total percentage score."**
 
 ```
 # My code
