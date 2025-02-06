@@ -5,17 +5,15 @@
 # Ex:-1
 a=input()
 print(a)
-```
 
-```
 # Ex:-2
 print(a+a)
-```
-```
+
 # Ex:-3
 b="Orange"
 print(a+b)
 ```
+
 ```
 # Ex:-4
 a=input()
