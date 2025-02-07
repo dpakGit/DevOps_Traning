@@ -19,6 +19,8 @@ print(f"Name of the student is {Name} \nPercentage of marks secured by him/her i
 ```
 
 
+#### # optimized solution
+
 ```
 # Met Code -0 second method
 
@@ -26,8 +28,11 @@ print(f"Name of the student is {Name} \nPercentage of marks secured by him/her i
 name = input("Enter student's name: ")
 
 # Take input for marks in three subjects
+
 subject1_marks = float(input("Enter marks in Subject 1: "))
+
 subject2_marks = float(input("Enter marks in Subject 2: "))
+
 subject3_marks = float(input("Enter marks in Subject 3: "))
 
 # Calculate total marks
@@ -96,7 +101,7 @@ The above syntax is incorrect,Following is the correct syntax:
 subject1_marks = float(input("Enter marks in Subject 1: "))
 ```
 
-**The reason is that the input() function returns a string, and we need to convert that string to a float using the float() function.**
+```The reason is that the input() function returns a string, and we need to convert that string to a float using the float() function.```
 
 In your suggested syntax:
 
