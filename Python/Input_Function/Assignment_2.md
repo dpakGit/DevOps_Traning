@@ -1,6 +1,6 @@
 #### Assignment Brief
 
-**"Python Program: User Data Collector**
+**Python Program: User Data Collector**
 
 This program is designed to collect and store user data, including name, age, height, and student status.
 The collected information is stored in a dictionary, allowing for easy retrieval and management of user data.
