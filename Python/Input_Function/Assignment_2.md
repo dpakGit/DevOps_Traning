@@ -50,7 +50,7 @@ This line prompts the user to enter their age and stores the input as an integer
 
 This line prompts the user to enter their height and stores the input as a floating-point number in the user_data dictionary under the key 'height'. The float() function converts the user's input into a floating-point number.
 
-     user_data['student'] = input("Are you a student (yes/no)")
+   / - user_data['student'] = input("Are you a student (yes/no)")
 
 This line prompts the user to enter their student status (yes/no) and stores the input as a string in the user_data dictionary under the key 'student'.
 
