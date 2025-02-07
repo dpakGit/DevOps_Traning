@@ -37,6 +37,7 @@ This program collects user data (name, age, height, and student status) and stor
 This line creates an empty dictionary called user_data to store the user's information.
 
 2. **Collect user data:**
+
     - user_data['name'] = input("Enter your name: ")
 
 This line prompts the user to enter their name and stores the input as a string in the user_data dictionary under the key 'name'.
@@ -52,6 +53,7 @@ This line prompts the user to enter their height and stores the input as a float
     - user_data['student'] = input("Are you a student (yes/no)")
 
 This line prompts the user to enter their student status (yes/no) and stores the input as a string in the user_data dictionary under the key 'student'.
+
 
 3. **Print the collected data:** print(user_data)
 
