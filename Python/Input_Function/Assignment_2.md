@@ -20,7 +20,18 @@ user_data['student_status'] = input("Are you a student (yes/no):- ")
 
 # Print the input from the user
 
-print(user_data)
+print(user_data)  # This will print the entire dictonary
+
+# The folowing syntax will give access to the value of a particular key in the dictonary.
+
+print(user_data["name"])   # This will give access to value of the key "name" in the dictonary user_data.
+
+print(user_data["age"])
+
+print(user_data["height"])
+
+print(user_data["student_status"])
+
 ```
 
 Explanation of the above program
