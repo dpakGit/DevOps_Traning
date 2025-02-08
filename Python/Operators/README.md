@@ -35,3 +35,8 @@ In this example:
 - c is assigned the same object as a, so a is c returns True.
 
 Identity Operators are useful when you want to check if two variables refer to the same object in memory, rather than just having the same value.
+
+#### Benefits of Double Division Operator over Single Division Operator in Python
+
+https://www.geeksforgeeks.org/benefits-of-double-division-operator-over-single-division-operator-in-python/
+
