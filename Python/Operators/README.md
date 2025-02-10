@@ -231,5 +231,25 @@ a **= 2
 print(a) 
 ```
 
+**Walrus Operator!**
+
+```
+print(x := 3)
+```
+A nice example of Python's Walrus Operator!
+
+The command print(x := 3) is using the Walrus Operator (:=), which is a feature introduced in Python 3.8.
+
+Here's what's happening:
+
+1. x := 3 is an assignment expression. It assigns the value 3 to the variable x.
+2. The Walrus Operator (:=) returns the assigned value, which is 3.
+3. The print() function prints the returned value, which is 3.
+
+So, the output of this command will be: 3
+
+After executing this command, the variable x will also be assigned the value 3, and you can use it in subsequent code.
+
+**The Walrus Operator is useful when you want to assign a value to a variable and use that value immediately, like in a loop or a conditional statement.**
 
 
