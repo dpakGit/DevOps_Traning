@@ -253,3 +253,31 @@ After executing this command, the variable x will also be assigned the value 3, 
 **The Walrus Operator is useful when you want to assign a value to a variable and use that value immediately, like in a loop or a conditional statement.**
 
 
+Q. Is it that the walrus operator allows us to assign value to a variable inside the print function ?
+
+Sol. 
+
+You've got it!
+
+The Walrus Operator (:=) indeed allows you to assign a value to a variable inside an expression, such as within a print() function.
+
+Before the Walrus Operator, you would have to assign the value to a variable in a separate statement, like this:
+
+```x = 3
+print(x)```
+
+But with the Walrus Operator, you can do it in one line:
+
+```print(x := 3)```
+
+This is a concise way to assign a value to a variable and use it immediately, all within a single expression.
+
+The Walrus Operator is not limited to print() functions, though. You can use it in other contexts, such as:
+
+- Conditional statements: if (n := len(my_list)) > 5: ...
+- Loops: while (line := file.readline()): ...
+- List comprehensions: [y for x in my_list if (y := x**2) > 10]
+
+And many more!
+
+
