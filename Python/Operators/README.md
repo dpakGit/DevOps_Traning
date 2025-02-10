@@ -263,12 +263,12 @@ The Walrus Operator (:=) indeed allows you to assign a value to a variable insid
 
 Before the Walrus Operator, you would have to assign the value to a variable in a separate statement, like this:
 
-```x = 3
-print(x)```
+x = 3
+print(x)
 
 But with the Walrus Operator, you can do it in one line:
 
-```print(x := 3)```
+print(x := 3)
 
 This is a concise way to assign a value to a variable and use it immediately, all within a single expression.
 
