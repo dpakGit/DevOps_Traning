@@ -280,4 +280,59 @@ The Walrus Operator is not limited to print() functions, though. You can use it 
 
 And many more!
 
+Q. print(x :/=2) - is the following a correct syntax of using Walrus Operator , if not give the correct syntax ?
+
+sol.
+The syntax print(x :/=2) is not correct.
+
+The correct syntax for the Walrus Operator is :=, not :/=.
+
+If you want to divide x by 2 and assign the result back to x, you can use the augmented assignment operator /= like this:
+
+x /= 2
+print(x)
+
+Or, if you want to use the Walrus Operator to assign the result of the division to x and print it in one line, you can do:
+
+print(x := x / 2)
+
+Q. So we cannot do any arithmetic or other operations only assignment is possible through  Walrus Operator ?
+
+Sol.
+
+The Walrus Operator (:=) is specifically designed for assignment, not for performing arithmetic or other operations.
+
+You can only use the Walrus Operator to assign a value to a variable, like this:
+
+x := 5
+
+Or, as we discussed earlier, to assign a value to a variable and use it immediately, like this:
+
+print(x := 5)
+
+You cannot use the Walrus Operator to perform arithmetic operations, like this:
+
+x := 5 + 3  # Incorrect syntax
+
+Instead, you would need to use the assignment operator (=) and perform the arithmetic operation separately, like this:
+
+x = 5 + 3
+
+**However, you can use the Walrus Operator in combination with other operators, like this:**
+
+print(x := 5 * 2)
+
+This would assign the result of the multiplication to x and print it.
+
+More Examples:
+
+print(x := 5 + 2)
+
+print(x := 5 - 2)
+
+print(x := 5 * 2)
+
+print(x := 5 / 2)
+... and soon.
+
 
