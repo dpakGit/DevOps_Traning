@@ -426,6 +426,12 @@ print(not(a>20 or b<10)) # F + F
 
 # Identity Operators
 
+https://www.tutorialspoint.com/python/python_identity_operators.htm
+
+https://www.geeksforgeeks.org/python-membership-identity-operators-not-not/
+
+https://www.w3schools.com/python/python_operators.asp
+
 Ex:1
 ```
 a=25
@@ -526,3 +532,23 @@ print(a)
 print(b)  # still prints [1, 2, 3, 4], because b still points to the original object
 ```
 So, to summarize: a = b makes b point to the same object as a, but it doesn't assign the same location to b as a. Instead, it creates a new reference to the same object.
+
+```
+# https://www.w3schools.com/python/trypython.asp?filename=demo_oper_identity1
+
+x = ["apple", "banana"]
+y = ["apple", "banana"]
+z = x
+
+print(x is z)
+
+# returns True because z is the same object as x
+
+print(x is y)
+
+# returns False because x is not the same object as y, even if they have the same content
+
+print(x == y)
+
+# to demonstrate the difference betweeen "is" and "==": this comparison returns True because x is equal to y
+```
