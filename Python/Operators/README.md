@@ -491,3 +491,36 @@ print("id(a) : ", id(a))
 print("id(b) : ", id(b))
 ```
 
+# v v Imporatant
+
+In Python, when you do a = b, it doesn't exactly assign the same location to b as a. Instead, it makes b point to the same object that a is pointing to.
+
+Here's what happens under the hood:
+
+1. a is assigned a reference to an object (e.g., an integer, string, list, etc.).
+2. When you do b = a, b receives a copy of the reference that a has.
+3. Both a and b now point to the same object in memory.
+
+However, if you modify the object through a, the changes will be reflected when you access the object through b, because they're pointing to the same object.
+
+But, if you reassign a to a new object, b will still point to the original object.
+
+Here's an example to illustrate this:
+```
+a = [1, 2, 3]  # a points to a list object
+b = a  # b points to the same list object as a
+
+print(id(a))  # prints the memory address of the list object
+print(id(b))  # prints the same memory address as above
+```
+
+```
+a.append(4)  # modifies the list object
+print(b)  # prints [1, 2, 3, 4], because b points to the same object
+```
+
+```
+a = [5, 6, 7]  # reassigns a to a new list object
+print(b)  # still prints [1, 2, 3, 4], because b still points to the original object
+```
+So, to summarize: a = b makes b point to the same object as a, but it doesn't assign the same location to b as a. Instead, it creates a new reference to the same object.
