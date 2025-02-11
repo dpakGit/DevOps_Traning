@@ -424,5 +424,70 @@ print(not(a>20 or b<20)) # F + T
 print(not(a>20 or b<10)) # F + F
 ```
 
+# Identity Operators
 
+Ex:1
+```
+a=25
+b=25
+
+print(a is b)
+print(a is not b)
+print("id(a) : ", id(a))
+print("id(b) : ", id(b))
+```
+
+Ex:2
+```
+a=[1,2,3]
+
+b=[1,2,3]
+
+print(a is b)
+print(a is not b)
+print("id(a) : ", id(a))
+print("id(b) : ", id(b))
+```
+
+
+Ex:3 Values inside list are same
+```
+a=[1,2,3]
+
+b=[1,2,3]
+
+a=b
+
+print("Ex:3",a is b)
+print("Ex:3",a is not b)
+print("id(a) : ", id(a))
+print("id(b) : ", id(b))
+```
+
+Ex:3.1 Values inside list are different
+
+```
+a=[3,4,5,6]
+
+b=[6,7,8,9]
+
+print("Ex:3.1",a is b)
+print("Ex:3.1",a is not b)
+print("id(a) : ", id(a))
+print("id(b) : ", id(b))
+```
+
+Ex:3.2
+```
+a=[3,4,5,6]
+
+b=[6,7,8,9]
+
+a=b
+
+print("Ex:3.2",a is b)
+print("Ex:3.2",a is not b)
+print("id(a) : ", id(a))
+print("id(b) : ", id(b))
+```
 
