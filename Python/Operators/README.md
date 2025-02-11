@@ -491,7 +491,7 @@ print("id(a) : ", id(a))
 print("id(b) : ", id(b))
 ```
 
-# v v Imporatant
+# V.V.Imporatant
 
 In Python, when you do a = b, it doesn't exactly assign the same location to b as a. Instead, it makes b point to the same object that a is pointing to.
 
