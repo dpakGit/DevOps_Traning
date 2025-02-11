@@ -6,7 +6,9 @@
 
 2) python_tutorial_notes - rishabhnmishra : https://github.com/rishabhnmishra/python_tutorial_notes
 
-3) Compiler vs. Interpreter in Programming:
+3) https://www.tutorialspoint.com/python/index.htm
+
+4) Compiler vs. Interpreter in Programming:
 
 https://builtin.com/software-engineering-perspectives/compiler-vs-interpreter
 
