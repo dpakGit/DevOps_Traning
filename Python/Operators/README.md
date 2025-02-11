@@ -4,6 +4,10 @@ https://www.geeksforgeeks.org/python-operators/
 
 https://www.w3schools.com/python/python_operators.asp
 
+See the examples in the bellow link - V.V.Imp:
+
+https://www.tutorialspoint.com/python/python_operators.htm
+
 
 
 
