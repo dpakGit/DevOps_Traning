@@ -360,6 +360,8 @@ print(a>20 or b<10) # F + F
 ```
 
 **"not" operator examples**
+
+
 Ex:1
 ```
 a = 20
