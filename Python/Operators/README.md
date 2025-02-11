@@ -555,6 +555,12 @@ print(x == y)
 
 # Membership Operators
 
+see examples from this below two links:
+
+https://www.tutorialspoint.com/python/python_operators.htm#membership-operators
+
+https://www.geeksforgeeks.org/python-membership-identity-operators-not-not/
+
 Ex:1 **"in" Operator**
 
 ```
@@ -568,6 +574,8 @@ print('watermelon' in my_list)
 Ex:2 **"not in" Operato**r
 
 ```
+my_list = ['apple','orange','banana']
+
 print('apple' not in my_list)       
 
 print('watermelon' not in my_list)
