@@ -336,3 +336,49 @@ print(x := 5 / 2)
 ... and soon.
 
 
+
+# Logical Operators
+
+**"And" operator examples**
+```
+a = 20
+b = 10
+ print(a>20 and b<10) # F + F
+print(a==20 and b>10) # T + F
+print(a>20 and b<20) # F + T
+print(a==20 and b==10) # T + T
+```
+
+**"OR" operator examples**
+```
+a = 20
+b = 10
+print(a==20 or b==10) # T + T
+print(a==20 or b>10) # T + F
+print(a>20 or b<20) # F + T
+print(a>20 or b<10) # F + F
+```
+
+**"not" operator examples**
+Ex:1
+```
+a = 20
+b = 10
+print(not(a==20 and b==10)) # T + T
+print(not(a==20 and b>10)) # T + F
+print(not(a>20 and b<20)) # F + T
+print(not(a>20 and b<10)) # F + F
+```
+
+Ex:2
+```
+a = 20
+b = 10
+print(not(a==20 or b==10)) # T + T
+print(not(a==20 or b>10)) # T + F
+print(not(a>20 or b<20)) # F + T
+print(not(a>20 or b<10)) # F + F
+```
+
+
+
