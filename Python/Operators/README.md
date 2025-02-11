@@ -492,6 +492,7 @@ print("id(b) : ", id(b))
 ```
 
 # V.V.Imporatant
+Source: Meta
 
 In Python, when you do a = b, it doesn't exactly assign the same location to b as a. Instead, it makes b point to the same object that a is pointing to.
 
