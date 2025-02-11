@@ -522,6 +522,7 @@ print(b)  # prints [1, 2, 3, 4], because b points to the same object
 
 ```
 a = [5, 6, 7]  # reassigns a to a new list object
+print(a)  
 print(b)  # still prints [1, 2, 3, 4], because b still points to the original object
 ```
 So, to summarize: a = b makes b point to the same object as a, but it doesn't assign the same location to b as a. Instead, it creates a new reference to the same object.
