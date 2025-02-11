@@ -134,6 +134,48 @@ print(a>=b) # Greater than or equal to
 print(a<=b) # Smaller than or equal to
 ```
 
+**Difference between "=" operator and the "==" operator**
+
+Sol: Meta
+
+In Python, the "=" operator and the "==" operator are two distinct operators with different purposes:
+
+Assignment Operator (=)
+
+The "=" operator is used for assignment. It assigns the value on the right-hand side to the variable on the left-hand side.
+
+Example:
+
+x = 5  # Assigns the value 5 to the variable x
+
+In this example, the value 5 is assigned to the variable x.
+
+Equality Operator (==)
+
+The "==" operator is used for comparison. It checks whether the values on both sides are equal.
+
+Example:
+
+x = 5
+y = 5
+print(x == y)  # Output: True
+
+In this example, the values of x and y are compared, and since they are equal, the output is True.
+
+Key differences:
+
+1. Purpose: "=" is for assignment, while "==" is for comparison.
+2. Syntax: "=" has one equals sign, while "==" has two equals signs.
+3. Output: "=" does not produce output, while "==" produces a boolean value (True or False).
+
+To illustrate the difference, consider this example:
+
+
+x = 5  # Assignment
+print(x == 5)  # Comparison
+
+In the first line, the value 5 is assigned to x. In the second line, the value of x is compared to 5, and the output is True.
+
 # Assignment Operators
 
 ```
