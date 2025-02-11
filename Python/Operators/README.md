@@ -552,3 +552,23 @@ print(x == y)
 
 # to demonstrate the difference betweeen "is" and "==": this comparison returns True because x is equal to y
 ```
+
+# Membership Operators
+
+Ex:1 **"in" Operator**
+
+```
+my_list = ['apple','orange','banana']
+
+print('apple' in my_list)       
+
+print('watermelon' in my_list)
+```
+
+Ex:2 **"not in" Operato**r
+
+```
+print('apple' not in my_list)       
+
+print('watermelon' not in my_list)
+```
