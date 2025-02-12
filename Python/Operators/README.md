@@ -581,7 +581,9 @@ print('apple' not in my_list)
 print('watermelon' not in my_list)
 ```
 
+# Bitwise Operators
 
-@@How to Convert Decimal to Binary?@@
+
+**How to Convert Decimal to Binary?**
 
 https://www.cuemath.com/numbers/decimal-to-binary/
