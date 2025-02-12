@@ -587,3 +587,11 @@ print('watermelon' not in my_list)
 **How to Convert Decimal to Binary?**
 
 https://www.cuemath.com/numbers/decimal-to-binary/
+
+https://www.geeksforgeeks.org/python-bitwise-operators/
+
+https://www.tutorialspoint.com/python/python_bitwise_operators.htm
+
+https://www.w3schools.com/python/python_operators.asp
+
+
