@@ -1,6 +1,6 @@
 
 ```
-Ex:1
+# Ex:1
 a=108
 b=75
 if a>b:
@@ -8,7 +8,7 @@ if a>b:
 ```
 
 ```
-Ex:2
+# Ex:2
 When it does not satisfy the if condition  clear
 
 a= 75
@@ -18,7 +18,7 @@ if a>b:
 ```
 
 ```
-Ex:3
+# Ex:3
 age =18
 if age >=18:
     print("Age:",age)
