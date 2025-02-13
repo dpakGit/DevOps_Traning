@@ -134,7 +134,7 @@ Here's how Python executes the next line of code:
 In your case, since there's no explicit else clause or additional code after the if block, Python will simply terminate the program after executing the if block (if the condition is True) or skipping it (if the condition is False).
 
 
-Q. My Question:- "So literally **python checks the Boolean result** using the if condition and and with the help of the if condition it decides whether to execute the block insides it or not."
+Q. My Question:- "So literally **Python Checks the Boolean Result** using the if condition and and with the help of the if condition it decides whether to execute the block insides it or not."
 
 You've got it!
 
