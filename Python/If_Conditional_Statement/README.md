@@ -5,7 +5,9 @@ a=108
 b=75
 if a>b:
     print("a is greater than b") # When condition is true
+```
 
+```
 Ex:2
 When it does not satisfy the if condition  clear
 
@@ -13,7 +15,9 @@ a= 75
 b=108
 if a>b:
     print("a is greater than b") # When condition is true
+```
 
+```
 Ex:3
 age =18
 if age >=18:
