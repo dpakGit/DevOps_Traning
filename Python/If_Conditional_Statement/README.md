@@ -8,8 +8,7 @@ if a>b:
 ```
 
 ```
-# Ex:2
-When it does not satisfy the if condition  clear
+# Ex:2  When it does not satisfy the if condition  clear
 
 a= 75
 b=108
