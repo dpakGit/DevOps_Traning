@@ -1,3 +1,5 @@
+
+```
 Ex:1
 a=108
 b=75
@@ -17,17 +19,17 @@ age =18
 if age >=18:
     print("Age:",age)
     print("You are eligible for voting")
-
+```
 
 **Error**
 It seems like you're experiencing a syntax error.
 
 The correct syntax for your code should be:
-
+```
 age = 25
 if age > 20:
     print(age)
-
+```
 Make sure to:
 
 1. Use a consistent number of spaces for indentation (4 spaces is standard).
@@ -55,10 +57,11 @@ So, to summarize: the space after the if statement is not just a stylistic choic
 
 Q. Explain the following code- 
 
-```age =int(input("Enter Your Age: "))
+```
+age =int(input("Enter Your Age: "))
 if age >=18:
     print(age >=18)```
-
+```
 Sol:
 Let's break down the code:
 
