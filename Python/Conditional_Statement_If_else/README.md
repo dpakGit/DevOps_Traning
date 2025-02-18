@@ -93,3 +93,52 @@ res = "Pass" if marks >= 40 else "Fail"
 print(f"Result: {res}")
 ```
 
+```
+EX:
+
+value = None
+if value:
+    print("Value is true")
+else:
+    print("Value is False")
+```
+
+Explanation of the above code:
+
+This code is using a conditional statement to evaluate the value of the variable value. Here's a breakdown:
+
+Code Explanation
+```
+value = None  # Initialize value as None
+
+if value:  # Check if value is truthy
+    print("Value is true")  # If truthy, print this message
+else:  # If value is falsy
+    print("Value is False")  # Print this message
+```
+
+**Truthy and Falsy Values**
+
+- In Python, the following values are considered falsy:
+
+```
+- None
+- False
+- 0 (integer)
+- 0.0 (float)
+- "" (empty string)
+- [] (empty list)
+- {} (empty dictionary)
+- () (empty tuple)
+```
+
+**All other values are considered truthy.**
+
+Code Execution of the above code:
+
+Given that value is initialized as None, which is a falsy value, the code will execute the else block and print:
+
+
+Value is False
+
+
