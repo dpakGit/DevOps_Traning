@@ -4,9 +4,152 @@ https://www.geeksforgeeks.org/nested-if-statement-in-python/?ref=header_ind
 
 https://www.tutorialspoint.com/python/nested_if_statements_in_python.htm
 
--
--
--
+
+Q. Where is the most suitable location for a nested loop: within an if statement, an elif clause, or an else block?
+
+Sol: The most suitable location for a nested loop depends on the specific logic and requirements of your code. However, here are some general guidelines:
+
+- If statement: Use a nested loop within an if statement when you want to iterate over a collection or perform a repetitive task only when a certain condition is true.
+
+- Elif clause: Use a nested loop within an elif clause when you want to iterate over a collection or perform a repetitive task only when a specific alternative condition is true.
+
+- Else block: Use a nested loop within an else block when you want to iterate over a collection or perform a repetitive task only when all other conditions are false.
+
+In general, the nested loop should be placed where it makes the most logical sense based on the flow of your program and the conditions you're checking.
+
+Here's an example:
+```
+if condition1:
+    # Perform task A
+    for item in collection:
+        # Perform task B for each item
+        pass
+elif condition2:
+    # Perform task C
+    for item in collection:
+        # Perform task D for each item
+        pass
+else:
+    # Perform task E
+    for item in collection:
+        # Perform task F for each item
+        pass
+```
+
+Q. Give one example each for if statement, Elif and else ?
+
+Sol:
+
+Here are three examples:
+
+**If Statement Example**
+``
+x = 5
+if x > 10:
+    for i in range(5):
+        print(i)
+``
+
+In this example, the nested loop will not execute because the condition x > 10 is false.
+
+
+**Elif Clause Example**
+
+```
+x = 5
+if x > 10:
+    print("x is greater than 10")
+elif x == 5:
+    for i in range(5):
+        print(i)
+```
+
+In this example, the nested loop will execute because the condition x == 5 is true.
+
+
+**Else Block Example**
+```
+x = 15
+if x > 20:
+    print("x is greater than 20")
+elif x == 10:
+    print("x is equal to 10")
+else:
+    for i in range(5):
+        print(i)
+```
+
+In this example, the nested loop will execute because the conditions in the if and elif clauses are false, so the program falls through to the else block.
+
+
+Q. Give one  individual example each for if statement, Elif and else statement where a nested loop is used ?
+
+Sol:
+Here are three individual examples:
+
+# If Statement Example
+
+x = 5
+if x > 0:
+    for i in range(3):
+        for j in range(2):
+            print(f"i: {i}, j: {j}")
+
+
+Output:
+
+i: 0, j: 0
+i: 0, j: 1
+i: 1, j: 0
+i: 1, j: 1
+i: 2, j: 0
+i: 2, j: 1
+
+
+# Elif Clause Example
+
+x = 0
+if x > 10:
+    print("x is greater than 10")
+elif x == 0:
+    for i in range(3):
+        for j in range(2):
+            print(f"i: {i}, j: {j}")
+
+
+Output:
+
+i: 0, j: 0
+i: 0, j: 1
+i: 1, j: 0
+i: 1, j: 1
+i: 2, j: 0
+i: 2, j: 1
+
+
+# Else Block Example
+
+x = -5
+if x > 0:
+    print("x is positive")
+elif x == 0:
+    print("x is zero")
+else:
+    for i in range(3):
+        for j in range(2):
+            print(f"i: {i}, j: {j}")
+
+
+Output:
+
+i: 0, j: 0
+i: 0, j: 1
+i: 1, j: 0
+i: 1, j: 1
+i: 2, j: 0
+i: 2, j: 1
+
+
 **Examples**
 
 **Number Classification Code**
