@@ -43,12 +43,13 @@ Sol:
 Here are three examples:
 
 **If Statement Example**
-``
+
+```
 x = 5
 if x > 10:
     for i in range(5):
         print(i)
-``
+```
 
 In this example, the nested loop will not execute because the condition x > 10 is false.
 
@@ -68,6 +69,7 @@ In this example, the nested loop will execute because the condition x == 5 is tr
 
 
 **Else Block Example**
+
 ```
 x = 15
 if x > 20:
@@ -89,12 +91,13 @@ Here are three individual examples:
 
 **If Statement Example**
 
+```
 x = 5
 if x > 0:
     for i in range(3):
         for j in range(2):
             print(f"i: {i}, j: {j}")
-
+```
 
 Output:
 
@@ -113,6 +116,7 @@ i: 2, j: 1
 
 **Elif Clause Example**
 
+```
 x = 0
 if x > 10:
     print("x is greater than 10")
@@ -120,7 +124,7 @@ elif x == 0:
     for i in range(3):
         for j in range(2):
             print(f"i: {i}, j: {j}")
-
+```
 
 Output:
 
@@ -134,6 +138,7 @@ i: 2, j: 1
 
 **Else Block Example**
 
+```
 x = -5
 if x > 0:
     print("x is positive")
@@ -144,7 +149,7 @@ else:
         for j in range(2):
             print(f"i: {i}, j: {j}")
 
-
+```
 Output:
 
 i: 0, j: 0
