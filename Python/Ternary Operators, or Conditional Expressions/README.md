@@ -1,8 +1,8 @@
 ## Ternary Operators, or Conditional Expressions.
 
-Scroll down the page in the following link to find Ternary Operators, or Conditional Expressions:
 
-https://www.w3schools.com/python/python_conditions.asp#gsc.tab=0
+
+https://www.w3schools.com/python/python_conditions.asp#gsc.tab=0 (Scroll down the page in the following link to find Ternary Operators, or Conditional Expressions:)
 
 https://www.geeksforgeeks.org/ternary-operator-in-python/?ref=header_ind
 
