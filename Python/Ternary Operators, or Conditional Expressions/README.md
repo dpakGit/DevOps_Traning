@@ -10,6 +10,8 @@ https://sparkbyexamples.com/python/python-ternary-conditional-operator/
 
 
 
+
+
 **The syntax for Python's ternary operator is:**
 
 ```("value_if_true")  if [condition]  else  ("value_if_false")```
