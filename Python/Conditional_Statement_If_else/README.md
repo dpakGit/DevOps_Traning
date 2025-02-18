@@ -54,21 +54,24 @@ else:
      print("You are not eligible for voting")
 ```
 
-
-# Ex: 5
+```
+Ex: 5
 temp = float(input("Enter the Temperature:"))
 if temp < 25:
     print("It's a cool day")
 else:
-    print("It's a hot day") 
+    print("It's a hot day")
+```
 
-#Ex:6
+```
+Ex:6
 age =int(input("Enter Your Age: "))
 
 if age <= 12:
     print("Travel for free.")
 else:
     print("Pay for ticket.")
+```
 
 **Short Hand if-else**
 
@@ -77,6 +80,7 @@ Practice all examples in the following link:
 https://www.w3schools.com/python/python_conditions.asp#gsc.tab=0
 
 The short-hand if-else statement allows you to write a single-line if-else statement.
+
 ```
 Ex:
 
@@ -84,7 +88,9 @@ marks = 45
 res = "Pass" if marks >= 40 else "Fail"
 
 print(f"Result: {res}")
+```
 
+```
 Ex:
 
 marks =int(input("Enter Your marks: "))
@@ -107,7 +113,8 @@ Explanation of the above code:
 
 This code is using a conditional statement to evaluate the value of the variable value. Here's a breakdown:
 
-Code Explanation
+Code Explanation:
+
 ```
 value = None  # Initialize value as None
 
