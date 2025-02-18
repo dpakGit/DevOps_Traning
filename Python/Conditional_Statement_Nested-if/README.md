@@ -87,7 +87,7 @@ Q. Give one  individual example each for if statement, Elif and else statement w
 Sol:
 Here are three individual examples:
 
-# If Statement Example
+**If Statement Example**
 
 x = 5
 if x > 0:
@@ -99,14 +99,19 @@ if x > 0:
 Output:
 
 i: 0, j: 0
+
 i: 0, j: 1
+
 i: 1, j: 0
+
 i: 1, j: 1
+
 i: 2, j: 0
+
 i: 2, j: 1
 
 
-# Elif Clause Example
+**Elif Clause Example**
 
 x = 0
 if x > 10:
@@ -127,7 +132,7 @@ i: 2, j: 0
 i: 2, j: 1
 
 
-# Else Block Example
+**Else Block Example**
 
 x = -5
 if x > 0:
@@ -148,6 +153,8 @@ i: 1, j: 0
 i: 1, j: 1
 i: 2, j: 0
 i: 2, j: 1
+
+
 
 
 **Examples**
