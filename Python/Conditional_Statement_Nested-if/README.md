@@ -36,6 +36,24 @@ else:
     print(num, "is a positive number")
 ```
 
+
+# Rishab Sharma Example
+
+```
+num = int(input("Enyer the number: "))
+if num > 0:
+    if num % 2 == 0:
+        print("The number is positive and even")
+    else:
+        print("The number is positive and odd")
+else:
+    if num == 0:
+        print("The number is Zero")
+    else:
+        print("The number is negative")
+```
+        
+        
 ```        
 # Ex: 3 My code using Nested If Else Statement
 
