@@ -48,4 +48,14 @@ result = (
 )
 ```
 
+```
+# Ex:
+Age= int(input("Enter Your Age: "))
+
+status = "Major" if Age >= 18 else "Minor"  # Major and Minor are written inside quotes as they are values of the variable status
+
+print(status)
+```
+
+
 
