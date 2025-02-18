@@ -7,7 +7,7 @@ https://www.tutorialspoint.com/python/nested_if_statements_in_python.htm
 
 **Examples**
 
-See more examples in the following link :
+See more examples in the following link : **Important examples**
 
 https://sparkbyexamples.com/python/python-nested-if-else/
 
@@ -280,6 +280,24 @@ Hello, world!
 This is a new line.
 
 In the context of the print() function, the end parameter controls whether a newline character is appended to the output. By default, end='\n', which means a newline character is added at the end of the output. But by setting end='' or end=' ', you can suppress the newline character and continue printing on the same line.
+
+
+```
+Ex: 4 :  Age classifier
+
+age = int(input("Enter your age : "))
+
+if age >= 60:
+    print("You are a senior citizen.")
+else:
+    if age >= 18:
+        print("You are an adult.")
+    else:
+        print("You are a teenager.")
+```
+
+More Examples see the above links: 
+
 
 
 
