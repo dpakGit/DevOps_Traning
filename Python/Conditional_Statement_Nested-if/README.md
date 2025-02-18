@@ -37,9 +37,11 @@ else:
 ```
 
 
-# Rishab Sharma Example
+**Rishab Sharma Example**
 
 ```
+# "Nested If-Else Statement Example: Classifying Numbers"
+
 num = int(input("Enyer the number: "))
 if num > 0:
     if num % 2 == 0:
@@ -52,8 +54,32 @@ else:
     else:
         print("The number is negative")
 ```
+
+The following Code gives the same output as the above code.
+
+source: Meta
+
+```
+num = int(input("Enter the number: "))
+
+if num > 0:
+    if num % 2 == 0:
+        print("The number is positive and even")
+    else:
+        print("The number is positive and odd")
+elif num == 0:
+    print("The number is Zero")
+
+else:
+    if num % 2 == 0:
+        print("The number is negative and even")
+    else:
+        print("The number is negative and odd")
+```
+
         
-        
+**"Nested If-Else Statement Example: Classifying Numbers"**    
+
 ```        
 # Ex: 3 My code using Nested If Else Statement
 
