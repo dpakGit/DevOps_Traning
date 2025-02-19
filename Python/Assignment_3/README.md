@@ -1,5 +1,5 @@
 
-# Leap Year Determination Program
+### Assignment-1 : Leap Year Determination Program
 
 Alternatively, you could also use the following names:
 
@@ -128,7 +128,7 @@ By checking these conditions, we can correctly identify leap years.
 
 
 
-# Login Authentication Program
+### Assignment-2 : Login Authentication Program
 
 Ex: 1
 
