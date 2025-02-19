@@ -1,3 +1,133 @@
+
+# Leap Year Determination Program
+
+Alternatively, you could also use the following names:
+
+1. Determine if a Year is a Leap Year, or
+
+2. Leap Year Checker Program.
+
+**Code Explanation**
+
+Let's break down the two codes:
+
+Code 1: Nested Conditional Statements
+
+
+```
+year = int(input("Enter the Year: "))
+
+if year % 4 == 0: # Condition-1 if statement
+    
+    if year % 100 == 0: # Condition-2 if statement
+        
+        if year % 400 == 0: # Condition-3 if statement
+            print(f"{year} is a Century year and a leap year.")
+        else: # Condition-3 else statement                              
+            print(f"{year} is neither a Century year or not a leap year.")
+    
+    else: # Condition-2 else statement
+        print(f"{year} is a leap year.")
+
+else: # Condition-1 else statement
+    print(f"{year} is not a leap year.")
+```
+
+Explanation:
+This code uses nested conditional statements to determine whether a given year is a leap year or not.
+
+Here's how it works:
+
+1. First Condition: if year % 4 == 0: checks if the year is evenly divisible by 4. If this condition is true, the code proceeds to the next condition.
+
+2. Second Condition: if year % 100 == 0: checks if the year is a century year (i.e., evenly divisible by 100). If this condition is true, the code proceeds to the next condition.
+
+3. Third Condition: if year % 400 == 0: checks if the year is evenly divisible by 400. If this condition is true, the code prints that the year is a leap year.
+
+4. Else Clauses: If any of the above conditions are false, the code prints that the year is not a leap year.
+
+Leap Year Rules:
+
+The code implements the following leap year rules:
+
+- The year must be evenly divisible by 4.
+- If the year is a century year (i.e., evenly divisible by 100), it must also be evenly divisible by 400.
+
+Q. Explain the following line in the code - if year % 100 == 0:
+
+Sol:
+This line of code is checking if the year is a century year (i.e., a year that is divisible by 100).
+
+Here's a breakdown:
+
+- year % 100: This is using the modulo operator (%) to find the remainder of the year when divided by 100.
+- == 0: This is checking if the remainder is equal to 0.
+
+In other words, this line is asking: "Is the year exactly divisible by 100?"
+
+If the answer is yes, then the year is a century year (e.g., 1900, 2000, 2100, etc.).
+
+This check is important in the leap year calculation because century years have a special rule:
+
+- Century years are only leap years if they are also divisible by 400.
+
+So, if the year is a century year, the code needs to perform an additional check to see if it's also divisible by 400.
+
+
+Code 2: Simplified Conditional Statement
+
+```
+year = int(input("Enter the Year: "))
+
+if year % 4 == 0 and (year % 100 != 0 or year % 400 == 0):
+    print(f"{year} is a leap year.")
+else:
+    print(f"{year} is not a leap year.")
+```
+
+Explanation:
+
+This code uses a simplified conditional statement to determine whether a given year is a leap year or not.
+
+Here's how it works:
+
+1. Single Condition: if year % 4 == 0 and (year % 100 != 0 or year % 400 == 0): checks two conditions simultaneously:
+ - year % 4 == 0 checks if the year is evenly divisible by 4.
+ - (year % 100 != 0 or year % 400 == 0) checks two sub-conditions:
+ - year % 100 != 0 checks if the year is not a century year (i.e., not evenly divisible by 100).
+ - year % 400 == 0 checks if the year is evenly divisible by 400.
+
+2. Leap Year Rule: If the year meets both conditions, it is considered a leap year.
+
+This simplified code achieves the same result as the nested conditional statement code, but with fewer lines of code and improved readability.
+
+That's a common misconception.
+
+Not all years that are divisible by 4 are leap years. There's an exception for century years.
+
+According to the Gregorian calendar rules:
+
+- Years that are divisible by 4 are leap years, unless...
+- The year is also divisible by 100, in which case it's not a leap year, unless...
+- The year is also divisible by 400, in which case it is a leap year.
+
+So, if we don't check for century years, we'll incorrectly identify years like 1900, 2100, etc. as leap years.
+
+For example:
+
+- 1900 is divisible by 4, but it's not a leap year because it's a century year that's not divisible by 400.
+- 2000 is divisible by 4 and 400, so it is a leap year.
+
+To accurately determine leap years, we need to check all three conditions:
+
+1. Year is divisible by 4.
+2. Year is not a century year (or is divisible by 400).
+
+By checking these conditions, we can correctly identify leap years.
+
+
+
+
 # Login Authentication Program
 
 Ex: 1
