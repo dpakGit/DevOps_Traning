@@ -7,6 +7,18 @@ Alternatively, you could also use the following names:
 
 2. Leap Year Checker Program.
 
+Q. What to determine whether a year is a leap year or not ?
+
+Ans: 
+A year is a leap year if it's divisible by 4, except for years divisible by 100, which must also be divisible by 400 to be leap years. For example, 1700, 1800, and 1900 are not leap years, while 1600 and 2000 are.
+To determine if a year is a leap year, follow these rules:
+
+Examples:
+
+- Years 1700, 1800, and 1900 are not leap years.
+- Years 1600 and 2000 are leap years."
+
+
 **Code Explanation**
 
 Let's break down the two codes:
