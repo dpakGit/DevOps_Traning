@@ -97,7 +97,7 @@ else:
     print(f"{year} is not a leap year.")
 
 
-# Or use the following if-statement:
+# Or use the following if-statement in place of the above if-statement in this code:
 
 # if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
 
