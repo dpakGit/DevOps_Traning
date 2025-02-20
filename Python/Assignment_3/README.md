@@ -252,3 +252,78 @@ Example Use Cases:
 - Unknown user: Enter any username other than "admin" or "guest".
 
 More Examples : - https://sparkbyexamples.com/python/python-nested-if-else/
+
+
+### Assignment-3 : Eligibility Criteria Checker for Admission
+
+Code: -1
+
+```
+# My Code
+
+print("Input Marks obtained in Physice, Mathematics and Chemistry")
+
+maths = int(input("Enter Maths Mark: "))
+
+physics = int(input("Enter Physics Mark: "))
+
+chem = int(input("Enter Chemistry Mark: "))
+
+if maths >= 65 and physics >= 55 and chem >= 50 : # Condition-1
+
+    if (maths + physics + chem ) >= 200 or (maths + physics) >= 140 : # Condition-2 or Condition-3
+        print ("Eligible")
+    else:
+        print("Ineligible")
+else:
+    print(" Ineligible")
+
+```
+
+Code: -2
+
+```
+# Improved Code
+
+print("Input Marks obtained in Physice, Mathematics and Chemistry")
+
+maths = int(input("Enter maths Mark: "))
+physics = int(input("Enter physics Mark: "))
+chem = int(input("Enter chem Mark: "))
+
+if maths >= 65 and physics >= 55 and chem >= 50 and \
+    ((maths + physics + chem) >= 200 or (maths + physics) >= 140):
+    print("Eligible")
+else:
+    print("Ineligible")
+
+- Combined the two if statements into one using the and operator.
+
+```
+
+Code Expanation:
+
+This code checks whether a student is eligible for admission based on their marks in Physics, Mathematics, and Chemistry.
+
+Here's a breakdown of the code:
+
+1. User Input:
+   
+    - The code first prints a message asking the user to input their marks.
+    - It then prompts the user to enter their marks in Mathematics, Physics, and Chemistry using the input() function.
+    - The int() function is used to convert the user's input into integers.
+
+3. Eligibility Criteria:
+    
+    - The code then checks if the student meets the eligibility criteria using an if statement.
+    - The criteria are:
+        - Mathematics marks must be 65 or more.
+        - Physics marks must be 55 or more.
+        - Chemistry marks must be 50 or more.
+        - The total marks in all three subjects must be 200 or more, or the combined marks in Mathematics
+          and Physics must be 140 or more.
+
+4. Output:
+   
+    - If the student meets the eligibility criteria, the code prints "Eligible".
+    - Otherwise, it prints "Ineligible".
