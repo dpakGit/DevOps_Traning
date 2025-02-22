@@ -3,6 +3,10 @@
 1. https://www.programiz.com/python-programming/function
 
 
+
+**Examples:**
+
+
 ```
 EX:1
 
