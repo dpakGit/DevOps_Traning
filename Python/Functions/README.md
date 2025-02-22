@@ -102,10 +102,10 @@ print(confirmation_message("Ajay","Kerala"))
 # print(confirmation_message("Mohan","Assam"))
 ```
 
-**Python Program to Calculate the Area of a Circle Using a Custom Function
-or "User-Defined Function in Python to Compute the Area of a Circle**\
+**Python Program to Calculate the Area of a Circle Using a Custom Function**
 
 ```
+Ex : User-Defined Function in Python to Compute the Area of a Circle
 def area_of_circle(a):
     pi = 3.14159
     return pi * a **2
