@@ -8,22 +8,22 @@
 
 
 ```
-EX:1
+EX:1  Function without parameters
 
-def hello() -> None:
+def hello() -> None: Without parameters
     """
     Prints a message "Hello !".
     """
     print("Hello!")
 
-# Function Call Syntax:
+# Function Call Syntax: without parameters
 
 hello()  # Output: Hello!
 ```
 
 
 ```
-EX: 2
+EX: 2 Function with parameters
 
 def print_name(name):
 
