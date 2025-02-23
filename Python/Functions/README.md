@@ -284,6 +284,35 @@ Without return:  <class 'NoneType'>
 
 
 
+#### The Pass Statement
+
+```
+# Function block
+def function_name():
+  
+
+# Code Block
+print("Hello")
+```
+
+Output:
+
+ File "c:\Users\dpakm\OneDrive\Desktop\Python\Variables\file1.py", line 790
+    print("Hello")
+    ^^^^^
+IndentationError: expected an indented block after function definition on line 786
+
+
+```
+# Function block
+    pass
+  
+
+# Code Block
+print("Hello")
+```
+output: Hello
+
 
 -
 -
