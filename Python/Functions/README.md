@@ -245,7 +245,42 @@ In general, it's a good practice to use explicit return statements to make the c
 
 
 
+**More Examples:**
 
+**Function to convert celsius to Fahrenheit- return statement**
+
+``` 
+def celsius_to_fahrenheit(celsius):
+    fahrenheit = (celsius * 9/5) + 32 
+    return fahrenheit 
+
+# Call function 
+temp_f = celsius_to_fahrenheit(25) 
+print(temp_f)
+print("with return: ", type(temp_f))
+```
+
+Output :
+77.0
+
+With return:  <class 'float'>
+
+**Function to convert celsius to Fahrenheit- without return**
+
+```
+def celsius_to_fahrenheit(celsius):
+    fahrenheit = (celsius * 9/5) + 32 
+    print(fahrenheit)  
+
+# Call function 
+temp_f2 = celsius_to_fahrenheit(50) 
+print("without return: ", type(temp_f2)) 
+```
+
+output:
+122.0
+
+Without return:  <class 'NoneType'>
 
 
 
