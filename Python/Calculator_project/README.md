@@ -40,8 +40,9 @@ Here's a step-by-step explanation of the program's flow:
 Example Use Cases
 
 - User enters Number_1 = 10 and Number_2 = 5, and chooses operation 1 (addition).
-- The program outputs: The sum of two numbers 10 and 5 is: 15.
+  The program outputs: The sum of two numbers 10 and 5 is: 15.
+
 
 - User enters Number_1 = 20 and Number_2 = 4, and chooses operation 4 (division).
-- The program outputs: The division of two numbers 20 and 4 is: 5.0.
+ The program outputs: The division of two numbers 20 and 4 is: 5.0.
 
