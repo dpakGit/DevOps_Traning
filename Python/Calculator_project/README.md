@@ -31,7 +31,7 @@ else :
     print("Invalid Numbers")
 ```
 
- Code Version 2 - 
+ **Code Version 2 -**
 
  Error  if operation ==1:
 
