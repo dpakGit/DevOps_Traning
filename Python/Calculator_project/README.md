@@ -39,7 +39,7 @@ else :
 
   Added the line : operation = input(" Emter 1 for add 2 for sub")
 
-
+```
 def add (n,m):
     return m + n 
 
@@ -62,7 +62,7 @@ elif operation == 2:
 
 else :
     print("Invalid Numbers")
-
+```
 
 
 **Code Version 3 -** 
