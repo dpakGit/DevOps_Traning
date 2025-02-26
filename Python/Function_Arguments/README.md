@@ -11,7 +11,69 @@ Reference Links :
 4. https://www.programiz.com/python-programming/function-argument  
 
 
+
+# Python Function Arguments
+- Date 24.2.2025
+
+```
+def greetings(name):
+    print("hello", name,"!" )
+
+# function call
+greetings("Ajay")
+```
+
+**Multiple Arguments**
+
+```
+def sum(a,b,c,d):
+    return a + b + c + d
+
+# Function Call
+print("Sum of the numbers =", sum(10,20,30,40))
+```
+
 ## Default Argument
+
+```
+def greet(name = "Default_Argument"):
+    print("Hi", name, "!")
+
+# Function Call
+
+greet()
+
+greet("Deepak")
+```
+
+https://www.w3schools.com/python/python_functions.asp#gsc.tab=0
+
+```
+Ex:2
+def my_function(country = "Norway # this was a default value provided"): # Default argument
+  print("I am from " + country)
+
+my_function("Sweden")
+my_function("India")
+my_function("Brazil")
+my_function()
+```
+
+# https://www.tutorialspoint.com/python/python_default_arguments.htm
+
+```
+Ex: 3
+def showinfo( name, city = "Hyderabad" ):
+   "This prints a passed info into this function"
+   print ("Name:", name)
+   print ("City:", city)
+   return
+
+# Now call showinfo function
+showinfo(name = "Ansh", city = "Delhi")
+showinfo(name = "Shrey")
+```
+
 
 **Function to calculate simple interest:**
 
