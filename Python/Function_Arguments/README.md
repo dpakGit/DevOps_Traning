@@ -13,7 +13,7 @@ Reference Links :
 
 ## Default Argument
 
-# Function to calculate simple interest
+**Function to calculate simple interest:**
 
 ```
 def calculate_simple_interest(principal, time, rate):
