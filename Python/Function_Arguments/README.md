@@ -62,7 +62,7 @@ my_function("Brazil")
 my_function()
 ```
 
-# https://www.tutorialspoint.com/python/python_default_arguments.htm
+https://www.tutorialspoint.com/python/python_default_arguments.htm
 
 ```
 Ex: 3
