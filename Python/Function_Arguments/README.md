@@ -260,10 +260,11 @@ print("2: ",simple_interest)
 
 simple_interest = si(1000,r = 12,t = 5)  
 # principle value is positional argument, followed by  keyword argument for rate and time that
-  are provided arbitarily and not sequentially
+# are provided arbitarily and not sequentially
 print("3: ",simple_interest)
 
-simple_interest = si(p =1000,t = 5, r = 15) # Value of rate is changed to see if the previous value is overridden
+simple_interest = si(p =1000,t = 5, r = 15) # Value of rate is changed to see if the previous value
+#is overridden
 print("4: ",simple_interest)
 
 simple_interest = si(r = 15, t = 5,p = 1000) # all values provided using keyword argument
