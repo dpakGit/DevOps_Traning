@@ -230,9 +230,10 @@ def si(principal = 100,time,rate = 10):
 ```
 
 
-# **Date : 27.2.2025**
+**Date : 27.2.2025**
 
  ### Keyword/Named Argument
+ 
 ```
 def si(p,t,r):
     return (p * t * r)/100
@@ -257,8 +258,9 @@ print("1: ", simple_interest)
 simple_interest = si(1000, t= 5, r = 12) # Value of rate changed
 print("2: ",simple_interest)
 
-simple_interest = si(1000,r = 12,t = 5) \ 
-# princiel value is positional argument, followed by  keyword argument for rate and time that are provided arbitarily and not sequentially
+simple_interest = si(1000,r = 12,t = 5)  
+# principle value is positional argument, followed by  keyword argument for rate and time that
+  are provided arbitarily and not sequentially
 print("3: ",simple_interest)
 
 simple_interest = si(p =1000,t = 5, r = 15) # Value of rate is changed to see if the previous value is overridden
@@ -280,9 +282,11 @@ print("5: ",simple_interest)
 
 Here are a few alternatives:
 
-- "The default value of a parameter in a Python function is overridden when a value is explicitly passed for that parameter in the function call."
+- "The default value of a parameter in a Python function is overridden when a value is explicitly passed
+   for that parameter in the function call."
 - "In Python, passing a value for a parameter in a function call supersedes its default value."
-- "When a value is provided for a parameter in a Python function call, it takes precedence over the parameter's default value."
+- "When a value is provided for a parameter in a Python function call, it takes precedence over the
+    parameter's default value."
 - "Python function parameters with default values are overridden by explicit values passed in the function call."
 - "In Python, default parameter values are eclipsed by user-provided values in function calls."
 
