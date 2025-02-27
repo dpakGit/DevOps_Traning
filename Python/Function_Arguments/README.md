@@ -230,6 +230,45 @@ def si(principal = 100,time,rate = 10):
 ```
 
 
+# **Date : 27.2.2025**
+
+ ### Keyword/Named Argument
+```
+def si(p,t,r):
+    return (p * t * r)/100
+
+# Function Call
+simple_interest = si(p =2500,t = 5, r = 3)
+
+print("Simple interest = ",simple_interest)
+```
+
+### Multiple Argument Type Example
+
+```
+def si(p, t, r):
+    return (p * t * r)/100
+
+# Function Call types
+
+simple_interest = si(1000,t =5) # rate is passed as default value in function defination
+print("1: ", simple_interest)
+
+simple_interest = si(1000, t= 5, r = 12) # Value of rate changed
+print("2: ",simple_interest)
+
+simple_interest = si(1000,r = 12,t = 5) \ 
+# princiel value is positional argument, followed by  keyword argument for rate and time that are provided arbitarily and not sequentially
+print("3: ",simple_interest)
+
+simple_interest = si(p =1000,t = 5, r = 15) # Value of rate is changed to see if the previous value is overridden
+print("4: ",simple_interest)
+
+simple_interest = si(r = 15, t = 5,p = 1000) # all values provided using keyword argument
+print("5: ",simple_interest)
+```
+
+
 
 
 
