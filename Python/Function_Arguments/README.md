@@ -495,8 +495,53 @@ https://realpython.com/python-kwargs-and-args/
 use the exaples from the above link
 
 ```
+# Practice -1
+def show_info(*kwarg):
+    return
 
+# Function call
+show_info(first_name = "deepak",\
+          last_name = "Mishra",\
+          city = "Pune")
+display = show_info
+print(display)
 ```
+
+output:
+  show_info(first_name = "deepak",\
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+              last_name = "Mishra",\
+              ^^^^^^^^^^^^^^^^^^^^^^
+              city = "Pune")
+              ^^^^^^^^^^^^^^
+TypeError: show_info() got an unexpected keyword argument 'first_name'
+
+
+Sol: meta ai:
+
+There are two errors in the given code:
+
+1. *Typo in *kwarg*: In Python, the syntax for arbitrary keyword arguments is **kwargs, not *kwarg. The double asterisk ** is used to indicate that the function accepts keyword arguments.
+
+2. Invalid function call: In the function call, there is a backslash \ at the end of each line, which is not necessary in this case. However, the main issue is that the function show_info is defined to accept arbitrary keyword arguments, but it doesn't return anything. It should return the kwargs dictionary or process it in some way.
+
+Here's the corrected code:
+
+
+def show_info(**kwargs):
+   
+    
+    return kwargs
+
+# Function call
+info = show_info(first_name="Deepak", last_name="Mishra", city="Pune")
+print(info)
+
+
+Output:
+
+{'first_name': 'Deepak', 'last_name': 'Mishra', 'city': 'Pune'}
+
   
 
 
@@ -511,3 +556,49 @@ Here are a few alternatives:
 - "In Python, default parameter values are eclipsed by user-provided values in function calls."
 
 These revised sentences aim to improve clarity, precision, and readability.
+
+```
+# practice -2
+def show_info(**kwarg):
+    return kwarg    
+
+# Function call
+display = show_info(first_name = "deepak", \
+          last_name = "Mishra",\
+          city = "Pune")
+
+# display = show_info # this is a wrong syntax, uncomment it and run it
+
+print(display)
+
+print(type(display))
+```
+
+
+```
+ # practice - 3
+def show_info(**kwargs):
+    return kwargs
+
+display = show_info(first_name="Deepak",middle_name="ranjan", last_name="Mishra", city="Pune")
+
+first_name = display['first_name']
+middle_name = display['middle_name']
+last_name = display['last_name']
+city = display['city']
+
+print(f"My name is {first_name} {middle_name} {last_name} and I live in {city}.")
+```
+
+Changes made:
+
+1. Defined the show_info function to accept arbitrary keyword arguments (**kwargs) and return the kwargs dictionary.
+3. Extracted the values from the display dictionary using the corresponding keys.
+4. Used f-string formatting to print the desired string with the extracted values.
+
+Now, the code should print:
+
+My name is Deepak ranjan  Mishra and I live in Pune.
+
+
+
