@@ -286,9 +286,18 @@ Let's break down the code:
 def add(*args):
     return sum(args)
     
-# Function Call
+# Function Call -1
+result = add(1,2)
+print("Sum of the numbers =", result)
+
+# Function Call -2
+result = add(1,2,3)
+print("Sum of the numbers =", result)
+
+# Function Call -3
 result = add(1,2,3,4)
 print("Sum of the numbers =", result)
+
 ```
 
 Above code explanation:
@@ -336,6 +345,24 @@ The output will be:
 
 
 Sum of the numbers = 10
+
+
+**Note:** Arguments are stored as tuple
+
+
+```
+def add(*args):
+    print(type(args)) # To dee the type of teh arguments whose output will be : <class 'tuple'>
+    return sum(args)
+    
+# Function Call -1
+result = add(1,2)
+print("Sum of the numbers =", result)
+```
+Output: 
+<class 'tuple'>
+Sum of the numbers = 3
+
 
 
 ```
