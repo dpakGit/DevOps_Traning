@@ -272,6 +272,14 @@ print("5: ",simple_interest)
 ```
 
 
+## Python args and kwargs:
+
+https://realpython.com/python-kwargs-and-args/
+
+
+# Passing Multiple Arguments to a Function
+
+
 
 
 
