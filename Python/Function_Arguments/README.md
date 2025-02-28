@@ -364,12 +364,13 @@ Output:
 Sum of the numbers = 3
 
 
+**Error:** When we run the followin code it give s the following error
+
 
 ```
 sum(1,2,3,4)
 print(sum)
 ```
-**Error**
 
 When you write sum(1,2,3,4), you are calling the built-in sum function with the arguments 1, 2, 3, and 4. The sum function returns the sum of these numbers, which is 10.
 
