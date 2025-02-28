@@ -272,6 +272,8 @@ print("5: ",simple_interest)
 ```
 
 
+## 28.2.2025
+
 ## Python args and kwargs:
 
 https://realpython.com/python-kwargs-and-args/
@@ -345,6 +347,20 @@ The output will be:
 
 
 Sum of the numbers = 10
+
+
+```
+# EX:2
+def greet(*names):
+    for name in names:
+        print(f"Hello, {name}!")
+
+greet("function_call-1" , "a")
+
+greet("function_call-2",  "a" ,"b")
+
+greet("function_call-3"  ,"a", "b","c")
+```
 
 
 **Note:** Arguments are stored as tuple
