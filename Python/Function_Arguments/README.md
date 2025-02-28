@@ -277,10 +277,116 @@ print("5: ",simple_interest)
 https://realpython.com/python-kwargs-and-args/
 
 
-# Passing Multiple Arguments to a Function
+Passing Multiple Arguments to a Function
+
+Let's break down the code:
+
+
+```
+def add(*args):
+    return sum(args)
+    
+# Function Call
+result = add(1,2,3,4)
+print("Sum of the numbers =", result)
+```
+
+Above code explanation:
+
+
+Function Definition
+
+def add(*args):
+
+    
+    return sum(args)
+
+
+- def add(*args):: This line defines a function named add that takes a variable number of arguments, represented by *args. The * symbol allows the function to accept any number of arguments, which are collected into a tuple called args.
+- return sum(args): This line returns the sum of all the numbers in the args tuple. The sum() function is a built-in Python function that calculates the sum of all elements in an iterable (like a tuple or list).
+
+Function Call
+
+
+result = add(1, 2, 3, 4)
+
+
+- add(1, 2, 3, 4): This line calls the add function with four arguments: 1, 2, 3, and 4. These arguments are collected into the args tuple.
+- result =: The result of the function call is assigned to a variable named result.
+
+Printing the Result
+
+
+print("Sum of the numbers =", result)
+
+
+- print(...): This line prints a message to the console.
+- "Sum of the numbers =": This is a string literal that is printed before the result.
+- result: The value of the result variable is printed after the string literal.
+
+When you run this code, here's what happens:
+
+1. The add function is called with four arguments: 1, 2, 3, and 4.
+2. The args tuple is created with these four values.
+3. The sum() function is called on the args tuple, returning the sum of all the numbers: 1 + 2 + 3 + 4 = 10.
+4. The result of the function call (10) is assigned to the result variable.
+5. The message "Sum of the numbers =" is printed, followed by the value of result (10).
+
+The output will be:
+
+
+Sum of the numbers = 10
+
+
+```
+sum(1,2,3,4)
+print(sum)
+```
+**Error**
+
+When you write sum(1,2,3,4), you are calling the built-in sum function with the arguments 1, 2, 3, and 4. The sum function returns the sum of these numbers, which is 10.
+
+However, when you write print(sum), you are not printing the result of the previous sum function call. Instead, you are printing the sum function object itself.
+
+In Python, sum is a built-in function, and when you print it, you will see something like:
+
+
+<built-in function sum>
+
+
+This is because sum is a function object, and printing it displays its type and memory address.
+
+If you want to print the result of the sum function call, you should assign the result to a variable and print that variable:
+
+
+result = sum(1,2,3,4)      # Correct way of calling a function , Userdefined or Built-in 
+print(result)  # Output: 10
 
 
 
+**Error:**  TypeError: sum() takes at most 2 arguments (4 given)
+
+Sol:
+
+The error message TypeError: sum() takes at most 2 arguments (4 given) indicates that the sum function is being called with too many arguments.
+
+The sum function actually takes two arguments:
+
+1. An iterable (like a list or tuple)
+2. An optional initial value
+
+When you call sum(1, 2, 3, 4), you're passing four separate arguments, which is not what the sum function expects.
+
+To fix this, you can pass the numbers as a single iterable, like a list or tuple:
+
+
+result = sum([1, 2, 3, 4])
+print(result)  # Output: 10
+
+# Or
+
+result = sum((1, 2, 3, 4))
+print(result)  # Output: 10
 
 
 
