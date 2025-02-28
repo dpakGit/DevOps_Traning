@@ -433,10 +433,65 @@ result = sum((1, 2, 3, 4))
 print(result)  # Output: 10
 
 
+**What if we call this function with a key word argument in the following way ?**
+
+```
+def greet(*names):
+    for name in names:
+        print(f"Hello, {name}!")
+
+# Function call
+greet(*names = "test-2")
+    or
+greet(names = "test-1")
+```
+
+- Error for function call test-1:
+
+TypeError: greet() got an unexpected keyword argument 'names'
+
+- Error for function call test-2:
+
+  SyntaxError: cannot assign to iterable argument unpacking
 
 
 
+- Meta Ai:
 
+When you define a function with *names, it allows the function to accept a variable number of positional arguments. However, it does not allow keyword arguments.
+
+If you try to call the function with a keyword argument, like greet(names="test-1"), you'll get a TypeError:
+
+
+TypeError: greet() got an unexpected keyword argument 'names'
+
+
+This is because the *names syntax only accepts positional arguments, not keyword arguments.
+
+Now, if you try to call the function with greet(*names="test-2"), you'll get a SyntaxError:
+
+
+SyntaxError: invalid syntax
+
+
+This is because the * symbol is used to unpack iterables, but in this case, it's being used incorrectly.
+
+To fix this, you can modify the function to accept keyword arguments using the **kwargs syntax:
+
+```
+def greet(*names, **kwargs):
+    for name in names:
+        print(f"Hello, {name}!")
+    for key, value in kwargs.items():
+        print(f"{key} = {value}")
+
+# Now you can call the function with keyword arguments
+greet("John", "Mary", names="test-1")
+```
+
+
+
+  
 
 
 Here are a few alternatives:
