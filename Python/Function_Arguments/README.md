@@ -278,10 +278,9 @@ print("5: ",simple_interest)
 
 https://realpython.com/python-kwargs-and-args/
 
+use the exaples from the above link
 
 Passing Multiple Arguments to a Function
-
-Let's break down the code:
 
 
 ```
@@ -489,8 +488,15 @@ def greet(*names, **kwargs):
 greet("John", "Mary", names="test-1")
 ```
 
+### Arbitrary Keyword Arguments, **kwargs
 
+https://realpython.com/python-kwargs-and-args/
 
+use the exaples from the above link
+
+```
+
+```
   
 
 
