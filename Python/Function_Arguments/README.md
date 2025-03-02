@@ -527,16 +527,14 @@ There are two errors in the given code:
 
 Here's the corrected code:
 
-
+```
 def show_info(**kwargs):
-   
-    
-    return kwargs
+       return kwargs
 
 # Function call
 info = show_info(first_name="Deepak", last_name="Mishra", city="Pune")
 print(info)
-
+```
 
 Output:
 
