@@ -502,7 +502,8 @@ use the exaples from the above link
 ```
 # practice :
 def show_info(**kwargs):
-    print("Type is",type(kwargs)) # This command prints the type of value stored in the dictionary "kwargs"
+    print("Type is",type(kwargs)) # This command prints the type of value stored in the
+                                  # dictionary "kwargs"
     for key, value in kwargs.items():
         print(f"{key}: {value}")
 
