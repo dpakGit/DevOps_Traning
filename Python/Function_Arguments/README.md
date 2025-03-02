@@ -523,7 +523,7 @@ Defining a function with keyword arguments
 
 - def is used to define a function.
 - show_info is the name of the function.
-**- **kwargs is a special syntax in Python that allows the function to accept any number of keyword arguments. kwargs is a dictionary-like object that contains all the keyword arguments passed to the function.**
+- **kwargs is a special syntax in Python that allows the function to accept any number of keyword arguments. kwargs is a dictionary-like object that contains all the keyword arguments passed to the function.**
 
 Iterating over keyword arguments:
 
