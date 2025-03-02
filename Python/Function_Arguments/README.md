@@ -1,4 +1,4 @@
-## Python Function Arguments
+# Python Function Arguments
 
 Reference Links : 
 
@@ -12,8 +12,9 @@ Reference Links :
 
 
 
-# Python Function Arguments
-- Date 24.2.2025
+## Python Function Arguments
+
+**Date 24.2.2025**
 
 ```
 def greetings(name):
@@ -495,6 +496,286 @@ https://realpython.com/python-kwargs-and-args/
 use the exaples from the above link
 
 
+
+# Date : 2.3.2025
+
+```
+# practice :
+def show_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+# Function call
+show_info(first_name="Deepak",middle_name="Ranjan", last_name="Mishra", city="Pune")
+```
+
+**Explanation of the above code** {Also see explanation a same code below}
+
+
+Meta Ai
+
+Let's break down this code step by step:
+
+Defining a function with keyword arguments
+
+```def show_info(**kwargs):```
+
+
+- def is used to define a function.
+- show_info is the name of the function.
+**- **kwargs is a special syntax in Python that allows the function to accept any number of keyword arguments. kwargs is a dictionary-like object that contains all the keyword arguments passed to the function.**
+
+Iterating over keyword arguments:
+
+
+```for key, value in kwargs.items():```
+
+
+- kwargs.items() returns a view object that displays a list of a dictionary's key-value tuple pairs.
+- The for loop iterates over each key-value pair in the kwargs dictionary.
+- key and value are variables that take on the value of each key-value pair in the dictionary on each iteration.
+
+Printing key-value pairs:
+
+
+```print(f"{key}: {value}")```
+
+
+- f-string is used to format the string.
+- key and value are inserted into the string using {} placeholders.
+- The resulting string is printed to the console.
+
+Calling the function with keyword arguments:
+
+
+```show_info(first_name="Deepak", middle_name="Ranjan", last_name="Mishra", city="Pune")```
+
+
+- The show_info function is called with four keyword arguments: first_name, middle_name, last_name, and city.
+- These keyword arguments are passed to the kwargs dictionary in the function.
+
+When you run this code, the output will be:
+
+
+first_name: Deepak
+middle_name: Ranjan
+last_name: Mishra
+city: Pune
+
+
+Q. Expalin the following syntax -" for key, value in kwargs.items():" ?
+
+Sol. 
+Let's break down the syntax:
+
+for key, value in kwargs.items():
+
+This is a for loop in Python that iterates over the key-value pairs of a dictionary-like object called kwargs.
+
+Here's what's happening:
+
+1. kwargs.items(): This method returns a view object that displays a list of a dictionary's key-value tuple pairs.
+2. for key, value in ...: This is the for loop syntax. It's iterating over the key-value pairs returned by kwargs.items().
+3. key, value: These are the variables that take on the value of each key-value pair on each iteration.
+
+In other words, the for loop is unpacking each key-value pair into two separate variables: key and value.
+
+Here's an example to illustrate this:
+
+```
+kwargs = {'name': 'John', 'age': 30}
+
+for key, value in kwargs.items():
+    print(f"Key: {key}, Value: {value}")
+```
+
+Output:
+
+
+Key: name, Value: John
+Key: age, Value: 30
+
+
+In this example, the for loop iterates over the key-value pairs of the kwargs dictionary. On each iteration, the key variable takes on the value of the key (e.g., 'name'), and the value variable takes on the value of the corresponding value (e.g., 'John').
+
+
+Q. Expalin the syntax : -  " value in kwargs.items():" and "kwargs.items():" ?
+
+Sol:
+Let's break down the syntax:
+
+*kwargs.items():*
+
+.items() is a method in Python dictionaries that returns a view object that displays a list of a dictionary's key-value tuple pairs.
+
+In other words, .items() returns an iterable object that yields tuples containing each key-value pair in the dictionary.
+
+Example:
+
+```
+kwargs = {'name': 'John', 'age': 30}
+print(kwargs.items())
+```
+
+Output:
+
+
+dict_items([('name', 'John'), ('age', 30)])
+
+
+As you can see, .items() returns an iterable object containing tuples with each key-value pair.
+
+*value in kwargs.items():*
+
+This syntax is using the .items() method to iterate over the key-value pairs in the kwargs dictionary.
+
+However, there's a small mistake in this syntax. It should be key, value in kwargs.items(): instead of value in kwargs.items():.
+
+The correct syntax key, value in kwargs.items(): is using tuple unpacking to assign each key-value pair to the variables key and value.
+
+Example:
+
+```
+kwargs = {'name': 'John', 'age': 30}
+for key, value in kwargs.items():
+    print(f"Key: {key}, Value: {value}")
+```
+
+Output:
+
+
+Key: name, Value: John
+Key: age, Value: 30
+
+
+Q. Explain the following code - {Also see explanation a same code above}
+
+```
+def show_info(**kwargs): 
+    print("Type is",type(kwargs))
+
+    for key, value in kwargs.items():
+        print(f"{key}:{value}")
+        
+#Function call
+show_info(Name = "john", Age = 24, place = "london")
+```
+
+**Explanaton:**
+
+Let's break down the code:
+
+Defining a function with keyword arguments
+
+
+def show_info(**kwargs):
+
+
+- def is used to define a function.
+- show_info is the name of the function.
+- **kwargs is a special syntax in Python that allows the function to accept any number of keyword arguments. kwargs is a dictionary-like object that contains all the keyword arguments passed to the function.
+
+Printing the type of kwargs
+
+
+print("Type is", type(kwargs))
+
+
+- This line prints the type of the kwargs object.
+- type() is a built-in Python function that returns the type of an object.
+- In this case, kwargs is a dictionary, so the output will be <class 'dict'>.
+
+Iterating over keyword arguments:
+
+
+for key, value in kwargs.items():
+    print(f"{key}:{value}")
+
+
+- This loop iterates over each key-value pair in the kwargs dictionary.
+- kwargs.items() returns a view object that displays a list of a dictionary's key-value tuple pairs.
+- for key, value in ... is the loop syntax. It's unpacking each key-value pair into two separate variables: key and value.
+- print(f"{key}:{value}") prints each key-value pair in the format key:value.
+
+Function call:
+
+
+show_info(Name="john", Age=24, place="london")
+
+
+- This line calls the show_info function with three keyword arguments: Name, Age, and place.
+- The kwargs dictionary will contain these three key-value pairs.
+
+When you run this code, the output will be:
+
+
+Type is <class 'dict'>
+Name:john
+Age:24
+place:london
+
+
+```
+# practice -1
+
+def show_info(**kwargs):
+    print("Type is",type(kwargs))
+
+    for key, value in kwargs.items():
+        print(f"{key}:{value}")
+        
+
+show_info(Name = "john", Age = 24, place = "london")
+```
+
+
+Modify the error in the following code:
+
+```
+def show_info(**kwargs):
+    print(type(kwargs))
+
+    for key, value in kwargs.items():
+        print(f"{key}:{value}")
+        
+
+show_info(Name = "john", Age = 24, place = "london")
+print("name is ", {key[0]})
+modify the error
+```
+
+Here's the modified code:
+
+```
+def show_info(**kwargs):
+    print(type(kwargs))
+    for key, value in kwargs.items():
+        print(f"{key}:{value}")
+
+show_info(Name="john", Age=24, place="london")
+
+# print the name, access the 'Name' key from the kwargs dictionary**
+
+print("Name is ", kwargs['Name'])
+```
+
+**Note: However, there's a small issue. The kwargs dictionary is local to the show_info function, so you can't access it outside the function.**
+
+To fix this, you can return the kwargs dictionary from the function and store it in a variable:
+
+```
+def show_info(**kwargs):
+    print(type(kwargs))
+    for key, value in kwargs.items():
+        print(f"{key}:{value}")
+    return kwargs
+
+kwargs_dict = show_info(Name="john", Age=24, place="london")
+print("Name is ", kwargs_dict['Name'])
+```
+
+
+Extra Practice:
 
 ```
 # Practice -1
