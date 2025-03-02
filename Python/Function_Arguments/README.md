@@ -494,6 +494,79 @@ https://realpython.com/python-kwargs-and-args/
 
 use the exaples from the above link
 
+# Date : 2.3.2025
+
+```
+# practice -1
+def show_info(**kwargs):
+    print("Type is",type(kwargs))
+
+    for key, value in kwargs.items():
+        print(f"{key}:{value}")
+        
+#Function call
+show_info(Name = "john", Age = 24, place = "london")
+```
+
+**Explanation of the above code**
+
+Let's break down the code:
+
+Defining a function with keyword arguments
+
+
+```def show_info(**kwargs):```
+
+
+- def is used to define a function.
+- show_info is the name of the function.
+- **kwargs is a special syntax in Python that allows the function to accept any number of keyword arguments. kwargs is a dictionary-like object that contains all the keyword arguments passed to the function.
+
+Printing the type of kwargs
+
+
+```print("Type is", type(kwargs))```
+
+
+- This line prints the type of the kwargs object.
+- type() is a built-in Python function that returns the type of an object.
+- In this case, kwargs is a dictionary, so the output will be <class 'dict'>.
+
+Iterating over keyword arguments
+
+
+```for key, value in kwargs.items():
+    print(f"{key}:{value}")```
+
+
+- This loop iterates over each key-value pair in the kwargs dictionary.
+- kwargs.items() returns a view object that displays a list of a dictionary's key-value tuple pairs.
+- for key, value in ... is the loop syntax. It's unpacking each key-value pair into two separate variables: key and value.
+- print(f"{key}:{value}") prints each key-value pair in the format key:value.
+
+Function call
+
+
+show_info(Name="john", Age=24, place="london")
+
+
+- This line calls the show_info function with three keyword arguments: Name, Age, and place.
+- The kwargs dictionary will contain these three key-value pairs.
+
+When you run this code, the output will be:
+
+
+Type is <class 'dict'>
+Name:john
+Age:24
+place:london
+
+
+
+
+
+
+
 ```
 # Practice -1
 def show_info(*kwarg):
