@@ -510,6 +510,9 @@ def show_info(**kwargs):
 # Function call
 show_info(first_name="Deepak",middle_name="Ranjan", last_name="Mishra", city="Pune")
 ```
+**Note:** Things to be called inside and outside function
+Ex: print("Type is",type(kwargs)) , if this is called outside function it will give error.
+
 
 **Explanation of the above code** {Also see explanation a same code below}
 
