@@ -1,5 +1,16 @@
 **Date : 3.3 2025**
 
+Reference Links:
+
+1. https://www.w3schools.com/python/python_strings.asp
+
+2. https://www.geeksforgeeks.org/python-string/?ref=shm
+
+3. https://www.tutorialspoint.com/python/python_string_formatting.htm
+
+4. https://www.programiz.com/python-programming/string  
+
+
 ```
 print('Hello world')
 print("Hello world")
