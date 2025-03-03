@@ -68,7 +68,7 @@ print("Ex -4: My name is {name} and i am {age}." .format(name = "Charlie",age = 
 
 
 ```
-# EX: Individual without Declaring the variables outside the print function
+# Ex: 5 Individual without Declaring the variables outside the print function
 
 print("Ex -1: My name is {name} and i am {age}." .format(name = "Charlie",age = 26))
 ```
