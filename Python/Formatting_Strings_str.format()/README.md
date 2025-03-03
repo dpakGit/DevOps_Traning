@@ -22,7 +22,7 @@ Or, using named placeholders:
 
 Here are some examples:
 
-- Basic Example
+**Basic Example:**
 
 ```
 name = "John"
@@ -34,7 +34,7 @@ print("My name is {} and I am {} years old.".format(name, age))
 Output: My name is John and I am 30 years old.
 
 
-- Named Placeholders:
+**Named Placeholders:**
 
 ```
 name = "John"
@@ -45,7 +45,7 @@ print("My name is {name} and I am {age} years old.".format(name=name, age=age))
 Output: My name is John and I am 30 years old.
 
 
-- Format Specifiers:
+**Format Specifiers:**
 ```
 pi = 3.14159265359
 
@@ -57,14 +57,16 @@ Output: The value of pi is 3.14
 
 Format specifiers can be used to control the formatting of values, such as:
 
-        - :.2f for floating-point numbers with 2 decimal places
-        - :d for integers
-        - :s for strings
-        - :x for hexadecimal integers
-        - :o for octal integers
-        - :e for scientific notation
+- :.2f for floating-point numbers with 2 decimal places
+- :d for integers
+- :s for strings
+- :x for hexadecimal integers
+- :o for octal integers
+- :e for scientific notation
 
-- Multiple Lines
+
+
+**Multiple Lines**
 
 ```
 name = "John"
