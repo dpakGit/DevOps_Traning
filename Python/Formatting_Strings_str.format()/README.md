@@ -2,7 +2,9 @@
 
 Reference Links:
 
-1.https://realpython.com/python-string-formatting/#using-strformat-to-format-strings
+1. https://realpython.com/python-string-formatting/#using-strformat-to-format-strings 
+
+2. https://www.w3schools.com/python/ref_string_format.asp (Use this link to practice more examples.)
 
 
 
