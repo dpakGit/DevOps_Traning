@@ -85,3 +85,38 @@ Here are some more examples to illustrate this:
 print("Hello \"World\"!")  # Output: Hello "World"!
 print("\"This\" is a test.")  # Output: "This" is a test.
 ```
+
+
+### #  % operator
+
+```
+# EX:1
+name = "madhav"
+age = 24
+print("my name is %s and my age is %d" %(name,age))
+```
+```
+# EX:2
+name = "madhav"
+age = 24
+print("my name is %s and my age is %s" %(name,age))
+```
+```
+# EX:3
+name = "madhav"
+age = 24
+print("my name is %d and my age is %s" %(age,name))
+```
+
+```
+# EX:4
+name = "madhav"
+age = 24
+print("Test-1 %s %d" %(name,age))
+
+print("Test-2 %s %s" % (name, age)) # output: Test-2 madhav 24, this i printing the age even if it is %s as it is considering age as a string
+
+print("Test-3 %d %d" % (name, age)) # Output : TypeError: %d format: a real number is required, not str, bit here it is not considering an integer as a string
+
+print("%d %s" %(name,age)) # output : TypeError: %d format: a real number is required, not str
+```
