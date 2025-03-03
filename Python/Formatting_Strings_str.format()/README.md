@@ -57,12 +57,12 @@ Output: The value of pi is 3.14
 
 Format specifiers can be used to control the formatting of values, such as:
 
-- :.2f for floating-point numbers with 2 decimal places
-- :d for integers
-- :s for strings
-- :x for hexadecimal integers
-- :o for octal integers
-- :e for scientific notation
+-- :.2f for floating-point numbers with 2 decimal places
+-- :d for integers
+-- :s for strings
+-- :x for hexadecimal integers
+-- :o for octal integers
+-- :e for scientific notation
 
 - Multiple Lines
 
