@@ -103,11 +103,16 @@ print("Ex -1: My name is {} and i am {}." .format(name,age))
 
 
 ```
-# Ex: 2
+# Ex: 2 Reference variables by index and keyword
 
 name = "mohan"
 age = 25
 print("Ex -2: My name is {0} and i am {1}." .format(name,age))
+# Output: print("Ex -2: My name is {0} and i am {1}." .format(name,age))
+
+print("Ex -2: My name is {1} and i am {0}." .format(name,age))
+# Output: print("Ex -2: My name is {1} and i am {0}." .format(name,age))
+
 ```
 
 
