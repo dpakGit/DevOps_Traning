@@ -1,6 +1,8 @@
-## Using str.format() to Format Strings
+## Using str.format() to Format Strings:
 
-https://realpython.com/python-string-formatting/#using-strformat-to-format-strings
+Reference Links:
+
+1. https://realpython.com/python-string-formatting/#using-strformat-to-format-strings
 
 ```
 # Ex: 1
