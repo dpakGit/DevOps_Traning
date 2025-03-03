@@ -87,7 +87,7 @@ print("\"This\" is a test.")  # Output: "This" is a test.
 ```
 
 
-### #  % operator
+### % Operator
 
 ```
 # EX:1
