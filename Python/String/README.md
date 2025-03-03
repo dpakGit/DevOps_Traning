@@ -46,7 +46,7 @@ Let's break down the code:
 
 Here's what's happening:
 
-1. The print() function is used to output the string to the console.
+1. **The print() function is used to output the string to the console.**
 2. The string is enclosed in double quotes ("...").
 3. Inside the string, there's a backslash (\) followed by a double quote (").
 
