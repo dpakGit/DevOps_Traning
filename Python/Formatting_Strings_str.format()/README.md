@@ -6,6 +6,7 @@ Reference Links:
 
 ```
 # Ex: 1
+
 name = "john"
 age = 24
 print("Ex -1: My name is {} and i am {}." .format(name,age))
@@ -14,6 +15,7 @@ print("Ex -1: My name is {} and i am {}." .format(name,age))
 
 ```
 # Ex: 2
+
 name = "mohan"
 age = 25
 print("Ex -2: My name is {0} and i am {1}." .format(name,age))
@@ -22,6 +24,7 @@ print("Ex -2: My name is {0} and i am {1}." .format(name,age))
 
 ```
 # Ex: 3
+
 name = "john"
 age = 24
 print("Ex -1: My name is {} and i am {}." .format(name = "Charlie",age = 26))
@@ -56,7 +59,8 @@ Either way, you should be able to get the output you're looking for!
 
 
 ```
-# Ex: 4 new values are overridden by old values
+# Ex: 4 new values are overridden by old values.
+
 name = "Madhav"
 age = 27
 print("Ex -4: My name is {name} and i am {age}." .format(name = "Charlie",age = 28))
