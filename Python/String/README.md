@@ -29,6 +29,7 @@ or
 
 print(''' Print the word Quotes with in double quotes - \"QUOTES\"  ''') # Correct
 print("\"back slash double quotes\"")
+
 ```
 
 
@@ -69,7 +70,7 @@ As you can see, the double quotes are printed literally, thanks to the escaping 
 
 Here are some more examples to illustrate this:
 
-``
+```
 print("Hello \"World\"!")  # Output: Hello "World"!
 print("\"This\" is a test.")  # Output: "This" is a test.
 ```
