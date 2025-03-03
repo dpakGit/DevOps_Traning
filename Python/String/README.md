@@ -52,7 +52,7 @@ Here's what's happening:
 
 Now, here's the important part:
 
-- In Python, the backslash (\) is an escape character. It's used to introduce special characters or escape sequences.
+- **In Python, the backslash (\) is an escape character. It's used to introduce special characters or escape sequences.**
 - When the backslash is followed by a double quote ("\"), it's treated as an escape sequence. The backslash "escapes" the double quote, telling Python to treat it as a literal character instead of the end of the string.
 
 So, in this case, the backslash is used to:
