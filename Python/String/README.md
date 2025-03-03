@@ -249,7 +249,8 @@ print("Test-2 %s %s" % (name, age))
 # output: Test-2 madhav 24, this is printing the age even if it is %s as it is considering age as a string
 
 print("Test-3 %d %d" % (name, age))
-# Output : TypeError: %d format: a real number is required, not str, bit here it is not considering an integer as a string
+# Output : TypeError: %d format: a real number is required, not str, bit here it is not considering
+# an integer as a string
 
 print("%d %s" %(name,age))
 # output : TypeError: %d format: a real number is required, not str
