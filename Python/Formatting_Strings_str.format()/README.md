@@ -4,6 +4,93 @@ Reference Links:
 
 1. https://realpython.com/python-string-formatting/#using-strformat-to-format-strings
 
+
+
+**Syntax of python str.format():**
+
+The str.format() method in Python is a powerful way to format strings. Here's the basic syntax:
+
+
+```string.format(value1, value2, ..., valueN)```
+
+
+Or, using named placeholders:
+
+
+```string.format(name1=value1, name2=value2, ..., nameN=valueN)```
+
+
+Here are some examples:
+
+- Basic Example
+
+```
+name = "John"
+age = 30
+
+print("My name is {} and I am {} years old.".format(name, age))
+```
+
+Output: My name is John and I am 30 years old.
+
+
+- Named Placeholders:
+
+```
+name = "John"
+age = 30
+
+print("My name is {name} and I am {age} years old.".format(name=name, age=age))
+```
+Output: My name is John and I am 30 years old.
+
+
+- Format Specifiers:
+```
+pi = 3.14159265359
+
+print("The value of pi is {:.2f}".format(pi))
+```
+
+Output: The value of pi is 3.14
+
+
+Format specifiers can be used to control the formatting of values, such as:
+
+- :.2f for floating-point numbers with 2 decimal places
+- :d for integers
+- :s for strings
+- :x for hexadecimal integers
+- :o for octal integers
+- :e for scientific notation
+
+- Multiple Lines
+
+```
+name = "John"
+age = 30
+city = "New York"
+
+print("""
+My name is {}
+I am {} years old
+I live in {}
+""".format(name, age, city))
+```
+
+ Output:
+ 
+ My name is John
+ 
+ I am 30 years old
+
+ I live in New York
+
+
+These are just a few examples of the many ways you can use str.format() to format strings in Python.
+
+
+
 ```
 # Ex: 1
 
