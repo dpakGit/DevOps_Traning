@@ -173,3 +173,47 @@ print("%d %s" %(name,age))
 # output : TypeError: %d format: a real number is required, not str
 ```
 
+**Placeholders:**
+
+In Python, there are several placeholders that can be used for string formatting:
+
+1. %s: String placeholder. Can handle any type of object, including strings, integers, floats, and more.
+
+2. %d: Integer placeholder. Used for formatting integers.
+
+3. %f: Float placeholder. Used for formatting floating-point numbers.
+
+4. %e: Exponential notation placeholder. Used for formatting floating-point numbers in exponential notation.
+
+5. %x: Hexadecimal placeholder. Used for formatting integers in hexadecimal notation.
+
+6. %o: Octal placeholder. Used for formatting integers in octal notation.
+
+7. %c: Character placeholder. Used for formatting single characters.
+
+Here are some examples:
+
+```
+name = "John"
+age = 30
+height = 1.75
+
+print("My name is %s" % name)  # Output: My name is John
+print("I am %d years old" % age)  # Output: I am 30 years old
+print("My height is %f meters" % height)  # Output: My height is 1.750000 meters
+print("My height is %.2f meters" % height)  # Output: My height is 1.75 meters
+```
+
+Note that the .2 in the last example is used to specify the number of decimal places to round the float value to.
+
+Also, in Python 3.6 and later, you can use **f-strings**, which provide a more modern and expressive way of formatting strings:
+
+```
+name = "John"
+age = 30
+height = 1.75
+
+print(f"My name is {name}")  # Output: My name is John
+print(f"I am {age} years old")  # Output: I am 30 years old
+print(f"My height is {height:.2f} meters")  # Output: My height is 1.75 meters
+```
