@@ -1,11 +1,17 @@
+**Date : 3.3 2025**
+
 https://realpython.com/python-string-formatting/
 
 
-% Operator
+## Formatting Strings With the Modulo Operator (%)
+
+```
 # EX:1
 name = "madhav"
 age = 24
 print("my name is %s and my age is %d" %(name,age))
+```
+
 Explanation of the above code:
 
 Let's break down the above code:
@@ -14,68 +20,87 @@ This code uses Python's string formatting feature to insert the values of name a
 
 Here's what's happening:
 
-name and age are assigned the values "madhav" and 24, respectively.
-The print() function is used to output a string to the console.
-The string contains two placeholders: %s and %d.
-%s is a placeholder for a string value.
-%d is a placeholder for an integer value.
-The % operator is used to insert the values of name and age into the string.
-The values are inserted in the order they appear in the tuple (name, age).
+1. name and age are assigned the values "madhav" and 24, respectively.
+2. The print() function is used to output a string to the console.
+3. The string contains two **placeholders: %s and %d.**
+    - %s is a placeholder for a string value.
+    - %d is a placeholder for an integer value.
+4. The % operator is used to insert the values of name and age into the string.
+5. The values are **inserted in the order** they appear in the tuple (name, age).
+
 When you run this code, the output will be:
+
 
 my name is madhav and my age is 24
 
+
 Here's how the string formatting works:
 
-%s is replaced with the string value "madhav".
-%d is replaced with the integer value 24.
+- %s is replaced with the string value "madhav".
+- %d is replaced with the integer value 24.
+
 Note that this style of string formatting is older and less commonly used in modern Python code. Instead, you might see f-strings (introduced in Python 3.6) or the str.format() method used for string formatting.
 
 For example, here's the equivalent code using f-strings:
 
-name = "madhav" age = 24 print(f"my name is {name} and my age is {age}")
 
-Q. print("my name is %s and my age is %d" % (name, age)) is it that,here %s is mapping the value assigned to name and % d is mapping the value assigned to age ?
+name = "madhav"
+age = 24
+print(f"my name is {name} and my age is {age}")
 
-Sol: That's absolutely correct!
+
+Q. print("my name is %s and my age is %d" % (name, age))
+is it that,here %s is mapping the value assigned to name and % d is mapping the value assigned to age ?
+
+Sol:
+That's absolutely correct!
 
 In the code:
 
 print("my name is %s and my age is %d" % (name, age))
 
-%s is a placeholder for a string value, and it's mapping the value assigned to name.
-%d is a placeholder for an integer value, and it's mapping the value assigned to age.
+
+- %s is a placeholder for a string value, and it's mapping the value assigned to name.
+- %d is a placeholder for an integer value, and it's mapping the value assigned to age.
+
 The % operator is used to replace the placeholders (%s and %d) with the actual values of name and age, respectively.
 
 So, when you run this code, the output will be:
 
 my name is madhav and my age is 24
 
+
 Where:
 
-madhav is the value assigned to name, which replaces the %s placeholder.
-24 is the value assigned to age, which replaces the %d placeholder.
+- madhav is the value assigned to name, which replaces the %s placeholder.
+- 24 is the value assigned to age, which replaces the %d placeholder.
+
 Great job understanding the code!
 
 Q. How is the Following line working and how %s and %d are replaced by the values in the variable name and age ?
 
-print("my name is %s and my age is %d" % (name, age))
-
-Sol: Let's break down the line:
+```print("my name is %s and my age is %d" % (name, age))```
+   
+Sol: 
+Let's break down the line:
 
 Here's what's happening:
 
-The string "my name is %s and my age is %d" is created with two placeholders: %s and %d.
-The % operator is used to replace the placeholders with the actual values.
-The values to replace the placeholders are provided in the tuple (name, age).
-The % operator matches the placeholders with the values in the tuple, based on their position.
+1. The string "my name is %s and my age is %d" is created with two placeholders: %s and %d.
+2. The % operator is used to replace the placeholders with the actual values.
+3. The values to replace the placeholders are provided in the tuple (name, age).
+4. The % operator matches the placeholders with the values in the tuple, based on their position.
+
 Here's the step-by-step replacement:
 
-%s is replaced with the first value in the tuple, which is name. So, %s becomes "madhav".
-%d is replaced with the second value in the tuple, which is age. So, %d becomes "24".
+1. %s is replaced with the first value in the tuple, which is name. So, %s becomes "madhav".
+2. %d is replaced with the second value in the tuple, which is age. So, %d becomes "24".
+
 The resulting string after replacement is:
 
+
 "my name is madhav and my age is 24"
+
 
 This final string is then printed to the console.
 
@@ -83,40 +108,54 @@ Note that the % operator is using the values in the tuple (name, age) to replace
 
 Q. But this is also printing the same result -
 
-print("my name is %s and my age is %s" %(name,age))
+```print("my name is %s and my age is %s" %(name,age))```
 
 how ?
 
-Sol: You're right, the code:
+Sol:
+You're right, the code:
+
 
 print("my name is %s and my age is %s" % (name, age))
 
+
 is also printing the same result:
+
 
 my name is madhav and my age is 24
 
+
 Here's why:
 
-In Python, when you use the %s placeholder, it's a generic placeholder that can handle any type of object, including strings, integers, floats, and more.
+**In Python, when you use the %s placeholder, it's a generic placeholder that can handle any type of object, including strings, integers, floats, and more.**
 
 When you pass an integer value like age to the %s placeholder, Python automatically converts the integer to a string using the str() function.
 
 So, in this case:
 
-name is already a string, so it's printed as is.
-age is an integer, but it's converted to a string using str() before being printed.
+- name is already a string, so it's printed as is.
+- age is an integer, but it's converted to a string using str() before being printed.
+
 As a result, both %s placeholders are replaced with string values, and the output is the same as before.
 
 Note that if you want to format integers or floats with specific formatting options (e.g., decimal places, padding), you should use the %d or %f placeholders instead of %s.
 
+
+
+```
 # EX:2
 name = "madhav"
 age = 24
 print("my name is %s and my age is %s" %(name,age))
+```
+```
 # EX:3
 name = "madhav"
 age = 24
 print("my name is %d and my age is %s" %(age,name))
+```
+
+```
 # EX:4
 name = "madhav"
 age = 24
@@ -132,4 +171,5 @@ print("Test-3 %d %d" % (name, age))
 
 print("%d %s" %(name,age))
 # output : TypeError: %d format: a real number is required, not str
-DevOps_Traning/Python/String/README.md at main · dpakGit/DevOps_Traning 
+```
+
