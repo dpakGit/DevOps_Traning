@@ -267,3 +267,37 @@ World
 The backslash (\) is essentially saying, "Hey, Python! Don't interpret the next character (n) as a regular character. Instead, treat it as a special character that represents a newline."
 
 This is different from the case where you use a backslash to escape a quote mark (\"), where the backslash is telling Python to ignore the special meaning of the quote mark.
+
+
+Practice:
+```
+print("Ex:1- Hello world")
+print("Ex:2- Hello \"world")
+print("Ex:3- Hello \"world\"")
+print("Ex:4- Hello \nworld")
+print("Ex:5- Hello \n world")
+print("Ex:6- Hello \n      world")
+print("Ex:7- Hello \tworld")
+```
+Q. \t for single tab what if for more tabs ?
+
+Sol:
+If you want to insert multiple tabs in a string, you can simply repeat the \t escape sequence.
+
+For example:
+
+```
+print("Hello\t\tWorld")
+```
+
+This will insert two tabs between "Hello" and "World".
+
+Alternatively, you can use string multiplication to repeat the \t escape sequence:
+
+```
+print("Hello" + "\t" * 3 + "World")
+```
+
+This will insert three tabs between "Hello" and "World".
+
+Note that the * operator in Python repeats a string a specified number of times. So, "\t" * 3 is equivalent to "\t\t\t".
