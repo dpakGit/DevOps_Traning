@@ -1,4 +1,5 @@
 ## Python f-string
+
 Reference Links:
 1. https://www.programiz.com/python-programming/fstring
 
@@ -8,7 +9,59 @@ Reference Links:
 
 4. https://www.geeksforgeeks.org/python-string/?ref=shm
 
-5. https://www.tutorialspoint.com/python/python_string_formatting.htm    
+5. https://www.tutorialspoint.com/python/python_string_formatting.htm
+
+
+Q. What is the meaning of formatting a string in python ?
+
+Sol:
+Formatting a string in Python refers to the process of inserting values or expressions into
+a string, often with specific formatting options such as alignment, padding, precision, and more.
+
+In other words, string formatting allows you to:
+
+1. Insert values into a string
+
+2. Control the format of those values (e.g., decimal places, alignment)
+
+3. Create a new string with the inserted values and formatting
+
+There are several ways to format strings in Python:
+
+1. % operator: Uses the % operator to insert values into a string.
+
+2. str.format(): Uses the format() method to insert values into a string.
+
+3. f-strings: Uses the f prefix before a string literal to insert values into a string.
+
+Here are some examples:
+
+**% operator**
+
+```
+name = "John"
+age = 30
+print("My name is %s and I am %d years old." % (name, age))
+```
+
+**str.format()**
+
+```
+name = "John"
+age = 30
+print("My name is {} and I am {} years old.".format(name, age))
+```
+
+**f-strings**
+
+```
+name = "John"
+age = 30
+print(f"My name is {name} and I am {age} years old.")
+```
+
+String formatting is a powerful feature in Python that allows you to create **dynamic strings** with ease!
+   
 
 ```
 Ex: 1
