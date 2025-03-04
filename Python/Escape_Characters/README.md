@@ -123,7 +123,7 @@ print("Hello\bWorld")
  Output: HellWorld (deletes one character)
 
 
-8. \f (Form feed):
+8. \f (Form feed): Form Feed – Moves the cursor to the next page.
 
 ```
 print("Hello\fWorld")
@@ -301,3 +301,41 @@ print("Hello" + "\t" * 3 + "World")
 This will insert three tabs between "Hello" and "World".
 
 Note that the * operator in Python repeats a string a specified number of times. So, "\t" * 3 is equivalent to "\t\t\t".
+
+```
+print("C:\\Windows\\System32") # \ (Backslash):
+print("C:\Windows\System32")
+print('Hello \'World\'') # (Single quote):
+print("Hello \"World\"") #(Double quote)
+
+print("Hello\rWorld") # \r (Carriage return):
+# Output: World (overwrites "Hello")
+
+print("Hello\bWorld") #\b (Backspace):
+# # Output: HellWorld (deletes one character)
+
+print("Hello\fWorld") # \f (Form feed) : Form Feed – Moves the cursor to the next page.
+
+# Output: (inserts a form feed, may not be visible)
+
+
+print("Hello\vWorld") # \v (Vertical tab): Vertical Tab – Moves the cursor vertically.
+# # Output: (inserts a vertical tab, may not be visible)
+
+
+print("\aHello World") #  \a (Bell):
+# # Output: (produces a bell sound, then prints "Hello World")
+
+print("\101\102\103") # \ooo (Octal): #A backslash followed by three integers will result in a octal value:
+# prints "ABC" 
+txt = "\110\145\154\154\157"
+print(txt) 
+# prints "Hello"
+
+print("\x41\x42\x43") # \xhh (Hexadecimal): A backslash followed by an 'x' and a hex 
+# number represents a hex value:
+# prints "ABC"
+txt = "\x48\x65\x6c\x6c\x6f"
+print(txt) 
+# prints "Hello"
+```
