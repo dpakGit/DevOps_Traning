@@ -89,8 +89,40 @@ print("Hello" * 3)
 
 Python will repeat the entire string "Hello" three times, resulting in:
 
-
 HelloHelloHello
 
-
 So, the * operator essentially "stamps" the string multiple times, creating a new string with the repeated content.
+
+
+```
+string = "hello"
+
+test1 = string * 2
+print(test1)
+
+test2 = string * 3
+print(test2)
+```
+
+```
+string = "hello"
+test3 = string * 0
+print(test3)
+```
+Output: (empty string)
+In other words, the output will be an empty string.
+When you multiply a string by 0, Python returns an empty string.
+So, test4 will be an empty string, and print(test4) won't print anything visible.
+
+```
+string = "hello"
+test4 = string * -2
+print(test4)
+```
+Output:  the output will be an empty string, because when you multiply a string by
+a negative number, Python returns an empty string.
+
+So, test4 will be an empty string, and print(test4) won't print anything.
+
+
+
