@@ -150,6 +150,7 @@ print(a[5]) # Output : IndexError: string index out of range
 
 ```
 a = "INDIA"
+b = "python"
 
 print(a[0:5])
 
