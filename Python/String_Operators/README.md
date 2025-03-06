@@ -85,6 +85,12 @@ For example:
 
 ```
 print("Hello" * 3)
+# Or
+print(3 * "Hello")
+```
+
+```
+print("Hello" " " * 3) # "Hello" "space"  * 3
 ```
 
 Python will repeat the entire string "Hello" three times, resulting in:
