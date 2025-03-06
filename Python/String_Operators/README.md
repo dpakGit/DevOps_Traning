@@ -237,5 +237,12 @@ print(R"Apple\nOrange")
 ```
 
 
+### 7. Format - Performs String formatting
 
+```
+string = "hello"
+print("The value of the string is %s" %(string))
+
+print(": %s"%(string))
+```
 
