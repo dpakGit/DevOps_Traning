@@ -90,6 +90,10 @@ print(3 * "Hello")
 ```
 
 ```
+3 * "ha!"
+```
+
+```
 print("Hello" " " * 3) # "Hello" "space"  * 3
 ```
 
