@@ -146,7 +146,7 @@ print(a[4])
 print(a[5]) # Output : IndexError: string index out of range
 ```
 
-### Range Slice - Gives the characters from the given range	
+### 4. Range Slice - Gives the characters from the given range	
 
 ```
 a = "INDIA"
@@ -171,6 +171,69 @@ print(a[3:4])
 print(a[4:4])
 
 print(a[4:3]) # Reverse
+```
+
+
+### 5.  "in" : It is known as membership operator.
+
+- It returns if a particular sub-string is present in the specified string.
+- Returns True or False
+- It is case sensitive
+
+```
+# Ex: 1
+a = "hello"
+b = "Python"
+print("h" in a)
+print("P" in b)
+```
+
+```
+# Ex: 1.1
+if "P" in b:
+    print("YES")
+else:
+    print("NO")
+```
+
+```
+# Ex: 2
+a = "hello"
+b = "Python"
+print("h" not in a)
+print("P" not in b)
+```
+
+```
+# Ex:2.1
+if "P" not in b:
+    print("YES")
+else:
+    print("NO")
+```
+
+### 6. Raw String
+
+Suppresses actual meaning of Escape characters. 
+The syntax for raw strings is exactly the same as for normal strings 
+with the exception of the raw string operator, the letter "r," which 
+precedes the quotation marks. The "r" can be lowercase (r) or uppercase (R)
+ and must be placed immediately preceding the first quote mark.	
+ 
+```
+print (r'\n')
+
+print (R'\n')
+
+
+print("CakeChocolate")
+
+print("Cake\nChocolate")
+
+print(r"Grapes\nBanana") # prints string_1\nstring_2 as it is written,
+                             # omitting the line break command \n
+                        
+print(R"Apple\nOrange")
 ```
 
 
