@@ -146,6 +146,14 @@ print(a[4])
 print(a[5]) # Output : IndexError: string index out of range
 ```
 
+```
+a = "hello"
+print(a[1],a[4])
+print(a[2],a[3])
+
+
+```
+
 ### 4. Range Slice - Gives the characters from the given range	
 
 ```
