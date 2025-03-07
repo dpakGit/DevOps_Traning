@@ -4,6 +4,9 @@ Reference links:
 
 1. https://studyglance.in/python/string.php
 
+
+## Python String indexing
+
 - Meta AI
 
   In Python, string indexing is a way to access individual characters in a string.
@@ -62,9 +65,8 @@ print(my_string[10])  # IndexError: string index out of range
 I hope this helps you understand string indexing in Python!
 
 
-**Python String indexing**
 
-**Negative Indexing**
+## Negative Indexing
 
 Here's a practical use case for negative indexing:
 
