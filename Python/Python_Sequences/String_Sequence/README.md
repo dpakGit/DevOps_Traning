@@ -116,3 +116,34 @@ A string can only be replaced with a new string since its content cannot be part
 str[0] = "B" ☒    can´t replace a single character in a string
 
 str = "BYE" ☑    can replace a new string
+
+
+Q. Explain the meaning of the following sentence - "A string can only be replaced with a new string since its content cannot be partially replaced. Strings are immutable in python." ?
+
+Sol:
+Let's break down the sentence:
+
+"A string can only be replaced with a new string..."
+
+This means that when you modify a string in Python, you're not actually changing the original string. Instead, you're creating a brand new string with the modified content.
+
+"...since its content cannot be partially replaced."
+
+This means that you can't modify just a part of the string. You can't, for example, change the third character of the string without creating a new string.
+
+"...Strings are immutable in Python."
+
+This is the key point. "Immutable" means that something can't be changed after it's created. In the case of strings, this means that once a string is created, its content can't be modified.
+
+So, when you try to "modify" a string, you're actually creating a new string with the modified content, and then assigning that new string to the original variable.
+
+Here's an example:
+
+```
+my_string = "hello"
+my_string = my_string.replace("h", "j")  # Creates a new string and assigns it to my_string
+print(my_string)  # Output: "jello"
+```
+
+In this example, the original string "hello" is not modified. Instead, a new string "jello" is created, and then assigned to the my_string variable.
+
