@@ -68,7 +68,7 @@ I hope this helps you understand string indexing in Python!
 
 Here's a practical use case for negative indexing:
 
-Use Case: Extracting the last character of a string
+**Use Case: Extracting the last character of a string**
 
 Imagine you have a string and you want to extract the last character. Without negative indexing, you would need to calculate the length of the string and then access the character at that index.
 
@@ -149,7 +149,10 @@ In this example, the original string "hello" is not modified. Instead, a new str
 
 
 
+Examples:
+
 ```
+Ex:
 str = "HELLO"
 str[0] = "j"
 print(str[0])
@@ -160,6 +163,7 @@ Error:     str[0] = "j"
 TypeError: 'str' object does not support item assignment
 
 ```
+Ex:
 str = "INDIA"
 print(str)
 print(str[0])
