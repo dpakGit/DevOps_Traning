@@ -147,3 +147,20 @@ print(my_string)  # Output: "jello"
 
 In this example, the original string "hello" is not modified. Instead, a new string "jello" is created, and then assigned to the my_string variable.
 
+
+
+```
+str = "HELLO"
+str[0] = "j"
+print(str[0])
+```
+Output :
+
+Error:     str[0] = "j"
+TypeError: 'str' object does not support item assignment
+
+```
+str = "INDIA"
+print(str)
+print(str[0])
+```
