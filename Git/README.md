@@ -9,7 +9,15 @@ https://docs.github.com/en/get-started/writing-on-github/getting-started-with-wr
 
 https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#supported-color-models
 
+#### Links:
 This site was built using [GitHub Pages](https://pages.github.com/).
+
+
+#### Section links:
+
+https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#section-links
+
+<a name="unique-anchor-name"></a>
 
 #### Q. How to rename a directory/folder on GitHub website?
 
