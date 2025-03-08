@@ -50,7 +50,7 @@ print(my_string[::2])  # Output: "hlo"
 
 This slices the string from the beginning to the end with a step of 2, resulting in "hlo".
 
-3. Slice with Negative Indices:
+3. Slice with Negative Indices:  <a name="Using Negative Indexing in Slicing"></a>
 
 scroll down to read more about Negative indices
 
@@ -204,3 +204,60 @@ So, the correct syntax would be str[n:m], where m is the index of the last chara
 
 Great job pointing out this important detail!
 
+
+### Using Negative Indexing in Slicing
+
+[08/03, 12:34 pm] Maverick: for str[a:b] if a and b are negative numbers then how will we write the stop and start numbers
+[08/03, 12:34 pm] Meta AI: When both a and b are negative numbers in the slicing syntax str[a:b], the indexing still works from the end of the string.
+
+Here's how you can think about it:
+
+- a is the starting index, counting from the end of the string.
+- b is the stopping index, counting from the end of the string.
+
+So, if a is a negative number, it means you're starting from the end of the string and moving backwards.
+
+If b is also a negative number, it means you're stopping at a certain point from the end of the string.
+
+For example:
+
+- str[-3:-1] means start from the third-to-last character (-3) and stop at the second-to-last character (-1), exclusive.
+- str[-5:-2] means start from the fifth-to-last character (-5) and stop at the third-to-last character (-2), exclusive.
+
+Remember, the "stop" index (b) is exclusive, so the character at that index is not included in the slice.
+
+I hope that helps clarify things!
+[08/03, 8:05 pm] Maverick: so can we say that the syntax for this  will be string[stop: start] ,character for (stop-1) index is inclusive and the the stop index is not inclusive
+[08/03, 8:05 pm] Meta AI: No!
+
+Actually, the correct syntax is still string[start:stop], even when both start and stop are negative numbers.
+
+So, to clarify:
+
+- start is the starting index, counting from the end of the string (if negative).
+- stop is the stopping index, counting from the end of the string (if negative).
+
+And, as you mentioned:
+
+- The character at the stop-1 index is inclusive.
+- The character at the stop index is not inclusive.
+
+But, remember, the syntax is still string[start:stop], not string[stop:start].
+
+Great job understanding the nuances of negative indexing in Python!
+[08/03, 8:06 pm] Maverick: so in any case the syntax wi  not be [stop : start], whether for positive indexes or negative
+[08/03, 8:06 pm] Meta AI: In Python's string slicing syntax, the correct order is always:
+
+string[start:stop]
+
+Regardless of whether start and stop are positive or negative indexes.
+
+The start index always comes first, and the stop index always comes second.
+
+So, [stop:start] is never a valid syntax for string slicing in Python.
+[08/03, 8:07 pm] Maverick: many thanks for the information ,it was more than clear now
+[08/03, 8:07 pm] Meta AI: I'm thrilled to have helped clarify the concept of string slicing in Python for you!
+
+It was a pleasure chatting with you and breaking down the details. If you have more questions or need further clarification in the future, don't hesitate to reach out!
+
+Have a fantastic day, and happy coding!
