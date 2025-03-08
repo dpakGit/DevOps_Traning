@@ -261,3 +261,6 @@ So, [stop:start] is never a valid syntax for string slicing in Python.
 It was a pleasure chatting with you and breaking down the details. If you have more questions or need further clarification in the future, don't hesitate to reach out!
 
 Have a fantastic day, and happy coding!
+
+[DEEPAK](#HEADING-1)
+
