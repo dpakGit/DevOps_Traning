@@ -17,6 +17,30 @@ This site was built using [GitHub Pages](https://pages.github.com/).
 
 https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#section-links
 
+META AI:
+
+How is it that clicking on a heading in one part of the document takes you or redirects you to another heading ?
+
+sol: That's a clever feature!
+
+In Markdown files, such as README.md on GitHub, this functionality is achieved using anchor links.
+
+Here's how it works:
+
+1. When you create a heading in Markdown, it's automatically assigned an anchor link, which is a unique identifier for that heading.
+2. The anchor link is usually generated based on the heading text, with spaces replaced by hyphens and punctuation removed.
+3. When you click on a heading, your browser uses the anchor link to navigate to the corresponding heading elsewhere in the document.
+
+In Markdown, you can also manually create anchor links using the following syntax:
+
+[Link Text](#anchor-link)
+
+Replace Link Text with the text you want to display, and #anchor-link with the actual anchor link (e.g., #heading-1).
+
+By using anchor links, you can create a table of contents or cross-reference headings within your document, making it easier for readers to navigate.
+
+GitHub and other Markdown renderers automatically generate anchor links for headings, making it easy to create clickable links between headings.
+
 ### Custom anchors:
 
 [Custom anchors](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#custom-anchors)
