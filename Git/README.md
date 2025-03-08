@@ -1,7 +1,6 @@
 **Open your github repo. Press the . key on your keyboard to open it with web vs code. Rename there. Stage and commit the changes.**
 
 
-
 ### Basic writing and formatting syntax:
 https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images
 
