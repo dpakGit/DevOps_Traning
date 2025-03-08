@@ -17,7 +17,11 @@ This site was built using [GitHub Pages](https://pages.github.com/).
 
 https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#section-links
 
-<a name="unique-anchor-name"></a>
+### Custom anchors:
+
+[Custom anchors](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#custom-anchors)
+
+<aname="unique-anchor-name"></a>
 
 #### Q. How to rename a directory/folder on GitHub website?
 
