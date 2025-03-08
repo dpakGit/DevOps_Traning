@@ -17,14 +17,10 @@ Python String Slicing is a powerful feature that allows you to extract a subset 
 
 Basic Syntax:
 
--1. <u>The basic syntax for string slicing is:</u>
-
--2. <ins>The basic syntax for string slicing is:
-
--3. <ins>The basic syntax for string slicing is:</ins>
+<ins>The basic syntax for string slicing is:</ins>
 
 
-string[start:stop:step]
+``string[start:stop:step]``
 
 
 Where:
