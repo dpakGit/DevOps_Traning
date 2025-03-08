@@ -120,11 +120,29 @@ https://www.ionos.com/digitalguide/websites/web-development/markdown/#:~:text=St
 
 
 
+#  How to underline ?
 
 
+<span style="text-decoration:underline">
 
-<span style="text-decoration:underline">underline this text</span> for HTML output or $\text{\underline{This sentence underlined using \LaTeX}}$ for pdf output.
+underline this text</span> for HTML output or 
+  
+$\text{\underline{This sentence underlined using \LaTeX}}$ for pdf output.
 
 /underline
-</underline>
 
+<ins>text</ins>
+
+Just use the HTML <u> tag (recommended) or the <ins> tag inside your markdown for this.
+
+<u>this is underlined text in HTML or markdown, which accepts HTML</u>
+
+
+Underline heading:
+
+https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+
+https://stackoverflow.com/questions/3003476/get-underlined-text-with-markdown
+
+
+https://medium.com/analytics-vidhya/writing-github-readme-e593f278a796
