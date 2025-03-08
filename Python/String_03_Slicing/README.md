@@ -51,7 +51,7 @@ print(my_string[::2])  # Output: "hlo"
 
 This slices the string from the beginning to the end with a step of 2, resulting in "hlo".
 
-3. Slice with Negative Indices:  [Using Negative Indexing in Slicing](#Using Negative Indexing in Slicing)
+3.   [Slice with Negative Indices:](#Using Negative Indexing in Slicing)
 
 scroll down to read more about Negative indices
 
