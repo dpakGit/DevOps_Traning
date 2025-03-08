@@ -126,9 +126,13 @@ Here's the correct index numbering for the string "hello":
 
 
 h (0)
+
 e (1)
+
 l (2)
+
 l (3)
+
 o (4)
 
 
