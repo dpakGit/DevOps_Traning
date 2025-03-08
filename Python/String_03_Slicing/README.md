@@ -15,7 +15,7 @@ Sol:  <u>content</u> or <u></u>
 
 Python String Slicing is a powerful feature that allows you to extract a subset of characters from a string.
 
-Basic Syntax: 
+``Basic Syntax:``
 
 The basic syntax for string slicing is:
 
