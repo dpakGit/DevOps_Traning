@@ -204,5 +204,3 @@ So, the correct syntax would be str[n:m], where m is the index of the last chara
 
 Great job pointing out this important detail!
 
-
- <a name="Using Negative Indexing in Slicing"></a>
