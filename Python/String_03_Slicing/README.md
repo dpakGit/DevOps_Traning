@@ -50,7 +50,7 @@ print(my_string[::2])  # Output: "hlo"
 
 This slices the string from the beginning to the end with a step of 2, resulting in "hlo".
 
-3. Slice with Negative Indices: Using Negative Indexing in Slicing
+3. Slice with Negative Indices: <a Using Negative Indexing in Slicing></a>
 
 scroll down to read more about Negative indices <a name="Using Negative Indexing in Slicing"></a>
 
@@ -203,4 +203,4 @@ So, the correct syntax would be str[n:m], where m is the index of the last chara
 
 Great job pointing out this important detail!
 
-### Using Negative Indexing in Slicing
+### <a Using Negative Indexing in Slicing></a>
