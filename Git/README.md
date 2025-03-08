@@ -133,7 +133,7 @@ $\text{\underline{This sentence underlined using \LaTeX}}$ for pdf output.
 
 <ins>text</ins>
 
-Just use the HTML <u> tag (recommended) or the <ins> tag inside your markdown for this.
+**Just use the HTML <u> tag (recommended) or the <ins> tag inside your markdown for this.**
 
 <u>this is underlined text in HTML or markdown, which accepts HTML</u>
 
