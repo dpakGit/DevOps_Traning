@@ -116,4 +116,7 @@ puts markdown.to_html
 
 ```In a multiline code block, a set of lines is formatted to a single block of code. To format multiple lines of code in Discord, enclose it within three backticks(````). For example, to make a code block containing "This is sample multiline code block", you need to type the following:```
 
+https://www.ionos.com/digitalguide/websites/web-development/markdown/#:~:text=Strikethroughs,~~This%20text%20is%20struckthrough.
+
+<span style="text-decoration:underline">underline this text</span> for HTML output or $\text{\underline{This sentence underlined using \LaTeX}}$ for pdf output.
 
