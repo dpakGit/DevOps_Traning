@@ -1,5 +1,3 @@
-#### HEADING-1
-
 
 Reference links: 
 
@@ -53,7 +51,7 @@ print(my_string[::2])  # Output: "hlo"
 
 This slices the string from the beginning to the end with a step of 2, resulting in "hlo".
 
-3. Slice with Negative Indices:  <a name="Using Negative Indexing in Slicing"></a>
+3. Slice with Negative Indices:  [Using Negative Indexing in Slicing](#Using Negative Indexing in Slicing)
 
 scroll down to read more about Negative indices
 
@@ -265,5 +263,5 @@ It was a pleasure chatting with you and breaking down the details. If you have m
 
 Have a fantastic day, and happy coding!
 
-[DEEPAK](#HEADING-1)
+
 
