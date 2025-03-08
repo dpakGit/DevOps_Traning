@@ -96,7 +96,7 @@ puts markdown.to_html
 
  
 
-```````````````````````````````````````````````````````````````````````````
+##```````````````````````````````````````````````````````````````````````````
 
 
 
@@ -127,6 +127,4 @@ https://www.ionos.com/digitalguide/websites/web-development/markdown/#:~:text=St
 
 /underline
 </underline>
-
-
 
