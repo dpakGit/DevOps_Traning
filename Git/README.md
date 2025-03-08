@@ -33,8 +33,9 @@ Here's how it works:
 
 In Markdown, you can also manually create anchor links using the following syntax:
 
+```
 [Link Text](#anchor-link)
-
+```
 Replace Link Text with the text you want to display, and #anchor-link with the actual anchor link (e.g., #heading-1).
 
 By using anchor links, you can create a table of contents or cross-reference headings within your document, making it easier for readers to navigate.
