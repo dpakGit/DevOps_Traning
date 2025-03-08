@@ -118,5 +118,15 @@ puts markdown.to_html
 
 https://www.ionos.com/digitalguide/websites/web-development/markdown/#:~:text=Strikethroughs,~~This%20text%20is%20struckthrough.
 
+
+
+
+
+
 <span style="text-decoration:underline">underline this text</span> for HTML output or $\text{\underline{This sentence underlined using \LaTeX}}$ for pdf output.
+
+/underline
+</underline>
+
+
 
