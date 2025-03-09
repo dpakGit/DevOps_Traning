@@ -1,7 +1,6 @@
-
 Reference links: 
 
-1. https://www.geeksforgeeks.org/string-slicing-in-python/
+1. https://www.geeksforgeeks.org/string-slicing-in-python/  (read this documentation, its important)
 
 2. https://www.w3schools.com/python/python_strings_slicing.asp
 
