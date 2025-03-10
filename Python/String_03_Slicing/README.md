@@ -503,3 +503,118 @@ print(my_string[1:4:-1])  # Output: "" (empty string, because we're moving backw
 print(my_string[4:1:-1])  # Output: "dcb"
 ```
 
+
+Practice : This practice has been completely done from the materials of the website Geeks for Geeks
+
+Date 10.3.2025
+
+https://www.geeksforgeeks.org/string-slicing-in-python/
+
+```
+# Ex: 
+s = "Hello, Python!"
+
+s2 = s[0:5] # Slice string from index 0 to index 5 (exclusive)
+
+print(s2)
+```
+
+**Retrieve All Characters**
+
+To retrieve the entire string, use slicing without specifying any parameters.
+
+```
+s = "Hello, World!"
+
+# Get the entire string
+s2 = s[:]
+s3 = s[::]
+
+print(s2)
+print(s3)
+```
+
+Explanation: Using [:] or [::] without specifying start, end, or step returns the complete string.
+
+**Get All Characters Before or After a Specific Position**
+
+```
+s = "Hello, World!"
+
+# Characters from index 7 to the end
+print(s[7:]) 
+
+# Characters from the start up to index 5 (exclusive)
+print(s[:5]) 
+```
+
+**Extract Characters Between Two Positions**
+
+To extract characters between specific positions, provide both start and end indices.
+
+```
+s = "Hello, World!"
+
+# Characters from index 1 to index 5 (excluding 5)
+print(s[1:5]) 
+```
+
+**Get Characters at Specific Intervals**
+
+To retrieve characters at regular intervals, use the **step** parameter.
+
+```
+# Ex: 
+
+s = "ABCDEFGHI"
+
+# Every second character
+print(s[::2])
+
+# Every third character from index 1 to 8 (exclusive)
+print(s[1:8:3]) 
+```
+
+**Out-of-Bounds Slicing**
+
+In Python, String slicing allows out-of-bound indexing without raising errors.If indices exceed the string length, the slice returns only available characters without raising an error.
+
+```
+s = "Hello, World!"
+print(s[0:15])
+print(s[3:15])
+```
+
+**Using Negative Indexing in Slicing**  Scroll above to see more documentation on negative slicing
+
+- Extract Characters Using Negative Indices
+
+Below example shows how to use negative numbers to access elements from the string starting from the end. Negative indexing makes it easy to get items without needing to know the exact length of the string.
+
+```
+s = "ABCDEFGHIJKLMNO"
+
+# Characters from index -4 to the end
+print(s[-4:])
+
+# Characters from the start up to index -3 (excluding -3)
+print(s[:-3])
+
+# Characters from index -5 to -2 (excluding -2)
+print(s[-5:-2])
+
+# Get every 2nd elements from index -8 to -1 (excluding index -1)
+print(s[-8:-1:2])
+```
+
+## Reverse a String Using Slicing
+
+To reverse a string, use a negative step value of -1, which moves from the end of the string to the beginning.
+
+```
+s = "Python"
+# Reverse the string
+print(s[::-1])
+```
+
+
