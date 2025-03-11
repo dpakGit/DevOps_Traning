@@ -654,6 +654,39 @@ Here's the correct breakdown:
 
 So, the output "bat" consists of every other character, starting from the first character "b".
 
+
+**Note:**
+
+You've got it absolutely right!
+
+In the context of Python's slice notation, **the step value controls how many characters to skip between each selected character.**
+
+Here's a breakdown of what different step values mean:
+
+- step = 1: Include every character, don't skip any. (This is the default behavior if you omit the step value.)
+- step = 2: Skip every other character, include every second character.
+- step = 3: Skip two characters, include every third character.
+- step = n: Skip n-1 characters, include every n-th character.
+
+And, as you mentioned:
+
+- step = -1: Include every character, but start from the end and move backwards.
+
+So, in your example:
+
+```
+s = "BEAUTIFUL"
+print(s[0:9:1])
+```
+The output will be:
+
+"BEAUTIFU"
+
+Because step = 1 means include every character, and we're slicing from index 0 to 9.
+
+
+
+
 **Points to Note:**  
 
 ```
