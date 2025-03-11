@@ -612,10 +612,26 @@ print(s[-8:-1:2])
 To reverse a string, use a negative step value of -1, which moves from the end of the string to the beginning.
 
 ```
+# Ex:1
 s = "Python"
-# Reverse the string
+# Reverse the string syntax
 print(s[::-1])
 ```
+
+```
+# Ex:1
+s = "Python"
+# Reverse the string syntax
+print(s[-1:-7:-1]) # not print(s[-1:-6:-1])
+```
+
+```
+# Ex:3
+s = "BEAUTIFUL"
+# Reverse the string syntax
+print(s[-1:-10:-1])
+```
+
 
 **Step:**
 
