@@ -617,4 +617,25 @@ s = "Python"
 print(s[::-1])
 ```
 
+**Step:**
+
+Q:  Your question can be rephrased as:
+
+"In the Python slice notation s[start:stop:step], when step is 2, can we interpret the output as taking every other character, starting from the start index, effectively skipping one character after each selected character?"
+
+```
+s = "beautiful"
+print(s[0:5:2])
+```
+
+Here's the correct breakdown:
+
+- start is 0, so we begin at the first character "b".
+- stop is 5, and we're stepping by 2, so we consider indices 0, 2, and 4.
+- At index 0, we take the character "b".
+- At index 2, we take the character "a".
+- At index 4, we take the character "t".
+
+So, the output "bat" consists of every other character, starting from the first character "b".
+
 
