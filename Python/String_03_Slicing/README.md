@@ -654,4 +654,43 @@ Here's the correct breakdown:
 
 So, the output "bat" consists of every other character, starting from the first character "b".
 
+**Points to Note:**  
+
+```
+s = "BEAUTIFUL"
+print(s[0:9:1])
+
+s = "BEAUTIFUL"
+print(s[0:9:0])
+
+# output: ValueError: slice step cannot be zero 
+```
+
+
+- ValueError: slice step cannot be zero , why explain ?
+
+META AI:
+
+- In Python, when you're using slice notation to extract a subset of elements from a sequence (like a string, list, or tuple), the step value determines how you move through the sequence.
+
+A step value of 0 would essentially mean "don't move" or "stay in the same place". However, this would lead to an infinite loop, because the slicing operation would keep trying to extract the same element over and over again.
+
+To avoid this infinite loop and potential crashes, Python raises a ValueError when you try to use a step value of 0.
+
+Here's an example:
+
+```
+my_list = [1, 2, 3, 4, 5]
+print(my_list[1:4:0])  # Raises ValueError: slice step cannot be zero
+```
+
+Instead, you can use positive or negative integers as the step value to move forward or backward through the sequence:
+
+```
+my_list = [1, 2, 3, 4, 5]
+print(my_list[1:4:1])  # [2, 3, 4]
+print(my_list[4:1:-1])  # [5, 4, 3, 2]
+
+```
+
 
