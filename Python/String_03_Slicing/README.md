@@ -726,4 +726,32 @@ print(my_list[4:1:-1])  # [5, 4, 3, 2]
 
 ```
 
+Q.
 
+```
+str = "PYTHON"
+print(str[])
+```
+Modify the code such that it will give the output NHY ?
+
+Sol:
+
+ if you want the output to be "NHY", you can use the following code:
+
+```
+str = "PYTHON"
+print(str[5] + str[3] + str[1])  # Output: NHY
+```
+
+Here's another method using negative string indexing:
+
+```
+str = "PYTHON"
+print(str[-1] + str[-4] + str[-5])  # Output: NHY
+```
+
+This code uses negative indexing to access the characters from the end of the string:
+
+- str[-1] accesses the last character ("N")
+- str[-4] accesses the fourth character from the end ("H")
+- str[-5] accesses the fifth character from the end ("Y")
