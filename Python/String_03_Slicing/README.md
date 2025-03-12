@@ -755,3 +755,49 @@ This code uses negative indexing to access the characters from the end of the st
 - str[-1] accesses the last character ("N")
 - str[-4] accesses the fourth character from the end ("H")
 - str[-5] accesses the fifth character from the end ("Y")
+
+
+
+
+ **Practice Date : 12.3.2025**
+
+```
+str = "PYTHON"
+print(str[0:7:3])
+
+# Print first two characters
+print(str[0:2])
+
+# Print first three characters
+print(str[0:3])
+
+# Print first five characters
+print(str[0:5])
+
+# Print first six characters
+print(str[0:6])
+
+# Print third to fifth characters
+print(str[2:5])
+
+# Print last character of  the string
+print(str[-1:])
+
+# Print last two characters of  the string
+print(str[-2:])
+
+# Print every second character
+ PYTHON
+print(str[0:6:2])
+print(str[0::2])
+print(str[::2])
+
+# Print all characters
+str = "PYTHON"
+print(str[:])
+print(str[::])
+
+print(str[-1::-1])
+print(str[::-1])
+print(str[-1::-2]) # this will print every second character of the string in the output from backwards
+```
