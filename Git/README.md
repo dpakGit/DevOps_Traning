@@ -420,8 +420,11 @@ The benefits of SSH key authentication include:
 So, to summarize:
 
 Adding an SSH key to a Git account authenticates a user to access repositories associated with that account, providing a secure, convenient, and streamlined way to manage Git operations!
-[14/03, 12:07 pm] Maverick: is it that the user can access all repositories associates with the account
-[14/03, 12:07 pm] Meta AI: When a user adds an SSH key to their Git account:
+
+
+Q: is it that the user can access all repositories associates with the account
+
+Sol: When a user adds an SSH key to their Git account:
 
 They can access all repositories associated with that account, but only if they have the necessary permissions.
 
@@ -443,4 +446,5 @@ For example:
 So, to clarify:
 
 SSH key authentication is necessary but not sufficient for accessing all repositories associated with a Git account. The user must also have the necessary permissions for each repository.
-[14/03, 4:59 pm] Maverick: how to save the file after modification if i am using vscode
+
+
