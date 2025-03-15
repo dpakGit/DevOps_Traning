@@ -40,3 +40,8 @@ ls -l | grep -n .
 
 
 Note: These commands will number each line of the output. If you want to number only the files and directories, use the first command ls | nl.
+
+
+### Linux history Command with Practical Examples
+
+https://labex.io/tutorials/linux-linux-history-command-with-practical-examples-422720
