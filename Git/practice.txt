@@ -71,3 +71,29 @@ Date:   Mon Mar 17 19:30:51 2025 +0530
 
     this is the first commit Date & Time 17.3 , 7:30 pm
 
+
+    
+
+PS C:\Users\dpakm\gitonvscode\gitPractice-1> git diff 86b540b..3c8fdc8
+
+diff --git a/app.py b/app.py
+new file mode 100644
+index 0000000..fde6552
+--- /dev/null
++++ b/app.py
+@@ -0,0 +1,2 @@
++date : 17.3.2025
++new file to see changes after every command
+\ No newline at end of file
+PS C:\Users\dpakm\gitonvscode\gitPractice-1> git diff 86b540b 3c8fdc8
+
+diff --git a/app.py b/app.py
+new file mode 100644
+index 0000000..fde6552
+--- /dev/null
++++ b/app.py
+@@ -0,0 +1,2 @@
++date : 17.3.2025
++new file to see changes after every command
+\ No newline at end of file
+PS C:\Users\dpakm\gitonvscode\gitPractice-1> 
