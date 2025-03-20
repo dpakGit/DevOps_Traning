@@ -609,4 +609,22 @@ So, in this case, you can confidently say that:
 - The commit 55ea5a345756787b08f76c79803846bd8d9c3007 is the latest commit on both the local and remote repositories.
 
 Great observation!
+
+Q. After using the git check out command multiple times how to check we are in which commit ?
+
+Sol:
+
+After using git checkout multiple times, you can use the following commands to determine which commit you're currently on:
+
+1. *git log*: This command displays a log of commits. The most recent commit (the one you're currently on) will be at the top of the list.
+
+2. *git log --oneline*: This command displays a condensed version of the commit log, showing only the commit hash and message. Again, the most recent commit will be at the top.
+
+3. *git status*: This command displays the status of your repository. At the top of the output, you'll see the current branch and commit hash.
+
+4. *git rev-parse HEAD*: This command displays the commit hash of the current commit (i.e., the commit you're currently on).
+
+5. *git show HEAD*: This command displays detailed information about the current commit, including the commit message, author, and changes made in the commit.
+
+By using any of these commands, you can determine which commit you're currently on after using git checkout multiple times.
   
