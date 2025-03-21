@@ -729,3 +729,51 @@ In other words, (HEAD -> dev1) tells you that:
 - The commit d31f03b3c0623dd9c20171efdf90aa75fc7b5ca8 is the latest commit on the dev1 branch.
 
 This notation helps you understand the relationship between your current commit (HEAD) and the branch you're working on (dev1).
+
+
+
+Q. Meaning of the following "(HEAD -> main, dev1)" in the output of the git log command ?
+
+Sol: 
+In Git, (HEAD -> main, dev1) means:
+
+- HEAD: This refers to the current commit that you're working on.
+- -> main: This indicates that the current commit (HEAD) is on the main branch.
+- , dev1: This shows that the current commit is also referenced by the dev1 branch.
+
+In other words, (HEAD -> main, dev1) tells you that:
+
+- You're currently on the main branch.
+- The current commit is also part of the dev1 branch.
+- Both main and dev1 branches are pointing to the same commit.
+
+This notation indicates that there's a relationship between the main and dev1 branches, and they're currently aligned at the same commit.
+
+Q. Meaning of the following "commit d31f03b3c0623dd9c20171efdf90aa75fc7b5ca8 (HEAD -> main, origin/main, origin/HEAD, dev1)" ?
+
+Sol:
+
+Let's break down the meaning of this Git commit message:
+
+commit d31f03b3c0623dd9c20171efdf90aa75fc7b5ca8
+
+- This is the commit hash, a unique identifier for the commit.
+
+(HEAD -> main, origin/main, origin/HEAD, dev1)
+
+- HEAD: This refers to the current commit that you're working on.
+- -> main: This indicates that the current commit (HEAD) is on the main branch.
+- origin/main: This shows that the commit is also present on the remote repository's (origin) main branch.
+- origin/HEAD: This indicates that the commit is the default branch (usually main) on the remote repository (origin).
+- dev1: This shows that the commit is also referenced by the local dev1 branch.
+
+In summary, this commit message tells you that:
+
+- The commit d31f03b3c0623dd9c20171efdf90aa75fc7b5ca8 is the current commit (HEAD).
+- This commit is on the local main branch.
+- This commit is also present on the remote repository's (origin) main branch.
+- This commit is the default branch (usually main) on the remote repository (origin).
+- This commit is also referenced by the local dev1 branch.
+
+This notation indicates that the local and remote repositories are in sync, and the commit is part of multiple branches.
+
