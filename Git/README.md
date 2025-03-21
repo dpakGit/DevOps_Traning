@@ -704,3 +704,28 @@ Developing in a separate branch instead of the main branch in GitHub is a widely
 
 By developing in a separate branch, you can ensure a more stable, efficient, and collaborative development process.
   
+Q.  What does HEAD ->  dev1 in the following output of the git log mean -  
+
+commit d31f03b3c0623dd9c20171efdf90aa75fc7b5ca8 **(HEAD -> dev1)**
+Author: DEEPAK RANJAN MISHRA <dpakmishra.1983@gmail.com>
+Date:   Fri Mar 21 12:44:27 2025 +0530
+
+    Updated app.py in dev1 branch
+
+commit 02a469597c1a7d226bdb2f16ddffcbe8bab9c4b5 (origin/main, origin/HEAD, main)
+Author: DEEPAK RANJAN MISHRA <dpakmishra.1983@gmail.com>
+Date:   Thu Mar 20 21:06:14 2025 +0530
+
+Meta Ai : 
+
+In the output of git log, (HEAD -> dev1) means:
+
+- HEAD: This refers to the current commit that you're working on.
+- -> dev1: This indicates that the current commit (HEAD) is on the dev1 branch.
+
+In other words, (HEAD -> dev1) tells you that:
+
+- You're currently on the dev1 branch.
+- The commit d31f03b3c0623dd9c20171efdf90aa75fc7b5ca8 is the latest commit on the dev1 branch.
+
+This notation helps you understand the relationship between your current commit (HEAD) and the branch you're working on (dev1).
