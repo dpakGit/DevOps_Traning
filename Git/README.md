@@ -835,3 +835,51 @@ So, you can use either of these commands to delete a remote branch:
 - git push origin :<branch_name>
 
 Both will get the job done!
+
+
+Q. What is the command **git branch -r** ?
+
+Sol:
+
+The command **git branch -r** is used to list all the remote branches in a Git repository.
+
+Here's what the options mean:
+
+- git branch: This command is used to manage branches in Git.
+- -r: This option stands for "remote" and tells Git to list only the remote branches.
+
+When you run git branch -r, Git will display a list of all the branches on the remote repository, prefixed with the name of the remote repository (usually "origin"). For example:
+
+
+bash
+$ git branch -r
+origin/main
+origin/dev
+origin/feature/new-feature
+
+
+This output shows that the remote repository has three branches: main, dev, and feature/new-feature.
+
+
+Q. What is the command  **git branch -a|-r --list <pattern>** ?
+
+Sol:
+
+The command **git branch -a|-r --list <pattern>** is used to list branches in a Git repository that match a specified pattern.
+
+Here's a breakdown of the options:
+
+- git branch: This command is used to manage branches in Git.
+- -a or --all: List all branches, including local and remote branches.
+- -r or --remotes: List only remote branches.
+- --list: List branches that match the specified pattern.
+- <pattern>: A glob pattern or a regular expression to match against branch names.
+
+When you run this command, Git will display a list of branches that match the specified pattern.
+
+Examples:
+
+- git branch -a --list '*dev*': List all local and remote branches that contain the string "dev".
+- git branch -r --list 'origin/*feature*': List all remote branches on the "origin" remote that contain the string "feature".
+- git branch --list 'main*': List all local branches that start with the string "main".
+
