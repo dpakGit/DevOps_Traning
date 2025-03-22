@@ -777,3 +777,61 @@ In summary, this commit message tells you that:
 
 This notation indicates that the local and remote repositories are in sync, and the commit is part of multiple branches.
 
+
+### How to Delete Local/Remote Git Branches
+
+Reference links:
+
+1. https://www.ahmedbouchefra.com/delete-local-remote-git-branches/#:~:text=Unlike%20local%20branches%2C%20you%20can't%20delete%20a,in%20this%20case)%20after%20git%20push%20.
+
+
+2. https://stackoverflow.com/questions/2003505/how-do-i-delete-a-git-branch-locally-and-remotely
+
+
+Q. After deleting a branch using the following command "git branch --delete dev1", how to delete the same from the remote repo ?
+
+Sol: 
+
+To delete a branch from the remote repository, you can use the following Git command:
+```
+git push origin --delete dev1
+```
+
+This command pushes the deletion of the dev1 branch to the remote repository (origin).
+
+Here's what the command does:
+
+- git push: This command pushes changes to the remote repository.
+- origin: This specifies the remote repository to push to.
+- --delete: This option deletes the specified branch on the remote repository.
+- dev1: This is the name of the branch to delete.
+
+After running this command, the dev1 branch will be deleted from the remote repository.
+
+Note: Be careful when deleting branches, as this action is permanent and cannot be undone. Make sure you're deleting the correct branch and that you have pushed any necessary changes before deleting.
+
+
+```
+git push origin :<branch_name>
+```
+
+will also delete a branch from the remote repository.
+
+This syntax is a shorthand way to delete a remote branch. Here's how it works:
+
+- git push: This command pushes changes to the remote repository.
+- origin: This specifies the remote repository to push to.
+- :<branch_name>: The colon (:) separates the source ref (which is empty in this case) from the destination ref (the branch to delete). By not specifying a source ref, Git assumes you want to delete the destination ref.
+
+This command is equivalent to:
+
+git push origin --delete <branch_name>
+
+Both commands will delete the specified branch from the remote repository.
+
+So, you can use either of these commands to delete a remote branch:
+
+- git push origin --delete <branch_name>
+- git push origin :<branch_name>
+
+Both will get the job done!
