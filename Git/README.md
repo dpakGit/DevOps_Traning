@@ -1,3 +1,8 @@
+Reference links:
+
+1. Unfuddle STACK Tips & Tricks : https://unfuddle.com/stack/tips-tricks/git-cancel-merge/
+
+
 Practice Date : 14.3.2025
 
 ## Adding a new SSH key to your GitHub account
