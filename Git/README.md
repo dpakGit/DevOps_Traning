@@ -2,6 +2,8 @@ Reference links:
 
 1. Unfuddle STACK Tips & Tricks : https://unfuddle.com/stack/tips-tricks/git-cancel-merge/
 
+2. https://git-scm.com/docs/git-ls-files/2.30.1#:~:text=git%20ls%2Dfiles%20%2D%2Dunmerged,detailed%20information%20on%20unmerged%20paths.&text=Without%20the%20%2Dz%20option%2C%20pathnames,for%20the%20configuration%20variable%20core. 
+
 
 Practice Date : 14.3.2025
 
