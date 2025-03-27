@@ -8,6 +8,9 @@ Reference links:
 
     https://stackoverflow.com/questions/2047465/how-do-i-delete-a-file-from-a-git-repository 
 
+4. https://github.com/kodekloudhub/git-for-beginners-course/tree/master/docs
+
+5. **Merge Conflict:** https://github.com/kodekloudhub/git-for-beginners-course/blob/master/docs/04-Initialize-Remote-Repositories/10-Merge-Conflicts.md 
 
 Practice Date : 14.3.2025
 
@@ -896,6 +899,10 @@ Examples:
 
 
 **Date : 25.3.2025**
+
+### Merge Conflict
+
+https://github.com/kodekloudhub/git-for-beginners-course/blob/master/docs/04-Initialize-Remote-Repositories/10-Merge-Conflicts.md
 
 Solution by Gemini AI, (Open the link) : https://gemini.google.com/app/c9134a914e8a763e?hl=en-IN
 
