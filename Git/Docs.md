@@ -22,7 +22,7 @@ Some examples of file names incorporating these font styles:
 - *Docs*_UserGuide.md
 - ~Docs~_Archive.md
 - `` Docs _v1.0.md
-- # Docs.md (header style)
+-  Docs.md (header style)
 
 Here's a comparison of the two:
 
@@ -47,4 +47,39 @@ Ultimately, the choice depends on your personal preference or project-specific n
 
 ## Docs - Merge Conflict
 
-Q. Consider a scenario where a new branch is created, and a new commit is made on the main branch. When the feature branch is later merged into the main branch, a merge conflict arises. This raises the question: does merging a branch into main always result in a conflict whenever new commits have been made to main?
+Q. Consider a scenario where a new branch is created, and a new commit is made on the main branch. When the feature branch is 
+   later merged into the main branch, a merge conflict arises. This raises the question: does merging a branch into main 
+   always result in a conflict whenever new commits have been made to main?
+
+   Or
+
+Q. Does merging a branch into main always lead to conflicts when new commits exist on main?
+
+
+Q. "Suppose a new branch is created, and then the main branch receives a new commit. Merging the feature branch into main will result in a merge conflict.
+
+Sol: 
+
+The answer is:
+
+- No, merging a branch into main does not always result in a conflict when new commits have been made to main.
+
+- **A merge conflict only occurs when the new commits on the main branch and the commits on the feature branch have modified 
+  the same files or lines of code.** (Second paragraph)
+
+- If the new commits on the main branch do not overlap with the changes on the feature branch, the merge can occur 
+  automatically without conflicts.
+
+- However, if there are overlapping changes, Git will flag a conflict, and you'll need to manually resolve it before 
+  completing the merge.
+
+
+ -  Here's a more precise and elaborate version of the second paragraph:
+
+"A merge conflict arises specifically when the following conditions are met:
+
+- The same file(s) have been modified in both the main branch and the feature branch.
+  
+- The modifications in the main branch and the feature branch overlap, meaning they affect the same lines of code or adjacent code blocks.
+
+In such cases, Git cannot automatically merge the changes and requires manual intervention to resolve the conflict."
