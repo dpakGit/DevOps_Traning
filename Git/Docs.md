@@ -83,3 +83,28 @@ The answer is:
 - The modifications in the main branch and the feature branch overlap, meaning they affect the same lines of code or adjacent code blocks.
 
 In such cases, Git cannot automatically merge the changes and requires manual intervention to resolve the conflict."
+
+
+### Rename a Git branch
+
+To rename a branch in Git, you can use the following command:
+
+
+bash
+```
+git branch -m dev1 developer1
+```
+
+Here:
+
+- git branch is the command to manage branches.
+- -m is the option to move or rename a branch.
+- dev1 is the current name of the branch.
+- developer1 is the new name for the branch.
+
+After running this command, the branch dev1 will be renamed to developer1.
+
+Note:
+
+- If you're currently on the branch you want to rename, you can use git branch -m new-name without specifying the old name.
+- If you've already pushed the branch to a remote repository, you'll need to push the updated branch name using git push origin -u developer1.
