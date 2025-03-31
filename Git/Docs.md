@@ -107,4 +107,13 @@ After running this command, the branch dev1 will be renamed to developer1.
 Note:
 
 - If you're currently on the branch you want to rename, you can use git branch -m new-name without specifying the old name.
-- If you've already pushed the branch to a remote repository, you'll need to push the updated branch name using git push origin -u developer1.
+
+```
+git branch -m <New Branch Name>
+```
+
+- If you've already pushed the branch to a remote repository, you'll need to push the updated branch name using the following command :
+
+```
+ git push origin -u <New Branch Name>
+```
