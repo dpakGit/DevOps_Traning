@@ -196,3 +196,50 @@ In general, git reset is used to:
 - Discard changes
 
 When using git reset, be cautious, as it can potentially discard changes or rewrite commit history. Always review the command's output and use git status to verify the effects of the reset.
+
+
+Q. What is the difference between the commands "git reset --mixed" and  "git restore --staged <file> ?
+
+Sol:
+git reset --mixed and git restore --staged <file> are both used to manipulate the staging area, but they have different behaviors and use cases:
+
+*git reset --mixed*:
+
+- Resets the entire staging area to match the most recent commit (HEAD).
+- Unstages all changes, moving them from the staging area back to the working directory.
+- Affects all files in the staging area.
+
+*git restore --staged <file>*:
+
+- Specifically targets a single file (or a subset of files) in the staging area.
+- Unstages only the specified file(s), moving them from the staging area back to the working directory.
+- Leaves other files in the staging area unchanged.
+
+Key differences:
+
+- Scope: git reset --mixed affects the entire staging area, while git restore --staged <file> targets specific files.
+- Behavior: git reset --mixed resets the staging area to the most recent commit, while git restore --staged <file> only unstages the specified file(s).
+
+When to use each:
+
+- Use git reset --mixed when you want to unstage all changes and start fresh.
+- Use git restore --staged <file> when you want to selectively unstage specific files, leaving others in the staging area unchanged.
+
+  We can also use the command:
+
+```
+git reset --mixed <file name>
+```
+
+This command will:
+
+- Unstage the specified file (<file name>) from the staging area.
+- Move the file from the staging area back to the working directory.
+- Leave the file's changes intact in the working directory.
+
+By specifying a file name, you're telling Git to only reset the staging area for that particular file, rather than resetting the entire staging area.
+
+Note that:
+
+- If you omit the --mixed option, Git will still perform the reset, as --mixed is the default behavior.
+- If you want to reset multiple files, you can specify them separately, separated by spaces: git reset --mixed file1.txt file2.txt
