@@ -243,3 +243,12 @@ Note that:
 
 - If you omit the --mixed option, Git will still perform the reset, as --mixed is the default behavior.
 - If you want to reset multiple files, you can specify them separately, separated by spaces: git reset --mixed file1.txt file2.txt
+
+
+**Use of git rm command :**
+
+```
+$ git rm --cached main.py     # main.py is now untracked
+
+$ git add main.py             # main.py is now tracked
+```
