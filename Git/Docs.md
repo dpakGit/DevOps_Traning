@@ -247,6 +247,29 @@ Note that:
 
 **Use of git rm command :**
 
+The command git rm --cached main.py is used to:
+
+- Remove the file main.py from the Git staging area (index).
+- Stop tracking the file main.py in Git, but only in the repository's index.
+- Leave the physical file main.py intact in the working directory.
+
+In other words, this command:
+
+1. Removes the file from the Git staging area, so it won't be included in the next commit.
+2. Stops Git from tracking changes to the file.
+3. Doesn't delete the physical file from the working directory.
+
+Use cases:
+
+- You've accidentally added a file to the staging area and want to remove it without deleting the physical file.
+- You want to stop tracking a file in Git, but still keep the file in your working directory.
+- You're moving a file to a different repository or ignoring it in the current repository.
+
+Note:
+
+- If you want to remove the file from both the staging area and the working directory, use git rm main.py instead.
+- If you want to stop tracking a file without removing it from the staging area, use git rm --cached --force main.py
+
 ```
 $ git rm --cached main.py     # main.py is now untracked
 
