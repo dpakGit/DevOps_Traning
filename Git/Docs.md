@@ -138,3 +138,61 @@ So, to summarize:
 
 - Correct: "We merge the branch into master."
 - Incorrect: "We merge commits in a branch to the master."
+
+
+### Git Reset
+
+"Let's consider a scenario where we've modified the app.py file in our working directory and staged those changes using git add. However, we've now decided that we want to make further changes to the code. To revert the file to its pre-staged state, we can use git reset --mixed, which will move the file from the staging area back to the working directory."
+
+The command to move a file from the staging area back to the working directory is indeed:
+
+```
+git reset --mixed
+```
+
+Alternatively, you can also use:
+
+git reset (without any options)
+
+Since --mixed is the default behavior of git reset.
+
+
+**How the reset command works :**
+
+git reset --mixed is a Git command that resets the staging area to match the most recent commit (HEAD), while leaving the working directory unchanged.
+
+Here's what happens when you run git reset --mixed:
+
+1. Staging area is reset: The staging area is cleared, and any changes that were staged using git add are removed.
+2. Working directory remains unchanged: The files in your working directory remain modified, and any changes you made are preserved.
+3. HEAD remains the same: The current commit (HEAD) remains unchanged.
+
+In essence, git reset --mixed "unstages" changes, moving them from the staging area back to the working directory.
+
+Example use case:
+
+- You've modified a file and staged it using git add.
+- Before committing, you realize you want to make further changes.
+- Run git reset --mixed to unstage the changes, and then continue modifying the file.
+
+Note:
+
+- git reset --mixed is the default behavior of git reset, so you can omit the --mixed option if you prefer.
+- If you want to reset both the staging area and the working directory, use git reset --hard instead.
+
+The git reset command has several modes, and its behavior changes depending on the options used. Here's a breakdown:
+
+1. *git reset --soft*: Resets the commit history, but preserves changes in the staging area and working directory.
+2. *git reset --mixed* (default): Resets the staging area to match the most recent commit, but leaves the working directory unchanged.
+3. *git reset --hard*: Resets the staging area, working directory, and commit history to match the most recent commit.
+4. *git reset --merge*: Resets the staging area and working directory to match the most recent commit, but preserves uncommitted changes.
+5. *git reset <commit>*: Resets the branch pointer to the specified commit, but doesn't modify the staging area or working directory.
+
+In general, git reset is used to:
+
+- Unstage changes
+- Revert commits
+- Reset the branch pointer
+- Discard changes
+
+When using git reset, be cautious, as it can potentially discard changes or rewrite commit history. Always review the command's output and use git status to verify the effects of the reset.
