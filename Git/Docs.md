@@ -117,3 +117,24 @@ git branch -m <New Branch Name>
 ```
  git push origin -u <New Branch Name>
 ```
+
+Q. We merge commits in a branch to the master or we merge the branch to the master , which is the appropriate sentence to tell ?
+
+Ans. 
+
+The correct sentence would be:
+
+"We merge the branch into the master."
+
+Or, more concisely:
+
+"We merge the branch into master."
+
+This sentence accurately conveys the Git operation, where you're integrating the changes from a feature branch (or any other branch) into the main branch, typically named "master."
+
+The phrase "we merge commits" might be slightly misleading, as you're not merging individual commits, but rather the entire branch, which includes all its commits.
+
+So, to summarize:
+
+- Correct: "We merge the branch into master."
+- Incorrect: "We merge commits in a branch to the master."
