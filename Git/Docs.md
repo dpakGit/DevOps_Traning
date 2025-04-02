@@ -47,6 +47,8 @@ Ultimately, the choice depends on your personal preference or project-specific n
 
 ## Docs - Merge Conflict
 
+My notes/idea : Merge conflict occurs when after a particular commit or commits on the main branch,  branch or branches are created and are merged to the main branch.
+
 Q. Consider a scenario where a new branch is created, and a new commit is made on the main branch. When the feature branch is 
    later merged into the main branch, a merge conflict arises. This raises the question: does merging a branch into main 
    always result in a conflict whenever new commits have been made to main?
