@@ -408,3 +408,50 @@ Best practices:
 - Use git rebase regularly to keep your commit history linear.
 - Avoid rebasing commits that have already been pushed to a shared repository.
 - Use git rebase -i to interactively rebase and reorganize your commits.
+
+
+
+
+
+### Git stash
+
+Here's a scenario where git stash is useful:
+
+Imagine you're working on a new feature in a branch called feature/new-login-system. You've made significant changes to the code, but you haven't committed them yet. Suddenly, you receive an urgent request to fix a bug in the main branch.
+
+You can't simply switch to the main branch and start working on the bug fix because you have uncommitted changes in your current branch. If you try to switch branches, Git will prevent you from doing so, citing conflicts.
+
+This is where git stash comes in:
+
+1. You run git stash to temporarily save your uncommitted changes in a stash.
+2. Git creates a new stash entry, and your working directory is cleaned up to match the last commit.
+3. You can now switch to the main branch and start working on the bug fix.
+4. Once you've committed the bug fix, you can switch back to the feature/new-login-system branch.
+5. You can then apply the stashed changes using git stash apply or git stash pop to reapply your original changes.
+
+By using git stash, you can temporarily set aside your work, switch branches, and then come back to your original task without losing your changes.
+
+Here's a simple example:
+
+
+bash
+# You're working on feature/new-login-system branch
+# You have uncommitted changes
+
+# Stash your changes
+git stash
+
+# Switch to main branch
+git checkout main
+
+# Fix the bug and commit
+# ...
+
+# Switch back to feature/new-login-system branch
+git checkout feature/new-login-system
+
+# Apply the stashed changes
+git stash apply
+
+
+This way, you can manage multiple tasks and branches without conflicts.
