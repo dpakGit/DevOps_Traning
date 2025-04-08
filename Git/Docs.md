@@ -413,9 +413,20 @@ Best practices:
 
 
 
-## Git stash
+## Git Stash
 
-Here's a scenario where git stash is useful:
+"Stash" word meaning : store (something) safely in a hidden or secret place.
+
+In the context of Git, a "stash" refers to a temporary storage area where you can save changes you've made to your code, without committing them to the repository.
+
+Think of it like a box where you can put your work aside for a moment, so you can switch to a different task or branch, and then come back to it later.
+
+When you run git stash, Git creates a new stash entry that contains the changes you've made to your code. This stash entry is stored separately from your regular commits, and you can apply it to your working directory later using git stash apply or git stash pop.
+
+The term "stash" comes from the idea of stashing or storing something away for later use. In this case, you're stashing your changes away, so you can work on something else and then come back to them later.
+
+
+**Use Case:  Here's a scenario where git stash is useful:**
 
 Imagine you're working on a new feature in a branch called feature/new-login-system. You've made significant changes to the code, but you haven't committed them yet. Suddenly, you receive an urgent request to fix a bug in the main branch.
 
@@ -456,3 +467,79 @@ git stash apply
 ```
 
 This way, you can manage multiple tasks and branches without conflicts.
+
+
+Q: Are the commands "git stash apply" and "git stash pop" same ?
+
+Sol:
+git stash apply and git stash pop are similar, but not exactly the same.
+
+Here's the difference:
+
+- git stash apply: This command applies the changes from the stash to your working directory, but it leaves the stash entry intact. You can apply the same stash multiple times or switch between different stashes.
+- git stash pop: This command applies the changes from the stash to your working directory and then immediately removes the stash entry. It's like applying the stash and then "popping" it off the stash list.
+
+When to use each:
+
+- Use git stash apply when you want to apply the stash changes but still keep the stash entry around for future use or reference.
+- Use git stash pop when you're done with the stash and want to apply its changes and remove it from the stash list.
+
+Here's an example:
+
+
+bash
+# You have a stash entry
+git stash list
+# stash@{0}: WIP on feature/new-login-system
+
+# Apply the stash changes but keep the stash entry
+git stash apply
+
+# Apply the stash changes and remove the stash entry
+git stash pop
+
+
+In summary, git stash apply applies the stash changes without removing the stash entry, while git stash pop applies the changes and removes the stash entry.
+
+
+Q: "What is the meaning of the line "git stash command  leaves the stash entry intact. You can apply the same stash multiple times or switch between different stashes." ?
+
+Sol:
+When the git stash apply command "leaves the stash entry intact," it means that the stash entry remains in the stash list after applying its changes to your working directory.
+
+Here's what this implies:
+
+- The stash entry is not deleted or removed from the stash list.
+- You can apply the same stash entry multiple times, which can be useful if you need to reapply the changes or if you want to apply them to a different branch.
+- You can switch between different stash entries, applying changes from one stash, then another, without having to recreate or re-stash the changes.
+
+This is in contrast to git stash pop, which applies the stash changes and then removes the stash entry from the list.
+
+Here's an example:
+
+
+bash
+```
+# You have two stash entries
+git stash list
+# stash@{0}: WIP on feature/new-login-system
+# stash@{1}: WIP on feature/new-dashboard
+
+# Apply the first stash entry
+git stash apply stash@{0}
+
+# The first stash entry is still in the list
+git stash list
+# stash@{0}: WIP on feature/new-login-system
+# stash@{1}: WIP on feature/new-dashboard
+
+# You can apply the second stash entry
+git stash apply stash@{1}
+
+# Both stash entries are still in the list
+git stash list
+# stash@{0}: WIP on feature/new-login-system
+# stash@{1}: WIP on feature/new-dashboard
+```
+
+By leaving the stash entry intact, git stash apply gives you more flexibility in managing your stashes and applying changes to your working directory.
