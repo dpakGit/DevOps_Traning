@@ -413,7 +413,7 @@ Best practices:
 
 
 
-### Git stash
+## Git stash
 
 Here's a scenario where git stash is useful:
 
@@ -435,6 +435,7 @@ Here's a simple example:
 
 
 bash
+```
 # You're working on feature/new-login-system branch
 # You have uncommitted changes
 
@@ -452,6 +453,6 @@ git checkout feature/new-login-system
 
 # Apply the stashed changes
 git stash apply
-
+```
 
 This way, you can manage multiple tasks and branches without conflicts.
