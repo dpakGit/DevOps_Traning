@@ -486,8 +486,8 @@ When to use each:
 
 Here's an example:
 
-
 bash
+```
 # You have a stash entry
 git stash list
 # stash@{0}: WIP on feature/new-login-system
@@ -497,7 +497,7 @@ git stash apply
 
 # Apply the stash changes and remove the stash entry
 git stash pop
-
+```
 
 In summary, git stash apply applies the stash changes without removing the stash entry, while git stash pop applies the changes and removes the stash entry.
 
