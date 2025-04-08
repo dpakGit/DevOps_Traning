@@ -426,7 +426,9 @@ When you run git stash, Git creates a new stash entry that contains the changes 
 The term "stash" comes from the idea of stashing or storing something away for later use. In this case, you're stashing your changes away, so you can work on something else and then come back to them later.
 
 
-**Use Case:  Here's a scenario where git stash is useful:**
+**Use Case:**
+
+Here's a scenario where git stash is useful:
 
 Imagine you're working on a new feature in a branch called feature/new-login-system. You've made significant changes to the code, but you haven't committed them yet. Suddenly, you receive an urgent request to fix a bug in the main branch.
 
@@ -467,6 +469,9 @@ git stash apply
 ```
 
 This way, you can manage multiple tasks and branches without conflicts.
+
+Also, "Imagine you're working on a feature in a specific branch, and suddenly you need to switch to a different branch, such as the main branch, to address an urgent issue. However, you can't simply switch branches using git checkout <branch name> because you have uncommitted changes in your current branch. In this scenario, git stash comes to the rescue, allowing you to temporarily save your changes and switch to the desired branch without committing your work in the original branch."
+
 
 
 Q: Are the commands "git stash apply" and "git stash pop" same ?
