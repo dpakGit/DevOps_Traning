@@ -548,3 +548,44 @@ git stash list
 ```
 
 By leaving the stash entry intact, git stash apply gives you more flexibility in managing your stashes and applying changes to your working directory.
+
+
+
+### To see the last n commits using git log --oneline, you can use the following command:
+
+
+bash
+```
+git log --oneline -n <number>
+```
+
+Replace <number> with the number of commits you want to see.
+
+For example:
+
+
+```
+git log --oneline -n 5
+
+
+This will show you the last 5 commits in a concise format, with each commit on one line.
+
+Alternatively, you can use:
+
+
+bash
+git log --oneline -5
+
+
+The -5 option is shorthand for -n 5, and it will show you the last 5 commits.
+
+You can adjust the number to see more or fewer commits. For example:
+
+
+bash
+git log --oneline -10
+```
+
+
+
+This will show you the last 10 commits.
