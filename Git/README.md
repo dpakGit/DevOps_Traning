@@ -6,11 +6,14 @@ Reference links:
 
 3. How do I delete a file from a Git repository?
 
-    https://stackoverflow.com/questions/2047465/how-do-i-delete-a-file-from-a-git-repository 
+https://stackoverflow.com/questions/2047465/how-do-i-delete-a-file-from-a-git-repository 
 
 4. https://github.com/kodekloudhub/git-for-beginners-course/tree/master/docs
 
-5. **Merge Conflict:** https://github.com/kodekloudhub/git-for-beginners-course/blob/master/docs/04-Initialize-Remote-Repositories/10-Merge-Conflicts.md 
+5. **Merge Conflict:**
+ https://github.com/kodekloudhub/git-for-beginners-course/blob/master/docs/04-Initialize-Remote-Repositories/10-Merge-Conflicts.md
+
+6.https://graphite.dev/guides/topic/git
 
 Practice Date : 14.3.2025
 
