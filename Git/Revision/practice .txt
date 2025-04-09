@@ -352,3 +352,46 @@ git add .
 ls
 history | cut -c 8-
 root@ip-172-31-23-213:/home/ubuntu/myrevision# 
+
+
+GIT STASH
+
+git branch
+ls
+git status
+git checkout dev1
+git status
+ls
+git rm -rf *
+git add .
+vi app.py
+git add app.py 
+git commit -m "git stash practice"
+git checkout main
+git checkout dev1
+git branch
+ls
+vi app.py 
+git checkout main
+git stash
+git checkout main
+ls
+vi myapp.py
+git checkout dev1
+git checkout main
+ls
+it status
+git status
+git branch
+git checkout dev1
+git branch
+git stash pop
+ls
+git add .
+git push
+git log
+ls
+git branch
+git status
+history | cut -c 8-
+root@ip-172-31-23-213:/home/ubuntu/myrevision# 
