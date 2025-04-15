@@ -1,10 +1,4 @@
-apt install docker.io
-docker status
-apt update
-docker ps
-docker info
-ls
-docker ps
+
 
 
 
@@ -31,6 +25,20 @@ EXPOSE 8080
 CMD ["python3", "/opt/app.py"]
 
 ```
+
+apt install docker.io
+
+docker status
+
+apt update
+
+docker ps
+
+docker info
+
+ls
+
+docker ps
 sudo -s    FIRST BECOME A ROOT USER 
 1.	docker info
 2.	docker
