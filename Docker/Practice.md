@@ -21,7 +21,7 @@ EXPOSE 8080
 CMD ["python3", "/opt/app.py"]
 
 ```
-
+sudo -s    FIRST BECOME A ROOT USER 
 1.	docker info
 2.	docker
 3.	ls
