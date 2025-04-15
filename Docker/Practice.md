@@ -1,3 +1,13 @@
+apt install docker.io
+docker status
+apt update
+docker ps
+docker info
+ls
+docker ps
+
+
+
 ### Application code : app.py
 ```
 from flask import Flask
