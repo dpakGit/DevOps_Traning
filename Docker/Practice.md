@@ -1,3 +1,26 @@
+### Application code : app.py
+```
+from flask import Flask
+import os
+app = Flask(__name__)
+@app.route('/')
+
+def hello():
+    return ('\nHello from Container World! \n\n')
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080, debug=True)
+```
+
+### Dockerfile
+```
+FROM ubuntu:20.04
+RUN apt update && apt install python3 -y && apt install python3-pip -y && pip3 install flask
+COPY app.py /opt
+EXPOSE 8080
+CMD ["python3", "/opt/app.py"]
+
+```
 
 1.	docker info
 2.	docker
