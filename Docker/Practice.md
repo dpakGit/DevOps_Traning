@@ -59,3 +59,34 @@ ls
 16.	docker ps # to see if any container is running
 17.	docker ps -a # to see all running and exited containers
 18.	curl localhost:8000
+
+
+Practice date: 17.4.2025
+
+
+docker logs Container-1
+
+### How to login inside a Container
+
+docker exec -it Container-1 bash 
+
+**Commands inside a docker container**
+
+pwd
+
+ls -al
+
+cd /opt/
+
+ls
+
+cat app.py 
+
+ps -ef        : # ps -ef is a command that displays a list of running processes in the container
+
+Or
+ps -eaf
+
+exit # to come out of the container
+
+
