@@ -82,11 +82,13 @@ ls
 
 cat app.py 
 
-ps -ef        : # ps -ef is a command that displays a list of running processes in the container
+/ # ps -ef is a command that displays a list of running processes in the container
 
+ps -ef       
 Or
 ps -eaf
 
-exit # to come out of the container
+/# to come out of the container
+exit 
 
 
