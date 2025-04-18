@@ -1,7 +1,3 @@
-
-
-
-
 ### Application code : app.py
 ```
 from flask import Flask
