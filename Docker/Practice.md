@@ -91,4 +91,48 @@ ps -eaf
 /# to come out of the container
 exit 
 
+**Date: 18.4.2025**
+
+### COPY A FILE FROM HOST TO THE CONTAINER
+
+# First Method
+docker exec -it Con1 bash
+pwd
+ls
+cd /opt
+ls
+
+# Second Method
+docker exec Con1 ls  :# Dislays all the 
+docker exec Con1 ls /opt/
+
+# Third Method
+docker exec Con1 test -f /opt/TEST.PY
+
+# Fourth Method
+docker exec Con1 test -f /opt/TEST.PY  && echo "File exists" || echo "File does not exist"
+
+# to check multiple files
+Alternatively, you can use a loop to check for multiple files:
+
+bash
+for file in TEST.PY app.py; do
+  docker exec Con1 test -f /opt/$file && echo "$file exists" || echo "$file does not exist"
+done
+
+# Fifth Method : USE FIND COMMAND
+
+docker exec Con1 find /opt  -name TEST.PY
+
+docker exec Con1 find /opt  -name app.py 
+
+# To find multiple files using the find command with docker exec, you can use the -o operator, which stands for "or":
+
+docker exec Con1 find /opt -name TEST.PY -o -name app.py
+
+If you have more files to search for, you can continue adding -o -name filename clauses:
+
+
+bash
+docker exec Con1 find /opt -name app1.py -o -name app2.py -o -name app3.py
 
