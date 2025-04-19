@@ -200,17 +200,18 @@ Sol:
 The docker cp command indeed requires exactly 2 arguments.
 
 Correct approach:
+
 To copy multiple files or directories, you can use:
 
-
+```
 bash
 docker cp apple C1:/Fruits/
 docker cp orange C1:/Fruits/
-
+```
 
 Alternatively, you can copy both files in a single command by wrapping them in a parent directory:
 
-
+```
 bash
 # Create a temporary directory
 mkdir temp
@@ -221,6 +222,6 @@ docker cp temp C1:/Fruits/
 
 # Clean up
 rm -rf temp
-
+```
 
 This approach copies both apple and orange into the /Fruits/ directory inside the container.
