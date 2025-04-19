@@ -23,7 +23,8 @@ CMD ["python3", "/opt/app.py"]
 ```
 
 ```
-sudo -s # FIRST BECOME A ROOT USER 
+# FIRST BECOME A ROOT USER 
+sudo -s 
 apt update
 apt install docker.io -y
 ```
