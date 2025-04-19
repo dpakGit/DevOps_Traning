@@ -131,3 +131,96 @@ However, this approach requires additional setup.
 
 Simplest approach:
 The easiest way is to use the --hostname flag when running the container, as mentioned earlier. This way, the container name will be reflected in the prompt when you use docker exec.
+
+The command is almost correct.
+
+Correct command:
+
+bash
+docker cp apple C1:/Fruits/
+
+
+What's missing:
+The trailing slash / at the end of the destination path /Fruits/ ensures that Docker treats /Fruits/ as a directory.
+
+Without the trailing slash, Docker might interpret /Fruits as a file and overwrite any existing file with that name.
+
+Additional check:
+Make sure the /Fruits directory exists in the container C1. If it doesn't exist, you'll get an error.
+
+
+
+## You can create the directory inside the container using:
+
+bash
+docker exec -it C1 mkdir /Fruits
+
+
+### The command docker cp apple C1:/Fruits/ will not create the /Fruits directory if it doesn't exist.
+
+Behavior:
+If the /Fruits directory doesn't exist, you'll get an error similar to:
+
+
+Error: No such container:path: C1:/Fruits/
+
+
+Solution:
+To ensure the directory exists before copying, you can create it using:
+
+
+bash
+docker exec -it C1 mkdir -p /Fruits
+
+
+Then, you can copy the file:
+
+
+bash
+docker cp apple C1:/Fruits/
+
+
+#### The -p flag with mkdir ensures that the command doesn't fail if the directory already exists.
+
+### Cannot copy multiple files at a time inside a container
+```
+docker cp apple orange C1:/Fruits/
+
+Error:
+"docker cp" requires exactly 2 arguments.
+See 'docker cp --help'.
+
+Usage:  docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-
+        docker cp [OPTIONS] SRC_PATH|- CONTAINER:DEST_PATH
+
+Copy files/folders between a container and the local filesystem
+```
+Sol:
+
+The docker cp command indeed requires exactly 2 arguments.
+
+Correct approach:
+To copy multiple files or directories, you can use:
+
+
+bash
+docker cp apple C1:/Fruits/
+docker cp orange C1:/Fruits/
+
+
+Alternatively, you can copy both files in a single command by wrapping them in a parent directory:
+
+
+bash
+# Create a temporary directory
+mkdir temp
+cp apple orange temp/
+
+# Copy the temp directory
+docker cp temp C1:/Fruits/
+
+# Clean up
+rm -rf temp
+
+
+This approach copies both apple and orange into the /Fruits/ directory inside the container.
