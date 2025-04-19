@@ -84,3 +84,50 @@ Clarification:
 When a container is created from an image, it relies on the image's layers on the local machine. If you want to run the same container on a different machine, you'd need to pull the image to that machine as well.
 
 So, while the image can be used to create containers on multiple machines, a specific container instance will always rely on the image's presence on the machine where it's running.
+
+
+
+[19/04, 12:32 pm] Maverick: when we run the following command it takes us inside the docker container "docker exec -it C1 bash"
+[19/04, 12:32 pm] Meta AI: The command docker exec -it C1 bash doesn't exactly take you "inside" the container in the sense of entering a container that's already running.
+
+What happens:
+When you run docker exec -it C1 bash, you're:
+
+1. Executing a new command: You're running a new command (bash) inside the existing container C1.
+2. Attaching to the container: The -it flags allow you to interact with the container's shell.
+
+Key points:
+- The container C1 must already be running for docker exec to work.
+- You're not "entering" the container; instead, you're running a new process (bash) within the container.
+
+If you want to start a new container and get a shell prompt, you might use docker run -it instead:
+
+
+bash
+docker run -it image_name bash
+
+[19/04, 12:35 pm] Maverick: ''root@28b52071ad21:/# "this is the output or new line on the terminal when we run docker exec command, where following is the container id 28b52071ad21, but how con we replace it with the container name so that it will be easier for us to identify inside which container we are
+[19/04, 12:35 pm] Meta AI: When you run docker exec -it C1 bash, the container ID in the prompt root@28b52071ad21:/# is the container's hostname, which defaults to the container ID.
+
+How to set a hostname/container name:
+You can specify a hostname when running the container using the --hostname flag:
+
+
+bash
+docker run -d --name C1 --hostname C1 my_image
+
+
+Then, when you run docker exec -it C1 bash, the prompt will display root@C1:/#.
+
+Changing the PS1 variable:
+Alternatively, you can modify the PS1 environment variable inside the container to display the container name:
+
+
+bash
+docker exec -it C1 bash -c "export PS1='\[\e[32m\]\u@${container_name}:\w\$\[\e[0m\] '"
+
+
+However, this approach requires additional setup.
+
+Simplest approach:
+The easiest way is to use the --hostname flag when running the container, as mentioned earlier. This way, the container name will be reflected in the prompt when you use docker exec.
