@@ -225,3 +225,29 @@ rm -rf temp
 ```
 
 This approach copies both apple and orange into the /Fruits/ directory inside the container.
+
+
+### Docker run -it vs docker run -d
+
+1. *docker run -d:*
+- Detached mode: The container runs in the background.
+- No interactive shell: You won't see the container's output in your terminal.
+- Container ID: Docker returns the container ID.
+
+2. *docker run -it:*
+- Interactive mode: The container runs in the foreground.
+- Attached terminal: You can interact with the container's shell.
+- Output visible: You'll see the container's output in your terminal.
+
+3. *docker run -itd:*
+- Detached interactive mode: This might seem contradictory, but here's what happens:
+    - The container is started in detached mode (-d).
+    - The -it flags are essentially ignored when used with -d, as there's no terminal to attach to.
+
+In practice, docker run -itd behaves similarly to docker run -d. If you want an interactive shell, you should use docker run -it without -d, or use docker exec -it to attach to a running container.
+
+When to use each:
+
+- docker run -d for background services or long-running processes.
+- docker run -it for interactive shells or when you need to see the output.
+- Avoid using docker run -itd unless you have a specific use case that requires it. Instead, choose between -d or -it based on your needs.
