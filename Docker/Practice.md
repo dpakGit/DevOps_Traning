@@ -138,3 +138,8 @@ docker exec Con1 find /opt -name TEST.PY -o -name app.py
 bash
 docker exec Con1 find /opt -name app1.py -o -name app2.py -o -name app3.py
 
+
+**Copy a file from a container to the host directory**
+
+docker cp Con1:/opt/Dockerfile .
+
