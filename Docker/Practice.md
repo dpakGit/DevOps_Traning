@@ -91,7 +91,11 @@ exit
 
 ### COPY A FILE FROM HOST TO THE CONTAINER
 
+
+Different Methods to check the availability of a file copied from host machine to the opt directory of a Container
+
 **First Method:**
+
 docker exec -it Con1 bash
 pwd
 ls
@@ -99,6 +103,7 @@ cd /opt
 ls
 
 **Second Method**
+
 docker exec Con1 ls  :# Dislays all the 
 docker exec Con1 ls /opt/
 
@@ -126,8 +131,8 @@ docker exec Con1 find /opt  -name app.py
 
 docker exec Con1 find /opt -name TEST.PY -o -name app.py
 
-- If you have more files to search for, you can continue adding -o -name filename clauses:
 
+- If you have more files to search for, you can continue adding -o -name filename clauses:
 
 bash
 docker exec Con1 find /opt -name app1.py -o -name app2.py -o -name app3.py
