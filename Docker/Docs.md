@@ -338,3 +338,40 @@ Method 3: Checking Dockerfile
 If you have access to the Dockerfile used to build the image, look for the FROM directive, which specifies the parent image.
 
 These methods help you identify the parent image and understand the image's lineage.
+
+
+
+Q. Error response from daemon: conflict: unable to delete 67282e4475ca (must be forced) - image is referenced in multiple repositories Error response from daemon: conflict: unable to delete 67282e4475ca (must be forced) - image is referenc
+
+
+S0l: 
+
+When you see this error, it means the image is tagged in multiple repositories or has multiple tags. To delete the image:
+
+Solution
+Use the -f flag with docker rmi:
+
+
+bash
+docker rmi -f 67282e4475ca
+
+
+Alternatively, you can remove the tags associated with the image:
+
+Step-by-Step
+1. List all tags for the image: docker images
+2. Remove each tag: docker rmi <repository_name>:<tag_name>
+3. Once all tags are removed, the image will be deleted.
+
+Another Option
+If you want to remove all unused images (including the one you're trying to delete), you can use:
+
+
+bash
+docker image prune -a
+
+
+This command removes all unused images, not just the dangling ones. Use with caution!
+
+
+
