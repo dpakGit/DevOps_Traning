@@ -251,3 +251,90 @@ When to use each:
 - docker run -d for background services or long-running processes.
 - docker run -it for interactive shells or when you need to see the output.
 - Avoid using docker run -itd unless you have a specific use case that requires it. Instead, choose between -d or -it based on your needs.
+
+
+
+
+**Date:24.4.2025**
+
+### The command to rename a container is:
+
+
+docker rename old_container_name new_container_name
+
+
+Replace:
+
+- old_container_name with the current name of the container
+- new_container_name with the desired new name
+
+This command will rename the container without affecting its functionality or data.
+
+
+### To rename a Docker image, you can use the docker tag command:
+
+
+docker tag old_image_name new_image_name
+
+
+Replace:
+
+- old_image_name with the current name of the image
+- new_image_name with the desired new name
+
+This command creates a new tag for the image, effectively renaming it. The original image remains unchanged.
+
+If you want to remove the old tag, you can use:
+
+
+docker rmi old_image_name
+
+
+Be cautious when removing tags, as this can affect dependent containers or services.
+
+
+### How to remove docker images having dependant child images ?
+
+When you try to delete a Docker image and see the "image has dependent child images" message, it means:
+
+Meaning
+The image you're trying to delete is a base image for other images. These child images were built using the image you're trying to delete, and Docker won't let you delete it because it would break the child images.
+
+Solution
+To delete the image, you'll need to:
+
+1. Find the child images: Use docker images to list all images and identify the child images that depend on the image you want to delete.
+2. Delete the child images: Use docker rmi to delete the child images first.
+3. Delete the parent image: Once the child images are deleted, you can delete the parent image using docker rmi.
+
+Alternatively, you can use the -f flag with docker rmi to force-delete the image and its child images:
+
+
+docker rmi -f image_name
+
+
+However, be cautious when using -f, as it can lead to unintended consequences, such as breaking dependent containers or services.
+
+It's usually safer to delete child images individually to ensure you're aware of the potential impact.
+
+
+### How to identify the parent image of a Docker image ?
+
+Method 1: Using Docker Inspect
+
+docker inspect --format='{{.Parent}}' image_name
+
+
+This command displays the ID of the parent image.
+
+Method 2: Using Docker History
+
+docker history image_name
+
+
+This command shows the layers that make up the image, including the parent image.
+
+Method 3: Checking Dockerfile
+If you have access to the Dockerfile used to build the image, look for the FROM directive, which specifies the parent image.
+
+These methods help you identify the parent image and understand the image's lineage.
