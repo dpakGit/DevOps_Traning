@@ -148,3 +148,44 @@ docker exec Con1 find /opt -name app1.py -o -name app2.py -o -name app3.py
 
 docker cp Con1:/opt/Dockerfile .
 
+
+**Date:25.4.2025**
+
+### Creating a Private docker Registry and pushing an image inside it
+
+docker pull ubuntu:latest # pulled an image from docker hub
+docker images
+
+# Creating a Private Registry
+
+docker run -d --name pvt_Registry -p 5000:5000 registry:2
+docker ps
+docker images
+
+# tag the image ubuntu:latest before pushing it to the private registry
+
+docker tag ubuntu:latest localhost:5000/ubuntu:latest
+docker images
+
+# Push the tagged image to the private registry
+
+docker push localhost:5000/ubuntu:latest
+docker images
+docker exec -it pvt_Registry bash #  bash shell does not worked so sh is used
+docker exec -it pvt_Registry sh
+
+# Commands to run inside the Private Registry container
+
+var/lib/registry/
+
+ docker/
+
+ registry/
+
+ v2/
+
+ repositories/
+
+ ubuntu/
+
+
