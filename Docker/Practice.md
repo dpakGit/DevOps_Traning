@@ -149,7 +149,10 @@ docker exec Con1 find /opt -name app1.py -o -name app2.py -o -name app3.py
 docker cp Con1:/opt/Dockerfile .
 
 
+
 **Date:25.4.2025**
+
+
 
 ### Creating a Private docker Registry and pushing an image inside it
 
