@@ -156,25 +156,25 @@ docker cp Con1:/opt/Dockerfile .
 docker pull ubuntu:latest # pulled an image from docker hub
 docker images
 
-# Creating a Private Registry
+### Creating a Private Registry
 
 docker run -d --name pvt_Registry -p 5000:5000 registry:2
 docker ps
 docker images
 
-# tag the image ubuntu:latest before pushing it to the private registry
+### tag the image ubuntu:latest before pushing it to the private registry
 
 docker tag ubuntu:latest localhost:5000/ubuntu:latest
 docker images
 
-# Push the tagged image to the private registry
+### Push the tagged image to the private registry
 
 docker push localhost:5000/ubuntu:latest
 docker images
 docker exec -it pvt_Registry bash #  bash shell does not worked so sh is used
 docker exec -it pvt_Registry sh
 
-# Commands to run inside the Private Registry container
+### Commands to run inside the Private Registry container
 
 var/lib/registry/
 
@@ -188,4 +188,39 @@ var/lib/registry/
 
  ubuntu/
 
+### We can also use the following Command to achieve the above purpose:
 
+```
+curl localhost:5000/v2/_catalog
+```
+
+Source: Meta AI
+
+The command curl localhost:5000/v2/_catalog is used to:
+
+Query a Docker Registry
+- localhost:5000: The URL of a local Docker registry.
+- /v2/_catalog: The API endpoint to retrieve a list of repositories in the registry.
+
+Purpose
+This command allows you to:
+
+1. List all repositories (image collections) in the registry.
+2. Verify the registry's contents.
+3. Check if specific images or repositories are available.
+
+Response
+The registry will respond with a JSON object containing a list of repository names.
+
+Example Response
+
+{
+  "repositories": [
+    "ubuntu",
+    "myapp",
+    "another-image"
+  ]
+}
+
+
+This shows that the registry contains images or repositories named ubuntu, myapp, and another-image.
