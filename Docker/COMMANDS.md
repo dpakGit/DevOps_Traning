@@ -1,3 +1,9 @@
+**Docker Key Commands:** https://kodekloud.com/pages/educational-resources/docker-key-commands 
+(See the above link to see the below picture)
+
+![Screenshot (38)](https://github.com/user-attachments/assets/6bb45cd7-69be-433a-bd53-88dc276d3ced)
+
+
 
 To Check if docker is installed on your machine.
 ```
