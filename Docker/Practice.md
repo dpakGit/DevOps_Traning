@@ -150,6 +150,12 @@ docker cp Con1:/opt/Dockerfile .
 
 
 
+**Docker Registry:** https://notes.kodekloud.com/docs/Docker-Training-Course-for-the-Absolute-Beginner/Docker-Registry/Docker-Registry
+
+### Why tag a docker image before pushing it to docker hub ?
+
+https://kodekloud.com/community/t/tagging-a-docker-image-before-pushing-it-to-docker-hub/476969
+
 **Date:25.4.2025**
 
 
@@ -227,3 +233,15 @@ Example Response
 
 
 This shows that the registry contains images or repositories named ubuntu, myapp, and another-image.
+
+### How to push a docker image to a private repository ? - Stackoverflow
+
+https://stackoverflow.com/questions/28349392/how-to-push-a-docker-image-to-a-private-repository
+
+If you docker registry is private and self hosted you should do the following :
+
+```
+docker login <REGISTRY_HOST>:<REGISTRY_PORT>
+docker tag <IMAGE_ID> <REGISTRY_HOST>:<REGISTRY_PORT>/<APPNAME>:<APPVERSION>
+docker push <REGISTRY_HOST>:<REGISTRY_PORT>/<APPNAME>:<APPVERSION>
+```
