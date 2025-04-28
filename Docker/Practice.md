@@ -245,3 +245,48 @@ docker login <REGISTRY_HOST>:<REGISTRY_PORT>
 docker tag <IMAGE_ID> <REGISTRY_HOST>:<REGISTRY_PORT>/<APPNAME>:<APPVERSION>
 docker push <REGISTRY_HOST>:<REGISTRY_PORT>/<APPNAME>:<APPVERSION>
 ```
+**Practice date: 28.4.2025**
+
+- Practice: 1
+
+  vi app.py
+  vi Dockerfile
+  docker build -t image:1 .
+docker run -d --name C-1 -p 8000:8080 image:1
+docker ps
+docker exec -it first bash
+docker exec -it C-1 bash
+
+- Commands inside the container
+
+cd /opt/
+ls
+echo "This is a test file" > abc.txt
+ls
+exit
+
+docker stop C-1
+docker ps -a
+docker rm C-1
+docker ps -a
+docker run -d --name C-1 -p 8000:8080 image:1
+docker ps -a
+docker exec -it C-1 bash
+cd /opt/
+ls
+
+- Recreate the same Container
+
+vi app.py
+vi Dockerfile
+docker build -t image:1 .
+docker run -d --name C-1 -p 8000:8080 image:1
+docker ps
+docker exec -it first bash
+docker exec -it C-1 bash
+
+- Commands inside the container
+
+cd /opt/
+ls
+  
