@@ -248,7 +248,7 @@ docker push <REGISTRY_HOST>:<REGISTRY_PORT>/<APPNAME>:<APPVERSION>
 **Practice date: 28.4.2025**
 
 - Practice: 1
-
+```
   vi app.py
   vi Dockerfile
   docker build -t image:1 .
@@ -274,9 +274,9 @@ docker ps -a
 docker exec -it C-1 bash
 cd /opt/
 ls
-
+```
 - Recreate the same Container
-
+```
 vi app.py
 vi Dockerfile
 docker build -t image:1 .
@@ -289,4 +289,25 @@ docker exec -it C-1 bash
 
 cd /opt/
 ls
-  
+```
+
+**Practice-2**
+```
+docker run -d --name C-1 -v /opt:/etc/lala/ -p 8000:8080 image:1
+docker ps -a
+cd /opt
+mkdir host_test_file.txt
+
+# Or mkdir /opt/testing.txt Meaning make a file testing.txt inside the directory /opt
+ls /opt/ # List the files inside the /opt directory
+cd ..
+docker exec -it C-1 bash
+cd /opt/
+ls
+cd ..
+exit
+docker exec -it C-1 ls /etc/lala # Imp command
+docker exec -it C-1 rm-rf /etc/lala/host_file1.txt
+docker ps
+docker exec -it C-1 ls /etc/lala
+```
