@@ -323,12 +323,11 @@ Alternatively, you can use more specific language:
 - "Verify that the file/directory contents are identical in both locations"
 
 Choose the wording that best fits your context and purpose.
-  
-```
+``` 
 docker run -d --name C-1 -v /opt:/etc/lala/ -p 8000:8080 image:1
 docker ps -a
 cd /opt
-mkdir host_test_file.txt
+mkdir host_file.txt
 
 # Or mkdir /opt/testing.txt Meaning make a file testing.txt inside the directory /opt
 ls /opt/ # List the files inside the /opt directory
@@ -341,9 +340,25 @@ exit
 docker exec -it C-1 ls /etc/lala # Imp command
 docker exec -it C-1 rm-rf /etc/lala/host_file1.txt
 docker ps
-docker exec -it C-1 ls /etc/lala
-```
+docker exec -it C-1 ls /etc/lala # the file host_file.txt is visible under the /etc/lala directory
 
+# 1. Delete the existing container.
+
+docker stop C-1
+docker rm C-1
+
+# 2. Recreate the container with the same volume mount (/opt:/etc/lala).
+
+docker run -d --name C-1 -v /opt:/etc/lala/ -p 8000:8080 image:1
+
+# 3. Verify that the file host_file.txt is available in the container's /etc/lala directory.
+
+docker exec -it C-1 bash
+cd /etc/lala
+ls
+
+Your steps are well-structured and easy to follow. This format works well for instructional or procedural content.
+```
 
 **Practice-3**
 
