@@ -368,8 +368,55 @@ instructional or procedural content.
 Or, in a more detailed and testable format:
 
 "Test bind mount functionality by:
-
 1. Creating a file in the container's /etc/lala directory.
 2. Verifying that the file is visible in the host machine's /opt directory.
 
 This confirms that changes made in the container are reflected on the host machine."
+
+```
+docker run -d --name C-1 -v /opt:/etc/lala/ -p 8000:8080 image:first
+docker ps
+ls /opt/
+docker exec -it C-1 bash
+# Creating a file in the container's /etc/lala directory.
+ls
+cd /etc/lala/
+ls
+echo "THIS IS VOLUME TEST" > con_file.txt
+ls
+# This file is supposed to be visible in the /opt directory of the host with the same content.
+exit
+
+# Verifying that the file is visible in the host machine's /opt directory.
+cd /opt/
+ls
+
+# Delete the existing container.
+
+docker stop C-1
+docker rm C-1
+docker  ps
+docker ps -a
+
+# Now verify that even after the container is deleted the file created inside the container
+ is avialable inside the /opt directory
+cd /opt/
+ls
+
+# Recreate the container with the same volume mount (/opt:/etc/lala).
+
+docker run -d --name C-1 -v /opt:/etc/lala/ -p 8000:8080 image:first
+
+# Verify that the file created inside the previous container is now available in the
+new container's /etc/lala directory ?
+
+docker exec -it C-1 bash
+cd /etc/lala
+ls
+exit
+But if we check the /opt directory in the host the file is present and is not repeated
+cd /opt/
+ls
+```
+
+
