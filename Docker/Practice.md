@@ -293,8 +293,7 @@ ls
 ```
 
 **Docs from Meta AI**
-``````````````````````````````````````````````````````
-[28-Apr-25 1:00 PM] Maverick: is it that the following command "docker run -d --name second  -v /opt:/etc/lala -p 8001:8080 " is creating a file or volume in both host and the container itself also which are sync
+```[28-Apr-25 1:00 PM] Maverick: is it that the following command "docker run -d --name second  -v /opt:/etc/lala -p 8001:8080 " is creating a file or volume in both host and the container itself also which are sync
 [28-Apr-25 1:00 PM] Meta AI: The command docker run -d --name second -v /opt:/etc/lala -p 8001:8080 creates a bind mount, which maps an existing directory on the host machine (/opt) to a directory in the container (/etc/lala).
 
 What Happens
@@ -379,8 +378,8 @@ Since /etc/lala in the container is a bind mount of /opt on the host machine (ba
 The file /opt/host_file1.txt on the host machine will be deleted.
 
 Caution
-Be careful when using rm -rf as it permanently deletes files without prompting for confirmation.
-`````````````````````````````````````````````````````
+Be careful when using rm -rf as it permanently deletes files without prompting for confirmation.```
+
 
 
 
