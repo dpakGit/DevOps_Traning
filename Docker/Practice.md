@@ -294,7 +294,7 @@ ls
 
 **Practice-2** 
 
-"Create a file or directory in the host machine's /opt directory and verify its visibility in the container's /etc/lala directory."
+## "Create a file or directory in the host machine's /opt directory and verify its visibility in the container's /etc/lala directory."
 
 Or, in a more detailed format:
 
@@ -347,7 +347,7 @@ docker exec -it C-1 ls /etc/lala
 
 **Practice-3**
 
-"Create a file in the container's /etc/lala directory and verify its visibility in the host machine's /opt directory."
+## "Create a file in the container's /etc/lala directory and verify its visibility in the host machine's /opt directory."
 
 Or, in a more detailed and testable format:
 
