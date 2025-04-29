@@ -292,7 +292,38 @@ cd /opt/
 ls
 ```
 
-**Practice-2**
+**Practice-2** 
+
+"Create a file or directory in the host machine's /opt directory and verify its visibility in the container's /etc/lala directory."
+
+Or, in a more detailed format:
+
+"Test bind mount functionality by:
+
+1. Creating a file or directory in the host machine's /opt directory.
+2. Verifying that the file or directory is visible and accessible in the container's /etc/lala directory.
+
+This confirms that changes made on the host machine are reflected in the container."
+Q: Is the line "verify its visibility" correct or shall we modify it for more clarity
+
+Sol: The line "verify its visibility" is understandable, but you can modify it for more clarity:
+
+- "Verify that it is visible"
+- "Check if it appears"
+- "Confirm that it is accessible"
+- "Validate that it is synced"
+
+Here's an example:
+
+"Create a file or directory in the host machine's /opt directory and confirm that it is synced to the container's /etc/lala directory."
+
+Alternatively, you can use more specific language:
+
+- "Check if the file/directory is listed in /etc/lala"
+- "Verify that the file/directory contents are identical in both locations"
+
+Choose the wording that best fits your context and purpose.
+  
 ```
 docker run -d --name C-1 -v /opt:/etc/lala/ -p 8000:8080 image:1
 docker ps -a
@@ -312,3 +343,17 @@ docker exec -it C-1 rm-rf /etc/lala/host_file1.txt
 docker ps
 docker exec -it C-1 ls /etc/lala
 ```
+
+
+**Practice-3**
+
+"Create a file in the container's /etc/lala directory and verify its visibility in the host machine's /opt directory."
+
+Or, in a more detailed and testable format:
+
+"Test bind mount functionality by:
+
+1. Creating a file in the container's /etc/lala directory.
+2. Verifying that the file is visible in the host machine's /opt directory.
+
+This confirms that changes made in the container are reflected on the host machine."
