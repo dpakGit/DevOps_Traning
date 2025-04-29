@@ -419,4 +419,5 @@ cd /opt/
 ls
 ```
 
+### - Note: For data to persist beyond the container's lifecycle, it's essential to create or modify files within the container's /etc/lala directory, which is bind-mounted to the host machine's /opt directory. Any changes made to files within this mounted directory will be reflected on the host machine and will remain even after the container is restarted, updated, or deleted.
 
