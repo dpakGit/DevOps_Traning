@@ -342,16 +342,16 @@ docker exec -it C-1 rm-rf /etc/lala/host_file1.txt
 docker ps
 docker exec -it C-1 ls /etc/lala # the file host_file.txt is visible under the /etc/lala directory
 
-# 1. Delete the existing container.
+# Delete the existing container.
 
 docker stop C-1
 docker rm C-1
 
-# 2. Recreate the container with the same volume mount (/opt:/etc/lala).
+# Recreate the container with the same volume mount (/opt:/etc/lala).
 
 docker run -d --name C-1 -v /opt:/etc/lala/ -p 8000:8080 image:1
 
-# 3. Verify that the file host_file.txt is available in the container's /etc/lala directory.
+# Verify that the file host_file.txt is available in the container's /etc/lala directory.
 
 docker exec -it C-1 bash
 cd /etc/lala
