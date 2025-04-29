@@ -357,7 +357,8 @@ docker exec -it C-1 bash
 cd /etc/lala
 ls
 
-Your steps are well-structured and easy to follow. This format works well for instructional or procedural content.
+Your steps are well-structured and easy to follow. This format works well for
+instructional or procedural content.
 ```
 
 **Practice-3**
