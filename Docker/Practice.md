@@ -246,13 +246,41 @@ docker login <REGISTRY_HOST>:<REGISTRY_PORT>
 docker tag <IMAGE_ID> <REGISTRY_HOST>:<REGISTRY_PORT>/<APPNAME>:<APPVERSION>
 docker push <REGISTRY_HOST>:<REGISTRY_PORT>/<APPNAME>:<APPVERSION>
 ```
-**Practice Date: 26.4.2025** 
+
+## Docker Volume
+
+**Practice Date: 26.4.2025**
+
+Docker Storage: https://notes.kodekloud.com/docs/Docker-Training-Course-for-the-Absolute-Beginner/Docker-Engine-Storage/Docker-Storage
+
+ In the above link scroll down to the following heading , "Managing Persistent Data with Volumes" and read it.
+
+ To ensure data persists beyond the lifecycle of a container, Docker offers volumes. Volumes are independent storage units, separate from the container's ephemeral writable layer.
+
+Creating and Using Volumes
+Create a Volume:
+```
+docker volume create data_volume
+```
+Run a Container with a Volume:
+```
+docker run -v data_volume:/var/lib/mysql mysql
+```
+If you specify a volume that does not yet exist, such as data_volume2, Docker will automatically create it and mount it:
+```
+docker run -v data_volume2:/var/lib/mysql mysql
+```
+
+
+
 **Meta AI:**
 
-[26-Apr-25 12:56 PM] Maverick: Explain me with a scenario where attaching a volume to docker container is useful
-[26-Apr-25 12:56 PM] Meta AI: Here's a scenario:
+Q: Explain me with a scenario where attaching a volume to docker container is useful
 
-Scenario: Web Application with User-Generated Content
+Sol: Here's a scenario:
+
+**Scenario: Web Application with User-Generated Content**
+
 You have a Docker container running a web application that allows users to upload images. The application is packaged in a Docker image, and you create a container from this image.
 
 Problem without Volumes
