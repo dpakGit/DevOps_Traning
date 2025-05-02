@@ -360,7 +360,7 @@ https://stackoverflow.com/questions/11509830/how-to-add-color-to-githubs-readme-
 
 Code             	Appearing
 
-$${\color{red}Red}$$
+$${\color{red}CODE}$$
 
 $${\color{red}Red}$$	$${\color{red}Red}$$
 
