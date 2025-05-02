@@ -1274,24 +1274,22 @@ Commands:
 
 **https://medium.com/@augustineozor/understanding-docker-bridge-network-6e499da50f65:** This is a must read  
 
-#### Check available networks on docker:
+#### Check all available networks on docker:
 
 ```
-root@ip-172-31-84-165: docker network ls  # This will display all the networks available on docker
+docker network ls  # This will display all the networks available on docker
+```
 
 Output:
 NETWORK ID     NAME      DRIVER    SCOPE
 c34ae945e374   bridge    bridge    local
 35214bde9c97   host      host      local
 6a3edf431323   none      null      local
-```
 
 
-```
-docker network inspect bridge
-``` 
-Output:
-Docker Network Inspect
+#### Docker Network Inspect
+
+To see more information about a particular network.
 The command docker network inspect bridge is used to:
 
 Purpose
@@ -1312,7 +1310,51 @@ Use cases
 
 By inspecting the bridge network, you can gain insights into its configuration and connected containers. 
 
+```
+docker network inspect bridge
+```
+
+Output:
+
+```
+[
+    {
+        "Name": "bridge",
+        "Id": "c34ae945e374f170c4a81c017822e3b47615336023d0ded61cbde394e4c65688",
+        "Created": "2025-05-02T07:07:20.33012592Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.17.0.0/16",
+                    "Gateway": "172.17.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {},
+        "Options": {
+            "com.docker.network.bridge.default_bridge": "true",
+            "com.docker.network.bridge.enable_icc": "true",
+            "com.docker.network.bridge.enable_ip_masquerade": "true",
+            "com.docker.network.bridge.host_binding_ipv4": "0.0.0.0",
+            "com.docker.network.bridge.name": "docker0",
+            "com.docker.network.driver.mtu": "1500"
+        },
+        "Labels": {}
+    }
+]
+```
 
 
-> Shaded text here... HELLO WORLD
-> HELLO INDIA
+
