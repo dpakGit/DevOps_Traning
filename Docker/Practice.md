@@ -771,7 +771,7 @@ This notation makes it clear that:
 Both notations (source:target and source_path:target_path) convey the same meaning in the context of Docker bind mounts.
 
 
-**Date: 2.5.2025**
+**Date: 30.4.2025**
 
 Source: Meta AI
 
@@ -1215,3 +1215,24 @@ eth0 is:
 2. Not a separate namespace: eth0 is not a separate network namespace, but rather an interface within the container's network namespace.
 
 The container's network namespace contains its own network stack, including interfaces like eth0, routing tables, and more.
+
+
+
+**Date: 2.5.2025**
+
+
+[02-May-25 12:31 PM] Maverick: Can we say that when a bridge network is created it creates a range of IPs for the containers to communicate within this network
+[02-May-25 12:31 PM] Meta AI: Bridge Network and IP Range
+When a bridge network is created in Docker:
+
+1. Subnet and IP range: Docker automatically assigns a subnet and a range of IP addresses to the bridge network (unless specified otherwise).
+2. Container IP assignment: Containers connected to this bridge network receive an IP address from the assigned IP range.
+
+This allows containers to communicate with each other within the bridge network using their assigned IP addresses.
+[02-May-25 12:33 PM] Maverick: Do containers receive an IP from this subnet or range of IP addresses created by docker ?
+[02-May-25 12:33 PM] Meta AI: Container IP Assignment
+Yes, that's correct:
+
+Containers connected to a Docker bridge network receive an IP address from the subnet or IP range assigned to that bridge network.
+
+Docker's IP address management (IPAM) assigns IP addresses to containers from the bridge network's subnet.
