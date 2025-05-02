@@ -771,7 +771,20 @@ This notation makes it clear that:
 Both notations (source:target and source_path:target_path) convey the same meaning in the context of Docker bind mounts.
 
 
+
+## Docker Network
+
 **Date: 30.4.2025**
+
+Links:
+
+1. https://medium.com/@augustineozor/understanding-docker-bridge-network-6e499da50f65 (This is a must read).
+
+2. https://blogs.cisco.com/learning/exploring-default-docker-networking-part-1
+
+3. https://dockerlabs.collabnix.com/intermediate/DiffBridgeVsOverlay.html
+
+     
 
 Source: Meta AI
 
@@ -1221,18 +1234,82 @@ The container's network namespace contains its own network stack, including inte
 **Date: 2.5.2025**
 
 
-[02-May-25 12:31 PM] Maverick: Can we say that when a bridge network is created it creates a range of IPs for the containers to communicate within this network
-[02-May-25 12:31 PM] Meta AI: Bridge Network and IP Range
+Q: Can we say that when a bridge network is created it creates a range of IPs for the containers to communicate within this network ?
+
+Sol: Bridge Network and IP Range
 When a bridge network is created in Docker:
 
 1. Subnet and IP range: Docker automatically assigns a subnet and a range of IP addresses to the bridge network (unless specified otherwise).
 2. Container IP assignment: Containers connected to this bridge network receive an IP address from the assigned IP range.
 
 This allows containers to communicate with each other within the bridge network using their assigned IP addresses.
-[02-May-25 12:33 PM] Maverick: Do containers receive an IP from this subnet or range of IP addresses created by docker ?
-[02-May-25 12:33 PM] Meta AI: Container IP Assignment
+
+Q: Do containers receive an IP from this subnet or range of IP addresses created by docker ?
+
+Sol: Container IP Assignment
 Yes, that's correct:
 
 Containers connected to a Docker bridge network receive an IP address from the subnet or IP range assigned to that bridge network.
 
 Docker's IP address management (IPAM) assigns IP addresses to containers from the bridge network's subnet.
+
+```
+Command :  docker network
+
+Output:
+
+Usage:  docker network COMMAND
+
+Manage networks
+
+Commands:
+  connect     Connect a container to a network
+  create      Create a network
+  disconnect  Disconnect a container from a network
+  inspect     Display detailed information on one or more networks
+  ls          List networks
+  prune       Remove all unused networks
+  rm          Remove one or more networks
+```
+
+**https://medium.com/@augustineozor/understanding-docker-bridge-network-6e499da50f65:** This is a must read  
+
+#### Check available networks on docker:
+
+```
+root@ip-172-31-84-165: docker network ls  # This will display all the networks available on docker
+
+Output:
+NETWORK ID     NAME      DRIVER    SCOPE
+c34ae945e374   bridge    bridge    local
+35214bde9c97   host      host      local
+6a3edf431323   none      null      local
+```
+
+```
+```docker network inspect bridge```
+
+```
+Output:
+Docker Network Inspect
+The command docker network inspect bridge is used to:
+
+Purpose
+1. Retrieve detailed information: Get detailed information about the bridge network.
+2. Network configuration: View the network's configuration, including:
+    - Subnet and IP range
+    - Gateway IP
+    - Connected containers
+    - Network settings
+
+Output
+The command outputs a JSON object containing the bridge network's configuration and details.
+
+Use cases
+1. Troubleshooting: Identify network issues or configuration problems.
+2. Network planning: Understand the network's IP range and subnet.
+3. Container connectivity: Verify container connections to the bridge network.
+
+By inspecting the bridge network, you can gain insights into its configuration and connected containers.
+```
+
