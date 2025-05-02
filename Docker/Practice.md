@@ -1331,7 +1331,8 @@ Output:
             "Config": [
                 {
                     "Subnet": "172.17.0.0/16",
-                    "Gateway": "172.17.0.1"
+                    "Gateway": "172.17.0.1"            
+
                 }
             ]
         },
@@ -1356,5 +1357,6 @@ Output:
 ]
 ```
 
+![image](https://github.com/user-attachments/assets/628db8c3-98f9-4909-8817-3cdf0bd33a2f)
 
 
