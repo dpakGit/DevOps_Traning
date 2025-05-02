@@ -1288,10 +1288,9 @@ c34ae945e374   bridge    bridge    local
 
 
 ```
-docker network inspect bridge
-```
+Command :   docker network inspect bridge 
 
-```Output:
+Output:
 Docker Network Inspect
 The command docker network inspect bridge is used to:
 
@@ -1311,5 +1310,6 @@ Use cases
 2. Network planning: Understand the network's IP range and subnet.
 3. Container connectivity: Verify container connections to the bridge network.
 
-By inspecting the bridge network, you can gain insights into its configuration and connected containers.```
+By inspecting the bridge network, you can gain insights into its configuration and connected containers.
+```
 
