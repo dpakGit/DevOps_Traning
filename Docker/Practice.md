@@ -1343,7 +1343,8 @@ Output:
             "Network": ""
         },
         "ConfigOnly": false,
-        "Containers": {},
+        "Containers": {},  # Note the information about containers  is empty,
+                           # but once we create a container it will display the information.
         "Options": {
             "com.docker.network.bridge.default_bridge": "true",
             "com.docker.network.bridge.enable_icc": "true",
@@ -1357,5 +1358,125 @@ Output:
 ]
 ```
 
+**Date: 4.5.2025**
 
 
+docker build -t image:1.0 .
+docker run -d --name Container-1 -p 8000:8080 image:1.0
+docker images
+docker ps
+curl localhost:8080
+curl localhost:8000
+docker network ls
+
+
+docker network inspect bridge
+```
+[
+    {
+        "Name": "bridge",
+        "Id": "8b689eeea3c7513c429d99f208cb965bcb180123fa3dfd2a497f54b68d0ddf03",
+        "Created": "2025-05-04T08:13:12.719728461Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.17.0.0/16",
+                    "Gateway": "172.17.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {    # Now it is showing the info of container.
+            "6992aa4293545390a49fb3eb8c9a4543a8cab8f132940dc2a750a8bee5b1b511": {
+                "Name": "Container-1",
+                "EndpointID": "a1d5fbfb4f4a748a5a7dbff3d83f98ee26b361f1126de073330589c427d39dd9",
+                "MacAddress": "02:42:ac:11:00:02",
+                "IPv4Address": "172.17.0.2/16",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {
+            "com.docker.network.bridge.default_bridge": "true",
+            "com.docker.network.bridge.enable_icc": "true",
+            "com.docker.network.bridge.enable_ip_masquerade": "true",
+            "com.docker.network.bridge.host_binding_ipv4": "0.0.0.0",
+            "com.docker.network.bridge.name": "docker0",
+            "com.docker.network.driver.mtu": "1500"
+        },
+        "Labels": {}
+    }
+]
+```
+Lets Create another container and see the output of the docker inspect bridge
+
+docker run -d --name Container-2 -p 8001:8080 image:1.0
+docker ps
+
+docker network inspect bridge
+
+In the following output see the container section and the IP's assigned to Container-1 and Container-2.
+```
+[
+    {
+        "Name": "bridge",
+        "Id": "8b689eeea3c7513c429d99f208cb965bcb180123fa3dfd2a497f54b68d0ddf03",
+        "Created": "2025-05-04T08:13:12.719728461Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.17.0.0/16",
+                    "Gateway": "172.17.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {
+            "6992aa4293545390a49fb3eb8c9a4543a8cab8f132940dc2a750a8bee5b1b511": {
+                "Name": "Container-1",
+                "EndpointID": "a1d5fbfb4f4a748a5a7dbff3d83f98ee26b361f1126de073330589c427d39dd9",
+                "MacAddress": "02:42:ac:11:00:02",
+                "IPv4Address": "172.17.0.2/16",
+                "IPv6Address": ""
+            },
+            "ebd84443e4551f064e5b3a107a65978784b67e32961ecf97e91b781f820ebb43": {
+                "Name": "Container-2",
+                "EndpointID": "94915aed86a61bfe1bde1fa5d0274ffa2cc9d27fb024a9041f6cb57e677d8929",
+                "MacAddress": "02:42:ac:11:00:03",
+                "IPv4Address": "172.17.0.3/16",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {
+            "com.docker.network.bridge.default_bridge": "true",
+            "com.docker.network.bridge.enable_icc": "true",
+            "com.docker.network.bridge.enable_ip_masquerade": "true",
+            "com.docker.network.bridge.host_binding_ipv4": "0.0.0.0",
+            "com.docker.network.bridge.name": "docker0",
+            "com.docker.network.driver.mtu": "1500"
+        },
+        "Labels": {}
+    }
+]
+```
