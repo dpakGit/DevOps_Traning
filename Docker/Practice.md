@@ -1343,8 +1343,9 @@ Output:
             "Network": ""
         },
         "ConfigOnly": false,
-        "Containers": {},  # Note the information about containers  is empty,
-                           # but once we create a container it will display the information.
+        "Containers": {},  # Note the containers section is empty, as righ now no containers are running
+                           # or it may be running on some other network.
+                           # But once we create a container it will display the information.
         "Options": {
             "com.docker.network.bridge.default_bridge": "true",
             "com.docker.network.bridge.enable_icc": "true",
@@ -1365,7 +1366,7 @@ docker build -t image:1.0 .
 docker run -d --name Container-1 -p 8000:8080 image:1.0
 docker images
 docker ps
-curl localhost:8080
+curl localhost:8080 # curl 172.17.0.2:8080 continer_ip:container_port
 curl localhost:8000
 docker network ls
 
@@ -1480,3 +1481,158 @@ In the following output see the container section and the IP's assigned to Conta
     }
 ]
 ```
+ip a or ifconfig 
+```
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute 
+       valid_lft forever preferred_lft forever
+2: enX0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc fq_codel state UP group default qlen 1000
+    link/ether 12:28:39:81:38:c3 brd ff:ff:ff:ff:ff:ff
+    inet 172.31.92.188/20 metric 100 brd 172.31.95.255 scope global dynamic enX0
+       valid_lft 1950sec preferred_lft 1950sec
+    inet6 fe80::1028:39ff:fe81:38c3/64 scope link 
+       valid_lft forever preferred_lft forever
+3: docker0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
+    link/ether 02:42:cf:2e:68:1f brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::42:cfff:fe2e:681f/64 scope link 
+       valid_lft forever preferred_lft forever
+7: vethea7b4d1@if6: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker0 state UP group default 
+    link/ether 0e:0a:a3:08:6e:8c brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet6 fe80::c0a:a3ff:fe08:6e8c/64 scope link 
+       valid_lft forever preferred_lft forever
+9: vethea550e0@if8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker0 state UP group default 
+    link/ether e2:d1:8c:06:08:65 brd ff:ff:ff:ff:ff:ff link-netnsid 1
+    inet6 fe80::e0d1:8cff:fe06:865/64 scope link 
+       valid_lft forever preferred_lft forever
+```
+
+**Meta AI:**
+[04-May-25 4:35 PM] Maverick: what is the use of ip a or ifconfig command ?
+[04-May-25 4:35 PM] Meta AI: *ip a and ifconfig Commands*
+Both ip a (or ip addr) and ifconfig commands are used to:
+
+1. Display network interface information: Show details about network interfaces, including:
+    - Interface names
+    - IP addresses (IPv4 and IPv6)
+    - Subnet masks
+    - Broadcast addresses
+    - Interface status (up/down)
+2. Manage network interfaces: Configure and troubleshoot network interfaces.
+
+*ip a (or ip addr)*
+The ip command is part of the iproute2 package and is considered more modern and flexible than ifconfig. It provides more detailed information and advanced features.
+
+*ifconfig*
+ifconfig is an older command that has been widely used for network interface configuration and troubleshooting. However, it's being phased out in favor of the ip command.
+
+Common uses
+1. Troubleshooting: Identify network connectivity issues.
+2. Configuration verification: Verify IP addresses and interface settings.
+3. Network interface management: Bring interfaces up or down.
+
+Both commands are useful for network administrators and users who need to manage and troubleshoot network interfaces.
+
+
+[04-May-25 4:21 PM] Maverick: How to know which virtual interface belongs to which container -
+[04-May-25 4:21 PM] Meta AI: Identifying Virtual Interface Ownership
+To determine which virtual interface (veth) belongs to which container:
+
+*Method 1: Using docker network inspect*
+1. Inspect the network: Run docker network inspect <network_name>.
+2. Check the output: Look for the container's name and its corresponding interface index or MAC address.
+
+*Method 2: Using docker exec and ip link*
+1. Enter the container: Run docker exec -it <container_name> ip link show.
+2. Identify the interface: Check the output for the interface index or name (e.g., eth0).
+
+*Method 3: Using ip link on the host*
+1. List network interfaces: Run ip link show on the host.
+2. Identify veth pairs: Look for veth interfaces and their corresponding peer interfaces.
+
+*Method 4: Using docker inspect*
+1. Inspect the container: Run docker inspect <container_name>.
+2. Check the NetworkSettings: Look for the interface details in the "NetworkSettings" section.
+
+By using one of these methods, you can determine which virtual interface belongs to which container.
+[04-May-25 4:24 PM] Maverick: 7: vethea7b4d1@if6: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker0 state UP group default 
+    link/ether 0e:0a:a3:08:6e:8c brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet6 fe80::c0a:a3ff:fe08:6e8c/64 scope link 
+       valid_lft forever preferred_lft forever
+9: vethea550e0@if8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker0 state UP group default 
+    link/ether e2:d1:8c:06:08:65 brd ff:ff:ff:ff:ff:ff link-netnsid 1
+    inet6 fe80::e0d1:8cff:fe06:865/64 scope link 
+       valid_lft forever preferred_lft forever - How to know which virtual interface belongs to which container -
+[04-May-25 4:24 PM] Meta AI: Identifying Container Interfaces
+Given the output:
+
+
+7: vethea7b4d1@if6: ...
+9: vethea550e0@if8: ...
+
+
+Steps:
+1. *Run docker ps -q*: Get a list of running container IDs.
+2. *Use docker exec and ip link*:
+    - For each container ID, run docker exec -it <container_id> ip link show.
+    - Look for the interface index that matches the @if value (e.g., @if6 or @if8).
+3. Match the interface:
+    - If the container's ip link show output shows 6: eth0@if7, it means vethea7b4d1@if6 belongs to that container.
+    - Similarly, match @if8 with the corresponding container.
+
+Alternative:
+1. *Run docker inspect*: docker inspect <container_id> | grep -A 5 NetworkSettings.
+2. Check the interface details: Look for the interface index or name.
+
+By following these steps, you can determine which virtual interface (veth) belongs to which container.
+[04-May-25 4:28 PM] Maverick: what is the command for docker exec -it <container_id> ip link show.
+[04-May-25 4:28 PM] Meta AI: The command format is:
+
+
+bash
+docker exec -it <container_id> ip link show
+
+
+Here's a breakdown:
+
+1. docker exec: Execute a command inside a running container.
+2. -it: Allocate a pseudo-TTY and keep STDIN open.
+3. <container_id>: Replace with the actual container ID or name.
+4. ip link show: Display network interface information.
+
+Example:
+
+
+bash
+docker exec -it my_container ip link show
+
+
+or
+
+
+bash
+docker exec -it $(docker ps -lq) ip link show
+
+
+This command helps you inspect network interfaces within a specific container.
+[04-May-25 4:29 PM] Maverick: OCI runtime exec failed: exec failed: unable to start container process: exec: "ip": executable file not found in $PATH: unknown
+[04-May-25 4:29 PM] Meta AI: Error Explanation
+The error message indicates that the ip command is not found in the container's PATH. This is likely because:
+
+1. Minimal base image: The container's base image might not include the ip command or the iproute2 package.
+2. Custom image: The image might be custom-built without the necessary networking tools.
+
+Solution
+1. *Install iproute2 package*: If you have control over the Dockerfile, install the iproute2 package.
+2. Use an alternative command: If ip is not available, try using other networking commands like cat /proc/net/dev or ifconfig (if available).
+
+Example Dockerfile modification
+
+RUN apt-get update && apt-get install -y iproute2
+
+
+By installing the iproute2 package or using alternative commands, you should be able to execute the ip link show command within the container.
