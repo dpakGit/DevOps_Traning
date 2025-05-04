@@ -1641,3 +1641,153 @@ By installing the iproute2 package or using alternative commands, you should be 
 # curl 172.17.0.2:8080 continer_ip:container_port
 ```
 This command also works in place of curl lolcalhost:8000, but we cannot access the application outside of our system, as we cannot share the container IP as it is not visible what is visible is only the Host machine IP.
+
+
+
+### How to create a Custom Network in Docker?
+
+https://docs.docker.com/reference/cli/docker/network/create/#specify-advanced-options
+
+**Specify advanced options:**
+When you create a network, Docker Engine creates a non-overlapping subnetwork for the network by default. This subnetwork is not a subdivision of an existing network. It is purely for ip-addressing purposes. You can override this default and specify subnetwork values directly using the --subnet option. On a bridge network you can only create a single subnet:
+
+
+**Meta AI:**
+
+[04-May-25 8:24 PM] Maverick: Explain the following command "docker network create mynet --subnet=192.168.0.0/16
+"
+[04-May-25 8:24 PM] Meta AI: Docker Network Creation Command
+The command docker network create mynet --subnet=192.168.0.0/16 is used to:
+
+Create a Docker Network
+1. Network name: mynet is the name of the network being created.
+2. Subnet specification: --subnet=192.168.0.0/16 defines the subnet for the network.
+
+Subnet Details
+1. Subnet address: 192.168.0.0
+2. Subnet mask: /16 (equivalent to 255.255.0.0)
+3. Available IP range: 192.168.0.1 to 192.168.255.254
+
+Purpose
+By creating a custom network with a specified subnet, you can:
+
+1. Isolate containers: Containers on this network can communicate with each other.
+2. Control IP addressing: Docker assigns IP addresses to containers from the specified subnet.
+
+This command provides more control over container networking and can be useful in various scenarios, such as:
+
+1. Multi-container applications
+2. Custom network topologies
+3. Specific IP addressing requirements
+[04-May-25 8:26 PM] Maverick: can we name it as Docker custom network
+[04-May-25 8:26 PM] Meta AI: Renaming the Network
+Instead of mynet, you can name the network docker-custom-network (or any other name that suits your needs).
+
+Command
+
+bash
+docker network create docker-custom-network --subnet=192.168.0.0/16
+
+
+This name clearly indicates that it's a custom Docker network, making it easier to identify and manage.
+[04-May-25 8:26 PM] Maverick: i mean to say can i name this concept as "Docker custom network"
+[04-May-25 8:26 PM] Meta AI: Concept Naming
+Yes, you can definitely refer to this concept as a "Docker Custom Network." This name accurately describes:
+
+1. Customization: Creating a network with specific settings (e.g., subnet).
+2. Docker context: It's a network within the Docker ecosystem.
+
+This term is clear and concise, making it easy to communicate the concept to others.
+[04-May-25 8:49 PM] Maverick: who assigns the following subnet values "Subnet": "172.17.0.0/16" to a bridge network ?
+[04-May-25 8:49 PM] Meta AI: Docker Assigns the Subnet
+Docker automatically assigns the subnet 172.17.0.0/16 to the default bridge network (docker0) when Docker is installed and started.
+
+Default Bridge Network
+The default bridge network is created by Docker, and its subnet is typically 172.17.0.0/16. However, this can be customized during Docker installation or configuration.
+
+Customization
+You can modify the default subnet by:
+
+1. Editing Docker's daemon configuration file (e.g., /etc/docker/daemon.json).
+2. Specifying a custom subnet using the bip option.
+
+Example:
+
+
+{
+  "bip": "192.168.0.0/16"
+}
+
+
+By default, Docker manages the subnet assignment for the bridge network.
+[04-May-25 8:52 PM] Maverick: so when i ran the following command "docker network inspect mynet" why is it that the following subnet value is assigned to the network ""Subnet": "172.18.0.0/16"" almost the same range and same subnet mask. Who assigns this and how
+[04-May-25 8:52 PM] Meta AI: Docker Network Inspect
+When you ran docker network inspect mynet, the output showed the subnet 172.18.0.0/16. This is because:
+
+Docker's Default Behavior
+When you create a new network using docker network create, Docker automatically assigns a subnet from its default pool of subnets.
+
+Subnet Pool
+Docker uses the following default subnet pool:
+
+- 172.17.0.0/16 is reserved for the default bridge network (docker0).
+- 172.18.0.0/16, 172.19.0.0/16, and so on, are used for user-created networks.
+
+Automatic Subnet Assignment
+When you created the mynet network, Docker automatically assigned the next available subnet from its pool, which happened to be 172.18.0.0/16.
+
+Customization
+You can specify a custom subnet when creating a network using the --subnet option, as you did earlier:
+
+
+bash
+docker network create mynet --subnet=192.168.0.0/16
+
+
+If you don't specify a subnet, Docker will automatically assign one from its default pool.
+[04-May-25 8:54 PM] Maverick: I just typed the wrong question it shouls have been "so when i ran the following command "docker network create mynet" why is it that the following subnet value is assigned to the network ""Subnet": "172.18.0.0/16"" almost the same range and same subnet mask. Who assigns this and how"
+[04-May-25 8:55 PM] Meta AI: Docker Network Creation
+When you ran docker network create mynet, Docker automatically assigned the subnet 172.18.0.0/16 to the network.
+
+Docker's Subnet Assignment Logic
+Docker uses the following logic to assign subnets:
+
+1. Default bridge network: 172.17.0.0/16 is reserved for the default bridge network.
+2. User-created networks: Docker assigns subnets from the 172.18.0.0/16 to 172.31.0.0/16 range.
+
+Assignment Process
+When you create a new network without specifying a subnet, Docker:
+
+1. Checks available subnets: Docker checks which subnets are already in use.
+2. Assigns the next available subnet: Docker assigns the next available subnet from its default pool.
+
+In your case, since 172.17.0.0/16 was already in use by the default bridge network, Docker assigned 172.18.0.0/16 to your mynet network.
+[04-May-25 8:56 PM] Maverick: what if i use a range 172.32.0.0/16
+[04-May-25 8:56 PM] Meta AI: Custom Subnet Range
+If you want to use a custom subnet range like 172.32.0.0/16 for your Docker networks, you can configure Docker to use this range.
+
+Configuring Docker
+You can specify the custom subnet range in the Docker daemon configuration file (daemon.json):
+
+
+{
+  "default-address-pools": [
+    {
+      "base": "172.32.0.0/16",
+      "size": 24
+    }
+  ]
+}
+
+
+Effect
+With this configuration:
+
+1. Docker will use the specified range: Docker will assign subnets from the 172.32.0.0/16 range for new networks.
+2. More control over IP addressing: You can better manage IP addressing for your Docker networks.
+
+Considerations
+1. Ensure the range doesn't conflict: Verify that the custom range doesn't conflict with existing networks or IP addresses.
+2. Update Docker configuration: Restart the Docker daemon after updating the configuration file.
+
+By specifying a custom subnet range, you can tailor Docker's networking to your specific needs.
