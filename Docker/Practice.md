@@ -1366,7 +1366,7 @@ docker build -t image:1.0 .
 docker run -d --name Container-1 -p 8000:8080 image:1.0
 docker images
 docker ps
-curl localhost:8080 # curl 172.17.0.2:8080 continer_ip:container_port
+curl localhost:8080 
 curl localhost:8000
 docker network ls
 
@@ -1636,3 +1636,8 @@ RUN apt-get update && apt-get install -y iproute2
 
 
 By installing the iproute2 package or using alternative commands, you should be able to execute the ip link show command within the container.
+
+```
+# curl 172.17.0.2:8080 continer_ip:container_port
+```
+This command also works in place of curl lolcalhost:8000, but we cannot access the application outside of our system, as we cannot share the container IP as it is not visible what is visible is only the Host machine IP.
