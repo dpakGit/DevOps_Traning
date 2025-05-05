@@ -51,7 +51,7 @@ ls
 10.	docker images
 11.	/# First build the Docker image from the Dockerfile
 ```
-docker build -t image:1.0 .
+docker build -t image:v1 .
 ```
     
 14.	docker images
