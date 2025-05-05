@@ -1918,3 +1918,40 @@ For example, you can create separate custom networks for:
 3. Microservices: Each microservice can have its own custom network.
 
 By creating custom Docker networks, you can design a more secure, scalable, and maintainable containerized application architecture.
+
+
+
+[05-May-25 12:53 PM] Q:: Is it that any user defined network created on docker is by default created on Bridge Network ?
+
+[05-May-25 12:53 PM] Meta AI: Docker Network Types
+When you create a user-defined network in Docker, it can be one of several types:
+
+1. Bridge: The default network type for user-defined networks.
+2. Host: Allows containers to use the host's network stack.
+3. None: Disables networking for containers.
+4. Overlay: Allows containers to communicate across multiple Docker hosts.
+
+Bridge Network
+
+**When you create a user-defined network without specifying the type, Docker defaults to creating a Bridge network.**
+
+Characteristics
+A Bridge network:
+
+1. Software-based network: Docker creates a software-based network bridge.
+2. Container isolation: Containers on the same Bridge network can communicate with each other.
+3. Subnet and IP assignment: Docker assigns IP addresses to containers on the Bridge network.
+
+Example
+To create a user-defined Bridge network:
+
+
+bash
+docker network create mybridge
+
+
+If you want to specify a different network type, you can use the --driver option:
+
+
+bash
+docker network create --driver overlay myoverlay
