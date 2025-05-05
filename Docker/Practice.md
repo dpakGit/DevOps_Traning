@@ -2209,3 +2209,16 @@ You can use any name that makes sense for your application, such as:
 
 bash
 docker network create --driver=bridge --subnet=192.168.0.0/16 myapp-net
+
+
+
+
+### "Connecting a Container to a User-Defined Network"
+Or 
+### How to Connect a Container to a User-Defined Network ?
+
+https://docs.docker.com/reference/cli/docker/network/connect/
+
+#### Connect a container to a network when it starts
+
+
