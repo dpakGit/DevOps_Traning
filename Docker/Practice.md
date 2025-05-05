@@ -2332,3 +2332,29 @@ Without --network none, Docker will connect the container to the default bridge 
 
 
 
+[05-May-25 8:47 PM] Q:: Is it that a container on none network cannot be connected to a different network with the following command "docker network connect mynet c2"
+
+[05-May-25 8:48 PM] Meta AI: Container on None Network
+When a container is started with --network none:
+
+
+bash
+docker run -d --name c2 -p 8001:8080 --network none image:v1
+
+
+Connecting to a Different Network
+You cannot connect this container to a different network using:
+
+
+bash
+docker network connect mynet c2
+
+
+Reason
+Containers started with --network none have networking disabled, and Docker doesn't allow connecting them to a network dynamically.
+
+Workaround
+If you need to connect the container to a network, recreate it without --network none or with the desired network configuration.
+
+Note
+If you only need to disable outgoing traffic, consider using custom network settings or firewall rules instead of --network none.
