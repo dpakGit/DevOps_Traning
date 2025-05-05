@@ -2221,4 +2221,26 @@ https://docs.docker.com/reference/cli/docker/network/connect/
 
 #### Connect a container to a network when it starts
 
+```Docker Run Command Error
+The error occurs because the --network option is placed after the image name (image:v1) in the Docker run command:
+
+
+bash
+docker run -d --name c1 -p 8000:8080 image:v1 --network mynet
+
+
+Solution
+Move the --network option before the image name:
+
+
+bash
+docker run -d --name c1 -p 8000:8080 --network mynet image:v1
+
+
+Explanation
+Docker interprets everything after the image name as a command to run inside the container. By placing --network after the image name, Docker tries to execute it as a command, resulting in the error.
+
+By moving --network before the image name, you ensure it's treated as a Docker option.```
+
+
 
