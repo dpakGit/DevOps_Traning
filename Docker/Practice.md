@@ -2477,3 +2477,22 @@ docker network create --driver bridge --subnet 10.0.0.0/24 --gateway 10.0.0.1 my
 
 
 This allows containers connected to mynet to use the existing network infrastructure and access internal resources through the specified gateway.
+
+
+
+## Docker Compose  
+
+**Date: 14.5.2025**
+
+compose.yaml # Single container
+```
+version: "2"
+services:
+  redis:
+    image: nginx:latest
+    ports:
+      - 80:80  
+```
+
+**Supported Compose filenames:** docker-compose.yml, docker-compose.yaml, compose.yml, compose.yaml
+
