@@ -2482,6 +2482,12 @@ This allows containers connected to mynet to use the existing network infrastruc
 
 ## Docker Compose  
 
+
+**Links:- Solutions for KodeKloud-Engineer tasks.** 
+https://github.com/MederD/Kodekloud-Engineer-Tasks/tree/main - Read the readme file.
+
+https://github.com/MederD/Kodekloud-Engineer-Tasks/blob/main/Tasks/Write_a_Docker_Compose_File.md
+
 **Date: 14.5.2025**
 
 compose.yaml # Single container
