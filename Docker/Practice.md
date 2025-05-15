@@ -2755,8 +2755,13 @@ flask
 redis
 ```
    11  docker-compose up -d
+   
    12  apt  install docker-compose
+   
    13  docker-compose up -d
+   
    14  docker images
+   
    15  docker ps
+   
    16  curl localhost:80
