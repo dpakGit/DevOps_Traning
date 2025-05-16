@@ -2771,3 +2771,78 @@ redis
    15  docker ps
    
    16  curl localhost:80
+
+
+**practice Date -16.5.2025**
+
+vi compose.yaml
+```
+version: "2"
+services:
+  web:
+    image: nginx:latest
+    container_name: webServer
+    ports:
+      - 80:80  
+    depends_on:
+      - db
+    networks:
+      - mynet
+  
+  db:
+    image: redis
+    networks:
+      - mynet
+networks:
+  mynet:
+```
+
+
+```
+docker-compose -f compose.yaml down -d
+Stops containers and removes containers, networks, volumes, and images
+created by `up`.
+
+By default, the only things removed are:
+
+- Containers for services defined in the Compose file
+- Networks defined in the `networks` section of the Compose file
+- The default network, if one is used
+
+Networks and volumes defined as `external` are never removed.
+
+Usage: down [options]
+
+Options:
+    --rmi type              Remove images. Type must be one of:
+                              'all': Remove all images used by any service.
+                              'local': Remove only images that don't have a
+                              custom tag set by the `image` field.
+    -v, --volumes           Remove named volumes declared in the `volumes`
+                            section of the Compose file and anonymous volumes
+                            attached to containers.
+    --remove-orphans        Remove containers for services not defined in the
+                            Compose file
+    -t, --timeout TIMEOUT   Specify a shutdown timeout in seconds.
+                            (default: 10)
+root@ip-172-31-91-197:/home/ubuntu/docker# docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                               NAMES
+4b4d6271a08e   nginx:latest   "/docker-entrypoint.…"   2 minutes ago   Up 2 minutes   0.0.0.0:80->80/tcp, :::80->80/tcp   webServer
+de4dbe105e3a   redis          "docker-entrypoint.s…"   2 minutes ago   Up 2 minutes   6379/tcp                            docker_db_1
+root@ip-172-31-91-197:/home/ubuntu/docker# docker-compose -f compose.yaml down 
+Stopping webServer   ... done
+Stopping docker_db_1 ... done
+Removing webServer   ... done
+Removing docker_db_1 ... done
+Removing network docker_mynet
+root@ip-172-31-91-197:/home/ubuntu/docker# docker ps 
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+root@ip-172-31-91-197:/home/ubuntu/docker# docker images
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+redis        latest    78f2dcef8858   2 days ago    128MB
+nginx        latest    a830707172e8   4 weeks ago   192MB
+root@ip-172-31-91-197:/home/ubuntu/docker# docker-compose -f compose.yaml up -d
+Creating network "docker_mynet" with the default driver
+Creating docker_db_1 ... done
+Creating webServer   ... done
+```
