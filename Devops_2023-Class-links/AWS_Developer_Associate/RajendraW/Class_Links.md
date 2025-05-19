@@ -1,6 +1,6 @@
 #### AWS Developer Associate DEC 2023
 
-#### Faculty : - Rajendra wagh**
+#### Faculty : - Rajendra wagh
 
 **Starts: Dec 02, 2023	Ends: Jan 20, 2024**       10 Sessions
 
