@@ -15,15 +15,16 @@ While most regions have at least three AZs, the exact number can vary depending 
 2) https://www.w3schools.com/aws/aws_cloudessentials_awsavailabilityzones.php
 
 Also,
-Most AWS regions have three availability zones (AZs) to enhance application availability and fault tolerance. This design ensures that even if one AZ experiences an outage, the others can continue to operate, minimizing downtime and service interruptions. 
+Most AWS regions have three availability zones (AZs) to enhance application availability and fault tolerance. This design ensures that even if one AZ experiences an outage, the others can continue to operate, minimizing downtime and service interruptions.
+
 Here's why three AZs are favored:
-High Availability:
+#### High Availability:
 By distributing applications and data across multiple AZs, you can protect against localized failures, such as power outages or network disruptions in a single AZ. 
-Fault Isolation:
+#### Fault Isolation:
 Each AZ is physically separated, ensuring that a failure in one AZ does not affect the others. This isolates failures and minimizes the impact on overall application availability. 
-Redundancy:
+##### Redundancy:
 Deploying resources across multiple AZs provides redundancy. If one AZ goes down, the other AZs can handle the load, ensuring continued operation. 
-Scalability:
+#### Scalability:
 With three AZs, you can scale your application more easily by adding resources in different AZs without disrupting service. 
-Disaster Recovery:
+#### Disaster Recovery:
 In the event of a regional outage, having applications and data replicated across different regions (which themselves have multiple AZs) provides a robust disaster recovery solution. 
