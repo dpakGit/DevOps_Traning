@@ -5,6 +5,7 @@ AWS Fundamentals
 32 Lessons
 Module Content
 Course Resources
+```
 Section Introduction 00:51
 What is AWS? 18:20
 AWS Global Infrastructure 12:05
@@ -391,4 +392,4 @@ Mock exam
 Community support
 Discord Community Support
 AWS Certified Developer - Associate Course | KodeKloud
-
+```
