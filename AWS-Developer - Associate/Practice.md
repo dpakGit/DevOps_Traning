@@ -27,4 +27,12 @@ Deploying resources across multiple AZs provides redundancy. If one AZ goes down
 #### Scalability:
 With three AZs, you can scale your application more easily by adding resources in different AZs without disrupting service. 
 #### Disaster Recovery:
-In the event of a regional outage, having applications and data replicated across different regions (which themselves have multiple AZs) provides a robust disaster recovery solution. 
+In the event of a regional outage, having applications and data replicated across different regions (which themselves have multiple AZs) provides a robust disaster recovery solution.
+
+
+**What Is Remote Desktop Protocol?**
+
+Soln: https://www.solarwinds.com/resources/it-glossary/remote-desktop-protocol
+
+
+The full form of RDP is Remote Desktop Protocol. It's a proprietary protocol by Microsoft that allows users to connect to a computer remotely and control it as if they were sitting in front of it. Essentially, an RDP client is a software application that enables a user to establish a connection to a remote computer that is running a server that supports RDP.
