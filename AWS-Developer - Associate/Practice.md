@@ -32,7 +32,12 @@ In the event of a regional outage, having applications and data replicated acros
 
 **What Is Remote Desktop Protocol?**
 
-Soln: https://www.solarwinds.com/resources/it-glossary/remote-desktop-protocol
+Soln:
+1. https://www.solarwinds.com/resources/it-glossary/remote-desktop-protocol
+
+2. https://www.techtarget.com/searchenterprisedesktop/definition/Remote-Desktop-Protocol-RDP
+
+3. https://learn.microsoft.com/en-us/troubleshoot/windows-server/remote/understanding-remote-desktop-protocol 
 
 
 The full form of RDP is Remote Desktop Protocol. It's a proprietary protocol by Microsoft that allows users to connect to a computer remotely and control it as if they were sitting in front of it. Essentially, an RDP client is a software application that enables a user to establish a connection to a remote computer that is running a server that supports RDP.
