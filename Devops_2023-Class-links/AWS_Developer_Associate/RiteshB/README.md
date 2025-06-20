@@ -8,9 +8,13 @@ Or
 ```````````````````````````````````````````````````````
 
 1.	Understanding of AWS Set of services
+
 2.	Regions, Availability Zones, Edge Locations
+
 3.	EC2 : Windows, Linux, User Data, Template Configuration, Ec2 Auto Scaling,
+
 4.	Ec2 Load Balancer - CLB, ALB, NLB
+
 5.	Ec2 - EBS (Elastic Block Store)
 6.	Ec2- EFS (Elastic File System)
 7.	S3 : Bucket, Bucket Versioning, Static website on S3, S3 Replication Rules, S3 Life Cycle Rules, S3 Access Points
