@@ -1,3 +1,5 @@
+https://medium.com/@sohailnazar4/understanding-aws-regions-and-availability-zones-az-maximizing-performance-reliability-and-ba42637f6c6c
+
 #### Q) Explain an AWS Region ?
 
 
