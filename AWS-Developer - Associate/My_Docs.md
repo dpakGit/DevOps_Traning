@@ -1,6 +1,8 @@
 Q) Explain an AWS Region ?
-Sol)
-AWS Region
+
+
+Sol)   AWS Region
+
 An AWS Region is a geographical location where Amazon Web Services (AWS) has a cluster of data centers. Each region is a separate geographic area that is isolated from other regions, providing high availability and fault tolerance.
 
 Key Characteristics
