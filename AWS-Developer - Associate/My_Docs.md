@@ -54,3 +54,8 @@ Best Practices
 2. Use AZ-aware services: Use AWS services that are designed to work across multiple AZs, such as Amazon Elastic Load Balancer and Amazon RDS.
 
 By using AZs effectively, you can build highly available and fault-tolerant applications on AWS.
+
+
+https://www.novelvista.com/blogs/cloud-and-aws/learning-aws-regions-and-availability-zones
+
+
