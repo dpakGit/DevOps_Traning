@@ -71,6 +71,6 @@ https://kodekloud.com/blog/linux-create-or-remove-user/?ref=kodekloud-newsletter
 
 https://kodekloud.com/blog/scp-command-transfer-files-to-from-linux-machines/
 
-#### Linux: tee Command
+#### 3. Linux: tee Command
 
 https://kodekloud.com/blog/linux-tee-command/
