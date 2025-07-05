@@ -50,3 +50,21 @@ Note: These commands will number each line of the output. If you want to number 
 ### Linux history Command with Practical Examples
 
 https://labex.io/tutorials/linux-linux-history-command-with-practical-examples-422720
+
+
+**Date : 5.7.2025**
+
+## DevOps Blog : KODEKLOUD 
+
+- https://kodekloud.com/blog/
+
+### Linux :
+51 posts all by KodeKloud
+
+- https://kodekloud.com/blog/tag/linux/
+
+#### 1. Linux: Create, or Remove User
+
+https://kodekloud.com/blog/linux-create-or-remove-user/?ref=kodekloud-newsletter
+
+#### 2. 
