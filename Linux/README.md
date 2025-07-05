@@ -67,4 +67,10 @@ https://labex.io/tutorials/linux-linux-history-command-with-practical-examples-4
 
 https://kodekloud.com/blog/linux-create-or-remove-user/?ref=kodekloud-newsletter
 
-#### 2. 
+#### 2. scp Command - Transfer Files to / from Linux Machines
+
+https://kodekloud.com/blog/scp-command-transfer-files-to-from-linux-machines/
+
+#### Linux: tee Command
+
+https://kodekloud.com/blog/linux-tee-command/
