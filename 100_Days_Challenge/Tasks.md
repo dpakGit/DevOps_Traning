@@ -3,4 +3,22 @@
    Create a user named kirsty with a non-interactive shell on App Server 3.
 
 Sol:
- - user 'kirsty' does not exist on App Server 3
+The task was to create a new user named kirsty with a non-interactive shell on App Server 3.
+
+Steps:
+1. Connect to App Server 3: SSH into App Server 3 using ssh username@172.16.238.12, where username is a valid user on App Server 3.
+2. *Create user kirsty*:
+
+    - Check existing users: cut -d: -f1 /etc/passwd
+
+    - Create user kirsty with non-interactive shell: sudo useradd -s /sbin/nologin kirsty
+
+    - Verify user creation: cut -d: -f1 /etc/passwd
+
+4. Exit SSH session: Use exit to return to the original user.
+
+Notes
+- To SSH into App Server 3, you need a valid username, IP address (172.16.238.12), and credentials.
+- Commands are for a Linux environment.
+
+Do you need help with refining these steps further, or something else regarding user creation on App Server 3?
