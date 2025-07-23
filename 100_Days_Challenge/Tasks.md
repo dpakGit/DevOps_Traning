@@ -15,12 +15,17 @@ Steps:
 Explanation
 - Server IP: Used to connect to App Server 3 via SSH or other network means.
 - User context: Users don't have IP addresses in this context; they have usernames, passwords, and permissions on the server.```  
+```
 2. *Create user kirsty*:
 
-    - Check existing users: cut -d: -f1 /etc/passwd
-
-    - Create user kirsty with non-interactive shell: sudo useradd -s /sbin/nologin kirsty
-
+    - Check existing users:
+    ```
+     cut -d: -f1 /etc/passwd
+    ```
+    - Create user kirsty with non-interactive shell:
+   ```
+   sudo useradd -s /sbin/nologin kirsty
+   ```
     - Verify user creation: cut -d: -f1 /etc/passwd
 
 4. Exit SSH session: Use exit to return to the original user.
