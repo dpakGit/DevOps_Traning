@@ -160,7 +160,7 @@ Example Script (assuming you have SSH access and sudo privileges):
 
 bash
 #!/bin/bash
-# List of app server IPs
+**# List of app server IPs**
 servers=("192.168.1.1" "192.168.1.2" "192.168.1.3")
 
 for server in "${servers[@]}"; do
@@ -215,7 +215,7 @@ Modify the script to include usernames for each server:
 
 bash
 #!/bin/bash
-# List of app server IPs and corresponding usernames
+**#List of app server IPs and corresponding usernames**
 servers=("username1@192.168.1.1" "username2@192.168.1.2" "username3@192.168.1.3")
 
 for server in "${servers[@]}"; do
@@ -252,7 +252,7 @@ nano disable_root_ssh.sh
 
 bash
 #!/bin/bash
-# List of app server IPs and corresponding usernames
+**List of app server IPs and corresponding usernames**
 servers=("username1@192.168.1.1" "username2@192.168.1.2" "username3@192.168.1.3")
 
 for server in "${servers[@]}"; do
