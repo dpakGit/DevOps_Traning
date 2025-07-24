@@ -62,7 +62,7 @@ sudo grep PermitRootLogin /etc/ssh/sshd_config
 Notes
 - Ensure you have sudo privileges on the Server.
 - Test by attempting to SSH as root to verify login is disabled.
-- ~~~
+```
 Testing SSH as Root to Verify Login is Disabled
 To test if root login is disabled via SSH:
 
@@ -89,7 +89,7 @@ Notes
 - This test verifies the effectiveness of the PermitRootLogin no configuration.
 
 Do you need help with SSH testing, server access, or something else regarding this verification?
-  ~~~ 
+```
 
 
 #### Changing PermitRootLogin to "no" without Nano or Vi directly from the terminal
