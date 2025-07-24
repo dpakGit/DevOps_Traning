@@ -276,4 +276,42 @@ Notes
 - Test the script on a single server before running it on multiple servers.
 - You may be prompted for sudo passwords for each server if SSH keys are not set up.
 
-#### 5. 
+#### 5. Running the Script in Method 2 ? ? Where to run the script in method 2
+To run the script in Method 2, you'll need to use a terminal or command line interface on a machine that has SSH access to the app servers:
+
+Steps:
+1. Open a terminal on your local machine or a server that has SSH access to the app servers.
+2. Create a new script file:
+
+bash
+nano disable_root_ssh.sh
+
+3. Paste the script into this file:
+
+bash
+#!/bin/bash
+# List of app server IPs and corresponding usernames
+servers=("username1@192.168.1.1" "username2@192.168.1.2" "username3@192.168.1.3")
+
+for server in "${servers[@]}"; do
+  ssh -t $server "sudo sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config && sudo systemctl restart sshd"
+done
+
+4. Save and exit the editor (in nano, press Ctrl+X, then Y, then Enter).
+5. Make the script executable:
+
+bash
+chmod +x disable_root_ssh.sh
+
+6. Run the script:
+
+bash
+./disable_root_ssh.sh
+
+
+Notes
+- Ensure you have SSH access to the app servers from the machine where you're running the script.
+- Test the script on a single server before running it on multiple servers.
+- You may be prompted for sudo passwords for each server if SSH keys are not set up.
+
+Do you need help with script execution, SSH setup, or something else regarding running scripts?
