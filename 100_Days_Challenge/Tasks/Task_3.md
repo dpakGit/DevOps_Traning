@@ -8,20 +8,18 @@
 
 **What i Did**
 ```
- 1  ssh steve@172.16.238.11 
- 2   history | cut -c 8-
+ 1.ssh steve@172.16.238.11 
 
+[steve@stapp02 ~]$ 
 
-[steve@stapp02 ~]$ history
-
- sudo vi /etc/ssh/sshd_config # by using vi editor and going inside the file i made the changes or you can follow the bello command
+1. sudo vi /etc/ssh/sshd_config # by using vi editor and going inside the file i made the changes or you can follow the bello command
     
- sudo sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config # Changing the permission from the command line itself
+ 2.sudo sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config # Changing the permission from the command line itself
 
- sudo systemctl restart sshd # This is a must command otherwise the changes will not be implemented
+ 3.sudo systemctl restart sshd # This is a must command otherwise the changes will not be implemented
 
- sudo grep PermitRootLogin /etc/ssh/sshd_config # To Check/Verify wheteher the Permission has changed or not
+ 4.sudo grep PermitRootLogin /etc/ssh/sshd_config # To Check/Verify wheteher the Permission has changed or not
 
- history | cut -c 8-
+ 5.history | cut -c 8-
 ```
 I did the same thing for the first three users tony, steve and banner then the task was marked completed .
