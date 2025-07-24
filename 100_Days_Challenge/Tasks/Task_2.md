@@ -5,9 +5,9 @@
 #### Solution:
 **What I did :**
 ```
-1  Connect to App Server 2: SSH into App Server 2 using ssh username@<IP_of_App_Server_2>
+1 #  Connect to App Server 2: SSH into App Server 2 using ssh username@<IP_of_App_Server_2>
    
-    2  ssh steve@172.16.238.11
+  ssh steve@172.16.238.11 # Ths is the command
 
 [steve@stapp02 ~]$ # Now we are inside App Server 2
     1  # Create user ammar with expiry date
