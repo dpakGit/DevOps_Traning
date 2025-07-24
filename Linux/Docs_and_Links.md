@@ -1,8 +1,6 @@
 - **Linux Made Easy for DevOps Beginners: https://kodekloud.com/blog/linux-made-easy-for-devops-beginners/?ref=kodekloud-newsletter**
-- Linux Permissions Explained in Simple Terms - KodeKloud :
-https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox/FMfcgzQZVJvWMgFBrCTbdTSrXhqjwWhV
-
-- https://www.youtube.com/watch?v=a3ujwK65dgs&t=3170s
+- Linux Permissions Explained in Simple Terms - KodeKloud : https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox/FMfcgzQZVJvWMgFBrCTbdTSrXhqjwWhV
+- Linux Crash Course for Beginners | Free Linux Lab Access | KodeKloud:  https://www.youtube.com/watch?v=a3ujwK65dgs&t=3170s
 
 - How to Delete Line in Vim on Linux?  :- https://www.tutorialspoint.com/how-to-delete-line-in-vim-on-linux#:~:text=Use%20the%20arrow%20keys%2C%20or,be%20deleted%20from%20your%20file.
 
