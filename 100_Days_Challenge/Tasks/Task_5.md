@@ -12,6 +12,8 @@
 
 Solution:
 
+NOTE: SELinux, which stands for Security-Enhanced Linux, is a security system built into the Linux kernel that implements mandatory access controls (MAC). It enhances system security by restricting how programs and users can access files, data, and other resources, thereby limiting the potential damage from security breaches. Think of it as a more granular and stricter access control system than the traditional discretionary access controls (DAC) in Linux. 
+
 #### Break down the task into simpler terms:
 
 Task: Enhance security on App server 3 with SELinux
