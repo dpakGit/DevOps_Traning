@@ -1,8 +1,10 @@
 ## Cron Job
 
-Cron Jobs: The Complete Guide for 2025:       https://cronitor.io/guides/cron-jobs
+1. Cron Jobs: The Complete Guide for 2025:       https://cronitor.io/guides/cron-jobs
+   
+2. https://notes.kodekloud.com/docs/Learning-Linux-Basics-Course-Labs/Security-and-File-Permissions/Cronjobs
 
-A cron job in Linux is a scheduled task that the cron daemon (a background process) executes automatically at specified intervals or times. It is a fundamental tool for automating repetitive administrative and maintenance tasks on Unix-like operating systems.
+ A cron job in Linux is a scheduled task that the cron daemon (a background process) executes automatically at specified intervals or times. It is a fundamental tool for automating repetitive administrative and maintenance tasks on Unix-like operating systems.
 Key Components of a Cron Job:
 **Cron Daemon (crond):**
 
