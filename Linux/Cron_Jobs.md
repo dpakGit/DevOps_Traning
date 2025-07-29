@@ -58,3 +58,50 @@ This entry schedules the backup-script.sh to run every day at 2:00 AM.
 
 <img width="1325" height="1080" alt="Screenshot (77)" src="https://github.com/user-attachments/assets/89808330-568b-40d5-b949-d2f282d95a75" />
 
+
+**Practice-1** Manual way of creating a file
+
+The cron_file.sh script contains a simple bash script that creates a new file named cron_testfile in the /home/thor directory. When executed, the script writes "HELLO WORLD" to the newly created file. You can verify the contents of the file by running the cat command on cron_testfile.
+
+pwd # This will give the output where the new file will be created and also it is the location of the file cron_file.sh
+
+vi cron_file.sh
+```
+bash
+#!/bin/bash
+OUTPUT_PATH="/home/thor"
+echo "HELLO WORLD" > "$OUTPUT_PATH/cron_testfile"
+```
+cmod +x cron_file.sh
+./cron_file.sh # Command to run the bash script
+ls
+cat cron_testfile 
+
+Output: HELLO WORLD
+
+**Practice-2**
+### Now lets create the file manually using cron job
+
+Output of thr crontab command:
+root@jumphost /home/thor# crontab
+crontab: usage error: file name or - (for stdin) must be specified
+Usage:
+ crontab [options] file
+ crontab [options]
+ crontab -n [hostname]
+
+Options:
+ -u <user>  define user
+ -e         edit user's crontab
+ -l         list user's crontab
+ -r         delete user's crontab
+ -i         prompt before deleting
+ -n <host>  set host in cluster to run users' crontabs
+ -c         get host in cluster to run users' crontabs
+ -T <file>  test a crontab file syntax
+ -s         selinux context
+ -V         print version and exit
+ -x <mask>  enable debugging
+
+Default operation is replace, per 1003.2
+
