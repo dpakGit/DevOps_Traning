@@ -51,3 +51,10 @@ Code
 0 2 * * * /usr/bin/backup-script.sh
 
 This entry schedules the backup-script.sh to run every day at 2:00 AM.
+
+
+
+
+
+<img width="1325" height="1080" alt="Screenshot (77)" src="https://github.com/user-attachments/assets/89808330-568b-40d5-b949-d2f282d95a75" />
+
