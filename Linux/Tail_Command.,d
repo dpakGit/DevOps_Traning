@@ -1,0 +1,13 @@
+The tail command is used to display the last few lines of a file or input. By default, it shows the last 10 lines, but you can specify a different number of lines as an option.
+
+*Common uses of tail:*
+
+1. Monitoring logs: tail is often used to monitor log files in real-time, especially with the -f option, which follows the file and displays new lines as they're added.
+2. Viewing recent data: tail can be used to view the most recent data in a file or output.
+
+Example:
+
+bash
+tail -n 20 /var/log/syslog
+
+This command would display the last 20 lines of the /var/log/syslog file.
