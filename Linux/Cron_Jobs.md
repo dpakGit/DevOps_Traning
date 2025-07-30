@@ -165,11 +165,11 @@ When you run this command, systemd will attempt to start the cron daemon service
 
 These commands are essential for managing and troubleshooting systemd services, including the cron daemon.
 
-**Practice-2**
+
 
 ## Cron Job Project
 
-**Now lets create the file using cron job**
+**Practice-2 Now lets create the the above file using cron job**
 Project Description:
 
 This project demonstrates how to create a simple cron job that runs a bash script every minute, appending "HELLO WORLD" with a timestamp to a file named testfile in a specified directory.
