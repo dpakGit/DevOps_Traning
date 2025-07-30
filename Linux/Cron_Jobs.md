@@ -96,12 +96,14 @@ Project Structure:
 
 Step-by-Step Guide:
 
+Check the location where file.sh is created and where the new testfile willbe created by using the commnad pwd
+
 Step 1: Create the Bash Script
 Create a new file named file.sh with the following contents:
 ```
 bash
 #!/bin/bash
-OUTPUT_DIR="/home/thor"
+OUTPUT_DIR="/home/thor" This is the location where the file.sh is created ,this path can be derived by running the pwd command before creating this file
 # To make the output more readable, you could modify the script to include a line break or a separator between each execution
 echo "---------------------------------------" >> "$OUTPUT_DIR/testfile" # 
 echo "HELLO WORLD $(date)" >> "$OUTPUT_DIR/testfile"
