@@ -169,7 +169,10 @@ These commands are essential for managing and troubleshooting systemd services, 
 
 ## Cron Job Project
 
-**Practice-2 Now lets create the the above file using cron job**
+
+**Practice-2 Now lets create the the above file that we created in Practice - 1 using cron job**
+
+
 Project Description:
 
 This project demonstrates how to create a simple cron job that runs a bash script every minute, appending "HELLO WORLD" with a timestamp to a file named testfile in a specified directory.
