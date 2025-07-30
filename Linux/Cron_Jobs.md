@@ -61,27 +61,101 @@ This entry schedules the backup-script.sh to run every day at 2:00 AM.
 
 **Practice-1** Manual way of creating a file
 
-The cron_file.sh script contains a simple bash script that creates a new file named cron_testfile in the /home/thor directory. When executed, the script writes "HELLO WORLD" to the newly created file. You can verify the contents of the file by running the cat command on cron_testfile.
+The file.sh script contains a simple bash script that creates a new file named testfile in the /home/thor directory. When executed, the script writes "HELLO WORLD" to the newly created file. You can verify the contents of the file by running the cat command on testfile.
 
 pwd # This will give the output where the new file will be created and also it is the location of the file cron_file.sh
 
-vi cron_file.sh
+vi file.sh
 ```
 bash
 #!/bin/bash
 OUTPUT_PATH="/home/thor"
-echo "HELLO WORLD" > "$OUTPUT_PATH/cron_testfile"
+echo "HELLO WORLD" > "$OUTPUT_PATH/testfile"
 ```
-cmod +x cron_file.sh
-./cron_file.sh # Command to run the bash script
+cmod +x file.sh
+./file.sh # Command to run the bash script
 ls
-cat cron_testfile 
+cat testfile 
 
 Output: HELLO WORLD
 
 **Practice-2**
-### Now lets create the file manually using cron job
+### Now lets create the file using cron job
 
+Cron Job Project
+
+Project Description:
+
+This project demonstrates how to create a simple cron job that runs a bash script every minute, appending "HELLO WORLD" with a timestamp to a file named testfile in a specified directory.
+
+Project Structure:
+
+- file.sh: The bash script that appends "HELLO WORLD" with a timestamp to the testfile.
+
+- crontab: The cron job syntax that runs the file.sh script every minute.
+
+Step-by-Step Guide:
+
+Step 1: Create the Bash Script
+Create a new file named file.sh with the following contents:
+```
+bash
+#!/bin/bash
+OUTPUT_DIR="/home/thor"
+# To make the output more readable, you could modify the script to include a line break or a separator between each execution
+echo "---------------------------------------" >> "$OUTPUT_DIR/testfile" # 
+echo "HELLO WORLD $(date)" >> "$OUTPUT_DIR/testfile"
+```
+This script appends "HELLO WORLD" with the current date and time to the testfile in the specified directory.
+
+Step 2: Make the Script Executable
+Run the following command to make the script executable:
+```
+bash
+chmod +x file.sh
+```
+
+This command adds execute permissions to the script, allowing it to be run by the cron job.
+
+Step 3: Create the Cron Job
+Open the crontab editor by running:
+
+bash
+crontab -e
+
+Add the following cron job syntax:
+```
+bash
+* * * * * /home/thor/file.sh
+```
+
+This syntax runs the file.sh script every minute.
+
+Step 4: Verify the Cron Job
+After setting up the cron job, wait for a minute or two and check the /home/thor/testfile to see if it's being updated with the "HELLO WORLD" message and timestamp.
+ls
+date
+cat testfile
+Example Output:
+
+The testfile should contain multiple lines of "HELLO WORLD" with different timestamps, like this:
+
+HELLO WORLD Mon Jul 29 14:30:00 UTC 2024
+----------------------------------------
+HELLO WORLD Mon Jul 29 14:31:00 UTC 2024
+----------------------------------------
+HELLO WORLD Mon Jul 29 14:32:00 UTC 2024
+
+Troubleshooting:
+
+- Make sure the script has execute permissions and the cron job syntax is correct.
+- Check the system logs for any errors related to the cron job.
+- Verify that the testfile is being created in the specified directory.
+
+By following these steps, you should be able to create a simple cron job that runs a bash script every minute, appending "HELLO WORLD" with a timestamp to a file.
+
+ **Cron expression or cron job syntax**
+* * * * * /home/thor/file.sh
 Output of thr crontab command:
 root@jumphost /home/thor# crontab
 crontab: usage error: file name or - (for stdin) must be specified
