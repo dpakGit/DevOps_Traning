@@ -83,7 +83,7 @@ cat testfile
 Output: HELLO WORLD
 
 
-##  Install cronie package and start crond service
+## Steps to Install cronie package and start crond service :
 You can install the cronie package and start the crond service using the following commands. These commands assume you're using a package manager like yum (for RHEL/CentOS systems):
 
 ### Check Status
