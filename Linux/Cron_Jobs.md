@@ -59,8 +59,31 @@ This entry schedules the backup-script.sh to run every day at 2:00 AM.
 <img width="1325" height="1080" alt="Screenshot (77)" src="https://github.com/user-attachments/assets/89808330-568b-40d5-b949-d2f282d95a75" />
 
 
+**Output of crontab command to check whether crontab is installed or not**
 
+root@jumphost /home/thor# crontab
+```
+crontab: usage error: file name or - (for stdin) must be specified
+Usage:
+ crontab [options] file
+ crontab [options]
+ crontab -n [hostname]
 
+Options:
+ -u <user>  define user
+ -e         edit user's crontab
+ -l         list user's crontab
+ -r         delete user's crontab
+ -i         prompt before deleting
+ -n <host>  set host in cluster to run users' crontabs
+ -c         get host in cluster to run users' crontabs
+ -T <file>  test a crontab file syntax
+ -s         selinux context
+ -V         print version and exit
+ -x <mask>  enable debugging
+
+Default operation is replace, per 1003.2
+```
 
 **Practice-1** Manual way of creating a file
 
@@ -68,15 +91,58 @@ The file.sh script contains a simple bash script that creates a new file named t
 
 pwd # This will give the output where the new file will be created and also it is the location of the file cron_file.sh
 
+**Script -1**
+
 vi file.sh
 ```
-bash
 #!/bin/bash
 OUTPUT_PATH="/home/thor"
 echo "HELLO WORLD" > "$OUTPUT_PATH/testfile"
 ```
+
+**Script -2**
+If you want to append to the file instead of overwriting it, you can use >> instead of >:
+
+vi file.sh
+```
+#!/bin/bash
+OUTPUT_DIR="/home/thor"
+echo "HELLO WORLD" >> "$OUTPUT_DIR/cron_testfile"
+```
+
+Explanation of what the above script does:
+
+- #!/bin/bash specifies the interpreter that should be used to run the script.
+- echo "HELLO WORLD" outputs the string "HELLO WORLD".
+- > testfile redirects the output to a file named testfile. If the file doesn't exist, it will be created. If it does exist, its contents will be overwritten.
+
+To run this script:
+
+1. Save it to a file, for example, file.sh.
+2. Make the file executable by running the command chmod +x script.sh.
+3. Run the script by executing ./file.sh in the terminal.
+
+After running the script, you should see a new file named cron_testfile in the same directory, containing the text "HELLO WORLD".
+**Note:** Also, avoid using PATH as a variable name in your script, as it's a reserved variable in Linux that specifies the directories where executable files are located. Instead, I've used OUTPUT_PATH in the example above.
+Add execute permissions to the script.
+```
 cmod +x file.sh
+```
+
+Run the following command to execute the file:
+```
 ./file.sh # Command to run the bash script
+```
+Alternative:
+
+If you're not comfortable with changing permissions, you can also run the script using the bash command:
+
+
+bash
+bash cron_file.sh
+
+This will execute the script without requiring execute permissions.
+
 ls
 cat testfile 
 
@@ -152,6 +218,16 @@ sudo systemctl enable crond
 
 Or, you can use the --now option with enable to achieve the same result:
 
+
+To ensure cron service starts automatically on boot:
+You can enable the cron service to start automatically on boot:
+
+bash
+```
+sudo systemctl enable crond.service
+```
+This way, you won't need to manually start the service every time you reboot your system
+
 bash
 sudo systemctl enable --now crond
 
@@ -207,7 +283,7 @@ Run the following command to make the script executable: To give execute permiss
 bash
 chmod +x file.sh
 ```
-
+**Always makesure the script has execute permissions (chmod +x /home/thor/cron_file.sh) and the shebang line (#!/bin/bash) is correctly specified.**
 This command adds execute permissions to the script, allowing it to be run by the cron job.
 
 Step 3: Create the Cron Job
@@ -221,6 +297,27 @@ Add the following cron job syntax:
 bash
 * * * * * /home/thor/file.sh
 ```
+**The syntax * * * * * /home/thor/cron_file.sh is called a cron expression or cron job syntax.**
+
+Here's a breakdown of the five asterisks (*) and what they represent:
+
+1. Minute (0-59): * means every minute
+2. Hour (0-23): * means every hour
+3. Day of the month (1-31): * means every day of the month
+4. Month (1-12): * means every month
+5. Day of the week (0-6): * means every day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
+
+The cron expression specifies when the command /home/thor/cron_file.sh should be executed. In this case, the command will be executed every minute, every hour, every day of the month, every month, and every day of the week.
+
+Common cron expression examples:
+
+- * * * * * : Run every minute
+- 0 * * * * : Run every hour (at minute 0)
+- 0 0 * * * : Run every day at midnight
+- 0 0 1 * * : Run on the 1st day of every month at midnight
+- 0 0 * * 0 : Run every Sunday at midnight
+
+The cron expression is a powerful way to schedule tasks in Unix-like systems, and it's widely used for automating system maintenance, backups, and other repetitive tasks.
 Verify the syntax:
 crontab -l
 
@@ -247,31 +344,134 @@ HELLO WORLD Mon Jul 29 14:31:00 UTC 2024
 HELLO WORLD Mon Jul 29 14:32:00 UTC 2024
 
 
+
+### Timestamps are repeated in the output or repeated timestamps
+
+Output: following is the output - 
+HELLO WORLD Wed Jul 30 06:05:01 UTC 2025
+HELLO WORLD Wed Jul 30 06:06:01 UTC 2025
+HELLO WORLD Wed Jul 30 06:06:01 UTC 2025
+HELLO WORLD Wed Jul 30 06:07:01 UTC 2025
+HELLO WORLD Wed Jul 30 06:07:01 UTC 2025
+HELLO WORLD Wed Jul 30 06:08:01 UTC 2025
+HELLO WORLD Wed Jul 30 06:08:02 UTC 2025
+HELLO WORLD Wed Jul 30 06:09:01 UTC 2025
+HELLO WORLD Wed Jul 30 06:09:01 UTC 2025
+
+Solution:
+The output shows that the cron job is running successfully and appending "HELLO WORLD" with the current timestamp to the file every minute.
+
+However, you might notice that some timestamps are repeated (e.g., 06:06:01 UTC 2025 appears twice). This could be due to one of the following reasons:
+
+1. Multiple cron jobs: Make sure you don't have multiple cron jobs running the same script. Check your crontab file for any duplicate entries.
+2. Script execution time: If the script takes longer than expected to execute, it might be triggered again before the previous execution completes, resulting in duplicate timestamps.
+3. System clock: Although unlikely, system clock issues or NTP synchronization might cause timestamp discrepancies.
+
+If you're concerned about the duplicate timestamps, you can modify the script to log more detailed information, such as the process ID or a unique identifier, to help you understand the execution pattern.
+
+Additional suggestion:
+
+To make the output more readable, you could modify the script to include a line break or a separator between each execution:
+
+bash
+echo "-------------------------" >> "$OUTPUT_DIR/testfile"
+echo "HELLO WORLD $(date)" >> "$OUTPUT_DIR/testfile"
+
+This will add a line break with a separator, making it easier to distinguish between each execution.
 By following these steps, you should be able to create a simple cron job that runs a bash script every minute, appending "HELLO WORLD" with a timestamp to a file.
 
- **Output of crontab command**
 
-root@jumphost /home/thor# crontab
-```
-crontab: usage error: file name or - (for stdin) must be specified
-Usage:
- crontab [options] file
- crontab [options]
- crontab -n [hostname]
+## Using an environment variable in a cron job:
 
-Options:
- -u <user>  define user
- -e         edit user's crontab
- -l         list user's crontab
- -r         delete user's crontab
- -i         prompt before deleting
- -n <host>  set host in cluster to run users' crontabs
- -c         get host in cluster to run users' crontabs
- -T <file>  test a crontab file syntax
- -s         selinux context
- -V         print version and exit
- -x <mask>  enable debugging
+Let's say you want to use an environment variable LOG_FILE to specify the log file path for a cron job.
 
-Default operation is replace, per 1003.2
-```
+Step 1: Define the environment variable in the crontab file
+
+You can define environment variables directly in the crontab file using the VAR=value syntax. Here's an example:
+
+
+bash
+LOG_FILE=/var/log/my_job.log
+*/15 * * * * /path/to/your/script.sh >> $LOG_FILE 2>&1
+
+
+In this example:
+
+- LOG_FILE is the environment variable.
+- /var/log/my_job.log is the value assigned to the LOG_FILE variable.
+- The cron job runs every 15 minutes and appends the output to the log file specified by LOG_FILE.
+
+Note: Environment variables defined in the crontab file are only available to the cron jobs defined in that file.
+
+Alternative approach:
+
+If you have many environment variables or want to keep them separate from the crontab file, you can define them in a separate file (e.g., ~/.bashrc or /etc/environment) and then source that file in your cron job.
+
+For example, you can add the following line to your cron job:
+
+
+bash
+*/15 * * * * source ~/.bashrc && /path/to/your/script.sh >> $LOG_FILE 2>&1
+
+
+Assuming you've defined LOG_FILE in ~/.bashrc.
+
+Syntax:
+
+The general syntax for defining environment variables in a crontab file is:
+
+
+bash
+VAR=value
+
+
+You can define multiple environment variables by adding more VAR=value lines.
+
+Tips:
+
+- Use >> to append output to the log file instead of overwriting it.
+- Use 2>&1 to redirect both stdout and stderr to the log file.
+
+By using environment variables in your cron jobs, you can make your scripts more flexible and easier to maintain.
+
+## Troubleshoot
+
+Case : 1
+The issue might be due to the script overwriting the file every minute with the same content. However, if the file is not being created at all, it's likely due to one of the following reasons:
+
+1. Permission issues: Make sure the cron job has permission to write to the /home/thor directory.
+2. Script not executing: Ensure the script has execute permissions (chmod +x /home/thor/cron_file.sh).
+3. Cron job not running: Check the system logs to see if the cron job is running successfully.
+
+**To troubleshoot, you can modify the script to append to the file instead of overwriting it, and also add some logging to see if the script is running:**
+
+
+bash
+#!/bin/bash
+OUTPUT_PATH="/home/thor"
+echo "HELLO WORLD $(date)" >> "$OUTPUT_PATH/cron_testfile" 2>&1
+
+
+This will append the current date and time to the file every minute, along with any error messages.
+
+Also, ensure that the cron daemon is running:
+
+- On systemd-based systems: sudo systemctl status cron
+- On non-systemd systems: sudo service cron status
+
+If the cron daemon is not running, start it:
+
+- On systemd-based systems: sudo systemctl start cron
+- On non-systemd systems: sudo service cron start
+
+Check cron logs:
+
+You can also check the system logs to see if there are any errors related to the cron job:
+
+- On Ubuntu/Debian-based systems: grep CRON /var/log/syslog
+- On Red Hat/Fedora-based systems: journalctl -u crond
+
+By adding logging and checking the system logs, you should be able to identify the issue and fix it.
+
+
 
