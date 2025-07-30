@@ -59,6 +59,9 @@ This entry schedules the backup-script.sh to run every day at 2:00 AM.
 <img width="1325" height="1080" alt="Screenshot (77)" src="https://github.com/user-attachments/assets/89808330-568b-40d5-b949-d2f282d95a75" />
 
 
+
+
+
 **Practice-1** Manual way of creating a file
 
 The file.sh script contains a simple bash script that creates a new file named testfile in the /home/thor directory. When executed, the script writes "HELLO WORLD" to the newly created file. You can verify the contents of the file by running the cat command on testfile.
@@ -79,11 +82,94 @@ cat testfile
 
 Output: HELLO WORLD
 
+
+##  Install cronie package and start crond service
+You can install the cronie package and start the crond service using the following commands. These commands assume you're using a package manager like yum (for RHEL/CentOS systems):
+
+### Check Status
+systemctl status crond.service:
+
+This command checks the current status of the crond.service systemd service.
+
+- systemctl: This is the command-line utility for managing systemd services.
+- status: This option displays the current status of the service.
+- crond.service: This is the name of the service being queried, which is the cron daemon service.
+
+The output will show whether the service is:
+
+- active (running): The service is currently running.
+- inactive (dead): The service is not running.
+- failed: The service has failed to start or has crashed.
+
+### Install cronie package
+sudo yum install -y cronie
+
+### Start crond service
+sudo systemctl start crond.service
+Or
+sudo systemctl start crond
+
+This command starts the crond.service systemd service.
+
+- sudo: This command prefix is used to run the command with superuser (root) privileges, which is required to manage systemd services.
+- systemctl: Same as above.
+- start: This option starts the specified service.
+- crond.service: Same as above.
+
+When you run this command, systemd will attempt to start the cron daemon service. If the service starts successfully, you won't see any output.
+
+### Rrun Status
+systemctl status crond.service (again):
+
+After starting the service, you can run this command again to verify that the service is indeed running.
+
+The output should now show that the service is active (running), indicating that the cron daemon is running and ready to execute scheduled tasks.
+
+### Enable crond service to start on boot
+sudo systemctl enable crond
+
+*sudo systemctl enable crond:*
+
+This command enables the crond systemd service to start automatically on boot.
+
+- sudo: Same as before, this prefix is used to run the command with superuser (root) privileges.
+- systemctl: Same as before, this is the command-line utility for managing systemd services.
+- enable: This option enables the specified service to start automatically on boot.
+- crond: This is the name of the service being enabled, which is the cron daemon service.
+
+When you run this command, systemd will configure the crond service to start automatically when the system boots up. This ensures that the cron daemon is running and can execute scheduled tasks even after a system reboot.
+
+*What's the difference between start and enable?*
+
+- start: Starts the service immediately, but doesn't affect the service's behavior on boot.
+- enable: Configures the service to start automatically on boot, but doesn't start the service immediately.
+
+To both start the service immediately and enable it to start on boot, you can use:
+
+bash
+sudo systemctl start crond
+sudo systemctl enable crond
+
+Or, you can use the --now option with enable to achieve the same result:
+
+bash
+sudo systemctl enable --now crond
+
+This will both enable the service to start on boot and start it immediately.
+
+When you run this command, systemd will attempt to start the cron daemon service. If the service starts successfully, you won't see any output.
+
+1. Checking the initial status of the cron service.
+2. Starting the cron service if it's not already running.
+3. Verifying that the service has started successfully.
+
+These commands are essential for managing and troubleshooting systemd services, including the cron daemon.
+
 **Practice-2**
-### Now lets create the file using cron job
 
-Cron Job Project
+## Cron Job Project
 
+**Now lets create the file using cron job**
 Project Description:
 
 This project demonstrates how to create a simple cron job that runs a bash script every minute, appending "HELLO WORLD" with a timestamp to a file named testfile in a specified directory.
@@ -112,7 +198,8 @@ echo "HELLO WORLD $(date)" >> "$OUTPUT_DIR/testfile"
 This script appends "HELLO WORLD" with the current date and time to the testfile in the specified directory.
 
 Step 2: Make the Script Executable
-Run the following command to make the script executable:
+Run the following command to make the script executable: To give execute permission to the file
+
 ```
 bash
 chmod +x file.sh
@@ -131,14 +218,17 @@ Add the following cron job syntax:
 bash
 * * * * * /home/thor/file.sh
 ```
+Verify the syntax:
+crontab -l
 
 This syntax runs the file.sh script every minute.
 
 Step 4: Verify the Cron Job
 After setting up the cron job, wait for a minute or two and check the /home/thor/testfile to see if it's being updated with the "HELLO WORLD" message and timestamp.
-ls
+ls # Verify that the testfile is being created in the specified directory.
 date
-cat testfile
+cat testfile # cat on testfile to see the contents
+
 Example Output:
 
 The testfile should contain multiple lines of "HELLO WORLD" with different timestamps, like this:
@@ -149,18 +239,13 @@ HELLO WORLD Mon Jul 29 14:31:00 UTC 2024
 ----------------------------------------
 HELLO WORLD Mon Jul 29 14:32:00 UTC 2024
 
-Troubleshooting:
-
-- Make sure the script has execute permissions and the cron job syntax is correct.
-- Check the system logs for any errors related to the cron job.
-- Verify that the testfile is being created in the specified directory.
 
 By following these steps, you should be able to create a simple cron job that runs a bash script every minute, appending "HELLO WORLD" with a timestamp to a file.
 
- **Cron expression or cron job syntax**
-* * * * * /home/thor/file.sh
-Output of thr crontab command:
+ **Output of crontab command**
+
 root@jumphost /home/thor# crontab
+```
 crontab: usage error: file name or - (for stdin) must be specified
 Usage:
  crontab [options] file
@@ -181,4 +266,5 @@ Options:
  -x <mask>  enable debugging
 
 Default operation is replace, per 1003.2
+```
 
