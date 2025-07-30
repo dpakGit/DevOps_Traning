@@ -86,7 +86,7 @@ Output: HELLO WORLD
 ## Steps to Install cronie package and start crond service :
 You can install the cronie package and start the crond service using the following commands. These commands assume you're using a package manager like yum (for RHEL/CentOS systems):
 
-### Check Status
+### 1. Check Status
 systemctl status crond.service:
 
 This command checks the current status of the crond.service systemd service.
@@ -101,10 +101,10 @@ The output will show whether the service is:
 - inactive (dead): The service is not running.
 - failed: The service has failed to start or has crashed.
 
-### Install cronie package
+### 2. Install cronie package
 sudo yum install -y cronie
 
-### Start crond service
+### 3. Start crond service
 sudo systemctl start crond.service
 Or
 sudo systemctl start crond
@@ -118,14 +118,14 @@ This command starts the crond.service systemd service.
 
 When you run this command, systemd will attempt to start the cron daemon service. If the service starts successfully, you won't see any output.
 
-### Rrun Status
+### 4. Rerun Status
 systemctl status crond.service (again):
 
 After starting the service, you can run this command again to verify that the service is indeed running.
 
 The output should now show that the service is active (running), indicating that the cron daemon is running and ready to execute scheduled tasks.
 
-### Enable crond service to start on boot
+### 5. Enable crond service to start on boot
 sudo systemctl enable crond
 
 *sudo systemctl enable crond:*
