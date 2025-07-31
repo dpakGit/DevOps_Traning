@@ -13,7 +13,7 @@ For instance, in a real-world scenario:
 
 - A DevOps team uses a jump host to access multiple production app servers.
 - The team lead, 'thor', needs to run scripts and commands on each app server without having to enter passwords repeatedly.
-- By setting up password-less authentication, 'thor' can access each app server through their respective sudo users, saving time and improving productivity.
+- By setting up password-less authentication, 'thor' can access each app server through their respective sudo users, saving time and improving      productivity.
 
 **Solution:**
 
@@ -25,8 +25,9 @@ Step 1: Generate SSH keys on the jump host
 - User: thor
 - Command: Run the following command as the thor user on the jump host:
 
-bash
+```
 ssh-keygen -t rsa
+```
 
 This command generates a pair of SSH keys (public and private) in the ~/.ssh directory. You'll be prompted to enter a file name and a passphrase. You can press Enter to accept the default file name and leave the passphrase empty.
 
@@ -40,8 +41,9 @@ Method :1
 - User: thor
 - Command:
 
-bash
+```
 cat ~/.ssh/id_rsa.pub
+```
 
 This command displays the contents of the public key file. Copy the output.
 
@@ -49,11 +51,12 @@ This command displays the contents of the public key file. Copy the output.
 - User: tony
 - Command:
 
-bash
+```
 mkdir -p ~/.ssh
 echo "paste_public_key_here" >> ~/.ssh/authorized_keys
 chmod 700 ~/.ssh
 chmod 600 ~/.ssh/authorized_keys
+```
 
 Replace paste_public_key_here with the actual public key contents copied from the jump host. These commands create the ~/.ssh directory if it doesn't exist, append the public key to the authorized_keys file, and set the correct permissions.
 
@@ -66,10 +69,11 @@ Method 🔢
 - User: thor
 - Command:
 
-bash
+```
 ssh-copy-id tony@app-server-1 # Use the public IP in place of "app-server-1"
 ssh-copy-id steve@app-server-2
 ssh-copy-id banner@app-server-3
+```
 
 This command will prompt you for the password of the respective sudo user on each app server.
 
@@ -93,10 +97,11 @@ Step 3: Verify password-less SSH access
 - User: thor
 - Command:
 
-bash
+```
 ssh tony@app-server-1 # Use the public IP in place of "app-server-1"
 ssh steve@app-server-2
 ssh banner@app-server-3
+```
 
 If everything is set up correctly, you should be able to log in to each app server without entering a password.
 
@@ -124,8 +129,9 @@ So, in this case, you don't need to manually add or paste the public key anywher
 
 Just run the command:
 
-bash
+```
 ssh-copy-id banner@app-server-3
+```
 
 And you'll be prompted for the password of the banner user on app-server-3. Once you enter the password, the public key will be copied to the authorized_keys file, and you'll be able to use password-less SSH login.
 
@@ -138,22 +144,25 @@ So, in this case, you don't need to manually run the chmod commands to set the p
 The ssh-copy-id command will set the permissions as follows:
 
 - ~/.ssh directory: 700 (drwx------)
+
 - ~/.ssh/authorized_keys file: 600 (-rw-------)
 
 These permissions are required for SSH to work correctly and securely.
 
 So, you can simply run the ssh-copy-id command:
 
-bash
+```
 ssh-copy-id banner@app-server-3
+```
 
 And it will take care of copying the public key and setting the correct permissions for you.
 
 If you want to verify the permissions, you can log in to app-server-3 as the banner user and run:
 
-bash
+```
 ls -ld ~/.ssh
 ls -l ~/.ssh/authorized_keys
+```
 
 This will show you the permissions of the ~/.ssh directory and authorized_keys file, which should be 700 and 600 respectively.
 
@@ -235,8 +244,9 @@ To troubleshoot, you can try the following:
 
 1. Verbose SSH output: Run the SSH command with the -v option to get more verbose output:
 
-bash
+```
 ssh -v tony@172.16.238.10
+```
 
 This can help you identify the issue.
 
@@ -251,10 +261,12 @@ If you're still having issues, feel free to provide more details, and I'll do my
 2. Check for extra whitespace: Ensure there are no extra whitespace characters in the authorized_keys file, especially at the end of the line containing the public key.
 3. Try SSH with verbose output: Run the SSH command with the -v option to get more verbose output, which might help identify the issue:
 
-bash
+```
 ssh -v banner@app-server-3
+```
 
 If you're still having issues, feel free to provide more details, and I'll do my best to help you troubleshoot!
+
 
 #### Troubleshoot (IMP)
 
@@ -275,21 +287,23 @@ To resolve this issue:
 
 1. Generate SSH keys: If you haven't already, generate SSH keys on the jump host using the command:
 
-bash
+```
 ssh-keygen -t rsa
+```
 
 Press Enter to accept the default file name and location.
 
 2. Specify the identity file: If your SSH keys are in a non-default location or have a different name, you can specify the identity file using the -i option:
 
-bash
+```
 ssh-copy-id -i ~/.ssh/your_key.pub tony@172.16.238.10
-
+```
 Replace ~/.ssh/your_key.pub with the actual path to your public key file.
 
 After generating SSH keys or specifying the identity file, try running the ssh-copy-id command again:
 
-bash
+```
 ssh-copy-id tony@172.16.238.10
+```
 
 This should copy the public key to the remote server, allowing you to set up password-less SSH authentication.
