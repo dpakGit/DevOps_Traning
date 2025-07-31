@@ -6,6 +6,8 @@
 
 **Set up a password-less authentication from user thor on jump host to all app servers through their respective sudo users.** 
 
+...................................................................................................................
+
 ### Here's a more elaborate and easy-to-understand version of the task with a real-life example:
 
 "Configure password-less SSH authentication from the 'thor' user account on the jump host server to all application servers, allowing the 'thor' user to seamlessly access each app server through their designated sudo users (e.g., 'tony' for App Server 1, 'steve' for App Server 2, etc.) without being prompted for a password, thereby streamlining administrative tasks and improving efficiency in managing multiple servers."
