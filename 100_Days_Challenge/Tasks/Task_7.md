@@ -73,7 +73,20 @@ ssh-copy-id banner@app-server-3
 
 This command will prompt you for the password of the respective sudo user on each app server.
 
+Output of the above command:
 
+```
+ ssh-copy-id tony@172.16.238.10 
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/thor/.ssh/id_rsa.pub"
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+tony@172.16.238.10's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'tony@172.16.238.10'"
+and check to make sure that only the key(s) you wanted were added.
+```
 Step 3: Verify password-less SSH access
 
 - Machine: Jump Host
@@ -243,3 +256,40 @@ ssh -v banner@app-server-3
 
 If you're still having issues, feel free to provide more details, and I'll do my best to help you troubleshoot!
 
+#### Troubleshoot (IMP)
+
+ERROR: ssh-copy-id tony@172.16.238.10 
+
+/usr/bin/ssh-copy-id: ERROR: No identities found
+
+Solution:
+
+The error message "No identities found" typically indicates that ssh-copy-id is unable to find any SSH identities (public keys) to copy to the remote server.
+
+This can happen if:
+
+1. You haven't generated SSH keys on the local machine (jump host).
+2. The SSH keys are not in the default location (~/.ssh/id_rsa and ~/.ssh/id_rsa.pub).
+
+To resolve this issue:
+
+1. Generate SSH keys: If you haven't already, generate SSH keys on the jump host using the command:
+
+bash
+ssh-keygen -t rsa
+
+Press Enter to accept the default file name and location.
+
+2. Specify the identity file: If your SSH keys are in a non-default location or have a different name, you can specify the identity file using the -i option:
+
+bash
+ssh-copy-id -i ~/.ssh/your_key.pub tony@172.16.238.10
+
+Replace ~/.ssh/your_key.pub with the actual path to your public key file.
+
+After generating SSH keys or specifying the identity file, try running the ssh-copy-id command again:
+
+bash
+ssh-copy-id tony@172.16.238.10
+
+This should copy the public key to the remote server, allowing you to set up password-less SSH authentication.
