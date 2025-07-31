@@ -6,15 +6,7 @@
 
 **Set up a password-less authentication from user thor on jump host to all app servers through their respective sudo users.** 
 
-...................................................................................................................
-...................................................................................................................
-
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-
 -------------------------------------------------
-
 
 ### Here's a more elaborate and easy-to-understand version of the task with a real-life example:
 
@@ -28,6 +20,8 @@ For instance, in a real-world scenario:
 - The team lead, 'thor', needs to run scripts and commands on each app server without having to enter passwords repeatedly.
 - By setting up password-less authentication, 'thor' can access each app server through their respective sudo users, saving time and improving      productivity.
 
+
+-------------------------------------------------
 **Solution:**
 
 To set up password-less SSH access from the thor user on the jump host to all app servers through their respective sudo users, you'll need to generate SSH keys and copy the public key to the authorized_keys file on each app server. Here's a step-by-step guide:
@@ -128,6 +122,7 @@ Tips:
 
 By following these steps, you should have set up password-less SSH access from the thor user on the jump host to all app servers through their respective sudo users.
 
+-------------------------------------------------
 **Note:**
 When you use the ssh-copy-id command, you don't need to manually paste the public key into the authorized_keys file. The ssh-copy-id command will automatically copy the public key to the authorized_keys file on the remote server.
 
@@ -148,6 +143,7 @@ ssh-copy-id banner@app-server-3
 
 And you'll be prompted for the password of the banner user on app-server-3. Once you enter the password, the public key will be copied to the authorized_keys file, and you'll be able to use password-less SSH login.
 
+-------------------------------------------------
 **Note:**
 
 When you use the ssh-copy-id command, it will automatically set the correct permissions for the ~/.ssh directory and authorized_keys file on the remote server.
@@ -170,6 +166,10 @@ ssh-copy-id banner@app-server-3
 
 And it will take care of copying the public key and setting the correct permissions for you.
 
+ -------------------------------------------------
+ 
+### Verifying the Permission
+
 If you want to verify the permissions, you can log in to app-server-3 as the banner user and run:
 
 ```
@@ -179,7 +179,7 @@ ls -l ~/.ssh/authorized_keys
 
 This will show you the permissions of the ~/.ssh directory and authorized_keys file, which should be 700 and 600 respectively.
 
-
+Output:
 The output you're seeing is in a different format than the numeric permissions (600 and 700).
 
 The ls -ld and ls -l commands display permissions in a symbolic format, which is:
@@ -209,6 +209,8 @@ In your case:
 
 So, the permissions are indeed 700 for the directory and 600 for the file, but they're being displayed in a symbolic format instead of numeric.
 
+Numeric Output :
+
 If you want to see the numeric permissions, you can use the stat command:
 
 ```
@@ -218,6 +220,7 @@ stat -c "%a" ~/.ssh/authorized_keys
 ```
 This will display the permissions in numeric format (e.g., 700 and 600).
 
+-------------------------------------------------
 **Note:**
 
 #### Having passwordless access to a server or system doesn't necessarily mean having admin access.
@@ -242,7 +245,7 @@ In summary, passwordless access is about authentication, while admin access is a
 
 In your case, if the thor user has passwordless access to the app servers through their respective sudo users, it's likely that the thor user will have the same level of access and privileges as the sudo users on those servers. However, without more information about the specific configuration and permissions, it's difficult to say for certain whether this equates to admin access.
 
-
+-------------------------------------------------
 #### Troubleshoot
 The error message Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password) indicates that the SSH connection attempt is failing due to authentication issues.
 
@@ -280,7 +283,7 @@ ssh -v banner@app-server-3
 
 If you're still having issues, feel free to provide more details, and I'll do my best to help you troubleshoot!
 
-
+-------------------------------------------------
 #### Troubleshoot (IMP)
 
 ERROR: ssh-copy-id tony@172.16.238.10 
