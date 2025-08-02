@@ -120,9 +120,9 @@ systemctl status mariadb.service
 
 This will show you the latest logs for the mariadb service, including any error messages that might indicate why the service failed to start.
 
------------------------------------------------------------------------
 
 -----------------------------------------
+
 ## Linux commands that can help you find the location or path of MariaDB or any other file/directory:
 
 1. *which command:* which mariadb
@@ -189,7 +189,7 @@ If the issue persists, you may need to investigate further by:
 
 By following these steps, you should be able to resolve the issue with the mariadb service being down and get the Nautilus application connected to the database again.
 
----------------------------------------------------------------------
+
 ## Troubleshoot - 2.
 
 When running the following command gives the output:
