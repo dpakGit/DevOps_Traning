@@ -140,7 +140,10 @@ This command will search for files/directories with the name "mariadb" using the
 5. *ps and ls -l /proc commands:* If MariaDB is running, you can use ps aux | grep mariadb to find the process ID, and then ls -l /proc/<PID>/exe to find the path to the executable.
 
 These commands can help you find the location or path of MariaDB or any other file/directory on your Linux system.
+
 -----------------------------------------
+
+
 
 ## Troubleshoot - 1.
 
