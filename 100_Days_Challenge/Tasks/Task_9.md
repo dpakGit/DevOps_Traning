@@ -89,7 +89,8 @@ Output:
 ● mariadb.service - MariaDB 10.5 database server
      Loaded: loaded (/usr/lib/systemd/system/mariadb.service; enabled; preset: disabled)
      Active: active (running) since Fri 2025-08-01 06:36:42 UTC; 55s ago
- -------------------------------------------------------------------
+     
+-------------------------------------------------------------------
 
 
 **Meta AI**
