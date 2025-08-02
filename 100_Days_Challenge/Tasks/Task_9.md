@@ -141,7 +141,7 @@ This command will search for files/directories with the name "mariadb" using the
 
 These commands can help you find the location or path of MariaDB or any other file/directory on your Linux system.
 
------------------------------------------
+
 
 
 
