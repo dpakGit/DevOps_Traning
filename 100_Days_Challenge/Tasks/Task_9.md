@@ -215,7 +215,9 @@ sudo mkdir /var/lib/mysql
 sudo chown -R mysql:mysql /var/lib/mysql
 ```
 
+**Note:**
 ```
+
 The command sudo chown -R mysql:mysql /var/lib/mysql is used to change the ownership of the /var/lib/mysql directory and all its contents to the mysql user and group.
 
 Here's a breakdown of the command:
@@ -260,6 +262,7 @@ In this output:
 As you can see, the ownership of the /var/lib/mysql directory has been changed to mysql:mysql, which is the desired ownership for the MySQL/MariaDB service to function properly.
 ```
 
+**Note:**
 ```
 mysql:mysql is a syntax used in Linux to specify the owner and group of a file or directory.
 
