@@ -34,6 +34,10 @@ ls -alh /scripts/
 # Step 1: Create a new file for the script
 
 sudo vi /scripts/blog_backup.sh
+---
+#!/bin/bash
+zip -r /scripts/xfusioncorp_blog.zip /var/www/html/blog
+---
 
 ls /scripts/
 
