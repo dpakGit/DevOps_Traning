@@ -215,4 +215,60 @@ You don't need to include this command inside the script itself. Instead:
 2. Run sudo chmod +x /scripts/official_backup.sh in the terminal to make the script executable.
 3. Then you can run the script using sudo /scripts/official_backup.sh
 
-Does that make sense?
+----------------------------------------------------------
+
+### Diagram for the Backup Task
+Here's an elaborate diagram for the task of creating a backup of the static website on App Server 3 in Stratos Datacenter using the official_backup.sh script.
+
+
+                      +---------------+
+                      | App Server 3    |
+                      | (Stratos DC)    |
+                      +---------------+
+                             |
+                             |  /scripts/official_backup.sh
+                             |  (bash script for backup)
+                             v
+                      +---------------+
+                      | 1. Create zip    |
+                      |    xfusioncorp_    |
+                      |    official.zip of  |
+                      |    /var/www/html/   |
+                      |    official         |
+                      +---------------+
+                             |
+                             v
+                      +---------------+
+                      | 2. Save zip in    |
+                      |    /backup/ on    |
+                      |    App Server 3    |
+                      +---------------+
+                             |
+                             v
+                      +---------------+       SSH (passwordless)
+                      | 3. Copy zip to    |<----------------------->| Nautilus Backup Server |
+                      |    Nautilus Backup|                           |                        |
+                      |    Server /backup/  |                           | /backup/               |
+                      +---------------+                           +------------------------+
+
+
+Script Details
+- Script name: official_backup.sh
+- Location: /scripts on App Server 3
+- Tasks:
+    - Create xfusioncorp_official.zip of /var/www/html/official.
+    - Save zip in /backup/ on App Server 3.
+    - Copy zip to Nautilus Backup Server /backup/ using passwordless SSH.
+
+Requirements for Execution
+- Passwordless SSH setup between App Server 3 and Nautilus Backup Server.
+- Script should be executable by the respective server user.
+- official_backup.sh might look something like this:
+
+bash
+#!/bin/bash
+zip -r /backup/xfusioncorp_official.zip /var/www/html/official
+scp /backup/xfusioncorp_official.zip <username>@<Nautilus_Backup_Server_IP>:/backup/
+
+
+Do you need help with writing the exact official_backup.sh script, setting up passwordless SSH, or ensuring the script is executable by a specific user?
