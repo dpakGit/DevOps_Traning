@@ -10,10 +10,9 @@ c. Copy the created archive to Nautilus Backup Server server in /backup/ locatio
 
 d. Please make sure script won't ask for password while copying the archive file. Additionally, the respective server user (for example, tony in case of App Server 1) must be able to run it.
 
-### Replace official word everywhere with beta.
+#### Note: Replace official word everywhere with beta.
 
 **What I Did**
-
 ------------------------------------------------------------------------------
 1. ssh steve@172.16.238.11
 
@@ -167,7 +166,27 @@ Run the script: You can run the script using:
 ```
 sudo /scripts/beta_backup.sh
 ```
+**Note:**
 
+*Full form of scp: Secure Copy*
+
+scp stands for Secure Copy Protocol. It's a command-line tool used to securely copy files between hosts on a network.
+
+*Use of scp:*
+- scp uses SSH (Secure Shell) for data transfer, providing encryption and security.
+- You can copy files from your local machine to a remote server, or from a remote server to your local machine, or between two remote servers.
+- Common syntax:
+
+bash
+scp [source] [destination]
+
+    - Example: scp localfile.txt user@remotehost:/path/
+    - Example: scp user@remotehost:/path/remotefile.txt localpath/
+
+In the context of the official_backup.sh script we discussed:
+- scp /backup/xfusioncorp_official.zip <username>@<Nautilus_Backup_Server_IP>:/backup/ copies the zip file from App Server 3 to Nautilus Backup Server securely using SSH.
+
+Do you need help with using scp for specific file transfers or understanding its options?
 ---------------------------------------------------
 
 **Note:**
