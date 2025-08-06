@@ -20,6 +20,7 @@ What the script needs to do:
 This script will create a zip file named xfusioncorp_blog.zip in the current working directory (which is /scripts in this case). If you want to specify a different location for the zip file, you can modify the script accordingly.
 
 That's it! With this script, you'll be able to create a zip archive of the blog directory and its contents.
+
 ---------------------------------------------------
 
 **What I did**
