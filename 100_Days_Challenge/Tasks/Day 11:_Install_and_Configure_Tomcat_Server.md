@@ -29,11 +29,11 @@ history | cut -c 8-
 
 [steve@stapp02 ~]$ history | cut -c 8-  App Server - 2
 
-Step -2
+Step -2 :
 
 sudo yum update && sudo yum install -y tomcat
 
-Step-3
+Step-3 :
 
 systemctl status tomcat
 
