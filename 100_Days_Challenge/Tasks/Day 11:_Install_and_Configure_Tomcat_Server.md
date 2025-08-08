@@ -112,7 +112,7 @@ exit
 
 **MetaAI Solutions:**
 
-### Task: Install Tomcat on App Server 2, configure it to run on port 6000, and deploy ROOT.war from Jump host.
+#### Task: Install Tomcat on App Server 2, configure it to run on port 6000, and deploy ROOT.war from Jump host.
 
 a. Install Tomcat server on App Server 2
 
