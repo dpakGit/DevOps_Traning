@@ -7,11 +7,9 @@ thor@jumphost ~$ ssh tony@172.16.238.10
 
 [tony@stapp01 ~]$ sudo -s
 
-[root@stapp01 tony]# systemctl status apache2 
+[root@stapp01 tony]# systemctl status apache2 # This command did not work with the name apache2
 
 Unit apache2.service could not be found.
-
-# This command did not work
 
 [root@stapp01 tony]# systemctl status httpd
 
@@ -334,10 +332,49 @@ thor@jumphost ~$ curl http://stapp01:3000
 curl http://stapp01:3000
 history | cut -c 8-
 
-
-
-
-
-
-
 ---------------------------------
+
+
+**Meta AI Solutions:**
+-------------------------------
+
+Elaborate explanation of each command in the Steps to Troubleshoot and Fix the Issue.
+*Step 1: Check if Apache service is running on stapp01*
+- *sudo systemctl status apache2*: Checks the current status of the Apache service (active, inactive, etc.). You might see httpd instead of apache2 on some systems.
+- *sudo systemctl start apache2*: Starts the Apache service if it's not running.
+
+*Step 2: Verify Apache is listening on port 8084 on stapp01*
+- *sudo netstat -tlnp | grep apache2*:
+    - *netstat -tlnp*: Lists all listening TCP (-t) ports (-l listening, -n numeric, -p show PID/program).
+    - *grep apache2*: Filters output to show lines related to Apache.
+- *sudo ss -tlnp | grep apache2*: Similar to netstat, but ss is more modern. Checks if Apache is listening on port 8084.
+
+*Step 3: Check firewall rules on stapp01*
+- *sudo ufw status*: Shows the status of ufw firewall rules if ufw is used.
+- *sudo firewall-cmd --list-all*: Lists all firewall rules if firewalld is used.
+- *sudo ufw allow 8084/tcp*: Adds a rule to allow traffic on port 8084 via ufw.
+- *sudo firewall-cmd --add-port=8084/tcp --permanent*: Adds a permanent rule for port 8084 via firewalld.
+- *sudo firewall-cmd --reload*: Reloads firewalld rules to apply changes.
+
+Step 4: Test connectivity from Jump host
+- *curl http://stapp01:8084*: Sends an HTTP request to Apache on stapp01 port 8084 and shows the response (if Apache is serving content).
+
+
+
+**If sudo ss -tlnp | grep httpd gives sudo: ss: command not found, you can use netstat instead.**
+*Alternative command using netstat*
+- Try using:
+
+bash
+sudo netstat -tlnp | grep httpd
+
+- This does the same thing as ss:
+    - Lists listening TCP ports (-tlnp).
+    - Shows PID/program name.
+    - grep httpd filters for Apache (httpd on some systems).
+
+*Why ss wasn't found*
+- ss is part of iproute2 utilities.
+- If ss isn't available, netstat (part of net-tools) is a good fallback.
+
+
