@@ -1,14 +1,12 @@
-#### https://tundedamian.medium.com/day-11-of-100-days-of-devops-deploying-a-java-app-on-tomcat-18d7e36eccc7
-
 ## The Nautilus application development team recently finished the beta version of one of their Java-based applications, which they are planning to deploy on one of the app servers in Stratos DC. After an internal team meeting, they have decided to use the tomcat application server. Based on the requirements mentioned below complete the task:
 
-## a. Install tomcat server on App Server 2.
+### a. Install tomcat server on App Server 2.
 
-## b. Configure it to run on port 3003.
+### b. Configure it to run on port 3003.
 
-## c. There is a ROOT.war file on Jump host at location /tmp.
+### c. There is a ROOT.war file on Jump host at location /tmp.
 
-## Deploy it on this tomcat server and make sure the webpage works directly on base URL i.e curl http://stapp02:3003
+### Deploy it on this tomcat server and make sure the webpage works directly on base URL i.e curl http://stapp02:3003
 
 
 **What I Did**
