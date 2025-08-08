@@ -74,7 +74,7 @@ Change ownership of the directory. :If you want steve to have full control over 
 
 sudo chown -R steve /var/lib/tomcat/webapps/
 
------------------------------------------------------
+**OR**
 How run the command sudo chown -R steve /var/lib/tomcat/webapps/ on App Server 2 (stapp02) from Jump-host.
 
 You can do it via SSH.Here's how:
@@ -87,7 +87,7 @@ ssh steve@stapp02 "sudo chown -R steve /var/lib/tomcat/webapps/"
 ```
 What it does: This command connects to stapp02 via SSH and runs the chown command on the remote server. You'll likely be prompted for steve's password (or use SSH keys if configured).
 
----------------------------------------------------------
+
 
 Step-7 :
 
@@ -100,7 +100,11 @@ exit
 
 ----------------------------------------------------------
 
+
+
 #### The following link will take you to the documentation of how to perform the task :  https://tundedamian.medium.com/day-11-of-100-days-of-devops-deploying-a-java-app-on-tomcat-18d7e36eccc7
+
+
 
 
 ------------------------
