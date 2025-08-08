@@ -11,10 +11,13 @@
 
 **What I Did**
 --------------------------------------------
-Step-1
+Step-1 :
+
 ssh steve@172.16.238.11
 
-Step-6 : From Jump host, use scp to copy /tmp/ROOT.war to App Server 2's Tomcat webapps directory.
+Step-6 :
+
+From Jump host, use scp to copy /tmp/ROOT.war to App Server 2's Tomcat webapps directory.
 
 sudo scp /tmp/ROOT.war steve@172.16.238.11:/var/lib/tomcat/webapps/
 
@@ -42,7 +45,7 @@ ls /etc/ # to verify tomcat dir exits
 
 ls /etc/tomcat/ # to verify server.xml file exits
 
-Step-4
+Step-4 :
 
 sudo vi /etc/tomcat/server.xml # Change port from 8080 to 3003
 
@@ -65,7 +68,9 @@ ls /var/lib/tomcat/ # to verify the webapps dir exits
 
 exit
 
-Step-5 Change ownership of the directory. :If you want steve to have full control over the webapps directory on 172.16.238.11, run:
+Step-5 :
+
+Change ownership of the directory. :If you want steve to have full control over the webapps directory on 172.16.238.11, run:
 
 sudo chown -R steve /var/lib/tomcat/webapps/
 
@@ -84,8 +89,12 @@ What it does: This command connects to stapp02 via SSH and runs the chown comman
 
 ---------------------------------------------------------
 
-Step-7 # To verify if Root.war file is copied
- ls /var/lib/tomcat/webapps/ 
+Step-7 :
+
+To verify if Root.war file is copied
+
+ls /var/lib/tomcat/webapps/ 
+
 exit
 
 
