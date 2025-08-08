@@ -35,12 +35,14 @@ Step-4
 sudo vi /etc/tomcat/server.xml # Change port from 8080 to 3003
 
 Output:
-``` -->
+```
+ -->
     <Connector port="3003" protocol="HTTP/1.1" # Changed port 8080 to 3003
                connectionTimeout="20000"
                redirectPort="8443"
                maxParameterCount="1000"
-               />```
+               />
+```
 
 sudo systemctl restart tomcat
 systemctl status tomcat
@@ -53,6 +55,7 @@ sudo chown -R steve /var/lib/tomcat/webapps/
 How run the command sudo chown -R steve /var/lib/tomcat/webapps/ on App Server 2 (stapp02) from Jump-host.
 You can do it via SSH.Here's how:
 - SSH into App Server 2 from Jump-host:
+
 ```
 bash
 ssh steve@stapp02 "sudo chown -R steve /var/lib/tomcat/webapps/"
