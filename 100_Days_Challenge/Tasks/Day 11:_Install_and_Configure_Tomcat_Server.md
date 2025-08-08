@@ -104,6 +104,8 @@ exit
 
 
 ------------------------
+
+
 **MetaAI Solutions:**
 
 ### Task: Install Tomcat on App Server 2, configure it to run on port 6000, and deploy ROOT.war from Jump host.
@@ -162,7 +164,7 @@ c. Deploy ROOT.war from Jump host and make webpage work on base URL
 
 ----------------------------
 
-### The command sudo scp /tmp/ROOT.war steve@172.16.238.11:/var/lib/tomcat/webapps/ is:
+### Note: The command sudo scp /tmp/ROOT.war steve@172.16.238.11:/var/lib/tomcat/webapps/ is:
 
 Here's a breakdown:
 - sudo scp: Uses scp with superuser privileges (though scp doesn't typically need sudo unless dealing with restricted files).
@@ -178,7 +180,7 @@ If everything matches up (path is correct, user has permissions, and server IP i
 
 ------------------------
 
-### *Giving write permission to user steve on 172.16.238.11 for the destination directory.*
+### Note: *Giving write permission to user steve on 172.16.238.11 for the destination directory.*
 You can adjust permissions in a couple of ways depending on what's best for your setup.
 
 ### Option 1: Change ownership of the directory
@@ -223,7 +225,7 @@ Notes
 - The command changes ownership of /var/lib/tomcat/webapps/ to steve.
 - You need sudo privileges on 172.16.238.11 to run this command.
 
-Do you need help connecting to the server or verifying the path before changing ownership?
+
 -------------------------------------------
 
 **Note:**
@@ -245,6 +247,7 @@ Example
 --------------------------------------------
 
 ### Tomcat service status output indicates Tomcat isn't running.
+
 Here's what the output tells us:
 - Active: inactive (dead): The Tomcat service is not running on stapp02.
 - Loaded: loaded (/usr/lib/systemd/system/tomcat.service; disabled; preset: disabled): The service file exists but is disabled (meaning it won't start on boot).
