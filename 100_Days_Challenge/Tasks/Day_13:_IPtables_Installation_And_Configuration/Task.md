@@ -6,6 +6,17 @@
 
 I've written a shell script apache.sh to configure iptables on App Servers, allowing access to port 3002 only from the Load Balancer (LB) host (172.16.238.14).
 
+```
+#!/bin/bash
+sudo yum install iptables-services -y
+iptables -F
+sudo iptables -A INPUT -p tcp --dport 3002 -s 172.16.238.14 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 3002 -j DROP
+sudo systemctl enable iptables
+sudo systemctl start iptables
+sudo iptables-save | sudo tee /etc/sysconfig/iptables
+```
+
 ### Following is the breakdown of commands in the shell script :
 
 ```
