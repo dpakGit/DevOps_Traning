@@ -6,7 +6,7 @@
 
 I've written a shell script apache.sh to configure iptables on App Servers, allowing access to port 3002 only from the Load Balancer (LB) host (172.16.238.14).
 
-**Following is the breakdown of commands in the shell script :**
+### Following is the breakdown of commands in the shell script :
 
 ```
 #!/bin/bash
@@ -54,17 +54,19 @@ sudo iptables-save | sudo tee /etc/sysconfig/iptables
 Saves current iptables rules to /etc/sysconfig/iptables.
 
 
-#### Post-script commands explanation
+### Post-script commands explanation
 
 
 ```
-sudo chmod +x secure_apache_3002.sh
+sudo chmod +x apache.sh
 ```
-- Makes the script executable (note: filename mismatch with apache.sh in script description).
+Makes the script executable (note: filename mismatch with apache.sh in script description).
+
 
 ```
-sudo ./secure_apache_3002.sh - Runs the script.
+sudo ./apache.sh - Runs the script.
 ```
+
 
 From LB Host:
 
