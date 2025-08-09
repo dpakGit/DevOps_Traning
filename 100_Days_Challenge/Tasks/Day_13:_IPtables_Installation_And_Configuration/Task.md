@@ -33,7 +33,7 @@ sudo iptables-save | sudo tee /etc/sysconfig/iptables
 ```
 sudo iptables -L -v -n
 ```
-This command *lists all current iptables rules* with:
+This command lists all current iptables rules
 
 ```
 sudo chmod +x apache.sh
