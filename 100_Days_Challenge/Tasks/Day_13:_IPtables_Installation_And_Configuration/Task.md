@@ -30,6 +30,10 @@ sudo iptables-save | sudo tee /etc/sysconfig/iptables
 
 ### Post-script commands explanation
 
+```
+sudo iptables -L -v -n
+```
+This command *lists all current iptables rules* with:
 
 ```
 sudo chmod +x apache.sh
