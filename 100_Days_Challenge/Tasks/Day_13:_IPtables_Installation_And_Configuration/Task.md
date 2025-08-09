@@ -9,6 +9,14 @@ Provide a detailed and clear explanation of the following task - We have one of 
 
 
 3. Make sure the rules remain, even after system reboot.
+
+Task summary by AI:
+- Adding security to app hosts in Nautilus infrastructure for Apache on port 6300.
+- Requirements:
+    1. Install iptables.
+    2. Allow LBR host to access port 6300; block others.
+    3. Persist iptables rules on reboot.
+
    
 
 
