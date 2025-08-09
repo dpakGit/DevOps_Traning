@@ -17,6 +17,27 @@ sudo systemctl start iptables
 sudo iptables-save | sudo tee /etc/sysconfig/iptables
 ```
 
+### Post-script commands explanation
+
+
+```
+sudo chmod +x apache.sh
+```
+Makes the script executable (note: filename mismatch with apache.sh in script description).
+
+
+```
+sudo ./apache.sh - Runs the script.
+```
+
+
+From LB Host:
+
+```
+curl http://<app-server-IP>:3002 - *Tests access to App Server port 3002*.
+```
+----------------------------------------
+
 ### Following is the breakdown of commands in the shell script :
 
 ```
@@ -65,23 +86,4 @@ sudo iptables-save | sudo tee /etc/sysconfig/iptables
 Saves current iptables rules to /etc/sysconfig/iptables.
 
 
-### Post-script commands explanation
-
-
-```
-sudo chmod +x apache.sh
-```
-Makes the script executable (note: filename mismatch with apache.sh in script description).
-
-
-```
-sudo ./apache.sh - Runs the script.
-```
-
-
-From LB Host:
-
-```
-curl http://<app-server-IP>:3002 - *Tests access to App Server port 3002*.
-```
 --------------------------------
