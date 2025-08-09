@@ -225,6 +225,12 @@ sudo iptables -L -n -v
 
 [root@stapp01 tony]# sudo iptables -L -n -v
 
+-L: Lists the rules
+-v: Provides verbose output
+-n: Displays IP addresses instead of resolving hostnames
+
+Output:
+......
 Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
  pkts bytes target     prot opt in     out     source               destination         
   520 39729 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
