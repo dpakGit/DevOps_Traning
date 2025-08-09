@@ -1,10 +1,10 @@
 
 
 
-**What I Did**
+### What I Did
 
 
-I've written a shell script apache.sh to configure iptables on App Servers, allowing access to port 3002 only from the Load Balancer (LB) host (172.16.238.14).
+#### I've written a shell script apache.sh to configure iptables on App Servers, allowing access to port 3002 only from the Load Balancer (LB) host (172.16.238.14).
 
 ```
 #!/bin/bash
