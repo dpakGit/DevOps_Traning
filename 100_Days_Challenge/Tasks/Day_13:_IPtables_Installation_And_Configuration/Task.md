@@ -15,12 +15,12 @@ I've written a shell script apache.sh to configure iptables on App Servers, allo
 ```
 sudo yum install iptables-services -y
 ```
-#### Installs iptables-services package for managing iptables rules.
+Installs iptables-services package for managing iptables rules.
 
 ```
 iptables -F
 ```
-#### Flushes (clears) all existing iptables rules.
+Flushes (clears) all existing iptables rules.
 
 ```
 sudo iptables -A INPUT -p tcp --dport 3002 -s 172.16.238.14 -j ACCEPT
