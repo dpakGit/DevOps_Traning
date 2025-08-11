@@ -56,30 +56,46 @@ netstat -tlnp | grep :3002
 systemctl status httpd
 ------------------------------
 
-#### Explanation of the above commands sequentially and what they do
+#### Explanation of the above commands sequentially and what they do:
 
-Explanation of Each Command and Process
-1. *systemctl status httpd*
-2.
-3. : Checks the current status of the Apache HTTP server (httpd).
-4. *systemctl start httpd*: Starts the Apache HTTP server if it's not running.
-5. *ss -tulnp | grep :3002*: Checks if any process is listening on port 3002 for both TCP and UDP.
-6. *ss -tlnp | grep :3002*: Checks if any TCP process is listening on port 3002.
-7. *netstat -tulnp | grep :3002*: Similar to ss -tulnp, checks TCP/UDP listeners on port 3002 using netstat.
-8. *netstat -tlnp | grep :3002*: Similar to ss -tlnp, checks TCP listeners on port 3002 using netstat.
-9. *systemctl stop sendmail*: Stops the sendmail service.
-10. *systemctl disable sendmail*: Disables sendmail from starting automatically on boot.
-11. *systemctl restart httpd*: Restarts the Apache HTTP server.
-12. *Repeated checks with ss/netstat on port 3002*: Re-check if anything listens on port 3002 after changes.
-13. *systemctl status httpd*: Checks Apache HTTP server status again after restart.
+Explanation of Each Command and Process:
 
-Entire Process Accomplished
+1. *systemctl status httpd*: Checks the current status of the Apache HTTP server (httpd).
+
+2. *systemctl start httpd*: Starts the Apache HTTP server if it's not running.
+
+3. *ss -tulnp | grep :3002*: Checks if any process is listening on port 3002 for both TCP and UDP.
+
+4. *ss -tlnp | grep :3002*: Checks if any TCP process is listening on port 3002.
+
+5. *netstat -tulnp | grep :3002*: Similar to ss -tulnp, checks TCP/UDP listeners on port 3002 using netstat.
+
+6. *netstat -tlnp | grep :3002*: Similar to ss -tlnp, checks TCP listeners on port 3002 using netstat.
+
+7. *systemctl stop sendmail*: Stops the sendmail service.
+
+8. *systemctl disable sendmail*: Disables sendmail from starting automatically on boot.
+
+9. *systemctl restart httpd*: Restarts the Apache HTTP server.
+
+10. *Repeated checks with ss/netstat on port 3002*: Re-check if anything listens on port 3002 after changes.
+
+11. *systemctl status httpd*: Checks Apache HTTP server status again after restart.
+
+##### Entire Process Accomplished
+
 - Initial check/start Apache: Check status, start if needed.
+
 - Check port 3002 usage: Using ss and netstat, for TCP/UDP.
+
 - *Manage sendmail*: Stop and disable it (likely to free up a port like 8082 earlier).
+
 - Restart Apache: After sendmail changes.
+
 - Re-check port 3002: Verify if anything listens on port 3002.
+
 - Final Apache status check.
+
 -----------------------------------------------
 
 
