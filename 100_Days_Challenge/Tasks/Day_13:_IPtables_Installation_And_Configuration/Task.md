@@ -50,7 +50,7 @@ Makes the script executable (note: filename mismatch with apache.sh in script de
 
 
 ```
-sudo ./apache.sh - Runs the script.
+sudo ./apache.sh #  Runs the script.
 ```
 
 
