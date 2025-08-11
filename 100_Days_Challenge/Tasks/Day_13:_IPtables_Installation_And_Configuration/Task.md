@@ -108,5 +108,38 @@ sudo iptables-save | sudo tee /etc/sysconfig/iptables
 ```
 Saves current iptables rules to /etc/sysconfig/iptables.
 
+This pipes output to tee, which writes with elevated privileges.
+
+- *iptables-save*: Dumps the current iptables ruleset to standard output.
+
+- *| (pipe)*: Pipes the output to the next command.
+
+- *sudo tee /etc/sysconfig/iptables*:
+
+    - tee writes the input to the file /etc/sysconfig/iptables.
+    
+    - sudo ensures write permissions to this file.
+
+**tee in sudo iptables-save | sudo tee /etc/sysconfig/iptables**
+
+- *tee* is a command that:
+
+    - Reads from standard input.
+    
+    - Writes to standard output AND to a specified file.
+
+- Here, tee writes iptables-save output to:
+
+    - Standard output (visible in terminal).
+    
+    - The file /etc/sysconfig/iptables.
+
+*Why use tee here?*
+
+- Allows saving output to a file *with sudo privileges*.
+
+- Alternative (like >) might need a whole command wrapped in sudo for redirection.
+
+Do you need help with:
 
 --------------------------------
