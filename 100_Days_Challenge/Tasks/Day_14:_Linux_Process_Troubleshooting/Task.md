@@ -60,9 +60,9 @@ systemctl status httpd
 
 Explanation of Each Command and Process:
 
-1. *systemctl status httpd*: Checks the current status of the Apache HTTP server (httpd).
+1. ```*systemctl status httpd*```: Checks the current status of the Apache HTTP server (httpd).
 
-2. *systemctl start httpd*: Starts the Apache HTTP server if it's not running.
+2. ```*systemctl start httpd*: Starts the Apache HTTP server if it's not running.
 
 3. *ss -tulnp | grep :3002*: Checks if any process is listening on port 3002 for both TCP and UDP.
 
