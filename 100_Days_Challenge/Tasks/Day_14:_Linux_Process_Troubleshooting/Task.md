@@ -35,7 +35,7 @@ Verification
 
 ## What I Did
 ------------------------------
-
+```
 systemctl status httpd
 systemctl start httpd
 
@@ -54,6 +54,7 @@ ss -tlnp | grep :3002
 netstat -tlnp | grep :3002
 
 systemctl status httpd
+```
 ------------------------------
 
 #### Explanation of the above commands sequentially and what they do:
