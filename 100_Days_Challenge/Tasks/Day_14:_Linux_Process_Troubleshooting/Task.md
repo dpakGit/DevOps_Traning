@@ -60,27 +60,27 @@ systemctl status httpd
 
 Explanation of Each Command and Process:
 
-1. ```*systemctl status httpd*```: Checks the current status of the Apache HTTP server (httpd).
+1. ```systemctl status httpd``` : Checks the current status of the Apache HTTP server (httpd).
 
-2. ```*systemctl start httpd*: Starts the Apache HTTP server if it's not running.
+2. ```systemctl start httpd``` : Starts the Apache HTTP server if it's not running.
 
-3. *ss -tulnp | grep :3002*: Checks if any process is listening on port 3002 for both TCP and UDP.
+3. ```ss -tulnp | grep :3002``` : Checks if any process is listening on port 3002 for both TCP and UDP.
 
-4. *ss -tlnp | grep :3002*: Checks if any TCP process is listening on port 3002.
+4. ```ss -tlnp | grep :3002``` : Checks if any TCP process is listening on port 3002.
 
-5. *netstat -tulnp | grep :3002*: Similar to ss -tulnp, checks TCP/UDP listeners on port 3002 using netstat.
+5. ```netstat -tulnp | grep :3002``` : Similar to ss -tulnp, checks TCP/UDP listeners on port 3002 using netstat.
 
-6. *netstat -tlnp | grep :3002*: Similar to ss -tlnp, checks TCP listeners on port 3002 using netstat.
+6. ```netstat -tlnp | grep :3002``` : Similar to ss -tlnp, checks TCP listeners on port 3002 using netstat.
 
-7. *systemctl stop sendmail*: Stops the sendmail service.
+7. ```systemctl stop sendmail``` : Stops the sendmail service.
 
-8. *systemctl disable sendmail*: Disables sendmail from starting automatically on boot.
+8. ```systemctl disable sendmail``` : Disables sendmail from starting automatically on boot.
 
-9. *systemctl restart httpd*: Restarts the Apache HTTP server.
+9. ```systemctl restart httpd``` : Restarts the Apache HTTP server.
 
-10. *Repeated checks with ss/netstat on port 3002*: Re-check if anything listens on port 3002 after changes.
+10. ```Repeated checks with ss/netstat on port 3002``` : Re-check if anything listens on port 3002 after changes.
 
-11. *systemctl status httpd*: Checks Apache HTTP server status again after restart.
+11. ```systemctl status httpd``` : Checks Apache HTTP server status again after restart.
 
 ##### Entire Process Accomplished
 
