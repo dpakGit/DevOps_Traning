@@ -9,8 +9,11 @@
 
 4. For final testing try to access the App Server 3 link (either hostname or IP) from jump host using curl command. For example curl -Ik https://<app-server-ip>/.
 
+------------------------------------------------
 
 - https://tundedamian.medium.com/day-15-of-100-days-of-devops-securing-web-access-with-nginx-and-ssl-a14bf3a32acb
+
+----------------------------
 
 
 #### Task Breakdown:
