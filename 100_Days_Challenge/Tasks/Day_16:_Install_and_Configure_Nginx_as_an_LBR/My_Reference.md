@@ -699,7 +699,8 @@ http {
     }
 }
 
-Do you need help with:
-- Organizing nginx config files?
-- *Using include for modular configs*?
-- Troubleshooting nginx configs?
+
+#### [13-Aug-25 8:56 PM] Meta AI: https://nginxtutorials.com/nginx-load-balancing/
+
+
+[13-Aug-25 8:56 PM] Meta AI: https://webhostinggeeks.com/howto/how-to-configure-nginx-as-a-load-balancer/
