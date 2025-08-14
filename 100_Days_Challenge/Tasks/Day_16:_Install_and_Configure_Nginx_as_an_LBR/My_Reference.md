@@ -700,6 +700,9 @@ http {
 }
 
 
+
+#### How to configure Nginx as a load balancer:
+
 #### [13-Aug-25 8:56 PM] Meta AI: https://nginxtutorials.com/nginx-load-balancing/
 
 
