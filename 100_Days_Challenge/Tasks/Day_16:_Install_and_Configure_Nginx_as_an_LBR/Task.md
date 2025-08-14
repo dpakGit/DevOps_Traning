@@ -160,7 +160,7 @@ location = /50x.html {}
 
 ### Screenshots:
 
-
+Clicking on the StaticApp button redirects to the below page with the following message:
 
 <img width="1920" height="1080" alt="Screenshot (93)" src="https://github.com/user-attachments/assets/3879d425-4abf-41ec-8467-b183a07cc1bf" />
 
