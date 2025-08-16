@@ -1,3 +1,7 @@
+
+
+https://tundedamian.medium.com/day-18-of-100-days-of-devops-deploying-a-scalable-wordpress-stack-across-multiple-hosts-3282bd0744cd
+
 ### What I Did
 
 Run the following commands on each App server:
