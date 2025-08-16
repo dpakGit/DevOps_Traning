@@ -13,7 +13,7 @@ b. Configure Apache to serve on port 8089
 - Edit Apache config to listen on port 8089:
 
 bash
-# Edit /etc/httpd/conf/httpd.conf
+Edit /etc/httpd/conf/httpd.conf
 ```
 sudo sed -i 's/Listen 80/Listen 8089/g' /etc/httpd/conf/httpd.conf
 ```
@@ -35,15 +35,15 @@ sudo systemctl enable mariadb
 
 d. Create database and user in MariaDB
 
-# Run MariaDB secure installation if needed
+Run MariaDB secure installation if needed
 ```
 sudo mysql_secure_installation
 ```
-# Connect to MariaDB
+Connect to MariaDB
 ```
 sudo mysql -u root
 ```
-# Create database and user, grant privileges
+Create database and user, grant privileges
 ```
 CREATE DATABASE kodekloud_db5;
 CREATE USER 'kodekloud_roy'@'%' IDENTIFIED BY 'BruCStnMT5';
@@ -84,7 +84,8 @@ b. Configure Apache to serve on port 8089
 - Commands:
 
 bash
-# Edit Apache config
+Edit Apache config
+bash
 sudo sed -i 's/Listen 80/Listen 8089/g' /etc/httpd/conf/httpd.conf
 sudo systemctl start httpd
 sudo systemctl enable httpd
