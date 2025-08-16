@@ -4,47 +4,52 @@ To accomplish the task of hosting a WordPress website on xFusionCorp Industries 
 a. Install httpd, php, and dependencies on all app hosts
 
 bash
-# Install Apache (httpd), PHP, and necessary dependencies
+ Install Apache (httpd), PHP, and necessary dependencies
+```
 sudo yum install httpd php php-mysqlnd -y
-
+```
 
 b. Configure Apache to serve on port 8089
 - Edit Apache config to listen on port 8089:
 
 bash
 # Edit /etc/httpd/conf/httpd.conf
+```
 sudo sed -i 's/Listen 80/Listen 8089/g' /etc/httpd/conf/httpd.conf
-
+```
 - Start and enable Apache:
 
 bash
+```
 sudo systemctl start httpd
 sudo systemctl enable httpd
-
+```
 
 c. Install/Configure MariaDB server on DB Server
 
-bash
+```
 sudo yum install mariadb-server -y
 sudo systemctl start mariadb
 sudo systemctl enable mariadb
-
+```
 
 d. Create database and user in MariaDB
 
-bash
 # Run MariaDB secure installation if needed
+```
 sudo mysql_secure_installation
-
+```
 # Connect to MariaDB
+```
 sudo mysql -u root
-
+```
 # Create database and user, grant privileges
+```
 CREATE DATABASE kodekloud_db5;
 CREATE USER 'kodekloud_roy'@'%' IDENTIFIED BY 'BruCStnMT5';
 GRANT ALL PRIVILEGES ON kodekloud_db5.* TO 'kodekloud_roy'@'%';
 FLUSH PRIVILEGES;
-
+```
 
 e. Verify Access via LBR link
 - Ensure WordPress is configured to connect to kodekloud_db5 using user kodekloud_roy.
