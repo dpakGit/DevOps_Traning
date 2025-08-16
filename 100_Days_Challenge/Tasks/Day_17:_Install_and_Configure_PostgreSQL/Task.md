@@ -1,5 +1,7 @@
 ### Task
 
+https://tundedamian.medium.com/day-17-of-100-days-of-devops-postgresql-database-user-permissions-setup-cf76e4ff874a
+
 ###  What i did
 
 thor@jumphost ~$ peter@172.16.239.10
