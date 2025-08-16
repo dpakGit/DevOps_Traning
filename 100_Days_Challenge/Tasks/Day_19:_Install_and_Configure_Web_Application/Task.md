@@ -1,5 +1,5 @@
 # Terminal-1
-
+```
 thor@jumphost ~$ ls -l /home/thor/
 total 8
 drwxr-xr-x 2 thor thor 4096 Aug 16 16:34 apps
@@ -34,11 +34,11 @@ thor@jumphost ~$ scp -r /home/thor/apps/* steve@172.16.238.11:/var/www/html/apps
 steve@172.16.238.11's password: 
 index.html                             100%  117   246.2KB/s   00:00    
 thor@jumphost ~$ 
-
+```
 
 
 # Terminal-2
-
+```
 Last login: Sat Aug 16 16:36:53 UTC 2025 on pts/0
 thor@jumphost ~$ ssh steve@stapp02
 The authenticity of host 'stapp02 (172.16.238.11)' can't be established.
@@ -368,3 +368,4 @@ EOF'
 
 </body>
 </html>[root@stapp02 ~]# 
+```
