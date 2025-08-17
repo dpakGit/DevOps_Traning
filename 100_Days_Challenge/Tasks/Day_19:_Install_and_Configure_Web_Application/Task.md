@@ -21,6 +21,8 @@ d. Once configured you should be able to access the website using curl command o
 
 #### Terminal-1 This is the terminal of Thor_Jumphost
 
+History of commands on Junphost
+
 ```
 thor@jumphost ~$ history |cut -c 8-
 ls -s /home/thor/
@@ -32,6 +34,8 @@ ls -l /home/thor/
 # Now check if this two index.html files are copied to the respective destination
 history |cut -c 8-
 ```
+
+The entire procedure 
 
 ```
 thor@jumphost ~$ ls -s /home/thor/
@@ -67,6 +71,8 @@ thor@jumphost ~$
 
 #### Things done on Terminal-2
 ```
+History of commands on Appserver-3
+
 [banner@stapp03 ~]$ history |cut -c 8-
 This is the terminal of App Server-3
 # This is the terminal of App Server-3
