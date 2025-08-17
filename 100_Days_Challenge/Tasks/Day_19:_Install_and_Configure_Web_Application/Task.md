@@ -19,7 +19,7 @@ d. Once configured you should be able to access the website using curl command o
 
 
 
-# Terminal-1 This is the terminal of Thor_Jumphost
+#### Terminal-1 This is the terminal of Thor_Jumphost
 
 ```
 thor@jumphost ~$ history |cut -c 8-
@@ -63,7 +63,7 @@ thor@jumphost ~$
 ```
 
 
-# Terminal-2
+#### Terminal-2
 
 #### Things done on Terminal-2
 ```
