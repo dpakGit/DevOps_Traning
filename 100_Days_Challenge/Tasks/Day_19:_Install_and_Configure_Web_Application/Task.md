@@ -73,10 +73,6 @@ thor@jumphost ~$
 ```
 History of commands on Appserver-3
 
-[banner@stapp03 ~]$ history |cut -c 8-
-This is the terminal of App Server-3
-# This is the terminal of App Server-3
-yum install httpd -y
 sudo yum install httpd -y
 grep Listen /etc/httpd/conf/httpd.conf
 cat /etc/httpd/conf/httpd.conf | grep Listen
@@ -401,3 +397,84 @@ total 4
 </html>[banner@stapp03 ~]$ 
 [banner@stapp03 ~]$ 
 ```
+
+------------------------------------------------------------
+### Explanation of Each Command
+
+*Installation and Configuration*
+
+- sudo yum install httpd -y: Installs Apache HTTP Server on a RHEL/CentOS system with -y for automatic yes to prompts.
+
+- grep Listen /etc/httpd/conf/httpd.conf: Finds lines with "Listen" in Apache config to check listening ports.
+
+- cat /etc/httpd/conf/httpd.conf | grep Listen: Same as above, using cat piped to grep.
+
+- sudo vi /etc/httpd/conf/httpd.conf: Edits Apache config manually.
+
+- sudo sed -i 's/Listen 80/Listen 8086/g' /etc/httpd/conf/httpd.conf: Changes "Listen 80" to "Listen 8086" in config.
+
+*Verification and Directory Management*
+
+- cat /etc/httpd/conf/httpd.conf | grep Listen, grep Listen /etc/httpd/conf/httpd.conf: Verify Listen directive.
+
+- ls -l /var/www/html/: Lists content of Apache web root.
+
+- mkdir -p /var/www/html/ecommerce, sudo mkdir -p /var/www/html/ecommerce, sudo mkdir -p /var/www/html/cluster: Creates directories for web    content.
+
+- sudo chown -R apache:apache /var/www/html/: *Changes ownership of web root to apache*.
+
+- sudo chown banner /var/www/html/ecommerce/, sudo chown banner /var/www/html/cluster/: *Changes ownership to banner*.
+
+- sudo chmod o+w /var/www/html/ecommerce/, sudo chmod o+w /var/www/html/cluster/: Adds write permission for "others".
+
+
+*Apache Sites Config and Service Management*
+
+- sudo touch /etc/httpd/conf.d/sites.conf: Creates a sites config file.
+
+- sudo bash -c 'cat >> /etc/httpd/conf.d/sites.conf <<EOF ...: Appends config to sites.conf.
+
+- sudo systemctl start httpd: Starts Apache service.
+
+- sudo systemctl enable httpd: Enables Apache to start on boot.
+
+
+*Testing and History*
+
+- curl localhost:8086/ecommerce/, curl http://localhost:8086/ecommerce/, curl http://localhost:8086/cluster: *Tests web content via curl*.
+
+- history |cut -c 8-: Shows command history without line numbers.
+
+*Use Cases*
+- Setting up Apache: Installation, config changes, starting/enabling service.
+- Managing web content directories: Creation, ownership, permissions.
+- Testing sites: Using curl.
+--------------------------------------------------
+
+### Explanation of Each Command
+
+Listing Files/Directories
+
+- ls -s /home/thor/: *Lists contents of /home/thor/ with block size*.
+
+- ls -l /home/thor/: *Lists contents of /home/thor/ in long format* (permissions, ownership, size, etc.).
+
+Secure Copy (SCP)
+
+- scp -r /home/thor/ecommerce/* banner@172.16.238.12:/var/www/html/ecommerce/: *Copies contents of /home/thor/ecommerce/ to remote server* (172.16.238.12, user banner, path /var/www/html/ecommerce/).
+
+- scp -r /home/thor/cluster/* banner@172.16.238.12:/var/www/html/cluster/: *Copies contents of /home/thor/cluster/ to remote server*.
+
+Use Cases
+
+- Listing files: Checking contents of a directory on Thor_Jumphost.
+
+- Copying files to remote server: Deploying content to App Server-3 (172.16.238.12) for banner user.
+
+Notes
+
+- scp -r copies directories recursively.
+
+- Authentication for scp typically uses SSH keys or password for banner@172.16.238.12.
+
+-----------------------------------------------------
