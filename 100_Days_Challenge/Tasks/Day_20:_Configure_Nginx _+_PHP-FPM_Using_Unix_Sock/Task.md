@@ -102,6 +102,8 @@ sudo systemctl enable --now php-fpm
 
 sudo systemctl restart nginx # or apache2, etc.
 
+curl localhost:8091
+
 
 #### Testing:
 
