@@ -4,7 +4,7 @@ Explain the following task clearly and very elaborately - The DevOps team establ
 
 
 
-The repository to be cloned is located at /opt/media.git
+The repository to be cloned is located at /opt/ecommerce.git
 
 
 Clone this Git repository to the /usr/src/kodekloudrepos directory. Ensure no modifications are made to the repository during the cloning process.
@@ -17,78 +17,82 @@ Clone this Git repository to the /usr/src/kodekloudrepos directory. Ensure no mo
 
 
 ### What I Did
+
 ```
-thor@jumphost ~$ ssh natasha@172.16.238.15
+thor@jumphost ~$ ssh natasha@ststor01
 
-# Navigate to the destination directory and there apply the git clone command 
+[natasha@ststor01 ~]$ cd /usr/src/kodekloudrepos
 
-cd /usr/src/kodekloudrepos
+[natasha@ststor01 kodekloudrepos]$ sudo git clone /opt/ecommerce.git
 
-sudo git clone /usr/src/kodekloudrepos
+[natasha@ststor01 kodekloudrepos]$ ls 
+ecommerce
 
-OR , Directly apply
+[natasha@ststor01 kodekloudrepos]$ ls -la
+total 12
+drwxr-xr-x 3 root root 4096 Aug 21 13:09 .
+drwxr-xr-x 1 root root 4096 Aug 21 13:07 ..
+drwxr-xr-x 3 root root 4096 Aug 21 13:09 ecommerce
 
-sudo git clone /opt/media.git /usr/src/kodekloudrepos
+[natasha@ststor01 kodekloudrepos]$ ls -alh
+total 12K
+drwxr-xr-x 3 root root 4.0K Aug 21 13:09 .
+drwxr-xr-x 1 root root 4.0K Aug 21 13:07 ..
+drwxr-xr-x 3 root root 4.0K Aug 21 13:09 ecommerce
 
-# Post-Clone Checks (Optional) - Check clone contents:
+[natasha@ststor01 kodekloudrepos]$ cd ecommerce/
 
-ls /usr/src/kodekloudrepos
+[natasha@ststor01 ecommerce]$ ls
 
-ls -l /usr/src/kodekloudrepos
+[natasha@ststor01 ecommerce]$ ls -la
+total 12
+drwxr-xr-x 3 root root 4096 Aug 21 13:09 .
+drwxr-xr-x 3 root root 4096 Aug 21 13:09 ..
+drwxr-xr-x 7 root root 4096 Aug 21 13:09 .git
 
-ls -alh /usr/src/kodekloudrepos
+[natasha@ststor01 ecommerce]$ ls -alh
+total 12K
+drwxr-xr-x 3 root root 4.0K Aug 21 13:09 .
+drwxr-xr-x 3 root root 4.0K Aug 21 13:09 ..
+drwxr-xr-x 7 root root 4.0K Aug 21 13:09 .git
+
+[natasha@ststor01 ecommerce]$ cd ~
+
+[natasha@ststor01 ~]$ ls -la /opt/ecommerce.git
+total 40
+drwxr-xr-x 7 root root 4096 Aug 21 13:07 .
+drwxr-xr-x 1 root root 4096 Aug 21 13:07 ..
+-rw-r--r-- 1 root root   23 Aug 21 13:07 HEAD
+drwxr-xr-x 2 root root 4096 Aug 21 13:07 branches
+-rw-r--r-- 1 root root   66 Aug 21 13:07 config
+-rw-r--r-- 1 root root   73 Aug 21 13:07 description
+drwxr-xr-x 2 root root 4096 Aug 21 13:07 hooks
+drwxr-xr-x 2 root root 4096 Aug 21 13:07 info
+drwxr-xr-x 4 root root 4096 Aug 21 13:07 objects
+drwxr-xr-x 4 root root 4096 Aug 21 13:07 refs
+
+[natasha@ststor01 ~]$ ls -alh /opt/ecommerce.git
+total 40K
+drwxr-xr-x 7 root root 4.0K Aug 21 13:07 .
+drwxr-xr-x 1 root root 4.0K Aug 21 13:07 ..
+-rw-r--r-- 1 root root   23 Aug 21 13:07 HEAD
+drwxr-xr-x 2 root root 4.0K Aug 21 13:07 branches
+-rw-r--r-- 1 root root   66 Aug 21 13:07 config
+-rw-r--r-- 1 root root   73 Aug 21 13:07 description
+drwxr-xr-x 2 root root 4.0K Aug 21 13:07 hooks
+drwxr-xr-x 2 root root 4.0K Aug 21 13:07 info
+drwxr-xr-x 4 root root 4.0K Aug 21 13:07 objects
+drwxr-xr-x 4 root root 4.0K Aug 21 13:07 refs
+
+# The above output shows that the repo is correctly cloned
+
 ```
+## Navigate to the Target/Destination directory and then run the clone command.
 
+- Note : Dont directly run the clone command from the terminal, go to the destination and run the clone command there
 
+Don't do the following "git clone /opt/media.git /usr/src/kodekloudrepos"
 
-*No Output from git clone when the commnad ls /usr/src/kodekloudrepos was ran*
-- If git clone /opt/media.git /usr/src/kodekloudrepos gave no output:
-- Git might have succeeded silently if there were no issues.
-- Check if the clone happened:
-
-bash
-ls /usr/src/kodekloudrepos
-
-- Expected result: You should see files from the repo (if any were in /opt/media.git).
-
-Possible Reasons for No Output
-- If /opt/media.git is empty (no commits/files), the clone is still "successful" but with no files.
-
-Do you need help with:
-- *Checking if the clone worked in /usr/src/kodekloudrepos*?
-- Understanding Git output (or lack of) in clones?
-- Something else related to this Git clone task?
-
-
-*Output of ls -l /usr/src/kodekloudrepos*
-- Result: total 0 indicates the directory is empty.
-- Possible reasons:
-- /opt/media.git was empty (no commits/files).
-- Clone still created the target directory /usr/src/kodekloudrepos but it's empty.
-
-Checking Git Repo Status
-- Check if Git repo metadata is there:
-
-bash
-ls -la /usr/src/kodekloudrepos
-
-- You should see a .git directory if the clone worked.
-
-Do you need help with:
-- Understanding why /opt/media.git might be empty?
-- Creating initial commits/files in /opt/media.git?
-- Something else related to this Git clone task?
-
-Note: *Output of ls -alh /usr/src/kodekloudrepos*
-- Result:
-- total 12K: Shows directory contents.
-- .git directory is present.
-- Means:
-- The clone was successful.
-- /usr/src/kodekloudrepos is a Git repository (with .git folder).
-- But the working directory is empty (no files besides .git).
-
-Do you need help with:
-- *Working with the cloned Git repo in /usr/src/kodekloudrepos*?
-- Adding files/commits to /opt/media.git (the original bare repo)?
-- Something else related to this Git setup?
+git clone: Command to clone a Git repository.
+/opt/media.git: Source bare repository path.
+/usr/src/kodekloudrepos: Target directory for the clone.
