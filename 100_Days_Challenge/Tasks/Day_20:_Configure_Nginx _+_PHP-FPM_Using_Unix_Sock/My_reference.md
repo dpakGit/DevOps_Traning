@@ -1,3 +1,5 @@
+https://www.digitalocean.com/community/tutorials/php-fpm-nginx
+
 https://tundedamian.medium.com/day-20-of-100-days-of-devops-deploying-a-php-application-with-nginx-and-php-fpm-ac9e0111d88a
 
 Youtube: https://www.youtube.com/watch?v=JrI5WOJRxCE&t=398s
