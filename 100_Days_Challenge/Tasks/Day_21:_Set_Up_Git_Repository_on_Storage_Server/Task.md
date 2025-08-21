@@ -1,4 +1,4 @@
-
+```
 [natasha@ststor01 ~]$ git --version
 git version 2.47.3
 [natasha@ststor01 ~]$ sudo git init --bare /opt/cluster.git
@@ -48,4 +48,6 @@ fatal: not a git repository (or any of the parent directories): .git
 ls -1 /opt/cluster.git
 cat /opt/cluster.git/HEAD
 history | cut -c 8-
-[natasha@ststor01 ~]$ 
+[natasha@ststor01 ~]$
+
+```
