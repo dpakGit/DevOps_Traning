@@ -32,7 +32,7 @@ sudo vi /etc/nginx/nginx.conf
         listen       [::]:8091;
         server_name  stapp03;
         root /var/www/html;
- index index.php index.html;
+ index index.php index.html index.htm;
 
  location / {
  try_files $uri $uri/ =404;
