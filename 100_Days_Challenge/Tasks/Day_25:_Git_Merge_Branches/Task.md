@@ -104,6 +104,8 @@ Your branch is up to date with 'origin/master'.
 
 nothing to commit, working tree clean
 ```
+```
+history | cut -c 8-
 git checkout master
 git branch datacenter 
 git branch
@@ -119,5 +121,28 @@ git branch
 git merge datacenter
 git push origin datacenter master
 git status
-history | cut -c 8-
-[root@ststor01 games]# 
+```
+
+```
+Breakdown of Commands
+1. *git checkout master*: Switches to the master branch.
+2. *git branch datacenter*: Creates a new branch named datacenter from the current (master) branch.
+3. *git branch*: Lists all branches in the repo.
+4. *git checkout datacenter*: Switches to the datacenter branch.
+5. *git branch*: Lists all branches again (current branch is datacenter).
+6. cp /tmp/index.html .: Copies index.html from /tmp to the current directory.
+7. *ls*: Lists files in the current directory (likely to verify index.html is there).
+8. git add index.html: Stages index.html for commit.
+9. git commit -m "Add index.html in datacenter branch": Commits index.html to datacenter with a message.
+10. *ls*: Lists files again (possibly to verify).
+11. *git checkout master*: Switches back to master.
+12. *git branch*: Lists branches (shows master is current).
+13. *git merge datacenter*: Merges changes from datacenter into master.
+14. *git push origin datacenter master*: Pushes both datacenter and master branches to the remote origin.
+15. *git status*: Shows the current status of the repo on master.
+
+Do you need help with:
+- Understanding any of these Git commands?
+- Working with branches or merging in Git?
+- Something else related to this Git workflow?
+```
