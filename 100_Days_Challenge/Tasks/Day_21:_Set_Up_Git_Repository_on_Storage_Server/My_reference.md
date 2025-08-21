@@ -1,4 +1,4 @@
-### What is a Git Repository?
+## What is a Git Repository?
 - A Git repository (or "repo") is a storage space where Git keeps track of your project's files and history.
 - Key aspects:
 - Version control: Git tracks changes to files over time.
@@ -19,7 +19,7 @@ Do you need help with:
 - Setting up Git for a project?
 - Something else related to Git/version control?
 
-### What is a Bare Repository?
+## What is a Bare Repository?
 - A bare repository in Git is a repository that contains only the Git database (.git directory contents) without a working directory.
 - Characteristics:
 - No working files: You don't see project files like source code in a bare repo.
@@ -44,7 +44,7 @@ Do you need help with:
 - Something else related to Git repo types?
 
 
-### Bare Repository: Push/Pull
+## Bare Repository: Push/Pull
 - In a bare repository, you typically push to it and pull from it.
 - Initial state: A brand new bare repo is empty — you need to push something to it first.
 
@@ -52,7 +52,9 @@ First Push to Bare Repo
 - From a local (non-bare) repo, you'd do something like:
 
 bash
+
 git remote add cluster /opt/cluster.git
+
 git push cluster master
 
 - This populates the bare repo with commits/files from your local master.
@@ -61,11 +63,13 @@ Then Others Can Pull
 - Once there's data in the bare repo, others can:
 
 bash
+
 git clone /opt/cluster.git
 
 - Or if they already have a local repo linked to it:
 
 bash
+
 git pull cluster master
 
 
@@ -75,7 +79,7 @@ Do you need help with:
 - Something else related to Git push/pull workflows?
 
 
-### Creating Git Repositories: Bare vs Non-Bare
+## Creating Git Repositories: Bare vs Non-Bare
 - Not always bare: You don't always create a bare repository.
 - Use cases:
 - Bare repo: Typically on a server for collaboration (like GitHub). Used for push/pull.
@@ -94,7 +98,7 @@ Do you need help with:
 - Setting up Git for a team collaboration project?
 - Something else related to Git repo setup?
 
-### Working Directory in Local Git Repos
+## Working Directory in Local Git Repos
 - Yes: When you clone a repo or pull into a non-bare repo on a local machine, you do get a working directory.
 - Working directory:
 - Contains the actual files of your project.
@@ -114,7 +118,7 @@ Do you need help with:
 - Differences between bare repos (no WD) vs local clones (with WD)?
 - Something else related to Git working directories?
 
-### Remote Git Repositories: Typically Bare
+## Remote Git Repositories: Typically Bare
 - Usually yes: Remote Git repositories (like on GitHub, GitLab, or a server like /opt/cluster.git) are typically bare repos.
 - Why:
 - Remotes are for sharing via push/pull.
