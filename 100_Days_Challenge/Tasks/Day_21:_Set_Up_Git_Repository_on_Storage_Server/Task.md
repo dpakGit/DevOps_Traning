@@ -4,11 +4,15 @@ Explain the following tax clearly and very elaborately - The Nautilus developmen
 
 
 
-Utilize yum to install the git package on the Storage Server.
+- Utilize yum to install the git package on the Storage Server.
 
 
-Create a bare repository named /opt/cluster.git (ensure exact name usage).
+- Create a bare repository named /opt/cluster.git (ensure exact name usage).
 
+
+
+
+- https://tundedamian.medium.com/day-21-of-100-days-of-devops-cfd59f3222d0
 
 ----------------------
 
