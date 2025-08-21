@@ -11,7 +11,7 @@ Clone this Git repository to the /usr/src/kodekloudrepos directory. Ensure no mo
 
 -------------------------------------------------
 
-### Read it : https://tundedamian.medium.com/day-22-of-100-days-of-devops-cloning-a-bare-git-repository-f0af74ad5002
+ Read it : https://tundedamian.medium.com/day-22-of-100-days-of-devops-cloning-a-bare-git-repository-f0af74ad5002
 
 ---------------------------------
 
