@@ -1,3 +1,9 @@
+https://tundedamian.medium.com/day-20-of-100-days-of-devops-deploying-a-php-application-with-nginx-and-php-fpm-ac9e0111d88a
+
+Youtube: https://www.youtube.com/watch?v=JrI5WOJRxCE&t=398s
+
+
+
 ### Task Explanation: Deploying PHP Application on Nautilus Infra
 The task involves setting up a PHP-based application on app server 2 (stapp02) in the Stratos DC infrastructure. The production support team has given specific requirements for configuring the infrastructure.
 
