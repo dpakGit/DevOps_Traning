@@ -58,4 +58,17 @@ Do you need help with:
 - *Working with the cloned Git repository in /usr/src/kodekloudrepos*?
 - Something else related to this Git clone task?
 
+### Note: *How git clone Works*
 
+- No, git clone <repo> clones to a new directory named after the repo (by default).
+- If you do git clone /opt/media.git, it'll create a media directory in your current location.
+- If you specify a target like git clone /opt/media.git /usr/src/kodekloudrepos, it clones to /usr/src/kodekloudrepos.
+
+Example
+- git clone /opt/media.git → Clones to ./media/.
+- git clone /opt/media.git myfolder → Clones to ./myfolder/.
+
+Do you need help with:
+- Understanding other Git clone options?
+- *Working with the cloned repo in /usr/src/kodekloudrepos*?
+- Something else related to Git cloning?
