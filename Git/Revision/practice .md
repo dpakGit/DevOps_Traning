@@ -1,3 +1,4 @@
+```
 root@ip-172-31-23-213:/home/ubuntu/myrevision# history | cut -c 8-
 git --version
 cls
@@ -394,4 +395,6 @@ ls
 git branch
 git status
 history | cut -c 8-
-root@ip-172-31-23-213:/home/ubuntu/myrevision# 
+root@ip-172-31-23-213:/home/ubuntu/myrevision#
+
+```
