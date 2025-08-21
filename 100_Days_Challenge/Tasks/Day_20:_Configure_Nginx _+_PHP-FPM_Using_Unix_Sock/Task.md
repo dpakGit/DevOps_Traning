@@ -96,7 +96,12 @@ sudo mkdir -p /var/run/php-fpm
 
 sudo chown -R nginx:nginx /var/run/php-fpm
 
+sudo systemctl restart php-fpm
+
 sudo systemctl enable --now php-fpm
+
+sudo systemctl restart nginx # or apache2, etc.
+
 
 #### Testing:
 
