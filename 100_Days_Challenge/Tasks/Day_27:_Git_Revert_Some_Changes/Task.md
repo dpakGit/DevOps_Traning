@@ -81,24 +81,42 @@ history |cut -c 8-
 ```
  Sequence of Commands Explained
 1. *cd /usr/src/kodekloudrepos/apps*
+
 - Changed directory to /usr/src/kodekloudrepos/apps.
+
 2. *ls -alh*
+
 - Listed all files/directories in apps with detailed info.
+
 3. *git log*
+
 - Showed commit history in default format.
+
 4. *git log --oneline*
+
 - Showed commit history in compact one-line format.
+
 5. *git revert HEAD --no-edit*
+
 - Reverted changes of latest commit (HEAD).
+
 - Created a new commit undoing those changes (with default message).
+
 6. *git log --oneline*
+
 - Showed updated commit history in one-line format.
+
 7. *git commit --amend -m "revert apps"*
+
 - Changed message of the revert commit to "revert apps".
+
 8. *git log --oneline*
+
 - Showed final commit history in one-line format.
 
 Effect
+
 - Reverted latest commit.
+
 - Changed revert commit's message to "revert apps".
 ```
