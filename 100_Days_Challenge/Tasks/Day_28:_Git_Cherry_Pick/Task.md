@@ -8,6 +8,7 @@ There are two branches in this repository, master and feature. One of the develo
 
 ### What I Did
 
+```
 thor@jumphost ~$ ssh natasha@ststor01   
 
 [natasha@ststor01 ~]$ sudo -s
@@ -167,29 +168,48 @@ Date:   Sat Aug 23 12:45:12 2025 +0000
 
     initial commit
 ```
- 
-history | cut -c 8-
-cd /usr/src/kodekloudrepos
-ls -alh
-cd cluster/
-ls -alh
-git status
-git branch
-git log
-git log --oneline
-git log feature - oneline
-git log feature --oneline
-git branch
-commit_hash=$(git log --oneline | grep "Update info.txt" | awk '{print $1}')
-git log feature --oneline
- git checkout master
-git branch
-# This is crucial — cherry-picking applies the commit to the currently checked-out branch.
-git cherry-pick 730d227
-git log --oneline
-git show HEAD
-git push origin master
-git log
-History | cut -c 8-
-history | cut -c 8-
-[root@ststor01 cluster]# 
+
+```
+Sequence of Commands Explained
+1. *cd /usr/src/kodekloudrepos/cluster/*
+- Went to cluster Git repository.
+2. *ls -alh*
+- Listed all files/directories with details.
+3. *git status*
+- Showed current repo status.
+4. *git branch*
+- Listed local branches.
+5. *git log*
+- Showed commit history (default format).
+6. *git log --oneline*
+- Showed commit history in one-line format.
+7. *git log feature --oneline*
+- Showed feature branch history in one-line format.
+8. *git branch*
+- Listed local branches again.
+9. *git log feature --oneline*
+- Showed feature history in one-line again.
+10. *git checkout master*
+- Switched to master branch.
+11. *git branch*
+- Listed branches after switching to master.
+12. *git cherry-pick 730d227*
+- Applied commit 730d227's changes to master.
+13. *git log --oneline*
+- Showed updated master history in one-line.
+14. *git show HEAD*
+- Showed latest commit on master.
+15. *git push origin master*
+- Pushed master changes to remote.
+16. *git log*
+- Showed final commit history.
+
+Effect
+- Cherry-picked commit 730d227 to master.
+- Pushed changes to origin/master.
+
+Do you need help with:
+- Understanding Git workflow like this?
+- Working with Git branches/commands?
+- Something else related to Git?
+```
