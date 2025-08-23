@@ -167,6 +167,4 @@ historuy | cut -c 8-
 history | cut -c 8-
 max (story/fox-and-grapes)$ 
 
-
-"1920" height="1080" alt="Screenshot (115)" src="https://github.com/user-attachments/assets/0f7fe478-e981-47e4-b506-3a01cbe6f457" />
-
+<img width="1920" height="1080" alt="Screenshot (115)" src="https://github.com/user-attachments/assets/65da63e4-780d-4e1f-af3b-7b5648d1d64a" />
