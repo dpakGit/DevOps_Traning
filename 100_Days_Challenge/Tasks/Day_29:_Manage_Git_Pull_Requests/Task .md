@@ -166,3 +166,7 @@ git status
 historuy | cut -c 8-
 history | cut -c 8-
 max (story/fox-and-grapes)$ 
+
+
+"1920" height="1080" alt="Screenshot (115)" src="https://github.com/user-attachments/assets/0f7fe478-e981-47e4-b506-3a01cbe6f457" />
+
