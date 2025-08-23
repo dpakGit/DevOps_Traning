@@ -70,8 +70,12 @@ Great stuff!! The story has been merged! 👏
 Note: For these kind of scenarios requiring changes to be done in a web UI, please take screenshots so that you can share it with us for review in case your task is marked incomplete. You may also consider using a screen recording software such as loom.com to record and share your work.
 
 
-https://www.youtube.com/watch?v=vWm_seUz2xk
 
+
+- https://www.youtube.com/watch?v=vWm_seUz2xk
+
+
+- https://tundedamian.medium.com/day-29-of-100-days-of-devops-implementing-git-branch-protection-and-pr-workflow-in-gitea-fad07886f6ae
 thor@jumphost ~$ ssh max@172.16.238.15
 The authenticity of host '172.16.238.15 (172.16.238.15)' can't be established.
 ED25519 key fingerprint is SHA256:afxZ0/bJkwUsMGoYnu8349m7ZQi+MTkp5aH/+DqgitM.
