@@ -70,6 +70,8 @@ Great stuff!! The story has been merged! 👏
 Note: For these kind of scenarios requiring changes to be done in a web UI, please take screenshots so that you can share it with us for review in case your task is marked incomplete. You may also consider using a screen recording software such as loom.com to record and share your work.
 
 
+https://www.youtube.com/watch?v=vWm_seUz2xk
+
 thor@jumphost ~$ ssh max@172.16.238.15
 The authenticity of host '172.16.238.15 (172.16.238.15)' can't be established.
 ED25519 key fingerprint is SHA256:afxZ0/bJkwUsMGoYnu8349m7ZQi+MTkp5aH/+DqgitM.
@@ -168,3 +170,24 @@ history | cut -c 8-
 max (story/fox-and-grapes)$ 
 
 <img width="1920" height="1080" alt="Screenshot (115)" src="https://github.com/user-attachments/assets/65da63e4-780d-4e1f-af3b-7b5648d1d64a" />
+
+<img width="1920" height="1080" alt="Screenshot (114)" src="https://github.com/user-attachments/assets/657de163-305a-4ea8-82db-1fcd4e6cb34c" />
+
+
+<img width="1920" height="1080" alt="Screenshot (113)" src="https://github.com/user-attachments/assets/87730edc-b369-45c0-8850-a9c9a8a6327a" />
+
+<img width="1920" height="1080" alt="Screenshot (112)" src="https://github.com/user-attachments/assets/9e7bd558-27d8-439b-9d83-575c56002eaa" />
+
+<img width="1920" height="1080" alt="Screenshot (111)" src="https://github.com/user-attachments/assets/d3e63b2d-d64a-4359-83a9-83b7c9526592" />
+
+<img width="1920" height="1080" alt="Screenshot (110)" src="https://github.com/user-attachments/assets/810921be-5d20-4559-a5d4-3ce0e28dc7c7" />
+
+<img width="1920" height="1080" alt="Screenshot (109)" src="https://github.com/user-attachments/assets/2b412469-ecf5-486a-8951-fb90af8a6841" />
+
+<img width="1920" height="1080" alt="Screenshot (108)" src="https://github.com/user-attachments/assets/486cd62c-0fbd-4c65-8bc6-6313c7001993" />
+
+<img width="1920" height="1080" alt="Screenshot (107)" src="https://github.com/user-attachments/assets/e52beb94-bc6e-479e-b3f0-c4c29a3ce0cf" />
+
+<img width="1920" height="1080" alt="Screenshot (106)" src="https://github.com/user-attachments/assets/a422c1b1-f640-43e8-be3f-f49e2b2a2fe4" />
+
+<img width="1920" height="1080" alt="Screenshot (105)" src="https://github.com/user-attachments/assets/46f060b8-c915-406e-a105-ba5d91e7c87a" />
