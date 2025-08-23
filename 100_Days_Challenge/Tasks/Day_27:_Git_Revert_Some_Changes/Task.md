@@ -120,3 +120,30 @@ Effect
 
 - Changed revert commit's message to "revert apps".
 ```
+
+https://git-scm.com/docs/git-revert
+
+#### Note : The command  "git revert HEAD --no-edit performs the following actions":
+
+Reverts the last commit (HEAD):
+
+git revert is a command used to undo changes introduced by a specific commit. When HEAD is specified, it targets the most recent commit on the current branch.
+
+Creates a new "revert" commit:
+
+Unlike git reset, which modifies the commit history, git revert creates a new commit that contains the inverse of the changes introduced by the targeted commit. This preserves the project's history, making it suitable for shared repositories or when you need to undo changes without rewriting history.
+
+Suppresses the commit message editor:
+
+The --no-edit option prevents Git from launching the default text editor (e.g., Vim, Nano) to allow you to customize the commit message for the revert commit. Instead, Git automatically generates a default commit message, typically indicating that the commit is a revert of the specified commit.
+
+The --no-edit flag will allow you to make the amendment to your commit without changing its commit message.
+
+In essence, git revert HEAD --no-edit safely undoes the changes of the last commit by creating a new commit that reverses those changes, without requiring manual input for the commit message.
+
+
+#### Note : The command "git commit --amend -m "revert apps"
+
+https://www.atlassian.com/git/tutorials/rewriting-history#:~:text=Use%20git%20commit%20%2D%2Damend,than%20a%20standard%20git%20rebase.
+
+Adding the -m option allows you to pass in a new message from the command line without being prompted to open an editor.
