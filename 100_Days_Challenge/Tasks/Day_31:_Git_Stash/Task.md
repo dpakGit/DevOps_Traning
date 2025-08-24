@@ -81,8 +81,8 @@ Date:   Sun Aug 24 13:49:12 2025 +0000
     initial commit
 ```
 
-```
-Command Sequence Explanation
+
+### Command Sequence Explanation
 1. *cd /usr/src/kodekloudrepos/demo*
 - Changes directory to the demo Git repository.
 
@@ -114,4 +114,4 @@ Do you need help with:
 - Understanding Git workflow like this?
 - Working with Git stashes and commits?
 - Something else related to Git?
-```
+
