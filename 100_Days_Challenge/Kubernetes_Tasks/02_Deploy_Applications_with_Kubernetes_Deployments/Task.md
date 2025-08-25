@@ -24,3 +24,37 @@ thor@jumphost ~$ kubectl get deploy -o yaml > deploy-nginx.yaml
 thor@jumphost ~$ ls
 deploy-nginx.yaml
 ```
+
+### Minimal YAML for a Deployment
+Removing unnecessary parts, here's a simple YAML for a Deployment:
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+
+
+Notes
+- Simplified structure: Removed status, annotations, and default values.
+- Functionally equivalent: Should create a basic nginx deployment.
+
+Do you need help with:
+- Applying this YAML or checking deployment status?
+- Scaling or updating the deployment?
+- Something else related to Kubernetes?
