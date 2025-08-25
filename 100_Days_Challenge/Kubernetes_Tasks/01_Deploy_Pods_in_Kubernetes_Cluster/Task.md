@@ -41,4 +41,7 @@ NAME        READY   STATUS    RESTARTS   AGE
 pod-nginx   1/1     Running   0          14s
 
 ```
+### - Or create pod imperatively:
 
+bash
+kubectl run pod-nginx --image=nginx:latest --labels=app=nginx_app
