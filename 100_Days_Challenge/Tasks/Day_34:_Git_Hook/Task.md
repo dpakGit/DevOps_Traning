@@ -19,7 +19,7 @@ thor@jumphost ~$ ssh natasha@172.16.238.15
 [natasha@ststor01 ~]$ sudo -s
 
 -----------------------
-What to dop where:
+ Note: What to do where:
 
 Operations Location
 - Context: You need to set up a hook in the bare repo /opt/blog.git.
@@ -32,6 +32,8 @@ Steps Breakdown
 3. Test hook: Push from /usr/src/kodekloudrepos to trigger hook in /opt/blog.git.
 
 --------------------------
+
+
 # - Navigate to the hooks directory in the bare repository:
 
 [root@ststor01 ~]# cd /opt/blog.git/hooks/
@@ -61,7 +63,7 @@ drwxr-xr-x 7 root root 4.0K Aug 25 06:42 ..
 [root@ststor01 hooks]# vi post-update
 
 ----------------------------------------
-
+Note:
 - Add the following script to the post-update file:
 
 bash
@@ -154,7 +156,7 @@ To /opt/blog.git
 # Check the tag in Bare Repo
 
 ------------------------------
-
+Note:
 - Go to bare repo:
 - Run the following commands
 bash
