@@ -1,6 +1,7 @@
 ### Task.md
 
 create a deployment with name "nginx" and image "nginx:latest"
+
 ````
 thor@jumphost ~$ kubectl create deploy nginx --image=nginx:latest
 deployment.apps/nginx created
@@ -26,9 +27,8 @@ deploy-nginx.yaml
 ```
 
 ### Minimal YAML for a Deployment
-Removing unnecessary parts, here's a simple YAML for a Deployment:
 
-
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -48,7 +48,7 @@ spec:
       containers:
       - name: nginx
         image: nginx:latest
-
+```
 
 Notes
 - Simplified structure: Removed status, annotations, and default values.
