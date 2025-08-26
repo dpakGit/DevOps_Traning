@@ -295,10 +295,9 @@ resource "local_file" "devops_kp_pem" {
   filename        = "/home/bob/devops-kp.pem"
   file_permission = "0600"
 }
-
-- *Run terraform apply again*:
 ```
 
+- *Run terraform apply again*:
 bash
 terraform apply
 
