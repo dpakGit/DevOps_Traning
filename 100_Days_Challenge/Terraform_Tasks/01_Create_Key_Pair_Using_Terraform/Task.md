@@ -183,7 +183,8 @@ MIIJKAIBAAKCAgEA52fu8ipNbxv .........
 --------------------------------------
 ### Troubleshoot
 
-- 1. 
+- 1.
+```
 bob@iac-server ~/terraform via 💠 default ➜  vi main.tf
 
 bob@iac-server ~/terraform via 💠 default ➜  terraform fmt 
@@ -202,10 +203,12 @@ provider.tf
 
 Solution:
 Removed hcl from main.tf
+```
 
 
-
-- 2. bob@iac-server ~/terraform via 💠 default ➜  terraform init
+- 2.
+```  
+bob@iac-server ~/terraform via 💠 default ➜  terraform init
 
 Initializing the backend...
 ╷
@@ -244,9 +247,13 @@ Solution.
 A provider configuration already exits in provider.tf file , we have written it again in main.tf.
 
 Removed the provider part from main.tf
+```
 
 
-- 3. bob@iac-server ~/terraform via 💠 default ➜  terraform apply
+
+- 3.
+```
+bob@iac-server ~/terraform via 💠 default ➜  terraform apply
 ╷
 │ Error: Value for unconfigurable attribute
 │ 
@@ -259,6 +266,8 @@ Removed the provider part from main.tf
 │ applying this configuration.
 ╵
 Solution Removed the line "key_type   = "rsa""
+```
+
 
 ### *Issue with terraform apply*
 - The error indicates that the key_type attribute in the aws_key_pair resource is no longer configurable in the AWS provider as it is decided automatically.
