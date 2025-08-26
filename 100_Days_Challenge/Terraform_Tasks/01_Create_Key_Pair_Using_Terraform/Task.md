@@ -9,7 +9,7 @@
 
 ### What i Did
 
-
+```
 bob@iac-server ~/terraform via 💠 default ➜  cd /home/bob/terraform
 
 bob@iac-server ~/terraform via 💠 default ➜  pwd
@@ -178,7 +178,7 @@ bob@iac-server ~ ✖ cat devops-kp.pem
 -----BEGIN RSA PRIVATE KEY-----
 MIIJKAIBAAKCAgEA52fu8ipNbxv .........
 
-
+```
 
 --------------------------------------
 ### Troubleshoot
@@ -259,3 +259,41 @@ Removed the provider part from main.tf
 │ applying this configuration.
 ╵
 Solution Removed the line "key_type   = "rsa""
+
+### *Issue with terraform apply*
+- The error indicates that the key_type attribute in the aws_key_pair resource is no longer configurable in the AWS provider as it is decided automatically.
+
+Fix
+- *Remove the key_type attribute* from the aws_key_pair resource in main.tf:
+
+hcl
+provider "aws" {
+  region = "us-east-1" # Change to your desired AWS region
+}
+
+resource "aws_key_pair" "devops_kp" {
+  key_name   = "devops-kp"
+  public_key = tls_private_key.devops_kp.public_key_openssh
+}
+
+resource "tls_private_key" "devops_kp" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
+resource "local_file" "devops_kp_pem" {
+  content         = tls_private_key.devops_kp.private_key_pem
+  filename        = "/home/bob/devops-kp.pem"
+  file_permission = "0600"
+}
+
+- *Run terraform apply again*:
+
+bash
+terraform apply
+
+
+Do you need help with:
+- Troubleshooting other Terraform or AWS issues?
+- Understanding Terraform resource configurations?
+- Something else related to Terraform or AWS?
