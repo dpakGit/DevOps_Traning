@@ -275,7 +275,7 @@ Solution Removed the line "key_type   = "rsa""
 Fix
 - *Remove the key_type attribute* from the aws_key_pair resource in main.tf:
 
-hcl
+```
 provider "aws" {
   region = "us-east-1" # Change to your desired AWS region
 }
@@ -297,6 +297,7 @@ resource "local_file" "devops_kp_pem" {
 }
 
 - *Run terraform apply again*:
+```
 
 bash
 terraform apply
