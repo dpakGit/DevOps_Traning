@@ -313,7 +313,8 @@ Do you need help with:
 - Something else related to Kubernetes or storage?
 
 
-### *Use of " - " in YAML* - Important
+### *Use of " - " in YAML* 
+      - Important
 
 - In YAML, *-* is used to indicate a list item.
 - Examples:
