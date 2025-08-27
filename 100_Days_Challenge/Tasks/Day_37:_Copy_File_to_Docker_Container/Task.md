@@ -51,6 +51,8 @@ exit
 [root@stapp01 tony]#   docker exec ubuntu_latest basename /tmp/nautilus.txt.gpg
 nautilus.txt.gpg # Output of the above command
 
+# Behavior - *basename*: Strips directory path, leaving just the filename (nautilus.txt.gpg).
+
 [root@stapp01 tony]# docker exec ubuntu_latest ls /tmp/
 nautilus.txt.gpg
 
