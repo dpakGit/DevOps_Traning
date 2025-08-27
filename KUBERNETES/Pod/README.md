@@ -460,6 +460,4 @@ Do you need help with:
 - Understanding multi-container Pods in Kubernetes?
 - Something else related to Kubernetes or Pods?
 
-       - pod
-
-      - kubernetes
+   
