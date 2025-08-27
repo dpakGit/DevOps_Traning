@@ -314,7 +314,7 @@ Do you need help with:
 
 
 ### *Use of " - " in YAML* 
-      - Important
+ - Important note
 
 - In YAML, *-* is used to indicate a list item.
 - Examples:
@@ -459,3 +459,7 @@ Do you need help with:
 - *Using volumes or volumeMounts in Kubernetes Pods*?
 - Understanding multi-container Pods in Kubernetes?
 - Something else related to Kubernetes or Pods?
+
+       - pod
+
+      - kubernetes
