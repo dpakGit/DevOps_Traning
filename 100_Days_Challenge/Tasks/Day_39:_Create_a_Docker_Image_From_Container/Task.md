@@ -12,6 +12,54 @@ How to Create a Docker Image From a Container: https://www.dataset.com/blog/crea
 
 ### What I Did
 
+```
+Here's an improved version:
+
+"It's done! Here's what I did:
+
+I started by checking the Docker images and containers:
+
+
+bash
+[root@stapp02 steve]# docker images
+REPOSITORY   TAG     IMAGE ID       CREATED       SIZE
+ubuntu       latest  e0f16e6366fe  4 weeks ago   78.1MB
+
+[root@stapp02 steve]# docker ps -a
+CONTAINER ID  IMAGE    COMMAND      CREATED       STATUS           PORTS  NAMES
+fd0cdefd3239  ubuntu   "/bin/bash"  58 seconds ago  Up 56 seconds         ubuntu_latest
+
+
+Note that the container ubuntu_latest was in the "Up" state this time, unlike earlier when it was in the "Created" state.
+
+I then committed the container to create a new image:
+
+
+bash
+[root@stapp02 steve]# docker commit ubuntu_latest cluster:nautilus
+sha256:95607532f9b57aae3ed1948b4101c933d08028fa7b365d47d0b7c077f40f44ba
+
+
+After committing, I verified the container status and the new image:
+
+
+bash
+[root@stapp02 steve]# docker ps -a
+CONTAINER ID  IMAGE    COMMAND      CREATED       STATUS           PORTS  NAMES
+fd0cdefd3239  ubuntu   "/bin/bash"  3 minutes ago  Up 3 minutes         ubuntu_latest
+
+[root@stapp02 steve]# docker images
+REPOSITORY   TAG     IMAGE ID       CREATED       SIZE
+cluster      nautilus 95607532f9b5  32 seconds ago  131MB
+ubuntu       latest  e0f16e6366fe  4 weeks ago   78.1MB
+
+
+The new image cluster:nautilus was successfully created!"
+```
+### See what went wrong earlier
+#### # Note: This time the status is "Up 56 seconds" as compared to earlier one which was "Created"
+
+```
 thor@jumphost ~$ ssh tony@stapp01
 The authenticity of host 'stapp01 (172.16.238.10)' can't be established.
 ED25519 key fingerprint is SHA256:Chp9Hb99P99wqpvwS5zrwN62F6aG7ArhQwpWLOf37P8.
@@ -51,4 +99,8 @@ docker commit d96abd1153d9 news:nautilus
 docker images
 docker ps -a
 history | cut -c 8-
-[root@stapp01 tony]# 
+[root@stapp01 tony]#
+```
+
+https://kodekloud.com/community/t/day-39-create-a-docker-image-from-containe/483226/5
+
