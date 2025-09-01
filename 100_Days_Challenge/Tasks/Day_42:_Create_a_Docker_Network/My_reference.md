@@ -1,4 +1,8 @@
-[01-Sep-25 7:53 PM] Meta AI: What is Macvlan?
+1. https://docs.docker.com/engine/network/drivers/macvlan/
+2. https://docs.docker.com/engine/network/
+
+   
+ What is Macvlan?
 
 Macvlan is a Linux kernel driver that allows you to create multiple virtual network interfaces on a single physical network interface. Each virtual interface, also known as a "slave" interface, can have its own MAC address and IP address, just like a physical network interface.
 
