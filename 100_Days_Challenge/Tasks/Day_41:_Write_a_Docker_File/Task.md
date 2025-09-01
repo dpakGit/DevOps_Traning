@@ -10,6 +10,7 @@ b. Install apache2 and configure it to work on 3004 port. (do not update any oth
 
 ### What I Did
 
+```
 thor@jumphost ~$ ssh steve@stapp02
 
 [steve@stapp02 ~]$ sudo -s
@@ -80,4 +81,4 @@ ubuntu                24.04     602eb6fb314b   4 months ago     78.1MB
 [root@stapp02 docker]# docker ps -a
 CONTAINER ID   IMAGE                 COMMAND                  CREATED          STATUS         PORTS                    NAMES
 6a7a403364c3   custom-apache-image   "apache2ctl -D FOREG…"   18 seconds ago   Up 5 seconds   0.0.0.0:3004->3004/tcp   elated_goldwasser
-
+```
