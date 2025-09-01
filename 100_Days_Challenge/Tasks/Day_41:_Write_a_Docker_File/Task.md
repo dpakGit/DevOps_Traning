@@ -64,7 +64,7 @@ Let me explain what each line does:
 
 [root@stapp02 docker]# docker build -t custom-apache-image .
 
-# This will create a Docker image with the name custom-apache-image. You can then run a container from this image using:
+# This will create a Docker image with the name custom-apache-image. You can then run a container from this image :
 
 [root@stapp02 docker]# docker images                                     
 REPOSITORY            TAG       IMAGE ID       CREATED          SIZE
