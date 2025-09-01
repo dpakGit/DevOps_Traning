@@ -149,6 +149,9 @@ docker network --help
 
 docker network create beta -d macvlan  --subnet=172.168.0.0/24 --ip-range=172.168.0.0/24
 
+-# By adding the equals sign, you're ensuring that the --ip-range option is correctly parsed by the docker network create command.
+
+
 docker network ls
 
 docker network inspect beta
