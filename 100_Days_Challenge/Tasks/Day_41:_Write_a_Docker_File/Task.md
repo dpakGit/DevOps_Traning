@@ -5,7 +5,7 @@ a. Use ubuntu:24.04 as the base image.
 
 b. Install apache2 and configure it to work on 3004 port. (do not update any other Apache configuration settings like document root etc).
 
----------------------------------------------------------
+-------------------------------------------
 
 
 ### What I Did
@@ -21,7 +21,7 @@ thor@jumphost ~$ ssh steve@stapp02
 
 [root@stapp02 docker]# vi Dockerfile
 
----------------------------------------
+-------------------------------------------------------------------------------------------
 Here's a Dockerfile that meets the requirements:
 
 bash
@@ -58,7 +58,7 @@ Let me explain what each line does:
 
 5. CMD ["apache2ctl", "-D", "FOREGROUND"]: Starts Apache in the foreground when the container starts.
 
------------------------------------------
+-----------------------------------------------------------------------------------------------
 
 # To build the Docker image, navigate to the directory where the Dockerfile is located (/opt/docker) and run:
 
