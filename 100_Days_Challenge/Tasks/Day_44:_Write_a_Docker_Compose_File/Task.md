@@ -29,6 +29,8 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 [root@stapp02 docker]# vi docker-compose.yml
 
 ----------------------------------
+# Followig is the content of the file docker-compose.yml
+```
 version: '3'
 services:
   web:
@@ -38,7 +40,7 @@ services:
       - "5000:80"
     volumes:
       - /opt/devops:/usr/local/apache2/htdocs
-
+```
 Let's break down the Docker Compose file:
 
 - version: Specifies the version of the Docker Compose format.
