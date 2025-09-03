@@ -15,7 +15,7 @@ REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 
 
-# Note : Output of the commands docker images and docker ps -a
+# Note : Output of the commands docker images and docker ps -a, there is no images and container
 
 [root@stapp02 steve]# docker compose
 
