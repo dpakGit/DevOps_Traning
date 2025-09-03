@@ -51,6 +51,8 @@ Let's break down the Docker Compose file:
 
 ------------------------------------
 
+# Docker Compose command:
+
 [root@stapp02 docker]# docker compose -f docker-compose.yml up -d
 
 [root@stapp02 docker]# docker images
