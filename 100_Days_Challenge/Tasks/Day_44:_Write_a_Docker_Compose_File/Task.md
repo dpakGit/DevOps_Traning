@@ -30,7 +30,7 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 
 ----------------------------------
 # Followig is the content of the file docker-compose.yml
-```
+
 version: '3'
 services:
   web:
@@ -40,7 +40,7 @@ services:
       - "5000:80"
     volumes:
       - /opt/devops:/usr/local/apache2/htdocs
-```
+
 Let's break down the Docker Compose file:
 
 - version: Specifies the version of the Docker Compose format.
@@ -58,14 +58,17 @@ Let's break down the Docker Compose file:
 [root@stapp02 docker]# docker compose -f docker-compose.yml up -d
 
 [root@stapp02 docker]# docker images
+
 REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
 httpd        latest    199e3a035264   3 weeks ago   117MB
 
 [root@stapp02 docker]# docker ps -a
+
 CONTAINER ID   IMAGE          COMMAND              CREATED         STATUS         PORTS                  NAMES
 c28e0aca1328   httpd:latest   "httpd-foreground"   2 minutes ago   Up 2 minutes   0.0.0.0:5000->80/tcp   httpd
 
 [root@stapp02 docker]# docker ps -f name=httpd # OR this command also works
+
 CONTAINER ID   IMAGE          COMMAND              CREATED         STATUS         PORTS                  NAMES
 c28e0aca1328   httpd:latest   "httpd-foreground"   3 minutes ago   Up 3 minutes   0.0.0.0:5000->80/tcp   httpd
 ```
