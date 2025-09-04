@@ -11,6 +11,7 @@ Note: Please note that once you click on FINISH button all existing images, the 
 
 ---------------------------------------------------------
 
+### What is the Task and how to accomplish it
 
 ### Task: Fix a Dockerfile on App Server 3 in Stratos DC to build a Docker image successfully.
 
@@ -71,7 +72,7 @@ By following these steps and commands, you should be able to fix the issues with
 
 
 ### What I Did
-
+```
 thor@jumphost ~$ ssh banner@stapp03
 
 [root@stapp03 banner]# cd /opt/docker/
@@ -80,7 +81,8 @@ thor@jumphost ~$ ssh banner@stapp03
 
 Dockerfile  certs  html
 
-[root@stapp03 docker]# vi Dockerfile 
+[root@stapp03 docker]# vi Dockerfile
+```
 
 ### Faulty Dockerfile
 
@@ -101,9 +103,12 @@ RUN cp certs/server.key /usr/local/apache2/conf/server.key
 
 RUN cp html/index.html /usr/local/apache2/htdocs/
 ```
-
+```
 [root@stapp03 docker]# docker build -t myimage .
 
+
+Error:
+-------------------------------------------------------------------------------
 [+] Building 189.0s (6/12)                                docker:default
  => [internal] load build definition from Dockerfile                0.0s
  => => transferring dockerfile: 564B                                0.0s
@@ -141,8 +146,10 @@ Dockerfile:3
    5 |     RUN sed -i '/LoadModule\ ssl_module modules\/mod_ssl.so/s/^#//g' conf.d/httpd.conf
 --------------------
 ERROR: failed to build: failed to solve: process "/bin/sh -c sed -i \"s/Listen 80/Listen 8080/g\" /usr/local/apache2/conf.d/httpd.conf" did not complete successfully: exit code: 2
+------------------------------------------------------------------------------------------------------------------
 
 
+# What is the error message and what to do
 
 The error message indicates that the sed command in the Dockerfile is trying to modify a file that doesn't exist:
 
@@ -187,6 +194,7 @@ bash
 docker run -it httpd:2.4.43 /bin/bash -c "find / -name httpd.conf"
 
 This command will search for the httpd.conf file starting from the root directory (/) and print the path(s) where the file is found.
+
 
 Alternatively, you can also use:
 
@@ -250,15 +258,14 @@ docker run -it httpd:2.4.43 bash
 
 And then execute the command(s) you prefer.
 
-
-
 ### Note the above is not what we want as it states to change the configuration to change after the container is created, although it is correct our case is to modify the Dockerfile itself.
 
 
-
 [root@stapp03 ~]# docker run -it httpd:2.4.43 bash
-root@da8e8f65ce95:/usr/local/apache2#  in the output of the command what is /usr/local/apache2
+root@da8e8f65ce95:/usr/local/apache2#  #
 
+
+In the output of the command what is /usr/local/apache2
 
 - When you run the command:
 
@@ -293,7 +300,7 @@ By doing so, you should be able to successfully build your Docker image and run 
 Based on the standard directory structure of the httpd:2.4.43 image, it seems that the httpd.conf file is actually located at /usr/local/apache2/conf/httpd.conf, not /usr/local/apache2/conf.d/httpd.conf.
 
 To fix the Dockerfile, you should update the paths to reference the correct location of the httpd.conf file. Here's the updated Dockerfile:
-
+```
 
 ###  Modified Dockerfile
 ```
@@ -316,15 +323,7 @@ COPY certs/server.key /usr/local/apache2/conf/server.key
 COPY html/index.html /usr/local/apache2/htdocs/
 ```
 
-
-
-- Note : The output of the docker inspect command shows various details about the image, including:
-
-- Config: Configuration settings for the image, such as environment variables, exposed ports, and the command to run when the container starts.
-
-- WorkingDir: The working directory inside the container, which is /usr/local/apache2. This confirms what we previously discovered.
-
-
+```
 [root@stapp03 docker]# docker build -t myimage .
 
 [root@stapp03 docker]# docker images
@@ -340,9 +339,13 @@ CONTAINER ID   IMAGE            COMMAND              CREATED         STATUS     
 
 [root@stapp03 docker]# curl localhost:8080
 This Dockerfile works![root@stapp03 docker]# 
+```
 
+- Note : The output of the docker inspect command shows various details about the image, including:
 
+- Config: Configuration settings for the image, such as environment variables, exposed ports, and the command to run when the container starts.
 
+- WorkingDir: The working directory inside the container, which is /usr/local/apache2. This confirms what we previously discovered.
 
 
 ## Note Read the Dockerfile very carefully
@@ -351,6 +354,7 @@ This Dockerfile works![root@stapp03 docker]#
 
 
 ### Second Attempt
+
 ### Faulty Dockerfile
 ```
  IMAGE httpd:2.4.43
@@ -371,6 +375,8 @@ COPY html/index.html /usr/local/apache2/htdocs/
 ```
 
 docker build -t myimage .
+```
+Error:
 [+] Building 121.1s (2/2) FINISHED                        docker:default
  => [internal] load build definition from Dockerfile                0.0s
  => => transferring dockerfile: 557B                                0.0s
@@ -384,7 +390,7 @@ Dockerfile:3
    5 |     ADD sed -i '/LoadModule\ ssl_module modules\/mod_ssl.so/s/^#//g' conf/httpd.conf
 --------------------
 ERROR: failed to build: failed to solve: failed to process "\"s/Listen": unexpected end of statement while looking for matching double-quote
-
+```
 
 - The issue here is that you're using the ADD instruction incorrectly. ADD is used to copy files from the local directory into the Docker image, whereas you're trying to use it to run sed commands.
 
