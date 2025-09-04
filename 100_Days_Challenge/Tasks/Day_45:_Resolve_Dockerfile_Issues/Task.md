@@ -197,6 +197,13 @@ docker run -it httpd:2.4.43 /bin/bash
 
 
 To locate the file path of httpd.conf in a running container or in a Docker image, you can use the following command:
+
+- In my case:
+
+To accurately determine the location of the httpd.conf file within the httpd:2.4.43 image , that is given in the Dockerfile, I will create a temporary Docker container from this image particular and access its interactive shell. 
+
+This can be achieved by running the command ```docker run -it httpd:2.4.43 /bin/bash```, which launches a new container and provides a bash shell prompt inside the container. Once inside the container, I will utilize the find command, specifically ```find / -name httpd.conf```, to search the entire file system for the httpd.conf file and identify its exact path.
+
 ------------------------------------------------------------------------
 
 ```
