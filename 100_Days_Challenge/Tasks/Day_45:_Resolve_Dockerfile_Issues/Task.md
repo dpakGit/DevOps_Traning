@@ -1,4 +1,4 @@
-### What i Did
+### What I Did
 ```
 thor@jumphost ~$ ssh banner@stapp03
 The authenticity of host 'stapp03 (172.16.238.12)' can't be established.
@@ -196,3 +196,28 @@ COPY certs/server.key /usr/local/apache2/conf/server.key
 COPY html/index.html /usr/local/apache2/htdocs/
 ```
 
+docker build -t myimage .
+[+] Building 121.1s (2/2) FINISHED                        docker:default
+ => [internal] load build definition from Dockerfile                0.0s
+ => => transferring dockerfile: 557B                                0.0s
+ => [internal] load metadata for docker.io/library/httpd:2.4.43   121.0s
+Dockerfile:3
+--------------------
+   1 |     FROM httpd:2.4.43
+   2 |     
+   3 | >>> ADD sed -i "s/Listen 80/Listen 8080/g" /usr/local/apache2/conf/httpd.conf
+   4 |     
+   5 |     ADD sed -i '/LoadModule\ ssl_module modules\/mod_ssl.so/s/^#//g' conf/httpd.conf
+--------------------
+ERROR: failed to build: failed to solve: failed to process "\"s/Listen": unexpected end of statement while looking for matching double-quote
+
+
+- The issue here is that you're using the ADD instruction incorrectly. ADD is used to copy files from the local directory into the Docker image, whereas you're trying to use it to run sed commands.
+
+- To run commands during the Docker build process, you should use the RUN instruction.
+
+- Also updated the path in the sed commands to /usr/local/apache2/conf/httpd.conf.
+
+```
+
+```
