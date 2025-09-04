@@ -103,6 +103,7 @@ RUN cp certs/server.key /usr/local/apache2/conf/server.key
 
 RUN cp html/index.html /usr/local/apache2/htdocs/
 ```
+The above is a faulty Dockerfile already present at the location /opt/docker, lets see if we run the build command what is the output.
 ```
 [root@stapp03 docker]# docker build -t myimage .
 
@@ -149,7 +150,7 @@ ERROR: failed to build: failed to solve: process "/bin/sh -c sed -i \"s/Listen 8
 ------------------------------------------------------------------------------------------------------------------
 ```
 
-###  What is the error message and what to do
+###  What is the error message and what to do ?
 
 The error message indicates that the sed command in the Dockerfile is trying to modify a file that doesn't exist:
 
