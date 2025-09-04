@@ -11,7 +11,7 @@ Note: Please note that once you click on FINISH button all existing images, the 
 
 ---------------------------------------------------------
 
-### What is the Task and how to accomplish it
+### What is the Task and how to accomplish it ?
 
 ### Task: Fix a Dockerfile on App Server 3 in Stratos DC to build a Docker image successfully.
 
@@ -27,7 +27,9 @@ Steps to accomplish the task:
     - Run the docker build command to see the error messages:
 
 bash
+
 cd /opt/docker
+
 docker build -t my-image .
 
 - Analyze the error messages to identify the problem.
@@ -44,13 +46,16 @@ docker build -t my-image .
     - You can use the docker build command again to test the Dockerfile:
 
 bash
+
 docker build -t my-image .
 
 
 4. Build the image:
+   
 - If the Dockerfile is correct, build the image using the docker build command:
 
 bash
+
 docker build -t my-image .
 
 - This command will create a Docker image with the name my-image.
@@ -67,7 +72,6 @@ Commands and their use cases:
 - Use the docker build command with the -t flag to specify a tag for the image.
 - Make sure to test the Dockerfile and image after making changes to ensure they work as expected.
 
-By following these steps and commands, you should be able to fix the issues with the Dockerfile and build a Docker image successfully.
 
 
 
@@ -155,6 +159,7 @@ ERROR: failed to build: failed to solve: process "/bin/sh -c sed -i \"s/Listen 8
 The error message indicates that the sed command in the Dockerfile is trying to modify a file that doesn't exist:
 
 bash
+
 sed: can't read /usr/local/apache2/conf.d/httpd.conf: No such file or directory
 
 The issue seems to be with the path to the httpd.conf file. The correct path might be different.
@@ -176,6 +181,7 @@ RUN sed -i '/LoadModule\ ssl_module modules\/mod_ssl.so/s/^#//g' /usr/local/apac
 Make these changes and try running the docker build command again:
 
 bash
+
 docker build -t myimage:1 .
 
 - The httpd.conf file is not located in /usr/local/apache2/conf.d/, but rather in /usr/local/apache2/conf/.
@@ -183,30 +189,33 @@ docker build -t myimage:1 .
 - If you're still having issues with the Dockerfile, you might want to verify the location of the httpd.conf file in the httpd:2.4.43 image. You can do this by running a container from the image and checking the file system:
 
 bash
+
 docker run -it httpd:2.4.43 /bin/bash
 
 - This will give you a shell prompt inside the container, where you can navigate the file system and find the location of the httpd.conf file.
 
 
 
-### To locate the file path of httpd.conf in a running container or in a Docker image, you can use the following command:
+To locate the file path of httpd.conf in a running container or in a Docker image, you can use the following command:
+------------------------------------------------------------------------
 
-bash
+```
 docker run -it httpd:2.4.43 /bin/bash -c "find / -name httpd.conf"
-
+```
 This command will search for the httpd.conf file starting from the root directory (/) and print the path(s) where the file is found.
 
 
-Alternatively, you can also use:
+#### Alternatively, you can also use:
 
-bash
+```
 docker run -it httpd:2.4.43 /bin/bash
+```
 
 And then inside the container, run:
 
-bash
+```
 find / -name httpd.conf
-
+```
 This will give you an interactive shell where you can explore the file system and find the httpd.conf file.
 
 In the case of the httpd:2.4.43 image, the httpd.conf file is likely located at /usr/local/apache2/conf/httpd.conf.
@@ -228,60 +237,63 @@ RUN sed -i "s/Listen 80/Listen 8080/g" /usr/local/apache2/conf/httpd.con
 
 1. Find command:
 
-bash
+```
 find / -name httpd.conf
-
+```
 This command searches for files named httpd.conf starting from the root directory (/) and prints the path(s) where the file is found.
 
 2. Locate command (if the locate database is updated):
 
-bash
+```
 locate httpd.conf
-
+```
 However, the locate command might not work if the database is not updated or if the file is not indexed.
 
 3. Ls command (if you know the likely directory):
 
-bash
+```
 ls /usr/local/apache2/conf/httpd.conf
-
+```
 or
 
-bash
+```
 ls /etc/httpd/conf/httpd.conf
-
+```
 This command checks if the file exists in a specific directory. You can modify the path based on your knowledge of the container's file system.
 
 You can run these commands inside the container using:
 
-bash
+```
 docker run -it httpd:2.4.43 bash
-
+```
 And then execute the command(s) you prefer.
 
 - Note the above is not what we want as it states to change the configuration to change after the container is created, although it is correct our case is to modify the Dockerfile itself.
 
 
+#### In the output of the following docker run command what is "/usr/local/apache2"
+
 [root@stapp03 ~]# docker run -it httpd:2.4.43 bash
 root@da8e8f65ce95:/usr/local/apache2#  #
 
 
-In the output of the command what is /usr/local/apache2
-
 - When you run the command:
 
 bash
+
 docker run -it httpd:2.4.43 bash
 
-You are starting a new container from the httpd:2.4.43 image and running a bash shell inside it.
+- You are starting a new container from the httpd:2.4.43 image and running a bash shell inside it.
 
-The /usr/local/apache2 is the working directory inside the container. This is because the httpd:2.4.43 image is configured to set the working directory to /usr/local/apache2 by default.
+- The /usr/local/apache2 is the working directory inside the container. This is because the httpd:2.4.43 image is configured to set the working directory to /usr/local/apache2 by default.
 
 You can verify this by checking the WORKDIR instruction in the Dockerfile for the httpd:2.4.43 image. However, in this case, it's likely that the httpd process is designed to run from this directory, and it contains the necessary files and configuration for the Apache server.
+Also it can be verified by running the docker inspect command
 
 When you see the prompt:
 
 bash
+
 root@da8e8f65ce95:/usr/local/apache2#
 
 It indicates that you are currently in the /usr/local/apache2 directory inside the container.
@@ -292,7 +304,7 @@ Specifically, you should update the RUN commands that modify the httpd.conf file
 
 RUN sed -i "s/Listen 80/Listen 8080/g" /usr/local/apache2/conf/httpd.conf
 
-And any other RUN commands that reference the httpd.conf file should also be updated to use the correct path.
+- And any other RUN commands that reference the httpd.conf file should also be updated to use the correct path.
 
 By doing so, you should be able to successfully build your Docker image and run the Apache server with the desired configuration.
 
@@ -325,6 +337,8 @@ COPY html/index.html /usr/local/apache2/htdocs/
 ```
 
 ```
+[root@stapp03 docker]# vi Dockerfile # Modify the Dockerfile to the above configuration
+
 [root@stapp03 docker]# docker build -t myimage .
 
 [root@stapp03 docker]# docker images
