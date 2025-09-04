@@ -441,3 +441,42 @@ COPY certs/server.key /usr/local/apache2/conf/server.key
 
 COPY html/index.html /usr/local/apache2/htdocs/
 ```
+
+#### Note:
+
+docker run -it httpd:2.4.43 /bin/bash and docker exec -it httpd:2.4.43 /bin/bash are two different commands that serve distinct purposes:
+
+1. docker run -it httpd:2.4.43 /bin/bash:
+    - This command creates a new container from the httpd:2.4.43 image and starts a new process (/bin/bash) inside it.
+    - The -it flags allow interactive shell access to the container.
+    - When you exit the shell, the container stops.
+
+2. docker exec -it httpd:2.4.43 /bin/bash:
+    - This command executes a new process (/bin/bash) inside an existing container named httpd:2.4.43.
+    - The -it flags allow interactive shell access to the container.
+    - When you exit the shell, the container continues running.
+
+Key differences:
+
+- docker run creates a new container, while docker exec operates on an existing container.
+- docker run starts a new process, while docker exec executes a new process inside an existing container.
+
+When to use each:
+
+- Use docker run when you want to create a new container from an image and interact with it.
+- Use docker exec when you want to access an existing container that is already running.
+
+In the context of finding the httpd.conf file path, docker run -it httpd:2.4.43 /bin/bash is a suitable choice because you want to create a temporary container to inspect the file system. If you already have a running container, you could use docker exec -it <container_name> /bin/bash instead.
+
+Let's break down the meaning of this line: "docker run starts a new process, while docker exec executes a new process inside an existing container."
+
+- docker run starts a new process:
+    - When you use docker run, you're creating a new container from an image.
+    - This new container runs a single process (specified in the CMD instruction of the Dockerfile or overridden at runtime).
+    - This process is the main process of the container, and when it exits, the container stops.
+- docker exec executes a new process inside an existing container:
+    - When you use docker exec, you're running a new command or process inside a container that already exists and is running.
+    - This new process runs in addition to the main process of the container.
+    - When the new process exits, the container continues running, as the main process is still active.
+
+In summary, docker run creates a new container and starts a new process, while docker exec runs a new process inside an existing container that's already running.
