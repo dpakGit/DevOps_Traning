@@ -30,7 +30,7 @@ bash
 cd /opt/docker
 docker build -t my-image .
 
-    - Analyze the error messages to identify the problem.
+- Analyze the error messages to identify the problem.
 
 2. Fix the issues:
     - Based on the error messages, fix the issues in the Dockerfile. Common issues might include:
