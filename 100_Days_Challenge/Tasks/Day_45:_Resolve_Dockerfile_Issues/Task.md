@@ -53,7 +53,7 @@ docker build -t my-image .
 bash
 docker build -t my-image .
 
-    - This command will create a Docker image with the name my-image.
+- This command will create a Docker image with the name my-image.
 
 Commands and their use cases:
 
@@ -186,7 +186,7 @@ docker run -it httpd:2.4.43 /bin/bash
 
 - This will give you a shell prompt inside the container, where you can navigate the file system and find the location of the httpd.conf file.
 
-## Important:
+
 
 ### To locate the file path of httpd.conf in a running container or in a Docker image, you can use the following command:
 
@@ -258,7 +258,7 @@ docker run -it httpd:2.4.43 bash
 
 And then execute the command(s) you prefer.
 
-### Note the above is not what we want as it states to change the configuration to change after the container is created, although it is correct our case is to modify the Dockerfile itself.
+- Note the above is not what we want as it states to change the configuration to change after the container is created, although it is correct our case is to modify the Dockerfile itself.
 
 
 [root@stapp03 ~]# docker run -it httpd:2.4.43 bash
@@ -300,7 +300,7 @@ By doing so, you should be able to successfully build your Docker image and run 
 Based on the standard directory structure of the httpd:2.4.43 image, it seems that the httpd.conf file is actually located at /usr/local/apache2/conf/httpd.conf, not /usr/local/apache2/conf.d/httpd.conf.
 
 To fix the Dockerfile, you should update the paths to reference the correct location of the httpd.conf file. Here's the updated Dockerfile:
-```
+
 
 ###  Modified Dockerfile
 ```
