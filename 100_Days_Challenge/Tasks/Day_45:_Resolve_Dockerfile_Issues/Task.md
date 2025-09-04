@@ -48,7 +48,7 @@ docker build -t my-image .
 
 
 4. Build the image:
-    - If the Dockerfile is correct, build the image using the docker build command:
+- If the Dockerfile is correct, build the image using the docker build command:
 
 bash
 docker build -t my-image .
@@ -147,9 +147,9 @@ Dockerfile:3
 --------------------
 ERROR: failed to build: failed to solve: process "/bin/sh -c sed -i \"s/Listen 80/Listen 8080/g\" /usr/local/apache2/conf.d/httpd.conf" did not complete successfully: exit code: 2
 ------------------------------------------------------------------------------------------------------------------
+```
 
-
-# What is the error message and what to do
+###  What is the error message and what to do
 
 The error message indicates that the sed command in the Dockerfile is trying to modify a file that doesn't exist:
 
