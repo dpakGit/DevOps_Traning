@@ -348,7 +348,7 @@ This Dockerfile works![root@stapp03 docker]#
 - WorkingDir: The working directory inside the container, which is /usr/local/apache2. This confirms what we previously discovered.
 
 
-## Note Read the Dockerfile very carefully
+#### Note: Read the Dockerfile very carefully to find out errors and mistakes.
 
 
 
