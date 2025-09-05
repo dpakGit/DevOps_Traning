@@ -186,6 +186,42 @@ resource "aws_security_group" "nautilus_sg" {
     vpc_id                 = "vpc-e42ed5e1e781ef3c2"
 }
 
+
+```
+#### # main.tf file
+```
+resource "aws_security_group" "nautilus_sg" {
+  name        = "nautilus-sg"
+  description = "Security group for Nautilus App Servers"
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "nautilus-sg"
+  }
+}
+
+```
+```
 bob@iac-server ~/terraform via 💠 default ➜  history | cut -c 8-
 ls
 vi main.tf
