@@ -15,7 +15,185 @@ Ensure that the security group is created in the us-east-1 region using Terrafor
 
 Note: Right-click under the EXPLORER section in VS Code and select Open in Integrated Terminal to launch the terminal.
 
+-----------------------------------------------------------------
+
+### What I Did
+
+- Note: dont become a rootuser
+```
+bob@iac-server ~/terraform via 💠 default ➜  ls
+README.MD  provider.tf
+
+bob@iac-server ~/terraform via 💠 default ➜  vi main.tf
+
+bob@iac-server ~/terraform via 💠 default ➜  terraform init
+
+bob@iac-server ~/terraform via 💠 default ➜  terraform plan
+
+bob@iac-server ~/terraform via 💠 default ➜  terraform apply
+
+Terraform used the selected providers to generate the
+following execution plan. Resource actions are
+indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_security_group.nautilus_sg will be created
+  + resource "aws_security_group" "nautilus_sg" {
+      + arn                    = (known after apply)
+      + description            = "Security group for Nautilus App Servers"
+      + egress                 = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + from_port        = 0
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "-1"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 0
+                # (1 unchanged attribute hidden)
+            },
+        ]
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + from_port        = 22
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 22
+                # (1 unchanged attribute hidden)
+            },
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + from_port        = 80
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 80
+                # (1 unchanged attribute hidden)
+            },
+        ]
+      + name                   = "nautilus-sg"
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Name" = "nautilus-sg"
+        }
+      + tags_all               = {
+          + "Name" = "nautilus-sg"
+        }
+      + vpc_id                 = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_security_group.nautilus_sg: Creating...
+aws_security_group.nautilus_sg: Creation complete after 2s [id=sg-ac6f1f965ba9a0b55]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
 
+bob@iac-server ~/terraform via 💠 default ➜  terraform state list 
+aws_security_group.nautilus_sg
+
+# This command will list all the resources that have been created and are being managed by Terraform.
+
+# If you want to see the details of a specific resource, you can use the following command:
+
+# This will display the detailed configuration and attributes of the nautilus_sg security group.
+
+bob@iac-server ~/terraform via 💠 default ➜  terraform state show aws_security_group.nautilus_sg 
+
+# aws_security_group.nautilus_sg:
+resource "aws_security_group" "nautilus_sg" {
+    arn                    = "arn:aws:ec2:us-east-1:000000000000:security-group/sg-ac6f1f965ba9a0b55"
+    description            = "Security group for Nautilus App Servers"
+    egress                 = [
+        {
+            cidr_blocks      = [
+                "0.0.0.0/0",
+            ]
+            description      = null
+            from_port        = 0
+            ipv6_cidr_blocks = []
+            prefix_list_ids  = []
+            protocol         = "-1"
+            security_groups  = []
+            self             = false
+            to_port          = 0
+        },
+    ]
+    id                     = "sg-ac6f1f965ba9a0b55"
+    ingress                = [
+        {
+            cidr_blocks      = [
+                "0.0.0.0/0",
+            ]
+            description      = null
+            from_port        = 22
+            ipv6_cidr_blocks = []
+            prefix_list_ids  = []
+            protocol         = "tcp"
+            security_groups  = []
+            self             = false
+            to_port          = 22
+        },
+        {
+            cidr_blocks      = [
+                "0.0.0.0/0",
+            ]
+            description      = null
+            from_port        = 80
+            ipv6_cidr_blocks = []
+            prefix_list_ids  = []
+            protocol         = "tcp"
+            security_groups  = []
+            self             = false
+            to_port          = 80
+        },
+    ]
+    name                   = "nautilus-sg"
+    name_prefix            = null
+    owner_id               = "000000000000"
+    revoke_rules_on_delete = false
+    tags                   = {
+        "Name" = "nautilus-sg"
+    }
+    tags_all               = {
+        "Name" = "nautilus-sg"
+    }
+    vpc_id                 = "vpc-e42ed5e1e781ef3c2"
+}
+
+bob@iac-server ~/terraform via 💠 default ➜  history | cut -c 8-
+ls
+vi main.tf
+terraform init
+terraform apply
+terraform state list
+terraform state show aws_security_group.nautilus_sg
+history | cut -c 8-
+```
 
 
