@@ -24,7 +24,7 @@ Note: Right-click under the EXPLORER section in VS Code and select Open in Integ
 bob@iac-server ~/terraform via 💠 default ➜  ls
 README.MD  provider.tf
 
-bob@iac-server ~/terraform via 💠 default ➜  vi main.tf # scroll down to see main.tf
+bob@iac-server ~/terraform via 💠 default ➜  vi main.tf            # scroll down to see main.tf
 
 bob@iac-server ~/terraform via 💠 default ➜  terraform init
 
