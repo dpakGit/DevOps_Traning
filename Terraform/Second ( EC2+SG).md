@@ -1,3 +1,5 @@
+
+```
 provider "aws" {
   region = "us-east-1"
 }
@@ -36,7 +38,7 @@ resource "aws_security_group" "ec2_sg" {
     Name = "terraform-ec2-security-group"
   }
 }
-
+```
 
 root@ip-172-31-88-42:/usr/bin/second# vi main.tf
 root@ip-172-31-88-42:/usr/bin/second# terraform plan
