@@ -87,7 +87,7 @@ f8011793c8dc   mariadb:latest   "docker-entrypoint.s…"   26 seconds ago   Up 1
         Welcome to xFusionCorp Industries!    </body>
 ```
 
-#### docker-compose.yml 
+#### - docker-compose.yml 
 
 ```
 version: '3'
@@ -115,7 +115,7 @@ services:
 
 ```
 
-#### docker-compose.yml using depends_on option
+#### - docker-compose.yml using depends_on option
 
 To ensure that the web container is created only after the db container is created, you can use the depends_on option in the docker-compose.yml file. Here's the modified file:
 ```
@@ -149,7 +149,7 @@ The depends_on option specifies that the web service depends on the db service, 
 
 Note that depends_on only ensures that the containers are started in the correct order, but it does not guarantee that the database is fully initialized and ready to accept connections when the web container starts. If you need to ensure that the web container only starts after the database is fully initialized, you may need to use a more advanced solution, such as a health check or a wait script.
 
-#### docker-compose.yml using links keyword
+#### - docker-compose.yml using links keyword
 
 The links keyword is another way to specify dependencies between containers in a docker-compose.yml file.
 
