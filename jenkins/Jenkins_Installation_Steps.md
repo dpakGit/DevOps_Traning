@@ -141,14 +141,19 @@ Here's a step-by-step guide to set up the inbound rule:
 
 With this configuration, you'll be able to access Jenkins using the public IP address of your EC2 instance followed by port 8080, like this: http://your-ec2-public-ip:8080. Make sure to replace your-ec2-public-ip with the actual public IP address of your instance.
 
-
+- sudo systemctl status jenkins command will give the following output
 <img width="1920" height="1080" alt="Screenshot (143)" src="https://github.com/user-attachments/assets/2953a76c-cf90-4ca1-9472-43714a372a80" />
 
 <img width="1920" height="1080" alt="Screenshot (144)" src="https://github.com/user-attachments/assets/ba595dfc-9141-4b08-9df7-fd11030b711b" />
 
+- from the "Jenkins status" output copy the initial admin password (e.g:92d1d22d9dd84b80a2b43ba1a86cd95d) or ru the following cat command `cat /var/lib/jenkins/secrets/initialAdminPassword` the output of this will also give the initial admin password. Copy it and paste it in the below box.
 <img width="1920" height="1080" alt="Screenshot (145)" src="https://github.com/user-attachments/assets/c01d58d5-4d29-4046-b4d3-326fd7258ef6" />
 
+- Click on "Install Suggested Plugins"
+  
 <img width="1920" height="1080" alt="Screenshot (146)" src="https://github.com/user-attachments/assets/ab2d5f36-16d2-43e0-837a-7bcc6d4afd61" />
+
+- 
 
 <img width="1920" height="1080" alt="Screenshot (147)" src="https://github.com/user-attachments/assets/c83b41dd-4ebf-4136-887a-b98c4270e05a" />
 
