@@ -1,6 +1,8 @@
 Let's break down each command and its attributes.
 
-*1. sudo apt update*
+*1. Step 1: Update the package list
+
+    - sudo apt update
 
 - sudo: Superuser do, allows you to run commands with superuser privileges.
 - apt: Advanced Package Tool, a package manager for Ubuntu.
