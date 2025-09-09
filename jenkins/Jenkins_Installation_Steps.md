@@ -63,7 +63,7 @@ This command updates the package list again, ensuring you have the latest inform
 
 Step 7: Install Jenkins
 
-     sudo apt install jenkins
+     sudo apt install jenkins -y
 
 This command installs Jenkins and its dependencies.
 
