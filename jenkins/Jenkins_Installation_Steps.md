@@ -1,6 +1,6 @@
 Let's break down each command and its attributes.
 
-*1. Step 1: Update the package list
+* 1. Step 1: Update the package list
 
     - sudo apt update
 
