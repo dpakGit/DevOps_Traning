@@ -56,7 +56,7 @@ This command adds the Jenkins repository to your system's package sources.
 
 Step 6: Update the package list again
 
-     sudo apt update (again)
+     sudo apt update # (again)
 
 This command updates the package list again, ensuring you have the latest information about available packages, including Jenkins.
 
