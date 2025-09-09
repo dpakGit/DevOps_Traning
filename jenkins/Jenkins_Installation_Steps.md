@@ -1,23 +1,26 @@
 Let's break down each command and its attributes.
 
-* 1. Step 1: Update the package list
+Step 1: Update the package list
 
     - sudo apt update
 
 - sudo: Superuser do, allows you to run commands with superuser privileges.
 - apt: Advanced Package Tool, a package manager for Ubuntu.
 - update: Updates the package list to ensure you have the latest package information.
+  This command updates the package list, ensuring you have the latest information about available packages.
 
-This command updates the package list, ensuring you have the latest information about available packages.
+Step 2: Install Java 17 (required by Jenkins)
 
-*2. sudo apt install openjdk-17-jdk*
+    - sudo apt install openjdk-17-jdk
 
 - install: Installs a package and its dependencies.
 - openjdk-17-jdk: The package name for Java 17 Development Kit.
 
 This command installs Java 17, which is required by Jenkins.
 
-*3. java -version*
+*3. 
+
+    - java -version*
 
 - java: The Java command-line tool.
 - -version: Displays the version of Java installed.
