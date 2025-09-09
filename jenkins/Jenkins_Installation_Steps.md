@@ -11,7 +11,7 @@ Step 1: Update the package list
 
 Step 2: Install Java 17 (required by Jenkins)
 
-    sudo apt install openjdk-17-jdk
+    sudo apt install openjdk-17-jdk -y
 
 - install: Installs a package and its dependencies.
 - openjdk-17-jdk: The package name for Java 17 Development Kit.
