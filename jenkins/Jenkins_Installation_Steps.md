@@ -139,4 +139,8 @@ Here's a step-by-step guide to set up the inbound rule:
 4. Click "Add rule" and enter the details mentioned above.
 5. Save the changes.
 
-With this configuration, you'll be able to access Jenkins using the public IP address of your EC2 instance followed by port 8080, like this: http://your-ec2-public-ip:8080. Make sure to replace your-ec2-public-ip with the actual public IP address of your instance ¹.
+With this configuration, you'll be able to access Jenkins using the public IP address of your EC2 instance followed by port 8080, like this: http://your-ec2-public-ip:8080. Make sure to replace your-ec2-public-ip with the actual public IP address of your instance.
+
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c11a3892-b53b-46a9-9365-d78cc7bed672" />
+
