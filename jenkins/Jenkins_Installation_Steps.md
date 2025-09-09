@@ -142,5 +142,22 @@ Here's a step-by-step guide to set up the inbound rule:
 With this configuration, you'll be able to access Jenkins using the public IP address of your EC2 instance followed by port 8080, like this: http://your-ec2-public-ip:8080. Make sure to replace your-ec2-public-ip with the actual public IP address of your instance.
 
 
+<img width="1920" height="1080" alt="Screenshot (143)" src="https://github.com/user-attachments/assets/2953a76c-cf90-4ca1-9472-43714a372a80" />
+
+<img width="1920" height="1080" alt="Screenshot (144)" src="https://github.com/user-attachments/assets/ba595dfc-9141-4b08-9df7-fd11030b711b" />
+
+<img width="1920" height="1080" alt="Screenshot (145)" src="https://github.com/user-attachments/assets/c01d58d5-4d29-4046-b4d3-326fd7258ef6" />
+
+<img width="1920" height="1080" alt="Screenshot (146)" src="https://github.com/user-attachments/assets/ab2d5f36-16d2-43e0-837a-7bcc6d4afd61" />
+
+<img width="1920" height="1080" alt="Screenshot (147)" src="https://github.com/user-attachments/assets/c83b41dd-4ebf-4136-887a-b98c4270e05a" />
+
+<img width="1920" height="1080" alt="Screenshot (148)" src="https://github.com/user-attachments/assets/06d2eca3-56bc-412d-943a-c510931b689c" />
+
+<img width="1920" height="1080" alt="Screenshot (149)" src="https://github.com/user-attachments/assets/65c1918f-7867-43a2-a827-14060c447ed5" />
+
+
+![Uploading Screenshot (150).png…]()
+
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c11a3892-b53b-46a9-9365-d78cc7bed672" />
 
