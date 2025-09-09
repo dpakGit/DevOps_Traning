@@ -18,16 +18,19 @@ Step 2: Install Java 17 (required by Jenkins)
 
 This command installs Java 17, which is required by Jenkins.
 
-*3. 
+Step 3: Verify Java installation
 
-    - java -version*
+    - java -version
 
 - java: The Java command-line tool.
 - -version: Displays the version of Java installed.
 
 This command verifies that Java 17 is installed correctly.
 
-4. wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+
+Step 4: Add the Jenkins repository key
+
+    - wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
 
 - wget: A command-line tool for downloading files.
 - -q: Quiet mode, suppresses output.
@@ -38,7 +41,10 @@ This command verifies that Java 17 is installed correctly.
 
 This command adds the Jenkins repository key to your system, ensuring package authenticity.
 
-5. sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+
+Step 5: Add the Jenkins repository
+
+    - sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 
 - sh -c: Executes a command in a shell.
 - echo: Outputs the string "deb https://pkg.jenkins.io/debian-stable binary/".
@@ -47,15 +53,24 @@ This command adds the Jenkins repository key to your system, ensuring package au
 
 This command adds the Jenkins repository to your system's package sources.
 
-*6. sudo apt update (again)*
+
+Step 6: Update the package list again
+
+    - sudo apt update (again)
 
 This command updates the package list again, ensuring you have the latest information about available packages, including Jenkins.
 
-*7. sudo apt install jenkins*
+
+Step 7: Install Jenkins
+
+    - sudo apt install jenkins
 
 This command installs Jenkins and its dependencies.
 
-*8. sudo systemctl start jenkins*
+
+Step 8: Start the Jenkins service
+
+    - sudo systemctl start jenkins
 
 - systemctl: A command-line tool for managing systemd services.
 - start: Starts a service.
@@ -63,27 +78,65 @@ This command installs Jenkins and its dependencies.
 
 This command starts the Jenkins service.
 
-*9. sudo systemctl enable jenkins*
+Step 9: Enable Jenkins to start automatically on boot
+     
+    - sudo systemctl enable jenkins
 
 - enable: Enables a service to start automatically on boot.
 
 This command enables Jenkins to start automatically on boot.
 
-*10. sudo systemctl status jenkins*
+
+Step 10: Check the Jenkins service status
+
+
+    - sudo systemctl status jenkins
 
 - status: Displays the status of a service.
 
 This command checks the Jenkins service status.
 
-11. Accessing Jenkins
 
-- http://localhost:8080: The default URL for accessing Jenkins.
+
+Step 11: Access Jenkins
+
+By default, Jenkins listens on port 8080. You can access Jenkins by navigating to http://localhost:8080 in your web browser. If you're running Ubuntu on a remote server, replace localhost with the server's IP address.
+
+
+    - http://localhost:8080:      # The default URL for accessing Jenkins.
+
+OR , If you have installed jenkins on an Ec2 instance, navigate to `<EC2 instance's public IP address>:8080` in your web browser.
 
 You can access Jenkins by navigating to this URL in your web browser.
 
-*12. sudo cat /var/lib/jenkins/secrets/initialAdminPassword*
+Step 12: Initial password:
+
+During the initial setup, Jenkins will ask for an initial password. You can find this password in the following file:
+
+    - sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+- Run this command on the terminal where jenkins is installed.
+- Copy and paste this password into the Jenkins setup wizard to proceed with the installation.
+
 
 - cat: Displays the contents of a file.
 - /var/lib/jenkins/secrets/initialAdminPassword: The file containing the initial admin password.
 
 This command displays the initial admin password required for the Jenkins setup wizard.
+
+
+
+### To access Jenkins running on an AWS EC2 instance, you'll need to configure the inbound rules for the instance's security group. Here's what you should do ¹ ²:
+- Type: Custom TCP
+- Protocol: TCP
+- Port Range: 8080 (default port for Jenkins)
+- Source: Anywhere-IPv4 (0.0.0.0/0) or specify a custom IP address/range for added security
+
+Here's a step-by-step guide to set up the inbound rule:
+1. Go to your EC2 instance and click on "Security" in the details tab.
+2. Click on the security group associated with your instance.
+3. Navigate to the "Inbound rules" tab and click "Edit inbound rules."
+4. Click "Add rule" and enter the details mentioned above.
+5. Save the changes.
+
+With this configuration, you'll be able to access Jenkins using the public IP address of your EC2 instance followed by port 8080, like this: http://your-ec2-public-ip:8080. Make sure to replace your-ec2-public-ip with the actual public IP address of your instance ¹.
