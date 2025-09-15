@@ -44,3 +44,15 @@ To summarize:
 - When you run docker exec on the container, you'll land in the /app directory, and you'll see the files that were copied during the build process.
 
 This is one of the key benefits of using Docker: you can package your application code and dependencies into a container, and then run it consistently across different environments.
+
+
+
+### Port Number
+
+Each computer in a network (or in the Internet) might offer multiple services (e.g. Web Server, Database Server using PostgreSQL, Database Server using Redis, and Secure Shell).
+
+In order to connect to a specific Service, we need not just the IP Address of the Computer, but also the Port Number of the specific Service on that Computer.
+
+The Port Number is a number between 0 and 65535 (with numbers between 0 and 1000 boundable only by Privileged Services).
+
+The Port Number is part of the UDP and TCP Protocols and is transmitted in every packet/request/response in order to make sure the data reaches the specific Server Application and the specific Client Application.
