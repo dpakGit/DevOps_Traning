@@ -58,3 +58,32 @@ spec:
 ```
 Both structures will work correctly, and the init containers will run before the main container in either case.
 
+- If you have multiple init containers, they will run sequentially in the order they are defined in the YAML file.
+
+Here's how it works:
+
+1. The first init container will run and must complete successfully before the next init container starts.
+2. Once the first init container completes, the second init container will start and must complete successfully before the next one starts.
+3. This process continues until all init containers have completed successfully.
+4. After all init containers have completed, the main container(s) will start.
+
+The order of definition in the YAML file determines the order of execution. If an init container fails, the pod will not proceed to the next init container or start the main container.
+
+For example, if you have the following YAML:
+```
+initContainers:
+- name: init-myservice
+  ...
+- name: init-mydb
+  ...
+- name: init-myotherdb
+  ...
+```
+The order of execution will be:
+
+1. init-myservice
+2. init-mydb (after init-myservice completes)
+3. init-myotherdb (after init-mydb completes)
+4. Main container(s) (after all init containers complete)
+
+This sequential execution ensures that each init container completes its task before the next one starts, allowing for a predictable and controlled initialization process.
