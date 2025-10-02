@@ -1009,3 +1009,26 @@ This will add two empty paragraphs between the images.
 This will add two empty paragraphs between the images.
 
 Choose the method that works best for your needs!
+
+
+### To delete the entire code in a Vi editor in one go, you can use the following command:
+
+
+:%d
+
+
+Here's how it works:
+
+- : enters command mode
+- % refers to the entire file
+- d stands for delete
+
+When you press Enter after typing :%d, the entire contents of the file will be deleted.
+
+If you want to confirm before deleting, you can use:
+
+
+:%d | wq
+
+
+However, the wq part will save and quit the file immediately after deletion. If you want to confirm before quitting, just use :%d and then decide whether to save and quit (:wq) or not (:q! if you don't want to save the deletion).
