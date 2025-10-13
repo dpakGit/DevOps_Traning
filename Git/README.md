@@ -1032,3 +1032,81 @@ If you want to confirm before deleting, you can use:
 
 
 However, the wq part will save and quit the file immediately after deletion. If you want to confirm before quitting, just use :%d and then decide whether to save and quit (:wq) or not (:q! if you don't want to save the deletion).
+
+----------------------------------
+## Jenkins Poll SCM vs Git Webhook: Understanding the Difference
+
+When it comes to triggering Jenkins builds, you have two popular options: Poll SCM and Git Webhook. Let's break down the differences between them:
+
+Poll SCM
+
+- How it works: Jenkins periodically checks the Git repository for changes at a specified interval (e.g., every 5 minutes).
+- Pros:
+    - Easy to set up
+    - Works with various version control systems
+- Cons:
+    - Can be inefficient, as Jenkins needs to poll the repository even if there are no changes
+    - May lead to delayed builds if the polling interval is too long
+
+Git Webhook
+
+- How it works: GitHub sends a notification to Jenkins whenever a change is made to the repository.
+- Pros:
+    - More efficient, as Jenkins only builds when changes are detected
+    - Provides real-time feedback and faster build times
+- Cons:
+    - Requires additional configuration on the GitHub side
+    - May require a public IP address or a service like Ngrok to receive webhook notifications
+
+Key differences
+
+- Trigger mechanism: Poll SCM uses a scheduled trigger, while Git Webhook uses an event-driven trigger.
+- Efficiency: Git Webhook is generally more efficient, as it eliminates unnecessary polling.
+
+When to use each
+
+- Poll SCM: Suitable for projects with infrequent code changes or when a simple setup is preferred.
+- Git Webhook: Ideal for projects with frequent code changes, requiring real-time feedback and faster build times.
+
+In summary, while both options can trigger Jenkins builds, Git Webhook offers a more efficient and real-time approach, making it a popular choice for modern development workflows ¹ ².
+
+https://www.geeksforgeeks.org/devops/what-is-poll-scm-jenkins-and-how-to-configure-poll-scm/
+
+https://www.cloudbees.com/blog/jenkins-tutorial-configure-scm-github-triggers-and-git-polling-using-ngrok
+
+--------------------------------------
+
+## Merging two Git repositories can be a bit tricky, but it's doable. Here's a step-by-step guide:
+
+*Method 1: Using git remote and git merge*
+
+1. Clone the first repository (let's call it repo1): git clone <repo1-url>
+2. Add the second repository (let's call it repo2) as a remote: git remote add repo2 <repo2-url>
+3. Fetch the data from repo2: git fetch repo2
+4. Merge the branches you want to combine (e.g., master from repo2 into master of repo1): git merge repo2/master
+5. Resolve any conflicts that arise during the merge.
+6. Commit the changes: git commit -m "Merged repo2 into repo1"
+7. Push the changes to repo1: git push origin master
+
+*Method 2: Using git subtree*
+
+1. Clone the first repository (let's call it repo1): git clone <repo1-url>
+2. Add the second repository (let's call it repo2) as a subtree: git remote add repo2 <repo2-url>
+3. Fetch the data from repo2: git fetch repo2
+4. Add the subtree: git subtree add --prefix=<subdirectory> repo2 <branch>
+    - Replace <subdirectory> with the desired directory for repo2 files.
+    - Replace <branch> with the branch you want to merge (e.g., master).
+5. Commit the changes: git commit -m "Added repo2 as subtree"
+6. Push the changes to repo1: git push origin master
+
+*Method 3: Using git filter-branch*
+
+This method is more complex and requires rewriting commit history. Use with caution!
+
+1. Clone both repositories.
+2. In repo2, use git filter-branch to rewrite the commit history and change the directory structure: git filter-branch --index-filter 'git ls-files -s | sed "s-\t-&new/subdirectory/-" | GIT_INDEX_FILE=$GIT_INDEX_FILE.new git update-index --index-info && mv $GIT_INDEX_FILE.new $GIT_INDEX_FILE' HEAD
+3. Add repo2 as a remote in repo1: git remote add repo2 <repo2-url>
+4. Fetch repo2: git fetch repo2
+5. Merge the branches: git merge repo2/master
+
+Choose the method that best fits your needs. If you're unsure, start with Method 1.
