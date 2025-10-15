@@ -195,3 +195,42 @@ Think of It Like This:
 - If your Linux system is a big control room, /proc/ is like the monitoring panel 📊 – it shows you what's happening in the system, and /sys/ is like the control panel ⚙ – it allows you to adjust system settings.
 
 - Useful for system monitoring and diagnostics.
+
+
+
+### The command cat > inventory << 'EOF' will:
+
+1. Create a new file named inventory if it doesn't exist.
+2. Overwrite any existing content in the file if it already exists.
+3. Allow you to input text line by line until you enter EOF on a new line.
+
+To append to the existing file instead of overwriting, use >> instead of >:
+
+bash
+cat >> inventory << 'EOF'
+
+
+### You use >> instead of > when you want to append to an existing file instead of overwriting it.
+
+Here are some scenarios where you might want to use >>:
+
+1. Adding logs: When logging events or messages to a file, you might want to append to the existing log file instead of overwriting it.
+2. Combining output: When running multiple commands and wanting to collect their output in a single file.
+3. Updating configuration files: When adding new configuration settings to an existing file without removing the existing settings.
+
+Examples:
+
+
+bash
+# Append a message to a log file
+echo "SFTP connection established" >> /var/log/sftp.log
+
+# Combine output from multiple commands
+echo "System Info:" >> system_info.txt
+uname -a >> system_info.txt
+
+
+In the context of your original question, if you want to append to the inventory file instead of overwriting it, you can use >> like this:
+
+bash
+cat >> inventory << 'EOF'
