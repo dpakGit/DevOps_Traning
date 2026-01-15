@@ -1,3 +1,20 @@
+Q: n virtualization compute resources allocated to a VM is static while in containerisation it is not the case , the what is the concept called in containerisation ?
+
+A: Containerization uses the host OS kernel to manage containers. Since most container tools (like Docker) are built on Linux, the host OS is usually Linux.
+
+Why Linux host? 
+- Linux has built-in features (like Namespaces, Cgroups) that make containerization efficient.
+- Containers share the host kernel, so they need a compatible host OS.
+
+Example:
+- Host OS: Linux (e.g., Ubuntu)
+- Containers:
+    - Alpine Linux (minimal Linux)
+    - Ubuntu (same as host, why not)
+    - Even Windows apps (via special setups like Wine, but let's keep it simple)
+
+**- Think of it like this: Containers are like rooms in a Linux house . The host OS (Linux) manages the whole house, and containers are rooms with their own stuff, but they all share the same foundation (Linux kernel).** 
+
 Q: In containerization, why is the host OS typically Linux?
 A: Linux provides native features like Namespaces (isolation) and Cgroups (resource control), making it ideal for containerization. Containers share the host kernel, so a Linux host OS ensures compatibility and efficiency.
 
